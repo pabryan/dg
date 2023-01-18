@@ -1,0 +1,11 @@
+#+TITLE: Global Curve Theory
+
+* Curvature as a Complete Invariant
+
+- Turning tangents
+- \(\kappa\) determines curve
+
+* Simple, Closed Curves
+
+- Jordan
+- Isoperimetric inequality

@@ -1,0 +1,77 @@
+#+TITLE: Differential Geometry Outline
+#+OPTIONS: toc:nil num:nil
+
+* Timetable
+
+** Week 00: Background
+
+- Multi-variable calculus
+- Vector calculus
+- Linear Algebra
+
+** Week 01: Curves
+
+- Parametrised curves, arc length
+- Curvature
+- Frenet Frame
+
+** Week 02: Global Curve Theory
+
+- \(\kappa\) determines curve, Turning tangents,
+- Jordan, Isoperimetric inequality
+
+** Week 03: Surfaces
+
+- Graphs
+- Regular Surfaces
+
+** Week 04: Geometry and Curvature of Surfaces
+
+- Geometry on surfaces
+- Curvature of surfaces
+
+** Week 05: Manifolds
+
+- Manifolds
+- Submanifolds, IFT
+
+** Week 06: Manifolds
+
+- Smooth maps
+- Tangent vectors
+
+** Week 07: Vector fields and flows
+
+- Flow of vector fields
+- Lie Algebra and Integrability
+
+** Week 08: Tensor Bundles
+
+- Tangent bundle
+- Tensor bundles
+
+** Week 09: Differential Forms
+
+- Differential Forms
+- Stokes' Theorem
+
+** Week 10: Riemannian metrics and connections
+
+- Riemannian Metrics
+- Connections
+
+** Week 11: Distance structure and exponential map
+
+- Distance, geodesics
+- Exponential map
+
+** Week 12: Intrinsic an Extrinsic curvature
+
+- Riemann curvature tensor
+- Extrinsic Curvature
+
+** Week 13: Global Topics
+
+- Constant Sectional Curvature
+- Second variation and Bonnet-Myers
+- Gauss Bonnet

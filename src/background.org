@@ -1,0 +1,41 @@
+#+TITLE: Review of Multi-variable Calculus and Linear Algebra
+
+* Linear Algebra
+
+- Eigenvalues/eigenvectors
+- Trace, determinant
+- Linear maps
+- Subspaces, Kernel, Range
+- Diagonalisation
+  
+* Multi-variable calculus
+
+- Partial derivatives
+- Directional derivatives
+- Chain rule
+- Multiple integration
+- Change of variables
+  
+* Vector calculus
+
+- Vector fields
+- Div, Grad, Curl
+- Stokes', Divergence, Green's theorem
+  
+* ODE's
+
+- Systems of ODE's
+- Existence/Uniqueness
+
+* Inverse/Implicit Function Theorem
+
+- Fixed Point Theorem
+- Inverse Function Theorem
+- Implicit Function Theorem
+
+* Topology and Continuity
+
+- Open and closed sets
+- Connectedness
+- Compactness
+- Continuity

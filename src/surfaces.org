@@ -1,0 +1,14 @@
+#+TITLE: Regular Surfaces
+
+* Graphs as Surfaces
+
+- Graphs
+- Tangent vectors
+- Graph parametrisation
+  
+* Regular Surfaces
+
+- Regular Parametrisations
+- Tangent Vectors
+- Change of Parameters
+- Local Graphs
