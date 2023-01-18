@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  display: none;
+  height: 100%;
+  width: 500px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">Week 00: Background</a>
+  <a href="#">Week 01: Curves</a>
+  <a href="#">Week 02: Global Curve Theory</a>
+  <a href="#">Week 03: Surfaces</a>
+  <a href="#">Week 04: Geometry and Curvature of Surfaces</a>
+  <a href="#">Week 05: Manifolds</a>
+  <a href="#">Week 06: Manifolds</a>
+  <a href="#">Week 07: Vector fields and flows</a>
+  <a href="#">Week 08: Tensor Bundles</a>
+  <a href="#">Week 09: Differential Forms</a>
+  <a href="#">Week 10: Riemannian metrics and connections</a>
+  <a href="#">Week 11: Distance structure and exponential map</a>
+  <a href="#">Week 12: Intrinsic an Extrinsic curvature</a>
+  <a href="#">Week 13: Global Topics</a>
+</div>
+
+<h2>Differential Geometry</h2>
+<p>A course on differential geometry.</p>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.display = "block";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.display = "none";
+}
+</script>
+   
+</body>
+</html> 
