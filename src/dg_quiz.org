@@ -1,0 +1,431 @@
+#+OPTIONS: toc:nil num:nil
+#+SETUPFILE: ~/.emacs.d/org-templates/bibliography.org
+
+#+LaTeX_header: \input{ass_settings}
+#+LaTeX_header: \setboolean{showsoln}{true}
+
+1. Consider the matrix
+   \[
+   A = \begin{pmatrix}
+   -3 & 2 \\
+   2 & 0
+   \end{pmatrix}
+   \]
+
+   1. Calculate the eigenvalues and eigenvectors of \(A\).
+
+   2. Calculate the change of basis matrix from the standard basis \({e_1 = (1, 0)}\), \({e_2 = (0, 1)}\) to the basis of eigenvectors and verify that \(A\) is diagonal in this basis.
+
+   3. Verify that \(\Tr(A) = \lambda_1 + \lambda_2\) and \(\det A = \lambda_1 \lambda_2\) where \(\lambda_1, \lambda_2\) are the eigenvalues of \(A\).
+
+2. Consider the linear map,
+   \[
+   T : \bbR^2 \to \bbR^3, \quad (U_1, U_2) \mapsto (U_1 + U_2, 3U_2, 4U_1).
+   \]
+
+   1. Write down the matrix representation of \(T\) with repsect to the standard bases \({e_1 = (1, 0)}\), \({e_2 = (0, 1)}\) for \(\bbR^2\) and \({f_1 = (1, 0, 0)}\), \({f_2 = (0, 1, 0)}\), \({f_3 = (0, 0, 1)}\) for \(\bbR^3\).
+
+   2. Calculate the kernel and range of the linear map and verify the rank-nullity theorem in this case.
+
+3. Let \(g(u, v) = (uv, u-v, v^2 u)\) and let \(f(x, y, z) = (x + y, e^{x-y})\). Calculate the differentianls of \(g\), \(f\) and of \(f \circ g\) to confirm the chain rule for the differential of \(f \circ g\).
+
+4. Let
+   \[
+   \bbS^2 = \{x^2 + y^2 + z^2 = 1\}, \quad  C = \{x^2 + y^2 = 1, -1 \leq z \leq 1\}
+   \]
+   be the unit 2-sphere, and the circular, unit cylinder with axis along the \(z\) direction respectively. Let
+   \[
+   \varphi(x, y, z) = (\sqrt{1-z^2} x, \sqrt{1-z^2} y, z)
+   \]
+
+   1. Show that \(\varphi\) maps \(C\) onto \(\bbS^2\) and bijectively between \({\{x^2 + y^2 = 1, -1 < z < 1\}}\) and \(\bbS^2 \backslash \{(0, 0, \pm 1)\}\).
+
+   2. Show that \(\varphi\) is an area-preserving map from \(C\) to \(\bbS^2\).
+
+   3. Show that \(\varphi\) is not distance preserving. That is, in general, for \(\gamma\) a curve on \(C\), the length \(L(\gamma) \neq L(\varphi(\gamma))\).
+
+   /Hint/: Use cylindrical polar coordinates.
+
+5. Let \(F = (-y, x, 0)\) and let \(S = \{(x, y, 0) : x^2 + y^2 \leq 1\}\) be the unit disc in the \(z=0\) plane with boundary \(C = \partial S\) parametrised by
+   \[
+   C(t) = (\cos t, \sin t, 0), \quad 0 \leq t \leq 2\pi.
+   \]
+
+   1. Directly calculate \(\oint_C F \cdot d\mathbf{s}\) without using Green's theorem, Stokes' theorem or the Divergence Theorem.
+
+   2. Show that the unit normal to \(S\) is \(N = (0, 0, 1)\).
+
+   3. Show that \(\curl F = (0, 0, 2)\).
+
+   4. Directly calculate \(\iint_{S} \curl F \cdot d\mathbf{A}\) without using Green's theorem, Stokes' theorem or the Divergence Theorem.
+
+   5. Let \(S' = \{(x, y, z) : x^2 + y^2 + z^2 = 1, z \geq 0\}\) be the northern hemisphere. Using any method, calculate
+      \[
+      \iint_{S'} \curl F \cdot d\mathbf{A}.
+      \]
+
+* Solutions
+
+1. Consider the matrix
+   \[
+   A = \begin{pmatrix}
+   -3 & 2 \\
+   2 & 0
+   \end{pmatrix}
+   \]
+
+   1. Calculate the eigenvalues and eigenvectors of \(A\).
+
+      #+BEGIN_soln
+      The characteristic polynomial is
+      \[
+      \det (A - \lambda \Id) = (-3-\lambda)(-\lambda) - 4 = (\lambda-1)(\lambda+4)
+      \]
+      hence
+      \[
+      \lambda_1 = -4,  \quad \lambda_2 = 1.
+      \]
+
+      For \(V_1\) the eigenvector associated to \(\lambda_1 = -4\), \(V_1 \in \ker (A + 4 \Id)\) and
+      \[
+      A + 4\Id = \begin{pmatrix}
+      1 & 2 \\
+      2 & 4
+      \end{pmatrix}
+      \]
+      which has kernel spanned by \(V_1 = (-2, 1)\) which can be seen for example since row-2 is twice row-1 and so \(\ker (A + 4 \Id)\) is the kernel of \((x, y) \mapsto x + 2y\).
+
+      For \(V_2\) the eigenvector associated to \(\lambda_2 = 1\), \(V_2 \in \ker (A - \Id)\) and
+      \[
+      A - \Id = \begin{pmatrix}
+      -4 & 2 \\
+      2 & -1
+      \end{pmatrix}
+      \]
+      which has kernel spanned by \(V_2 = (1, 2)\) which can be seen for example since row-1 is the negative of twice row-2 so \(\ker (A - \Id)\) is the kernel of \((x, y) \mapsto 2x - y\).
+
+      Thus
+      \[
+      V_1 = a \begin{pmatrix} -2 \\ 1 \end{pmatrix}, \quad V_2 = b \begin{pmatrix} 1 \\ 2\end{pmatrix}.
+      \]
+      for any \(a, b, \neq 0\).
+      #+END_soln
+
+   2. Calculate the change of basis matrix from the standard basis \({e_1 = (1, 0)}\), \({e_2 = (0, 1)}\) to the basis of eigenvectors and verify that \(A\) is diagonal in this basis.
+
+      #+BEGIN_soln
+      The change of basis is the inverse of \(P\), the matrix of eigenvectors. So for example, taking \(a=b=1\),
+      \[
+      P = \begin{pmatrix}
+      -2 & 1 \\
+      1 & 2
+      \end{pmatrix}, \quad
+      P^{-1} = -\frac{1}{5}\begin{pmatrix}
+      2 & -1 \\
+      -1 & -2
+      \end{pmatrix}.
+      \]
+      In the basis of eigenvectors, \(A\) becomes
+      #+BEGIN_export latex
+      \[
+      D = P^{-1} A P = -\frac{1}{5}\begin{pmatrix}
+      2 & -1 \\
+      -1 & -2
+      \end{pmatrix}
+      \begin{pmatrix}
+      -3 & 2 \\
+      2 & 0
+      \end{pmatrix}
+      \begin{pmatrix}
+      -2 & 1 \\
+      1 & 2
+      \end{pmatrix}
+      = \begin{pmatrix}
+      -4 & 0 \\
+      0 & 1
+      \end{pmatrix}
+      \]
+      #+END_export
+      #+END_soln
+
+      \clearpage
+
+   3. Verify that \(\Tr(A) = \lambda_1 + \lambda_2\) and \(\det A = \lambda_1 \lambda_2\) where \(\lambda_1, \lambda_2\) are the eigenvalues of \(A\).
+
+      #+BEGIN_soln
+      \[
+      \Tr A = -3 + 0 = -4 + 1 = \lambda_1 + \lambda_2
+      \]
+      \[
+      \det A = (-3) \cdot 0 - 2 \cdot 2 = (-4) \cdot 1 = \lambda_1 \lambda_2.
+      \]
+      #+END_soln
+
+2. Consider the linear map,
+   \[
+   T : \bbR^2 \to \bbR^3, \quad (U_1, U_2) \mapsto (U_1 + U_2, 3U_2, 4U_1).
+   \]
+
+   1. Write down the matrix representation of \(T\) with repsect to the standard bases \({e_1 = (1, 0)}\), \({e_2 = (0, 1)}\) for \(\bbR^2\) and \({f_1 = (1, 0, 0)}\), \({f_2 = (0, 1, 0)}\), \({f_3 = (0, 0, 1)}\) for \(\bbR^3\).
+
+      #+BEGIN_soln
+      \[
+      A = \begin{pmatrix}
+      1 & 1 \\
+      0 & 3 \\
+      4 & 0
+      \end{pmatrix}
+      \]
+      #+END_soln
+
+   2. Calculate the kernel and range of the linear map and verify the rank-nullity theorem in this case.
+
+      #+BEGIN_soln
+      For the kernel, \(U = (U_1, U_2) \in \ker A\) if and only if
+      \[
+      U_1 + U_2 = 0, \quad 3U_2 = 0, \quad 4U_1 = 0
+      \]
+      if and only if \(U = (0, 0)\). Thus \(\ker A = \{(0, 0)\}\).
+
+      The range is the span of
+      \[
+      V_1 = \begin{pmatrix} 1 \\ 0 \\ 4\end{pmatrix}, \quad V_2 = \begin{pmatrix} 1 \\ 3 \\ 0\end{pmatrix}
+      \]
+      which we could write explicitly as
+      \[
+      \{a_1 V_1 + a_2 V_2 : (a, b) \in \bbR^2\}.
+      \]
+      Note that \(V_1, V_2\) are linearly independent. Otherwise \(V_1 = a V_2\) and looking at the second row, this implies that \(0 = 3 a\) hence \(a = 0\), hence \(V_1 = 0\) which is false. Thus \(\rnk A = \dim \rng A = 2\).
+
+      Thus we have
+      \[
+      \dim \ker A + \rnk A = 2 = \dim \dom A
+      \]
+      verifying the rank-nullity theorem.
+      #+END_soln
+
+      \clearpage
+
+3. Let \(g(u, v) = (uv, u-v, v^2 u)\) and let \(f(x, y, z) = (x + y, e^{x-y})\). Calculate the differentianls of \(g\), \(f\) and of \(f \circ g\) to confirm the chain rule for the differential of \(f \circ g\).
+
+   #+BEGIN_soln
+   Directly calculating,
+   \[
+   dg = \begin{pmatrix}
+   \partial_u (uv) & \partial_v (uv) \\
+   \partial_u (u-v) & \partial_v (u-v) \\
+   \partial_u (v^2u) & \partial_v (v^2u)
+   \end{pmatrix}
+   = \begin{pmatrix}
+   v & u \\
+   1 & -1 \\
+   v^2 & 2uv
+   \end{pmatrix}
+   \]
+   and
+   \[
+   df = \begin{pmatrix}
+   \partial_x (x+y) & \partial_y (x+y) & \partial_z (x+y)) \\
+   \partial_x (e^{x-y}) & \partial_y (e^{x-y}) & \partial_z (e^{x-y})
+   \end{pmatrix}
+   = \begin{pmatrix}
+   1 & 1 & 0 \\
+   e^{x-y} & -e^{x-y} & 0
+   \end{pmatrix}
+   \]
+
+   For the composition,
+   \[
+   f \circ g (u, v) = f(uv, u-v, v^2u) = (uv + u - v, e^{uv - u + v})
+   \]
+   hence
+   \begin{align*}
+   d(f \circ g) &= \begin{pmatrix}
+   \partial_u (uv + u - v) & \partial_v (uv + u - v) \\
+   \partial_u (e^{uv - u + v}) & \partial_v (e^{uv - u + v})
+   \end{pmatrix} \\
+   &= \begin{pmatrix}
+   v + 1 & u - 1 \\
+   (v - 1) e^{uv - u + v} & (u + 1) e^{uv - u + v}
+   \end{pmatrix}
+   \end{align*}
+
+   The chain rule gives  \(d(f \circ g)|_{(u, v)} = df|_{g(u, v)} \circ dg|_{(u, v)}\). Substituting \(g(u, v)\) into \(df\) gives
+   \[
+   df|_{(g(u, v))} = \begin{pmatrix}
+   1 & 1 & 0 \\
+   e^{uv-u+v} & -e^{uv-u+v} & 0
+   \end{pmatrix}
+   \]
+   Then
+   #+BEGIN_export latex
+   \[
+   \begin{split}
+   df|_{g(u, v)} \circ dg|_{(u, v)} &= \begin{pmatrix}
+   1 & 1 & 0 \\
+   e^{uv-u+v} & -e^{uv-u+v} & 0
+   \end{pmatrix}
+   \begin{pmatrix}
+   v & u \\
+   1 & -1 \\
+   v^2 & 2uv
+   \end{pmatrix} \\
+   &= \begin{pmatrix}
+   v + 1 & u - 1 \\
+   (v - 1) e^{uv - u + v} & (u + 1) e^{uv - u + v}
+   \end{pmatrix} \\
+   &= d(f \circ g)|_{(u, v)}
+   \end{split}
+   \]
+   #+END_export
+   #+END_soln
+
+   \clearpage
+
+4. Let
+   \[
+   \bbS^2 = \{x^2 + y^2 + z^2 = 1\}, \quad  C = \{x^2 + y^2 = 1, -1 \leq z \leq 1\}
+   \]
+   be the unit 2-sphere, and the circular, unit cylinder with axis along the \(z\) direction respectively. Let
+   \[
+   \varphi(x, y, z) = (\sqrt{1-z^2} x, \sqrt{1-z^2} y, z)
+   \]
+
+   1. Show that \(\varphi\) maps \(C\) onto \(\bbS^2\) and bijectively between \({\{x^2 + y^2 = 1, -1 < z < 1\}}\) and \(\bbS^2 \backslash \{(0, 0, \pm 1)\}\).
+
+      #+BEGIN_soln
+      For \((0, 0, \pm 1) \in \bbS^2\), given any \((u, v)\) with \(u^2 + v^2 = 1\) we have
+      \[
+      \varphi(u, v, \pm 1) = (0, 0, \pm 1)
+      \]
+      hence \((0, 0, \pm 1)\) is in the range of \(\varphi\).
+
+      It then suffices to prove the second part. For convenience, let \({\overset{\circ}{C} = \{x^2 + y^2 = 1, -1 < z < 1\}}\). We need to show \(\varphi\) is a bijection between \(\overset{\circ}{C}\) and \(\bbS^2 \backslash \{(0, 0, \pm 1)\}\).
+
+      Let \((x, y, z) \in \bbS^2 \backslash \{(0, 0, \pm 1)\}\) and let \((u, v, w) = \left(\frac{x}{\sqrt{1-z^2}}, \frac{y}{\sqrt{1-z^2}}, z\right)\). Then
+      \[
+      u^2 + v^2 = \frac{x^2 + y^2}{1-z^2} = \frac{1-z^2}{1-z^2} = 1
+      \]
+      since \(x^2 + y^2 + z^2 = 1\). Also \(w = z \in (-1, 1)\). Thus \((u, v, w) \in \overset{\circ}{C}\). Now,
+      \begin{align*}
+      \varphi(u, v) &= \left(\sqrt{1-w^2} u, \sqrt{1-w^2} v, w\right) \\
+      &= \left(\sqrt{1-z^2} \frac{x}{\sqrt{1-z^2}}, \sqrt{1-z^2} \frac{y}{\sqrt{1-z^2}}, z\right) \\
+      &= (x, y, z)
+      \end{align*}
+      hence \(\varphi\) restricted to \(\overset{\circ}{C}\) is onto \(\bbS^2 \backslash \{(0, 0, \pm 1)\}\).
+
+      Now suppose \((x, y, z), (u, v, w) \in \overset{\circ}{C}\) are such that \(\varphi(x, y, z) = \varphi(u, v, w)\). Then \(w = z\) and \(\tfrac{u}{\sqrt{1-w^2}} = \tfrac{x}{\sqrt{1-z^2}}\) hence
+      \[
+      u = \sqrt{1-w^2} \frac{u}{\sqrt{1-w^2}} = \sqrt{1-z^2} \frac{x}{\sqrt{1-z^2}} = x.
+      \]
+      Likewise \(v = y\). Thus \(\varphi\) is injective on \(\overset{\circ}{C}\).
+      #+END_soln
+
+      \clearpage
+
+   2. Show that \(\varphi\) is an area-preserving map from \(C\) to \(\bbS^2\).
+
+      #+BEGIN_soln
+      Let \(R \subseteq C\). We need to show that \(\area(\varphi(R)) = \area(R)\). First notice that \(\area(R) = \area(R \cap \overset{\circ}{C})\) since \(\overset{\circ}{C}\) is only missing the boundary \({\{x^2 + y^2 = 1, z = \pm 1\}}\) which is the disjoint union of two curves, both of which have zero two-dimensional area. Likewise, \({\area(\varphi(R)) = \area(\varphi(R \cap \overset{\circ}{C})}\) since \(\varphi(\overset{\circ}{C})\) only omits the two points \((0, 0, \pm 1)\) which also have zero two-dimensional area.
+
+      Thus we may restrict to \(R \subseteq \overset{\circ}{C}\) on which \(\varphi\) is a bijection.
+
+      We use cylindrical coordinates for \(C\):
+      \[
+      F(r, \theta) = (\cos \theta, \sin\theta, r): \quad -1 < r < 1, \quad 0 < \theta < 2\pi.
+      \]
+      We have that \(F\) maps bijectively onto \(\overset{\circ}{C} \backslash \{(1, 0, z) : -1 < z < 1\}\) and so only omits a line which has zero two-dimensional area. Letting \(S = F^{-1}(R)\) we have
+      \begin{align*}
+      \area(R) &= \iint_S \abs{\partial_r F \times \partial_{\theta} F} dr d\theta \\
+      &= \iint_S \abs{(0, 0, 1) \times (-\sin\theta, \cos\theta, 0)} dr d\theta \\
+      &= \iint_S dr d\theta.
+      \end{align*}
+
+      On the other hand, \(\varphi \circ F\) only omits the curve \({\{(1, 0, \sqrt{1-r^2}) :  -1 < r < 1\}}\) from \(\bbS^2 \backslash \{(0, 0, \pm 1)\}\) which again has zero two-dimensional area. Computing as with \(C\), but this time using
+      \[
+      \varphi \circ F (r, \theta) = \left(\sqrt{1-r^2} \cos\theta, \sqrt{1-r^2} \sin\theta, r\right)
+      \]
+      we get
+      \begin{align*}
+      \partial_r (\varphi \circ F) &= \left(\frac{-r\cos\theta}{\sqrt{1-r^2}}, \frac{-r\sin\theta}{\sqrt{1-r^2}}, 1\right) \\
+      \partial_{\theta} (\varphi \circ F) &= \left(-\sqrt{1-r^2} \sin\theta, \sqrt{1-r^2} \cos\theta, 0\right)
+      \end{align*}
+      hence
+      \begin{align*}
+      \area(\varphi(R)) &= \iint_S \abs{\partial_r (\varphi \circ F) \times \partial_{\theta} (\varphi \circ F)} dr d\theta \\
+      &= \iint_S \abs{\big(-\sqrt{1-r^2} \cos\theta, - \sqrt{1-r^2} \sin\theta, -r \big)} dr d\theta \\
+      &= \iint_S dr d\theta.
+      \end{align*}
+      Thus \(\area(R) = \area(\varphi(R))\) and hence \(\varphi\) is area preserving.
+      #+END_soln
+
+      \clearpage
+
+   3. Show that \(\varphi\) is not distance preserving. That is, in general, for \(\gamma\) a curve on \(C\), the length \(L(\gamma) \neq L(\varphi(\gamma))\).
+
+      #+BEGIN_soln
+      Let \(\gamma(t) = (1, 0, t) \in C\) for \(t \in [-1, 1]\). Then
+      \[
+      L(\gamma) = \int_{-1}^1 \abs{\gamma'(t)} dt = \int_{-1}^1 dt = 2.
+      \]
+      One the other hand, \(\varphi \circ \gamma(t) = (\sqrt{1-t^2}, 0, t)\) hence
+      \[
+      L(\varphi(\gamma)) = \int_{-1}^1 \abs{\left(\frac{-t}{\sqrt{1-t^2}}, 0, 1\right)} dt = \int_{-1}^1 \frac{1}{\sqrt{1-t^2}} dt = \pi.
+      \]
+      Thus for this particular \(\gamma\), \(L(\gamma) \neq L(\varphi(\gamma))\) hence \(\varphi\) is not distance preserving.
+      #+END_soln
+
+5. Let \(F = (-y, x, 0)\) and let \(S = \{(x, y, 0) : x^2 + y^2 \leq 1\}\) be the unit disc in the \(z=0\) plane with boundary \(C = \partial S\) parametrised by
+   \[
+   C(t) = (\cos t, \sin t, 0), \quad 0 \leq t \leq 2\pi.
+   \]
+
+   1. Directly calculate \(\oint_C F \cdot d\mathbf{s}\) without using Green's theorem, Stokes' theorem or the Divergence Theorem.
+
+     #+BEGIN_soln
+     We have
+     \begin{align*}
+     \int_c F \cdot d\mathbf{s} &= \int_0^{2\pi} (-\sin t, \cos t, 0) \cdot (-\sin t, \cos t, 0) dt \\
+     &= \int_0^{2\pi} dt = 2\pi
+     \end{align*}
+     #+END_soln
+
+   2. Show that the unit normal to \(S\) is \(N = (0, 0, 1)\).
+
+      #+BEGIN_soln
+      Parametrising \(S\) by \(\Phi(u, v) = (u, v, 0)\) we have \(\mathbf{e}_u = (1, 0, 0)\) and \(\mathbf{e}_v = (0, 1, 0)\) are a basis for the tangent space, hence \(N = (0, 0, 1)\).
+      #+END_soln
+
+   3. Show that \(\curl F = (0, 0, 2)\).
+
+      #+BEGIN_soln
+      \[
+      \curl F = \begin{vmatrix}
+      \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+      \partial_x & \partial_y & \partial_z \\
+      -y & x & 0
+      \end{vmatrix}
+      = (0, 0, 2)
+      \]
+      #+END_soln
+
+   4. Directly calculate \(\iint_{S} \curl F \cdot d\mathbf{A}\) without using Green's theorem, Stokes' theorem or the Divergence Theorem.
+
+      #+BEGIN_soln
+      \begin{align*}
+      \iint_S \curl F \cdot d\mathbf{A} &= \iint_S (0, 0, 1) \cdot (0, 0, 2) dA \\
+      &= \iint_S 2 dA = 2\pi.
+      \end{align*}
+      #+END_soln
+
+   5. Let \(S' = \{(x, y, z) : x^2 + y^2 + z^2 = 1, z \geq 0\}\) be the northern hemisphere. Using any method, calculate
+      \[
+      \iint_{S'} \curl F \cdot d\mathbf{A}.
+      \]
+
+      #+BEGIN_soln
+      By Stokes' theorem,
+      \[
+      \iint_{S'} \curl F \cdot d\mathbf{A} = \int_C F \cdot d\mathbf{s} = \iint_{S} \curl F \cdot d\mathbf{A} = 2\pi
+      \]
+      #+END_soln
