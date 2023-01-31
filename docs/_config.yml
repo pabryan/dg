@@ -1,0 +1,20 @@
+# Site settings
+title: "Differential Geometry"
+description: "Course on Differential Geometry"
+author: "Paul Bryan"
+banner-img: /img/banner.jpg
+email: pabryan@gmail.com
+# baseurl: "/dg"
+url: "http://oz-geom-pde.github.io/"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+future: true
+
+# Section collections
+collections:
+  home:
+    sort_by: num
