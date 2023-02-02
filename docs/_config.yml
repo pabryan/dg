@@ -18,3 +18,4 @@ future: true
 collections:
   home:
     sort_by: num
+  blocks:
