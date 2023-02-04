@@ -10,7 +10,9 @@ layout: default
   {% endif %}
 
   {% assign first = true %}
-  {% for topic in site[topics] | sort: "num" %}
+  {% assign topiclist = site[topics] | sort: "num" %}
+
+  {% for topic in topiclist %}
     {% if first == true %}
       {% assign first = false %}
       {% assign show="show" %}
