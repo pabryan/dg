@@ -21,4 +21,6 @@ is also not regular. A reasonable choice of parametrisation is
 $$
 \gamma(t) = (t^2, t^3).
 $$
-This parametrisation is smooth, but $\gamma'(0) = 0$, hence it is not a regular parametrisation. In both cases, we've exhibited a non-regular parametrisation. In general, this does not mean no regular parametrisation exists (we already saw a non-regular parametrisation of the unit circle above). Below we will show that in both cases there is no regular parametrisation of $C$, hence $C$ is not regular.
+This parametrisation is smooth, but $\gamma'(0) = 0$, hence it is not a regular parametrisation.
+
+In both cases, we've exhibited a non-regular parametrisation. In general, this does not mean no regular parametrisation exists (we already saw a non-regular parametrisation of the unit circle above). So we need some additional argument to show that these curves do not admit regular parametrisations and hence are not regular. We will give that argument below.
