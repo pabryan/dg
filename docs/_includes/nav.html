@@ -16,14 +16,14 @@
     <div class="offcanvas-body px-0">
       <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
 	<li class="nav-item">
-	  <a href="{{ site.baseurl }}/" class="nav-link text-truncate">
+	  <a href="{{ '/' | relative_url }}" class="nav-link text-truncate">
 	    <span class="ms-1">Home</span>
 	  </a>
         </li>
 
 	{% for item in site.data.nav %}
 	  <li class="nav-item">
-	    <a href="{{ item.link }}" class="nav-link text-truncate">
+	    <a href="{{ item.link | relative_url }}" class="nav-link text-truncate">
 	      <span class="ms-1 d-none d-md-inline">Week </span><span>{{ item.num }}: </span><span class="ms-1  d-none d-md-inline">{{ item.title }}</span><span class="ms-1 d-inline d-md-none">{{ item.short_title }}</span>
   	    </a>
           </li>
