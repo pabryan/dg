@@ -19,3 +19,5 @@ collections:
   home:
     sort_by: num
   blocks:
+  curves:
+    sort_by: num
