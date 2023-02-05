@@ -13,8 +13,6 @@ type: topic
 
 {% include eg.html label="curves_unit_circle" %}
 
-{% include curves_unit_circle_plot.html %}
-
 One thing to take away from this example, is that there are many ways to parametrise a curve. That is, defining
 
 $$
@@ -33,15 +31,8 @@ It can be helpful to think of examples of sets $C$ that are not regular curves. 
 
 {% include eg.html label="not_reg_curve" %}
 
-{% include not_reg_curve_plot.html %}
 
 {% include eg.html label="regular_non_simple_curve" %}
 
-<!-- #+BEGIN_eg -->
-<!-- $$ -->
-<!-- \gamma(t) = (\cos(t), \sin(t)). -->
-<!-- $$ -->
-<!-- Here $\gamma$ is one-to-one on $(0, 2\pi)$ but not on any larger interval. However, $\gamma^{(k)}(0) = \gamma^{(k)}(2\pi)$ so that $\gamma$ smoothly /closes up/ to give a closed curve. Any smooth periodic function satisfies this property. -->
-<!-- #+END_eg -->
 
 

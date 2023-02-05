@@ -12,3 +12,5 @@ $$
 $$
 \gamma_2(t) = (\cos(t^2), \sin(t^2)), 0 \leq t \leq \sqrt{2\pi}.
 $$
+
+{% include curves_unit_circle_plot.html %}
