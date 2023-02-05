@@ -35,30 +35,7 @@ It can be helpful to think of examples of sets $C$ that are not regular curves. 
 
 {% include not_reg_curve_plot.html %}
 
-<!-- #+BEGIN_eg -->
-<!-- $$ -->
-<!-- \gamma(t) = (t, |t|), t \in \RR. -->
-<!-- $$ -->
-<!-- This time $\gamma$ is not differentiable at $t=0$ so is not even a smooth parametrised curve. -->
-<!-- #+END_eg -->
-
-<!-- *** Examples of Curves -->
-
-<!-- #+BEGIN_eg -->
-<!-- $$ -->
-<!-- \gamma(t) = (t^3, t^2), \quad t \in \RR. -->
-<!-- $$ -->
-<!-- We have $\Img(\gamma) = \lbracey = x^{2/3}\rbrace$ has a /cusp/ at $t=0$. This time, there is no regular parametrisation of $\Img(\gamma)$! /See the implicit function theorem/. -->
-<!-- #+END_eg -->
-<!-- \pause -->
-
-<!-- #+BEGIN_eg -->
-<!-- $$ -->
-<!-- \gamma(t) = (t^3 - 4 t, t^2 - 4). -->
-<!-- $$ -->
-<!-- Here $\gamma$ is regular, but it is not one-to-one. That is, it crosses itself. -->
-<!-- #+END_eg -->
-<!-- \pause -->
+{% include eg.html label="regular_non_simple_curve" %}
 
 <!-- #+BEGIN_eg -->
 <!-- $$ -->
