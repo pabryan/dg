@@ -13,8 +13,6 @@ type: topic
 
 {% include eg.html label="curves_unit_circle" %}
 
-{% include curves_unit_circle_plot.html %}
-
 One thing to take away from this example, is that there are many ways to parametrise a curve. That is, defining
 
 $$
@@ -33,38 +31,18 @@ It can be helpful to think of examples of sets $C$ that are not regular curves. 
 
 {% include eg.html label="not_reg_curve" %}
 
-{% include not_reg_curve_plot.html %}
+The examples given so far are all with injective maps $\gamma$. This need not be the case.
 
-<!-- #+BEGIN_eg -->
-<!-- $$ -->
-<!-- \gamma(t) = (t, |t|), t \in \RR. -->
-<!-- $$ -->
-<!-- This time $\gamma$ is not differentiable at $t=0$ so is not even a smooth parametrised curve. -->
-<!-- #+END_eg -->
+{% include eg.html label="regular_non_simple_curve" %}
 
-<!-- *** Examples of Curves -->
+{% include defn.html label="simple_curve" %}
 
-<!-- #+BEGIN_eg -->
-<!-- $$ -->
-<!-- \gamma(t) = (t^3, t^2), \quad t \in \RR. -->
-<!-- $$ -->
-<!-- We have $\Img(\gamma) = \lbracey = x^{2/3}\rbrace$ has a /cusp/ at $t=0$. This time, there is no regular parametrisation of $\Img(\gamma)$! /See the implicit function theorem/. -->
-<!-- #+END_eg -->
-<!-- \pause -->
+There is one situation where we want to think of non-injective parametrisations as injective.
 
-<!-- #+BEGIN_eg -->
-<!-- $$ -->
-<!-- \gamma(t) = (t^3 - 4 t, t^2 - 4). -->
-<!-- $$ -->
-<!-- Here $\gamma$ is regular, but it is not one-to-one. That is, it crosses itself. -->
-<!-- #+END_eg -->
-<!-- \pause -->
+{% include defn.html label="closed_curve" %}
 
-<!-- #+BEGIN_eg -->
-<!-- $$ -->
-<!-- \gamma(t) = (\cos(t), \sin(t)). -->
-<!-- $$ -->
-<!-- Here $\gamma$ is one-to-one on $(0, 2\pi)$ but not on any larger interval. However, $\gamma^{(k)}(0) = \gamma^{(k)}(2\pi)$ so that $\gamma$ smoothly /closes up/ to give a closed curve. Any smooth periodic function satisfies this property. -->
-<!-- #+END_eg -->
+The unit circle above is a particular example of a simple, closed curve.
+
+A closed curve joins up smoothly at the end points, and a simple, closed curve only crosses itself where the end-points join up. Later we will see how to make a cleaner definition by defining a closed curve to be the image of a smooth parametrision defined on $\SS^1$, and a simple, closed curve to be an injection on $\SS^1$.
 
 
