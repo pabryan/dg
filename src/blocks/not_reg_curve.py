@@ -9,18 +9,23 @@ import plotly.express as px
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 
-t = np.linspace(-1, 1, 50)
+t = np.linspace(-1, 1, 51)
 
 absval = pd.DataFrame({"x" : t, "y" : np.abs(t)})
-powtwothirds = pd.DataFrame({"x" : t**2, "y" : t**3})
+pow23 = pd.DataFrame({"x" : t**2, "y" : t**3})
 
-fig = make_subplots(rows=1, cols=2, subplot_titles = (r"$\gamma(t) = (t, |t|) \quad -1 < t < 1$", r"$\gamma(t) = (t^2, t^3) \quad -1 < t < 1$"))
-fig.update_annotations(yshift=20)
+absfig = go.Figure()
+absfig.update_layout(title = r"$\gamma(t) = (t, |t|) \quad -1 < t < 1$")
+absfig.update_annotations(yshift=20)
+absfig.update_yaxes(scaleanchor="x")
 
-fig.update_yaxes(scaleanchor="x1", scaleratio=1, row=1, col=1)
-fig.update_yaxes(scaleanchor="x2", scaleratio=1, row=1, col=2)
+absfig.add_trace(go.Scatter(x=absval["x"], y=absval["y"], showlegend=False))
 
-fig.add_trace(go.Scatter(x=absval["x"], y=absval["y"], showlegend=False), row=1, col=1)
-fig.add_trace(go.Scatter(x=powtwothirds["x"], y=powtwothirds["y"], showlegend=False), row=1, col=2)
+powfig = go.Figure()
+powfig.update_layout(title = r"$\gamma(t) = (t^2, t^3) \quad -1 < t < 1$")
+powfig.update_annotations(yshift=20)
+powfig.update_yaxes(scaleanchor="x")
+powfig.add_trace(go.Scatter(x=pow23["x"], y=pow23["y"], showlegend=False))
 
-fig.write_html("../../docs/_includes/not_reg_curve_plot.html", include_plotlyjs="cdn", include_mathjax=False, full_html=False)
+absfig.write_image("../../docs/img/curves_not_reg_abs.svg")
+powfig.write_image("../../docs/img/curves_not_reg_cusp.svg")
