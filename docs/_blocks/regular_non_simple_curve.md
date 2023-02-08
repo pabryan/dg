@@ -9,4 +9,10 @@ $$
 $$
 is regular, but it is not one-to-one. That is, it crosses itself.
 
-{% include regular_non_simple_curve.html %}
+<div class="container-fluid p-0 m-0">
+  <div class="row">
+    <div class="col p-0 m-0">
+      {% include img.html file="curves_regular_non_simple.svg" %}
+	</div>
+  </div>
+</div>

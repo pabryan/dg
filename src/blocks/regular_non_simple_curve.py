@@ -19,4 +19,4 @@ fig.update_annotations(yshift=20)
 
 fig.update_yaxes(scaleanchor="x", scaleratio=1, row=1, col=1)
 
-fig.write_html("../../docs/_includes/regular_non_simple_curve.html", include_plotlyjs="cdn", include_mathjax=False, full_html=False)
+fig.write_image("../../docs/img/curves_regular_non_simple.svg")
