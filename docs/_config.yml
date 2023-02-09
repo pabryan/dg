@@ -22,7 +22,7 @@ collections:
   curves:
     order:
       - parametrised.md
-      - change_of_params.md
       - closed_curves.md
+      - change_of_params.md
       - arclength.md
       - curvature.md
