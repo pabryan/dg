@@ -3,7 +3,7 @@ heading: Closed Curve
 label: closed_curve
 ---
 
-A curve is a set $C \subseteq \RR^n$ admitting an parametrisation $\gamma : [a, b] \to \RR^n$ such that
+A closed curve is a set $C \subseteq \RR^n$ admitting an parametrisation $\gamma : [a, b] \to \RR^n$ such that
 $$
 \gamma^{(k)} (a) = \gamma^{(k)} (b)
 $$
