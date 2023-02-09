@@ -1,7 +1,6 @@
 ---
 title: Parametrised Curves
 name: curves-parametrised
-num: 01
 type: topic
 ---
 
@@ -36,13 +35,4 @@ The examples given so far are all with injective maps $\gamma$. This need not be
 {% include eg.html label="regular_non_simple_curve" %}
 
 {% include defn.html label="simple_curve" %}
-
-There is one situation where we want to think of non-injective parametrisations as injective.
-
-{% include defn.html label="closed_curve" %}
-
-The unit circle above is a particular example of a simple, closed curve.
-
-A closed curve joins up smoothly at the end points, and a simple, closed curve only crosses itself where the end-points join up. Later we will see how to make a cleaner definition by defining a closed curve to be the image of a smooth parametrision defined on $\SS^1$, and a simple, closed curve to be an injection on $\SS^1$.
-
 

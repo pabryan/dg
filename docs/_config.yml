@@ -20,4 +20,9 @@ collections:
     sort_by: num
   blocks:
   curves:
-    sort_by: num
+    order:
+      - parametrised.md
+      - change_of_params.md
+      - closed_curves.md
+      - arclength.md
+      - curvature.md
