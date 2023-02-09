@@ -1,4 +1,4 @@
 ---
 title: Curvature
-name: curves-curvature
+name: curvature
 ---

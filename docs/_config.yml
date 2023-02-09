@@ -17,12 +17,5 @@ future: true
 # Section collections
 collections:
   home:
-    sort_by: num
   blocks:
   curves:
-    order:
-      - parametrised.md
-      - closed_curves.md
-      - change_of_params.md
-      - arclength.md
-      - curvature.md

@@ -1,5 +1,9 @@
 ---
 layout: topics
 title: Home
-topics: home
+collection: home
+sections:
+  - overview
+  - prereqs
+  - resources
 ---

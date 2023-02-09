@@ -1,6 +1,6 @@
 ---
 title: Parametrised Curves
-name: curves-parametrised
+name: parametrised
 type: topic
 ---
 

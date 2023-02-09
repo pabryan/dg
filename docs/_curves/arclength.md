@@ -1,4 +1,4 @@
 ---
 title: Arc Length
-name: curves-arclength
+name: arclength
 ---

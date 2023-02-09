@@ -1,5 +1,11 @@
 ---
 layout: topics
 title: Curves
-topics: curves
+collection: curves
+sections:
+  - parametrised
+  - closed_curves
+  - change_of_params
+  - arclength
+  - curvature
 ---
