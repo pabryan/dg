@@ -25,13 +25,6 @@ This parametrisation is smooth, but $\gamma'(0) = 0$, hence it is not a regular 
 
 In both cases, we've exhibited a non-regular parametrisation. In general, this does not mean no regular parametrisation exists (we already saw a non-regular parametrisation of the unit circle above). So we need some additional argument to show that these curves do not admit regular parametrisations and hence are not regular. We will give that argument below.
 
-<div class="container-fluid p-0 m-0">
-  <div class="row">
-    <div class="col p-0 m-0">
-      {% include img.html file="curves_not_reg_abs.svg" %}
-	</div>
-	<div class="col p-0 m-0">
-      {% include img.html file="curves_not_reg_cusp.svg" %}
-    </div>
-  </div>
-</div>
+{% include img.html file="curves_not_reg_abs.svg" %}
+
+{% include img.html file="curves_not_reg_cusp.svg" %}
