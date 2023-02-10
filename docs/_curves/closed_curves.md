@@ -31,15 +31,3 @@ Now we may give a definition of regular, closed curves in terms of functions par
 {% include defn.html label="closed_curve_S1" %}
 
 {% include ex.html label="smooth-periodic-defn-correspondence" %}
-
-We have defined smooth maps $\SS^1 \to \RR^n$ as periodic functions $\RR \to \RR^n$. But what about maps to $\SS^1$? This is a little more indirect, but uses similar ides.
-
-{% include defn.html label="smooth-to-S1" %}
-
-The idea is that given a map $f : \RR^n \to \SS^1$, we can define a map $\bar{f} : \RR^n \to [0, 2\pi)$ where $\bar{f}(V)$ is the unique element in $[0, 2\pi)$ such that $f(V) = [\bar{f}(V)]$. By construction,
-
-$$
-f(V) = [\bar{f}(V)] = q \circ \bar{f} (V).
-$$
-
-Then we will say that $f$ is smooth precisely when $\bar{f}$ is smooth. Note that we could instead choose say $\bar{f}(V)$ to be the unique element in $[x_0, x_0 + 2\pi)$ for any $x_0 \in \RR$ and we get an equivalent definition. There is nothing special about $[0, 2\pi)$ except that by convention we often choose that interval.
