@@ -1,12 +1,12 @@
 ---
-heading: Proof of Equivalence of Quotient and Manifold Definitions
+heading: Equivalence of Quotient and Manifold Definitions
 label: S1_quotient_manifold_equiv_pf
 ---
 
 Suppose that $f \circ q$ is smooth. Then
 
 $$
-f \circ \varphi_{\pm}(t) = f \circ q (t \mp \pi 2)
+f \circ \varphi_{\pm}(t) = f \circ q (t \mp \pi/2)
 $$
 
 is smooth.
