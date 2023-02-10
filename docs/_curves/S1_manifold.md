@@ -15,3 +15,7 @@ Note that $\varphi_{\pm}(t) = q(t \mp \pi/2)$; that is the plus and minus are sw
 {% include lem.html label="S1_quotient_manifold_equiv" %}
 
 {% include pf.html label="S1_quotient_manifold_equiv_pf" %}
+
+It will be convenient later to sometimes think of $\SS^1$ as the quotient $\RR/L\ZZ$ for any $L \in \RR$, $L > 0$. The idea being that a closed curve of length $L$ is more naturally parametrised over $\RR/L\ZZ$ rather than over $\RR/2\pi \ZZ$.
+
+{% include ex.html label="S1_L" %}
