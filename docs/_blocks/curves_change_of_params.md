@@ -9,3 +9,5 @@ A change of parameters gives rise to a new parametrisation
 $$
 \gamma \circ \varphi : (c, d) \to \RR^n, \text{ or } \gamma \circ \varphi : \SS^1 \to \RR^n.
 $$
+
+according to whether $\gamma$ is a not closed or closed respectively.
