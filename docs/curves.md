@@ -7,6 +7,7 @@ sections:
   - closed_curves
   - S1_manifold
   - change_of_params
+  - induced_change_of_params
   - arclength
   - curvature
 ---
