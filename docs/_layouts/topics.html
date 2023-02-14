@@ -2,6 +2,10 @@
 layout: default
 ---
 
+<div class="container-fluid">
+  {{ page.content }}
+</div>
+
 <div class="accordion" id="accordionCurves">
   {% for t in page.sections %}
   {% assign topic = site[page.collection] | where: "name", t | first %}
