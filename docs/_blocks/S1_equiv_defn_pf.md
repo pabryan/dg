@@ -33,10 +33,14 @@ $$
 Since $\psi_+^{-1}$ is a bijection, $F \circ F^{-1}$ is the identity on $\tilde{\SS}^1 \backslash (0, -1)$. We can directly check that  $F \circ F^{-1} (0, -1) = (0, =1)$. Thus $F \circ F^{-1}$ is the identity on $\tilde{\SS}^1$. Similarly, $F^{-1} \circ F$ is the identity on $\SS^1$ and thus $F^{-1}$ is indeed the inverse of $F$.
 
 To verify smoothness of $F^{-1}$, we use the definitions again:
+
 $$
-\varphi_+^{-1} \circ F^{-1} \circ \psi_+ (t) = \varphi_+^{_1} \varphi_+ \circ \psi_+^{-1} (x, y) \circ \psi_+(t) = t
+\begin{split}
+\varphi_+^{-1} \circ F^{-1} \circ \psi_+ (t) &= \varphi_+^{-1} \circ \varphi_+ \circ \psi_+^{-1} \circ \psi_+(t) \\
+&= t
+\end{split}
 $$
 
-which is smooth. To check smoothness of $F^{-1}$ near $(0, -1)$ we can argue similarly, but this time using $\psi_-^{-1} \circ F \circ \varphi_-$.
+which is smooth. To check smoothness of $F^{-1}$ near $(0, -1)$ we can argue similarly, but this time using $\varphi_-^{-1} \circ F^{-1} \circ \psi_-$.
 
 FInally, we should also verify that $\psi_+^{-1} \circ F \circ \varphi_-$ and $\psi_-^{-1} \circ F \circ \varphi_+$ are smooth. This is similar to our arguments so far and is left to the reader.
