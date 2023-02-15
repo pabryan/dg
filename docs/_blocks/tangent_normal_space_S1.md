@@ -21,7 +21,7 @@ $$
 N(t) = (-\cos t, - \sin t) = - \gamma(t)
 $$
 
-Notice that $N$ points inward. Also if we write $p = (x, y) = (\cos t, \sin t)$ for a point on $C$, we have $T(p) = (-y, x)$ and $N(p) = -p$. That is $T(p) = R_{\pi/2$ (p)$ and $N(p) = R_{\pi/2} (T(p)) = R_{\pi} (p)$.
+Notice that $N$ points inward. Also if we write $p = (x, y) = (\cos t, \sin t)$ for a point on $C$, we have $T(p) = (-y, x)$ and $N(p) = -p$. That is $T(p) = R_{\pi/2} (p)$ and $N(p) = R_{\pi/2} (T(p)) = R_{\pi} (p) = -p$.
 
 If we choose $N(p) = p$ to be the outer pointing normal to the unit circle, then we must parametrise in the clockwise direction to ensure $\lbrace T, N \rbrace$ is positively oriented. Thus $\gamma(t) = (\sin t, \cos t)$ leads to $T = (\cos t, -\sin t)$ and $N = R_{\pi/2} (T) = (\sin t, \cos(t) = \gamma(t)$.
 
