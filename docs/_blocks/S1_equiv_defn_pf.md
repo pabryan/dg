@@ -36,8 +36,8 @@ To verify smoothness of $F^{-1}$, we use the definitions again:
 
 $$
 \begin{split}
-\varphi_+^{-1} \circ F^{-1} \circ \psi_+ (t) &= \varphi_+^{-1} \circ \varphi_+ \circ \psi_+^{-1} \circ \psi_+(t) \\
-&= t
+\varphi_+^{-1} \circ F^{-1} \circ \psi_+ &= \varphi_+^{-1} \circ \varphi_+ \circ \psi_+^{-1} \circ \psi_+ \\
+&= \operatorname{Id}
 \end{split}
 $$
 
