@@ -10,8 +10,13 @@ $$
 $$
 
 Define maps
+
 $$
-\psi_{\pm}: (0, 2\pi) \to \tilde{\SS}^1, \quad \psi_{\pm} (t) = (\cos(t \mp \pi/2), \sin(t \mp \pi/2)) = \pm (\sin(t), -\cos(t)).
+\begin{split}
+\psi_{\pm}: (0, 2\pi) &\to \tilde{\SS}^1, \\
+t &\mapsto (\cos(t \mp \pi/2), \sin(t \mp \pi/2)) \\
+&= \pm (\sin(t), -\cos(t)).
+\end{split}
 $$
 
 A function $f: \tilde{\SS}^1 \to \RR^n$ is smooth provided $f \circ \psi_{\pm}$ are smooth.

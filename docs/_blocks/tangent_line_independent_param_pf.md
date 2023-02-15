@@ -8,7 +8,10 @@ Let $\gamma_1, \gamma_2$ be two different parametrisations an let $t_1, t_2$ be 
 Let $\tau_{21}$ denote the transition map so that $\gamma_2 = \gamma_1 \circ \tau_{21}$ and $t_1 = \tau_{21} (t_2)$. By the chain rule
 
 $$
-\gamma_2'(t_2) = \tau_{21}'(t_2) \gamma_1'(\tau_{21}(t_2)) = \tau_{21}'(t_2) \gamma_1'(t_1).
+\begin{split}
+\gamma_2'(t_2) &= \tau_{21}'(t_2) \gamma_1'(\tau_{21}(t_2)) \\
+&= \tau_{21}'(t_2) \gamma_1'(t_1).
+\end{split}
 $$
 
 Thus $\gamma_2'(t_2)$ is proportional to $\gamma_1'(t_1)$ as required.

@@ -29,20 +29,20 @@ Notice that $\psi_{\pm}$ are smooth, injective, regular parametrisations (i.e. $
 Consider the map $\bar{F} : \RR \to \tilde{\SS}^1$ defined by $x \mapsto (\cos(x), \sin(x))$. This is a smooth, periodic map, hence induces a smooth map $F : \SS^1 \to \tilde{\SS}^1$ defined by $F \circ q = \bar{F}$. Here to say that $F$ is smooth is to say that all of the four maps,
 
 $$
-\psi_{\pm}^{-1} \circ F \circ \varphi_{\pm}
+F_{\pm,\pm} := \psi_{\pm}^{-1} \circ F \circ \varphi_{\pm}
 $$
 
 are smooth wherever defined. For example
 
 $$
 \begin{split}
-\psi_+^{-1} \circ F \circ \varphi_+ (t) &= \psi_+^{-1}\left(\cos(q(t-\pi/2)), \sin(q(t-\pi/2))\right) \\
+F_{+,+} &= \psi_+^{-1}\left(\cos(q(t-\pi/2)), \sin(q(t-\pi/2))\right) \\
 &= \psi_+^{-1} (\sin(t), -\cos(t)) \\
 &= t
 \end{split}
 $$
 
-since $\psi_+(t) = (\sin(t), -\cos(t))$. Thus $\psi_+^{-1} \circ F \circ \varphi_+ (t) = t$ is clearly smooth.
+since $\psi_+(t) = (\sin(t), -\cos(t))$. Thus $F_{+,+} = \psi_+^{-1} \circ F \circ \varphi_+ (t) = t$ is clearly smooth.
 
 In fact, $F$ is a diffeomorphism, hence we may identify $\SS^1$ with $\tilde{\SS}^1$ when considering questions relating to differentiability and continuity.
 
@@ -53,13 +53,13 @@ In fact, $F$ is a diffeomorphism, hence we may identify $\SS^1$ with $\tilde{\SS
 Another way to prove the theorem is to define the function $\operatorname{atan2}: \tilde{\SS}^1 \to \RR$ by
 
 $$
-\operatorname{atan2} (x,y) = \begin{cases}
+\begin{cases}
 \arctan(y/x), & x > 0 \\
 \arctan(y/x) + \pi, & x < 0, y \geq 0 \\
 \arctan(y/x) - \pi, & x < 0, y < 0 \\
 \pm \pi/2, & (x, y) = (0, \pm 1)
 \end{cases}
-$$.
+$$
 
 Then $F^{-1} = q \circ \operatorname{atan2}$. It's an exercise in basic trigonometry, keeping track of quadrants to show that $F^{-1}$ is indeed the inverse of $F$. It's an interesting exercise to show that $F^{-1}$ is in fact smooth; that is that $\varphi_{\pm}^{-1} \circ F^{-1} \circ \psi_{\pm}$ is smooth. This latter boils down to writing out the definitions of the various maps involved similarly to how we did it above.
 

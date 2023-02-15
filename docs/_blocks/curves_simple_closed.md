@@ -5,7 +5,7 @@ label: curves-simple-closed
 
 The parametrisation
 $$
-\gamma(t) = \left([1 + \cos(5t)/2] \cos(t), [1 + \cos(5t)/2] \sin(t)\right)
+\gamma(t) = [1 + \cos(5t)/2] \left(\cos(t), \sin(t)\right)
 $$
 is a simple, closed curve.
 

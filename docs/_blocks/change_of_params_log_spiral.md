@@ -3,10 +3,10 @@ heading: Change of Parameters - Logarithmic Spiral
 label: change_of_params_log_spiral
 ---
 
-The logarmithmic spiral may be parametrised as
+The logarmithmic spiral may be parametrised for $t \in (-\infty, \infty)$ as
 
 $$
-\gamma(t) = \left(e^{-t} \cos t, e^{-t} \sin t\right), \quad t \in (-\infty, \infty)
+\gamma(t) = \left(e^{-t} \cos t, e^{-t} \sin t\right).
 $$
 
 Here is a change of parameters from $(0, 1)$ to $\RR$.

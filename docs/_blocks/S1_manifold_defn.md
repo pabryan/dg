@@ -6,7 +6,10 @@ label: S1_manifold_defn
 Define the functions $\varphi_{\pm} : (0, 2\pi) \to \SS^1$ by
 
 $$
-\varphi_+(t) = q(t-\pi/2), \quad \varphi_-(t) = q(t+\pi/2)
+\begin{split}
+\varphi_+(t) &= q(t-\pi/2), \\
+\varphi_-(t) &= q(t+\pi/2)
+\end{split}
 $$
 
 where $q : \RR \to \SS$ is the quotient map, $q(x) = [x]$.

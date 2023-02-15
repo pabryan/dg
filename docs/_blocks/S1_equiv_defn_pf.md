@@ -23,7 +23,11 @@ $$
 Using the definitions we see that
 
 $$
-\psi_+^{-1} \circ F \circ F^{-1} = \psi_+^{-1} \circ F \circ \varphi_+ \circ \psi_+^{-1} = \operatorname{Id} \circ \psi_+^{-1} = \psi_+^{-1}.
+\begin{split}
+\psi_+^{-1} \circ F \circ F^{-1} &= \psi_+^{-1} \circ F \circ \varphi_+ \circ \psi_+^{-1} \\
+&= \operatorname{Id} \circ \psi_+^{-1} \\
+&= \psi_+^{-1}.
+\end{split}
 $$
 
 Since $\psi_+^{-1}$ is a bijection, $F \circ F^{-1}$ is the identity on $\tilde{\SS}^1 \backslash (0, -1)$. We can directly check that  $F \circ F^{-1} (0, -1) = (0, =1)$. Thus $F \circ F^{-1}$ is the identity on $\tilde{\SS}^1$. Similarly, $F^{-1} \circ F$ is the identity on $\SS^1$ and thus $F^{-1}$ is indeed the inverse of $F$.

@@ -16,7 +16,11 @@ $$
 For $u = \tau_{12} (t) = \gamma_2^{-1} \circ \gamma_1(t)$ with $t \in (t_0 -\delta, t_0+\delta)$ we obtain
 
 $$
-\tau_{21} (u) = \gamma_1^{-1} \circ \gamma_2 (u) = \gamma_1^{-1} (x_2^1(u), \dots, x_2^n(u)) = f_i \circ x_2^i (u)
+\begin{split}
+\tau_{21} (u) &= \gamma_1^{-1} \circ \gamma_2 (u) \\
+&= \gamma_1^{-1} (x_2^1(u), \dots, x_2^n(u)) \\
+&= f_i \circ x_2^i (u)
+\end{split}
 $$
 
 That is, $\tau_{21} = f_i \circ x_2^i$ is smooth for $u \in \tau_{12} (t_0-\delta, t_0 + \delta)$. In particular, $\tau_{21}$ is smooth at $u_0 = \tau_{12} (t_0)$, and hence $\tau_{21}$ is smooth for every $u_0 \in (a_2, b_2)$ since every such $u_0$ is of the form $\tau_{12}(t_0)$ and $t_0$ was arbitrary.
