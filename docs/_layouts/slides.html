@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/black.min.css">
+  </head>
+
+  <body>
+    {% include mathjax_macros.html %}
+    
+    <div class="reveal">
+      {% for t in page.sections %}
+      {% assign topic = site[page.collection] | where: "name", t | first %}
+      <div class="slides">
+	<section>
+	  {% for s in topic.subsections %}
+	  {% assign subsec = site[page.collection] | where: "name", s | first %}
+	  <section>
+	    {{ subsec.content }}
+	  </section>
+	  {% endfor %}
+	</section>
+      </div>
+      {% endfor %}
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/math/math.min.js"></script>
+
+    <script>
+      Reveal.initialize();
+    </script>
+  </body>
+</html>
