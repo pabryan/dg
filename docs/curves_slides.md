@@ -6,4 +6,5 @@ sections:
   - parametrised_slides
   - closed_curves_slides
   - S1_slides
+  - change_params_slides
 ---
