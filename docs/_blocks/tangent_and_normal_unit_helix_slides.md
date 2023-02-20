@@ -19,7 +19,7 @@ $$
 
 <p class="fragment fade-in">
 $$
-N_t C = \brace \gamma(t) + V : V \perp T \rbrace
+N_t C = \lbrace \gamma(t) + V : V \perp T \rbrace
 $$
 </p>
 
