@@ -12,3 +12,5 @@ sections:
   - arclength
   - curvature
 ---
+
+<a href="{{ '/curves_slides' | relative_url }}" target="_blank">View Slides</a>
