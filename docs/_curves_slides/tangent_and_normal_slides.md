@@ -7,4 +7,5 @@ subsections:
   - tangent_and_normal_slides_normal
   - tangent_and_normal_slides_unit_circle
   - tangent_and_normal_slides_helix
+  - tangent_and_normal_slides_helix_plot
 ---
