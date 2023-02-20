@@ -53,3 +53,5 @@ camera = {"eye" : dict(x=0.75, y=0.75, z=0.75)}
 fig.update_layout(scene=scene, scene_camera=camera, height=600, width=600)
 
 fig.write_image("../../docs/img/helix_tangent_normal.svg")
+
+fig.write_html("../../docs/plotly/helix_tangent_normal.html",  include_plotlyjs = "cdn", include_mathjax = "cdn", full_html=False)
