@@ -9,4 +9,4 @@ $$
 N_p C = \lbrace V \in \RR^n : V \perp T(t_0) \rbrace
 $$
 
-For each $p \in C$, the normal space is a $(n-1)$-diemsional hyperplane through the point $p$ and we have the orthogonal decomposition, $\RR^n \sim T(p) \oplus N_p$.
+For each $p \in C$, the normal space is a $(n-1)$-dimensional hyperplane through the point $p$ and we have the orthogonal decomposition, $\RR^n \simeq T(p) \oplus N_p$.
