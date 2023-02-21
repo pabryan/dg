@@ -12,6 +12,8 @@ Notice that since our curves are smooth, the speed is continuous and hence for a
 
 The arc length parameter, $s_{t_0}(t)$ measures the oriented, intrinsic distance along the curve from $p_0 = \gamma(t_0)$ to $p = \gamma(t)$. Here by oriented, we note that $s(t)$ is negative for $t < t_0$ which we interpret as moving backwards a distance $\lvert s(t) \rvert$ along the curve from $p_0$.
 
+{% include eg.html label="arc_length_parabola" %}
+
 {% include lem.html label="arc_length_intrinsic_well_defined" %}
 
 {% include pf.html label="arc_length_intrinsic_well_defined_pf" %}
