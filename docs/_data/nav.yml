@@ -1,7 +1,7 @@
 - num: "00"
   title: Background
   short_title: Background
-  link: "#"
+  link: "/background/"
 - num: "01"
   title: Curves
   short_title: Curves
@@ -9,48 +9,48 @@
 - num: "02"
   title: Global Curve Theory
   short_title: Global Curves
-  link: "#"
+  link: "/global_curves"
 - num: "03"
   title: Surfaces
   short_title: Surfaces
-  link: "#"
+  link: "/surfaces"
 - num: "04"
   title: Geometry and Curvature of Surfaces
   short_title: Surface Geometry
-  link: "#"
+  link: "/geometry_curvature_surfaces"
 - num: "05"
   title: Manifolds
   short_title: Manifolds
-  link: "#"
+  link: "/manifolds"
 - num: "06"
   title: Smooth Maps
   short_title: Smooth Maps
-  link: "#"
+  link: "/smooth_maps"
 - num: "07"
   title: Vector Fields
   short_title: Vector Fields
-  link: "#"
+  link: "/vector_fields"
 - num: "08"
   title: Tensor Bundles
   short_title: Tensor Bundles
-  link: "#"
+  link: "/tensor_bundles"
 - num: "09"
   title: Differential Forms
   short_title: Differential Forms
-  link: "#"
+  link: "/differential_forms"
 - num: "10"
   title: Riemannian Metrics and Connections
   short_title: Metrics and Connctions
-  link: "#"
+  link: "/metrics_connections"
 - num: "11"
   title: Distance Structure and Exponential Map
   short_title: Distance
-  link: "#"
+  link: "/distance_exponential"
 - num: "12"
   title: Intrinsic and Extrinsic Curvature
   short_title: Curvature
-  link: "#"
+  link: "/curvature"
 - num: "13"
   title: Global Topics
   short_title: Global Topics
-  link: "#"
+  link: "/global_topics"
