@@ -9,5 +9,4 @@ sections:
   - change_params_slides
   - tangent_and_normal_slides
   - arc_length_slides
-  - curvature_slides
 ---

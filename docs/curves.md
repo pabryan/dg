@@ -10,7 +10,6 @@ sections:
   - induced_change_of_params
   - tangent_and_normal
   - arclength
-  - curvature
 ---
 
 <a href="{{ '/curves_slides' | relative_url }}" target="_blank">View Slides</a>

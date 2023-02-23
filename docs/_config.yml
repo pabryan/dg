@@ -20,3 +20,5 @@ collections:
   blocks:
   curves:
   curves_slides:
+  global_curves:
+  global_curves_slides:
