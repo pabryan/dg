@@ -21,4 +21,4 @@ $$
 
 A function $f: \tilde{\SS}^1 \to \RR^n$ is smooth provided $f \circ \psi_{\pm}$ are smooth.
 
-A function $f : \RR^n \to \tilde{\SS}^1$ is smooth provided $\psi_{\pm} \circ f$ are smooth.
+A function $f : \RR^n \to \tilde{\SS}^1$ is smooth provided $\psi_{\pm}^{-1} \circ f$ are smooth.

@@ -12,9 +12,21 @@ In this section we will take a different approach. Fortunately we will generalis
 
 Note that $\varphi_{\pm}(t) = q(t \mp \pi/2)$; that is the plus and minus are swapped. The reason for this choice is that if we think of $\SS^1$ as the unit cirlce in the plane and $\theta$ as the angle counter-clockwise from the $x$-axis, then the image of $\varphi_+$ is the upper part of the circle, omitting only the point $(0, -1)$, while the image of $\varphi_-$ is the lower part of the circle, omitting only $(0, 1)$. These maps are similar to _stereographic coordinates_, which we will meet later in greater generality and detail.
 
+As a first example, the quotient map is smooth.
+
+{% include lem.html label="S1_quotient_map_smooth" %}
+
+{% include lem.html label="S1_quotient_map_smooth_pf" %}
+
+We now have two different definitions for a function $f : \SS^1 \to \RR^n$ to be smooth. In fact they are equivalent.
+
 {% include lem.html label="S1_quotient_manifold_equiv" %}
 
 {% include pf.html label="S1_quotient_manifold_equiv_pf" %}
+
+It's worth pointing out that as a manifold, we also defined smooth functions $\RR^n \to \SS^1$, but we didn't make a definition for smooth functions via the quotient map $q : \RR \to \SS^1$. One way we could make a definition would be to say $f : \RR^n \to \SS^1$ is smooth provided there exists a smooth map $\bar{f} : \RR^n \to \RR$ such that $f = q \circ \bar{f}$. In this case, we call $\bar{f}$ a _lift_ of $f$ and so our definition is that $f$ is smooth provided there exists a smooth lift. The difficulty with such a definition is that given $f$, we would need to exhibit a smooth lift $\bar{f}$, which is somewhat indirect. In comparison, to check that $f : \SS^1 \to \RR$ is smooth we just check directly if $f \circ q$ is smooth. We leave it as an interesting exercise for the reader to consider whether defining smooth maps via lifts is equivalent to our manifold definition of smooth map via the parametrisations $\varphi_{\pm}$.
+
+We will avoid the issue and work with the manifold definition for now on.
 
 It will be convenient later to sometimes think of $\SS^1$ as the quotient $\RR/L\ZZ$ for any $L \in \RR$, $L > 0$. The idea being that a closed curve of length $L$ is more naturally parametrised over $\RR/L\ZZ$ rather than over $\RR/2\pi \ZZ$.
 
