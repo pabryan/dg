@@ -8,19 +8,11 @@ $$
 
 <p class="fragment">
 $$
-T = \frac{1}{\sqrt{2}} (-\sin s, \cos s, 1)
-$$
-</p>
-
-<p class="fragment">
-$$
-N = \frac{\partial_s T}{\lvert \partial_s T\rvert} = (-\cos s, -\sin s, 0)
-$$
-</p>
-
-<p class="fragment">
-$$
-B = T \times N = \frac{1}{\sqrt{2}} (\sin s, -\cos s, 1)
+\begin{split}
+T &= \frac{1}{\sqrt{2}} (-\sin s, \cos s, 1) \\
+N &= (-\cos s, -\sin s, 0) \\
+B &= \frac{1}{\sqrt{2}} (\sin s, -\cos s, 1)
+\end{split}
 $$
 </p>
 
