@@ -10,6 +10,7 @@ subsections:
   - curvature_slides_graphs
   - curvature_slides_parabola
   - curvature_slides_space_curve
-  - curvature_slides_frenet_serret
+  - curvature_slides_frenet_serret_plane
+  - curvature_slides_frenet_serret_space
   - curvature_slides_helix
 ---
