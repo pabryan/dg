@@ -1,0 +1,17 @@
+#+BEGIN_export html
+---
+title: Curvature
+name: curvature
+---
+#+END_export
+
+#+BEGIN_env defn :title Curvature
+Let \(\gamma : (a, b) \to \RR^n\) be a regular curve parametrised by arc length.
+
+The /curvature/, \(\kappa\) is defined to be
+\[
+\kappa = \lvert \gamma'' \rvert.
+\]
+#+END_env
+
+The curvature does not have a sign; i.e. \(\kappa \geq 0\).
