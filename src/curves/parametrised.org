@@ -24,15 +24,13 @@ Here are two different ways to parametrise the unit circle $\lbrace x^2 + y^2 = 
 #+END_export
 
 #+BEGIN_export latex
-\begin{figure}[t]
-\includegraphics[width=8cm]{../img/unit_circle_example.svg}
-\centering
-\end{figure}
+\begin{center}
+\includegraphics[width=10cm]{curves/img/unit_circle_example.png}
+\end{center}
 
-\begin{figure}[t]
-\includegraphics[width=8cm]{../img/unit_circle_alt_example.svg}
-\centering
-\end{figure}
+\begin{center}
+\includegraphics[width=10cm]{curves/img/unit_circle_alt_example.png}
+\end{center}
 #+END_export
 
 #+END_env
@@ -85,15 +83,11 @@ In both cases, we've exhibited a non-regular parametrisation. In general, this d
 #+END_export
 
 #+BEGIN_export latex
-\begin{figure}[t]
-\includegraphics[width=8cm]{../img/curves_not_reg_abs.svg}
-\centering
-\end{figure}
+\begin{center}
+\includegraphics[width=10cm]{curves/img/curves_not_reg_abs.png}
 
-\begin{figure}[t]
-\includegraphics[width=8cm]{../img/curves_not_reg_cusp.svg}
-\centering
-\end{figure}
+\includegraphics[width=10cm]{curves/img/curves_not_reg_cusp.png}
+\end{center}
 #+END_export
 
 #+END_env
@@ -112,10 +106,9 @@ is regular, but it is not one-to-one. That is, it crosses itself.
 #+END_export
 
 #+BEGIN_export latex
-\begin{figure}[t]
-\includegraphics[width=8cm]{../img/curves_regular_non_simple.svg}
-\centering
-\end{figure}
+\begin{center}
+\includegraphics[width=10cm]{curves/img/curves_regular_non_simple.png}
+\end{center}
 #+END_export
 #+END_env
 
