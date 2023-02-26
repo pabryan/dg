@@ -17,13 +17,17 @@ A smooth <i>parametrised curve</i> in \(\RR^n\) is a smooth function \(\gamma : 
 <li><i>Space curves</i> are the case \(n=3\).</li>
 </ul>
 
-<div class="eg card"><div class="card-header"><h5 class="card-title">Parametrisations of the Unit Circle</h5></div><div class="card-body">
 <p>
 Here are two different ways to parametrise the unit circle \(\lbrace x^2 + y^2 = 1 \rbrace\).
 </p>
 
+<div class="eg card"><div class="card-header"><h5 class="card-title">Parametrisations of the Unit Circle</h5></div><div class="card-body">
+
 {% include img.html file="unit_circle_example.svg" %}
 
+</div></div>
+
+<div class="eg card"><div class="card-header"><h5 class="card-title">Alternative Parametrisations of the Unit Circle</h5></div><div class="card-body">
 {% include img.html file="unit_circle_alt_example.svg" %}
 
 </div></div>
@@ -46,7 +50,12 @@ we have \(\operatorname{Img}(\gamma_1) = \operatorname{Img}(\gamma_2)\) but \(\g
 There is thus a distiction between the parametrisation, \(\gamma\) and the image, \(\operatorname{Img}(\gamma)\).
 </p>
 
-{% include defn.html label="reg_curve" %}
+<div class="defn card"><div class="card-header"><h5 class="card-title">Regular Curve</h5></div><div class="card-body">
+<p>
+A regular curve is a set \(C \subseteq \RR^n\) for which there is a regular parametrisation, \(\gamma : (a, b) \to \RR^n\) with \(\operatorname{Img}(\gamma) = C\).
+</p>
+
+</div></div>
 
 <p>
 In other words, \(C\) is a regular curve if there is at least one regular parametrisation of it. There will always be parametrisations that are not regular; for example, if \(\gamma\) is any parametrisation (regular or not), \(\sigma(s) = \gamma(a + (1/2)(s^3 + 1)(b-a))\) for \(s \in (-1, 1)\) is not regular since by the chain rule, \(\sigma'(0) = 0\).
@@ -56,12 +65,64 @@ In other words, \(C\) is a regular curve if there is at least one regular parame
 It can be helpful to think of examples of sets \(C\) that are not regular curves. To begin with, \(C\) needs to be the image of a smooth map \((a, b) \to \RR^n\). But among such sets, there are examples of smooth, parametrised curves that are not regular.
 </p>
 
-{% include eg.html label="not_reg_curve" %}
+<div class="eg card"><div class="card-header"><h5 class="card-title">Not Regular Curve: Corner</h5></div><div class="card-body">
+<p>
+The curve
+\[
+C = \lbrace (x, y) \in \RR^2 : y = |x|) \rbrace
+\]
+is not regular. A reasonable choice of parametrisation is
+\[
+\gamma(t) = (t, |t|).
+\]
+This is not a regular parametrisation since \(\gamma\) is not differentiable at \(t=0\).
+</p>
+
+{% include img.html file="curves_not_reg_abs.svg" %}
+
+</div></div>
+
+<div class="eg card"><div class="card-header"><h5 class="card-title">Not Regular Curve: Cusp</h5></div><div class="card-body">
+<p>
+The curve
+\[
+C = \lbrace (x, y) \in \RR^2 : x^3 = y^2 \in \RR \rbrace
+\]
+is also not regular. A reasonable choice of parametrisation is
+\[
+\gamma(t) = (t^2, t^3).
+\]
+This parametrisation is smooth, but \(\gamma'(0) = 0\), hence it is not a regular parametrisation.
+</p>
+
+{% include img.html file="curves_not_reg_cusp.svg" %}
+
+</div></div>
+
+<p>
+In both of the two previous examples, we've exhibited a non-regular parametrisation. In general, this does not mean no regular parametrisation exists (we already saw a non-regular parametrisation of the unit circle above). So we need some additional argument to show that these curves do not admit regular parametrisations and hence are not regular. We will give that argument below.
+</p>
 
 <p>
 The examples given so far are all with injective maps \(\gamma\). This need not be the case.
 </p>
 
-{% include eg.html label="regular_non_simple_curve" %}
+<div class="eg card"><div class="card-header"><h5 class="card-title">Regular Non-Simple Curve</h5></div><div class="card-body">
+<p>
+The parametrisation
+\[
+\gamma(t) = (t^3 - 4 t, t^2 - 4)
+\]
+is regular, but it is not one-to-one. That is, it crosses itself.
+</p>
 
-{% include defn.html label="simple_curve" %}
+{% include img.html file="curves_regular_non_simple.svg" %}
+
+</div></div>
+
+<div class="defn card"><div class="card-header"><h5 class="card-title">Simple Curve</h5></div><div class="card-body">
+<p>
+A simple curve is a set \(C \subseteq \RR^n\) admitting an injective parametrisation \(\gamma\).
+</p>
+
+</div></div>
