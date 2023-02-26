@@ -1,0 +1,41 @@
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{hyperref}
+
+\usepackage{ifthen}
+
+% Layout
+\usepackage[a4paper,margin=1.5cm,rmargin=1.5cm,includehead]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\headheight}{18.0pt}
+\lhead{\large\sc Differential Geometry Week \weeknum : \topic}
+\rhead{\thepage}
+\cfoot{}
+\usepackage{parskip}
+
+% Macros
+\let\oldforall\forall
+\renewcommand{\forall}{\oldforall \, }
+
+\let\oldexist\exists
+\renewcommand{\exists}{\oldexist \: }
+
+% Boxes with theorems etc.
+\input{boxes}
+
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\renewcommand{\SS}{\mathbb{S}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\Ric}{\operatorname{Ric}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Img}{\operatorname{Img}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\avgint}{\mathop{\mathchoice{\,\rlap{-}\!\!\int}{\rlap{\raise.15em{\scriptstyle -}}\kern-.2em\int}{\rlap{\raise.09em{\scriptscriptstyle -}}\!\int}{\rlap{-}\!\int}}\nolimits}
+
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}

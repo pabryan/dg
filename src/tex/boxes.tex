@@ -1,0 +1,70 @@
+\usepackage[many]{tcolorbox}
+\usepackage{xcolor}
+
+% MQ colors
+\definecolor{mqred}{HTML}{e82122}
+\definecolor{mqdarkred}{HTML}{68091f}
+\definecolor{mqlightred}{HTML}{ae1229}
+\definecolor{mqpink}{HTML}{d6058d}
+\definecolor{mqpurple}{HTML}{720a4d}
+
+% Box environment
+\colorlet{cboxcoltext}{black}
+\colorlet{cboxcoltitle}{white}
+%% \colorlet{cboxcolback}{mqred!10!white}
+\colorlet{cboxtitletext}{black}
+\colorlet{cboxcolframe}{black}
+\colorlet{cboxcolbacktitle}{mqdarkred}
+
+\definecolor{thmcolor}{HTML}{800000}
+\definecolor{egcolor}{HTML}{00802b}
+\definecolor{defncolor}{HTML}{0059b3}
+\definecolor{lemcolor}{HTML}{800000}
+\definecolor{corcolor}{HTML}{800000}
+\definecolor{pfcolor}{HTML}{800000}
+\definecolor{remcolor}{HTML}{0059b3}
+\definecolor{excolor}{HTML}{5c0099}
+\colorlet{cboxcolback}{white}
+
+\newtcolorbox{cbox}[2][]{
+  toptitle=1ex,
+  before skip=1em,
+  after skip=1em,
+  before upper={\setlength{\parskip}{0.2em}},
+  bottomtitle=1ex,
+  colback=cboxcolback,
+  colframe=cboxcolframe,
+  colbacktitle=#2,
+  coltext=cboxcoltext,
+  coltitle=cboxcoltitle,
+  title={#1}
+}
+
+% Theorems
+\newenvironment{thmbox}[3][\empty]
+{\begin{cbox}[{#2}\ifthenelse{\equal{#1}{}}{}{: {#1}}]{#3}}
+{\end{cbox}}
+\newenvironment{thm}[1][\empty]
+{\begin{thmbox}[{#1}]{Theorem}{thmcolor}}
+{\end{thmbox}}
+\newenvironment{eg}[1][\empty]
+{\begin{thmbox}[{#1}]{Example}{egcolor}}
+{\end{thmbox}}
+\newenvironment{defn}[1][\empty]
+{\begin{thmbox}[{#1}]{Definition}{defncolor}}
+{\end{thmbox}}
+\newenvironment{lem}[1][\empty]
+{\begin{thmbox}[{#1}]{Lemma}{lemcolor}}
+{\end{thmbox}}
+\newenvironment{cor}[1][\empty]
+{\begin{thmbox}[{#1}]{Corollary}{corcolor}}
+{\end{thmbox}}
+\newenvironment{pf}[1][\empty]
+{\begin{thmbox}[{#1}]{Proof}{pfcolor}}
+{\end{thmbox}}
+\newenvironment{rem}[1][\empty]
+{\begin{thmbox}[{#1}]{Remark}{remcolor}}
+{\end{thmbox}}
+\newenvironment{ex}[1][\empty]
+{\begin{thmbox}[{#1}]{Exercise}{excolor}}
+{\end{thmbox}}
