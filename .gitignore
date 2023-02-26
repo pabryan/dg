@@ -1,0 +1,16 @@
+*~
+*.blg
+*.bbl
+*-blx.bib
+*.run.xml
+*.aux
+*.log
+*.fls
+*.dep
+*.fdb_latexmk
+*.out
+*.toc
+*.atfi
+*.xmpi
+*.xmpdata
+auto/
