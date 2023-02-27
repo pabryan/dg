@@ -3,8 +3,10 @@ heading: Turning Tangents (Plane Gauss-Bonnet)
 label: turning_tangents
 ---
 
-Let $C$ be a simple, closed curve in the plane oriented positively with inward normal. Then
+Let $C$ be a simple, closed curve in the plane. Then
 
 $$
-\int_C \kappa ds = 2\pi.
+\int_C \kappa ds = \pm 2\pi
 $$
+
+where the sign depends on the orientation.
