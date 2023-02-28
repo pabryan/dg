@@ -1,3 +1,12 @@
+body {
+    line-height: 1.6;
+    font-size: 18px;
+}
+
+.accordion-button {
+    font-size: 20px !important;
+}
+
 .card {
     margin-top: 1rem!important;
     margin-bottom: 1rem!important;
