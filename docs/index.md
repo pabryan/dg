@@ -1,6 +1,7 @@
 ---
 layout: topics
 title: Home
+short_title: Home
 collection: home
 sections:
   - overview

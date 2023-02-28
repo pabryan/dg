@@ -1,6 +1,7 @@
 ---
 layout: topics
 title: Curvature and Global Curve Theory
+short_title: Curvature and Global Curves
 collection: global_curves
 sections:
   - curvature

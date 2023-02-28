@@ -1,6 +1,7 @@
 ---
 layout: topics
 title: Curves
+short_title: Curves
 collection: curves
 sections:
   - parametrised
