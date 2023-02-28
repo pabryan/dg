@@ -30,7 +30,7 @@ Replacing $x$ by $x + \pi/2$ then gives
 
 $$
 \begin{split}
-\varphi_+^{-1} \circ q(x) = \varphi_+^{-1} \circ q(x +\pi/2 - \pi/2) \\
+\varphi_+^{-1} \circ q(x) &= \varphi_+^{-1} \circ q(x +\pi/2 - \pi/2) \\
 &= x +\pi/2 - 2\pi n.
 \end{split}
 $$

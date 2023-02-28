@@ -48,7 +48,7 @@ are smooth wherever defined. For example
 
 $$
 \begin{split}
-F_{+,+} &= \psi_+^{-1}\left(\cos(q(t-\pi/2)), \sin(q(t-\pi/2))\right) \\
+F_{+,+} &= \psi_+^{-1}\left(\cos q(t-\pi/2), \sin q(t-\pi/2)\right) \\
 &= \psi_+^{-1} (\sin(t), -\cos(t)) \\
 &= t
 \end{split}

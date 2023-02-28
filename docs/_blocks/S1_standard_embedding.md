@@ -9,12 +9,11 @@ $$
 \tilde{\SS}^1 = \lbrace x^2 + y^2 = 1 \rbrace.
 $$
 
-Define maps
+Define maps $(0, 2\pi) \to \tilde{\SS}^1$ by
 
 $$
 \begin{split}
-\psi_{\pm}: (0, 2\pi) &\to \tilde{\SS}^1, \\
-t &\mapsto (\cos(t \mp \pi/2), \sin(t \mp \pi/2)) \\
+\psi_{\pm} (t) &= (\cos(t \mp \pi/2), \sin(t \mp \pi/2)) \\
 &= \pm (\sin(t), -\cos(t)).
 \end{split}
 $$

@@ -36,9 +36,9 @@ To finish we need to show that $\ell_{\gamma,t_0}(t_1, t_2) = \ell_{\sigma,u_0} 
 
 $$
 \begin{split}
-\int_{u_1}^{u_2} \lvert \sigma'(u) \rvert du &= \int_{u_1}^{u_2} \lvert \sigma'(\tau^{-1}(\tau(u))) \rvert du \\
-&= \int_{t_1}^{t_2} \lvert \sigma' (\tau^{-1}(t)) \rvert \frac{1}{\tau'(\tau^{-1}(t))} dt \\
-&= \int_{t_1}^{t_2} \lvert (\sigma \circ \tau^{-1})' (t) \frac{1}{(\tau^{-1})'(t)} \rvert (\tau^{-1})' (t) dt \\
+\int_{u_1}^{u_2} \lvert &\sigma'(u) \rvert du = \int_{u_1}^{u_2} \lvert \sigma'(\tau^{-1}(\tau(u))) \rvert du \\
+&= \int_{t_1}^{t_2} \frac{\lvert \sigma' (\tau^{-1}(t)) \rvert}{\tau'(\tau^{-1}(t))} dt \\
+&= \int_{t_1}^{t_2} \frac{\lvert (\sigma \circ \tau^{-1})' (t)}{(\tau^{-1})'(t)} \rvert (\tau^{-1})' (t) dt \\
 &= \pm \int_{t_1}^{t_2} \lvert \gamma'(t) \rvert.
 \end{split}
 $$
