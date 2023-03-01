@@ -122,3 +122,42 @@ v &= \sqrt{1 + 4t^2}
 \end{align*}
 Then substitute into the formula for \(\kappa\) given by the lemma and simplify.
 #+END_env
+
+More generally we may compute the curvature of a graph \(y = f(x)\).
+
+#+BEGIN_env lem :title "Curvature of a Graph"
+The curvature of a graph \(y = f(x)\) (up to sign) is
+\[
+\kappa = \frac{f''}{(1 + (f')^2)^{3/2}} = \frac{f''}{v^3}.
+\]
+#+END_env
+
+#+BEGIN_env pf
+In the parametrisation \(\gamma(t) = (t, f(t))\) we have
+\begin{align*}
+\gamma' &= (1, f') \\
+\gamma'' &= (0, f'') \\
+v &= \sqrt{1 + (f')^2}
+\end{align*}
+Then
+\begin{align*}
+v' &= \partial_t \sqrt{1 + (f')^2} = \frac{f'f''}{\sqrt{1+(f')^2}} \\
+&= \frac{f'f''}{v}.
+\end{align*}
+Substituting everything into the Curvature Formula gives
+\begin{align*}
+\frac{\gamma''}{v^2} - \frac{v'}{v^3} \gamma' &= \frac{1}{v^2} (0, f'')  - \frac{f'f''}{v^4} (1, f') \\
+&= \frac{f''}{v^3} \left(-\frac{f'}{v}, v - \frac{(f')^2}{v}\right)
+\end{align*}
+Taking absolute values gives
+\[
+\abs{\kappa} = \frac{\abs{f''}}{v^3}
+\]
+since
+\begin{align*}
+\left(-\frac{f'}{v}\right)^2 + \left(v - \frac{(f')^2}{v}\right)^2 &= \frac{(f')^2}{v^2} + v^2 - 2 (f')^2 + \frac{(f')^4}{v^2} \\
+&= \frac{1}{v^2}\left[(f')^2 + v^4 - 2(f')^2 v^2 + (f')^4\right] \\
+&= \frac{1}{v^2}\left[(f')^2 + (1 + (f')^2)^2 - 2(f')^2 (1 + (f')^2) + (f')^4\right] \\
+&= 1.
+\end{align*}
+#+END_env
