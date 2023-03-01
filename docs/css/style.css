@@ -22,22 +22,46 @@ body {
     background-color: #0059b3;
 }
 
+.defn h5.card-title::before {
+    content: "Definition"
+}
+
 .eg .card-header {
     background-color: #00802b;
+}
+
+.eg h5.card-title::before {
+    content: "Example"
 }
 
 .ex .card-header {
     background-color: #5c0099;
 }
 
+.ex h5.card-title::before {
+    content: "Exercise"
+}
+
 .lem .card-header {
     background-color: #800000;
+}
+
+.lem h5.card-title::before {
+    content: "Lemma"
 }
 
 .thm .card-header {
     background-color: #800000;
 }
 
+.thm h5.card-title::before {
+    content: "Theorem"
+}
+
 .pf .card-header {
     background-color: #800000;
+}
+
+.pf h5.card-title::before {
+    content: "Proof"
 }
