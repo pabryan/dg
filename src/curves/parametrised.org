@@ -24,7 +24,7 @@ Here are two different ways to parametrise the unit circle $\lbrace x^2 + y^2 = 
 
 #+BEGIN_export latex
 \begin{center}
-\includegraphics[width=\textwidth]{curves/img/unit_circle_example.png}
+\includegraphics[width=\textwidth]{img/unit_circle_example.png}
 \end{center}
 #+END_export
 #+END_env
@@ -36,7 +36,7 @@ Here are two different ways to parametrise the unit circle $\lbrace x^2 + y^2 = 
 
 #+BEGIN_export latex
 \begin{center}
-\includegraphics[width=\textwidth]{curves/img/unit_circle_alt_example.png}
+\includegraphics[width=\textwidth]{img/unit_circle_alt_example.png}
 \end{center}
 #+END_export
 #+END_env
@@ -76,7 +76,7 @@ This is not a regular parametrisation since $\gamma$ is not differentiable at $t
 
 #+BEGIN_export latex
 \begin{center}
-\includegraphics[width=\textwidth]{curves/img/curves_not_reg_abs.png}
+\includegraphics[width=\textwidth]{img/curves_not_reg_abs.png}
 \end{center}
 #+END_export
 #+END_env
@@ -98,7 +98,7 @@ This parametrisation is smooth, but $\gamma'(0) = 0$, hence it is not a regular 
 
 #+BEGIN_export latex
 \begin{center}
-\includegraphics[width=\textwidth]{curves/img/curves_not_reg_cusp.png}
+\includegraphics[width=\textwidth]{img/curves_not_reg_cusp.png}
 \end{center}
 #+END_export
 #+END_env
@@ -120,7 +120,7 @@ is regular, but it is not one-to-one. That is, it crosses itself.
 
 #+BEGIN_export latex
 \begin{center}
-\includegraphics[width=\textwidth]{curves/img/curves_regular_non_simple.png}
+\includegraphics[width=\textwidth]{img/curves_regular_non_simple.png}
 \end{center}
 #+END_export
 #+END_env
