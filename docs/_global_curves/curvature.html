@@ -3,7 +3,7 @@ title: Curvature
 name: curvature
 ---
 
-<div class="defn card my-3 mx-0"><div class="card-header text-white" style="background-color: #0059b3;"><h5 class="card-title">Definition: Curvature</h5></div><div class="card-body">
+<div class="defn card"><div class="card-header"><h5 class="card-title"> : Curvature</h5></div><div class="card-body">
 <p>
 Let \(\gamma : (a, b) \to \RR^n\) be a regular curve parametrised by arc length.
 </p>
@@ -20,3 +20,211 @@ The <i>curvature</i>, \(\kappa\) is defined to be
 <p>
 The curvature does not have a sign; i.e. \(\kappa \geq 0\).
 </p>
+
+<p>
+Since \(\gamma\) is parametrised by arc-length, \(T = \gamma' = \partial_s \gamma\) and hence
+\[
+\kappa = \lvert \partial_s T\rvert.
+\]
+That is, \(\kappa\) measures the change in the unit tangent, which we may interpret as how the direction of \(\gamma\) is changing when traversed at unit speed.
+</p>
+
+<p>
+Directly calculating we have \(\kappa \equiv 0\) for a straight line: \(\gamma(t) = p + t V\) and \(\kappa \equiv 1\) for a circle of radius \(r > 0\): \(\gamma(t) = r(\cos t, \sin t)\).
+</p>
+
+<p>
+In the case of the plane we may give the curvature a sign.
+</p>
+
+<div class="defn card"><div class="card-header"><h5 class="card-title"> : Curvature of Plane Curves</h5></div><div class="card-body">
+<p>
+Let \(\gamma : (a, b) \to \RR^2\) be a regular plane curve parametrised by arc length and let \(N\) be a choice of unit normal.
+</p>
+
+<p>
+The <i>curvature</i>, \(\kappa_N\) with respect to \(N\) is defined to be
+\[
+\kappa_N = \langle \gamma'', N \rangle.
+\]
+</p>
+
+</div></div>
+
+<p>
+In the plane \(\kappa_N\) may be positive, negative or zero. Changing \(N \mapsto -N\) changes the sign of \(\kappa_N\): \(\kappa_{-N} = \kappa_N\). Reversing the direction of the parametrisation causes \(T \mapsto -T\) and preserving the orientation of \(T,N\) also causes \(N \mapsto -N\), hence changes the sign of \(\kappa_N\).
+</p>
+
+<div class="lem card"><div class="card-header"><h5 class="card-title"> : Differentiation of Unit Vector Fields</h5></div><div class="card-body">
+<p>
+Let \(V : (a, b) \to \RR^n)\) be a unit length vector field: \(\lvert V \rvert \equiv 1\). Then
+\[
+\partial_s V \perp V.
+\]
+</p>
+
+</div></div>
+
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Using the product rule for differentiation the inner product and the fact that \(\langle V, V \rangle \equiv 1\) we obtain
+\[
+0 = \partial_s \langle V, V \rangle = 2\langle \partial_s V, V \rangle.
+\]
+</p>
+
+</div></div>
+
+<div class="lem card"><div class="card-header"><h5 class="card-title"> : Equivalence of Curvature Definitions</h5></div><div class="card-body">
+<p>
+\[
+\kappa = \lvert \kappa_N \rvert.
+\]
+</p>
+
+</div></div>
+
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Since \(T\) is a unit length vector field, the previous lemma implies \(\partial_S T \perp T\) and hence \(\partial_s T = c N\) for some scalar field \(c\). Then
+\[
+c = \langle \partial_s T, N \rangle = \kappa
+\]
+and hence
+\[
+\kappa = \lvert \partial_s T \rvert = \lvert \kappa_N N \rvert = \lvert \kappa_N\rvert.
+\]
+</p>
+
+</div></div>
+
+<p>
+In the plane we abuse notation and write \(\kappa\) for \(\kappa_N\) with the tacit assumption that one of the two possible unit normal fields has been chosen.
+</p>
+
+<p>
+To compute the curvature of a regular curve, we need to parametrise by arc-length, but we've already seen that the arc length parametrisation proves elusive even in the relatively simple case of a parabola. Fortunately, we can compute the curvature using an arbitrary parametrisation. For this we need an expression for \(\partial_s\) in an arbitrary parametrisation.
+</p>
+
+<div class="lem card"><div class="card-header"><h5 class="card-title"> : Arc Length Derivative</h5></div><div class="card-body">
+<p>
+Let \(\gamma : (a, b) \to \RR^n\) be an regular parametrisation. The arc length derivative is given by
+\[
+\partial_s = \frac{1}{v} \partial_t.
+\]
+That is, for any function \(f : (a, b) \to \RR^n\),
+\[
+\partial_s [F (t(s))] = \frac{1}{v(t(s))} \partial_t F (t(s)).
+\]
+</p>
+
+</div></div>
+
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Since \(\partial_t s = v\) we have \(\partial_s t (s) = \frac{1}{v(t(s))}\). Then by the chain rule,
+</p>
+\begin{align*}
+\partial_s [F(t(s))] &= \partial_t F \partial_s t \\
+&= \frac{1}{v} \partial_t F.
+\end{align*}
+
+</div></div>
+
+<div class="lem card"><div class="card-header"><h5 class="card-title"> : Curvature Formula</h5></div><div class="card-body">
+<p>
+Let \(\gamma : (a, b) \to \RR^2\) be a regular parametrised curve (not necessarily by arc length). Then
+\[
+\abs{\kappa} = \abs{\frac{1}{v^2}\gamma'' - \frac{v'}{v^3} \gamma'}
+\]
+where \(v = \lvert \gamma' \rvert\).
+</p>
+
+</div></div>
+
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+We use the previous lemma applied to \(T = \tfrac{\gamma'}{v}\) and \(\lvert \kappa \rvert = \lvert \partial_s T \rvert\) to compute
+</p>
+\begin{align*}
+\abs{\kappa} &= \abs{\partial_s T} \\
+&= \abs{\frac{1}{v} \partial_t \left(\frac{\gamma'}{v}\right)} \\
+&= \abs{\frac{\gamma''}{v^2} - \frac{\partial_t v \gamma'}{v^3}}.
+\end{align*}
+
+</div></div>
+
+<div class="eg card"><div class="card-header"><h5 class="card-title"> : Curvature of a Parabola</h5></div><div class="card-body">
+<p>
+The curvature of the parabola \(y = x^2\) is
+\[
+\kappa = \frac{2}{(1 + 4t^2)^{3/2}}.
+\]
+</p>
+
+<p>
+To see this, use the parametrisation \(\gamma(t) = (t, t^2)\) which gives
+</p>
+\begin{align*}
+\gamma' &= (1, 2t) \\
+\gamma'' &= (0, 2) \\
+v &= \sqrt{1 + 4t^2}
+\end{align*}
+<p>
+Then substitute into the formula for \(\kappa\) given by the lemma and simplify.
+</p>
+
+</div></div>
+
+<p>
+More generally we may compute the curvature of a graph \(y = f(x)\).
+</p>
+
+<div class="lem card"><div class="card-header"><h5 class="card-title"> : Curvature of a Graph</h5></div><div class="card-body">
+<p>
+The curvature of a graph \(y = f(x)\) (up to sign) is
+\[
+\kappa = \frac{f''}{(1 + (f')^2)^{3/2}} = \frac{f''}{v^3}.
+\]
+</p>
+
+</div></div>
+
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+In the parametrisation \(\gamma(t) = (t, f(t))\) we have
+</p>
+\begin{align*}
+\gamma' &= (1, f') \\
+\gamma'' &= (0, f'') \\
+v &= \sqrt{1 + (f')^2}
+\end{align*}
+<p>
+Then
+</p>
+\begin{align*}
+v' &= \partial_t \sqrt{1 + (f')^2} = \frac{f'f''}{\sqrt{1+(f')^2}} \\
+&= \frac{f'f''}{v}.
+\end{align*}
+<p>
+Substituting everything into the Curvature Formula gives
+</p>
+\begin{align*}
+\frac{\gamma''}{v^2} - \frac{v'}{v^3} \gamma' &= \frac{1}{v^2} (0, f'')  - \frac{f'f''}{v^4} (1, f') \\
+&= \frac{f''}{v^3} \left(-\frac{f'}{v}, v - \frac{(f')^2}{v}\right)
+\end{align*}
+<p>
+Taking absolute values gives
+\[
+\abs{\kappa} = \frac{\abs{f''}}{v^3}
+\]
+since
+</p>
+\begin{align*}
+\left(-\frac{f'}{v}\right)^2 + \left(v - \frac{(f')^2}{v}\right)^2 &= \frac{(f')^2}{v^2} + v^2 - 2 (f')^2 + \frac{(f')^4}{v^2} \\
+&= \frac{1}{v^2}\left[(f')^2 + v^4 - 2(f')^2 v^2 + (f')^4\right] \\
+&= \frac{1}{v^2}\left[(f')^2 + (1 + (f')^2)^2 - 2(f')^2 (1 + (f')^2) + (f')^4\right] \\
+&= 1.
+\end{align*}
+
+</div></div>
