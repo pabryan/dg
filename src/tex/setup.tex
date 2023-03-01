@@ -17,15 +17,15 @@
 \cfoot{}
 \usepackage{parskip}
 
+% Boxes with theorems etc.
+\input{boxes}
+
 % Macros
 \let\oldforall\forall
 \renewcommand{\forall}{\oldforall \, }
 
 \let\oldexist\exists
 \renewcommand{\exists}{\oldexist \: }
-
-% Boxes with theorems etc.
-\input{boxes}
 
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\CC}{\mathbb{C}}
@@ -37,5 +37,7 @@
 \newcommand{\Img}{\operatorname{Img}}
 \newcommand{\Id}{\operatorname{Id}}
 \newcommand{\avgint}{\mathop{\mathchoice{\,\rlap{-}\!\!\int}{\rlap{\raise.15em{\scriptstyle -}}\kern-.2em\int}{\rlap{\raise.09em{\scriptscriptstyle -}}\!\int}{\rlap{-}\!\int}}\nolimits}
+\newcommand{\abs}[1]{\left\lvert{#1}\right\rvert}
 
+% Hack to fix for some weird plotly error
 \DeclareUnicodeCharacter{2212}{\ensuremath{-}}
