@@ -94,7 +94,7 @@ Since \(\partial_t s = v\) we have \(\partial_s t (s) = \frac{1}{v(t(s))}\). The
 #+BEGIN_env lem :title "Curvature Formula"
 Let \(\gamma : (a, b) \to \RR^2\) be a regular parametrised curve (not necessarily by arc length). Then
 \[
-\abs{\kappa} = \abs{\frac{\gamma''}{v^2} - \frac{v'}{v^3} \gamma'}
+\abs{\kappa} = \abs{\frac{1}{v^2}\gamma'' - \frac{v'}{v^3} \gamma'}
 \]
 where \(v = \lvert \gamma' \rvert\).
 #+END_env
@@ -120,5 +120,5 @@ To see this, use the parametrisation \(\gamma(t) = (t, t^2)\) which gives
 \gamma'' &= (0, 2) \\
 v &= \sqrt{1 + 4t^2}
 \end{align*}
-Then substitute into the formula given by the lemma and simplify.
+Then substitute into the formula for \(\kappa\) given by the lemma and simplify.
 #+END_env
