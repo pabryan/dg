@@ -1,6 +1,7 @@
 #+OPTIONS: toc:nil num:nil
 #+SETUPFILE: ~/.emacs.d/org-templates/bibliography.org
 
+#+LaTeX_header: \newcommand{\asstitle}{Pre-Quiz}
 #+LaTeX_header: \input{ass_settings}
 #+LaTeX_header: \setboolean{showsoln}{true}
 

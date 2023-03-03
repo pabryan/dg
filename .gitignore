@@ -15,3 +15,5 @@
 *.xmpdata
 auto/
 build/
+src/assignments/dg_quiz.tex
+src/assignments/dg_quiz.pdf
