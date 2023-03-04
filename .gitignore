@@ -17,3 +17,5 @@ auto/
 build/
 src/assignments/dg_quiz.tex
 src/assignments/dg_quiz.pdf
+src/assignments/ass*.tex
+src/assignments/ass*.pdf

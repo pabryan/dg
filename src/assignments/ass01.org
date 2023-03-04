@@ -1,0 +1,115 @@
+#+OPTIONS: toc:nil num:nil
+
+#+LaTeX_header: \newcommand{\asstitle}{Assignment 01}
+#+LaTeX_header: \input{ass_settings}
+#+LaTeX_header: \setboolean{showsoln}{false}
+
+1. *Change of Parameters*
+
+   1. Let \(\varphi : (a, b) \to (c, d)\) be a diffeomorphism. Show that \(\varphi\) induces a bijection between the set of smooth maps \(C^{\infty}((a, b) \to \RR)\) and the set of smooth maps \(C^{\infty}((c, d) \to \RR)\).
+
+   2. Let \((a, b)\) be an open interval (where we allow \(a = -\infty\) and/or \(b=+\infty)\). By exhibiting an explicit diffeomorphism \(\varphi\), show that \((a, b)\) is diffeomorphic to \(\RR\). Conclude that any two intervals are diffeomorphic.
+
+2. *Graphs of functions*
+
+   Let \(f = (f_1, \dots, f_{n-1}) : (a, b) \to \RR^{n-1}\) be a smooth function and define the graph of f by
+   \[
+   \operatorname{G}(f) = \lbrace (x, f_1(x), \dots, f_{n-1}(x)) : x \in (a, b) \rbrace
+   \]
+   We may also change the order, for example with \((f_1(x), f_2(x), x, f_3(x), \dots, f_n(x))\) also giving a graph.
+
+   1. Determine a /regular/ parametrisation \(\gamma : (a, b) \to \RR^n\) for $\operatorname{G} (f)$.
+
+   2. Let \(\gamma : (a, b) \to \RR^n\) be a smooth, regular parametrised curve. Show that $\gamma$ is locally the graph of a smooth function \(f\). /Hint/: Use the inverse function theorem for functions \((a, b) \to \RR\).
+
+      That is, for every \(t_0 \in (a, b)\) there is a \(\delta > 0\) such that the image of \(\gamma\) restricted to \((t_0 - \delta, t_0 + \delta)\) is the graph of a smooth function \(f\) (not necessarily with $x$ in the first index).
+
+   3. Show that \(C = \lbrace(x, \abs{x})\rbrace \subseteq \RR^2\) is not a regular curve at \((0, 0)\). /Hint/: if there was a regular parametrisation \(\gamma\) then the previous part would imply that \(C\) was the graph of a smooth function on an open interval containing \((0, 0)\). Argue that we cannot have \(x = f(y)\) (draw the picture!) hence \(y = f(x)\). Show necessarily that \(f(x) = \abs{x}\) contradicting that \(f\) is smooth.
+
+3. *Polar Coordinates*
+
+   Let \(\rho : (0, 2\pi) \to \RR\) be a smooth function and define the curve \(\gamma\) in polar coordinates by
+   \[
+   \gamma(t) = (\rho(t) \cos(t), \rho(t) \sin(t))
+   \]
+
+   1. Show that the element of arc-length \(ds = \abs{\gamma'} dt\) is
+      \[
+      ds = \sqrt{\rho^2 + (\rho')^2} dt.
+      \]
+
+   2. Show that the curvature is
+      \[
+      \kappa(t) = \frac{2(\rho')^2 -\rho\rho'' + \rho^2}{[\rho^2 + (\rho')^2]^{3/2}}.
+      \]
+
+   3. Use the previous formula to calculate the curvature of the polar curve corresponding to \(\rho = (1 - \cos\theta\) for \(\theta \in (0, 2\pi)\) and show that \(\kappa\) is not defined for \(\theta = 0, 2\pi\). Verify that in fact \(\gamma\) is not regular for \(\theta = 0, 2\pi\).
+   
+4. *High Dimension Frenet-Serret*
+
+   Let \(\gamma : (a, b) \to \RR^n\) be a regular, smooth parametrised curve such that \(\lbrace\gamma'(s), \dots, \gamma^{(n-1)}(s)\rbrace\) are linearly independent for every \(s \in (a, b)\). Show that there exists functions \(\kappa_1, \dots, \kappa_{n-1}\) and vector fields \(N_1, \dots, N_{n-1}\) such that \(\{T, N_1, \dots, N_{n-1}\}\) is an orthonormal basis for \(\RR^n\) and
+   
+   \begin{equation*}
+   \partial_s \begin{pmatrix} T \\ N_1 \\ \vdots \\ N_{n-1} \end{pmatrix} =
+   \begin{pmatrix}
+   0 & \kappa &  0 & & & & \\
+   -\kappa & 0 & \kappa_1 & & & \text{\huge 0} & \\
+   0 & -\kappa_1 & 0 & & & & \\
+   & & & \ddots & & & \\
+   & & & & 0 & \kappa_{n-2} & 0 \\
+   & \text{\huge 0} & & & -\kappa_{n-2} & 0 & \kappa_{n-1}  \\
+   & & & & 0 & -\kappa_{n-1} & 0 \\
+   \end{pmatrix}
+   \begin{pmatrix} T \\ N_1 \\ \vdots \\ N_{n-1} \end{pmatrix}
+   \end{equation*}
+
+   /Hint/: Consider the case of \(n=3\) first to see how the condition \(\kappa \neq 0\) is equivalent to the linear independence of \(\lbrace\gamma', \gamma''\rbrace\), which then allows us to complete \(\lbrace T, N \rbrace\) to a basis. For the general case, use induction recalling Gram-Schmidt.
+
+5. *Curvature as a Total Invariant*
+
+   1. Let \(\kappa : (0, L) \to \RR\) be a smooth function, \(p \in \RR^2\), \(T_0 \in \RR^2\), and \(N_0 = R_{\pi/2} (T_0)\) where \(R_{\pi/2}\) is counter-clockwise rotation by \(\pi/2\). Show that there exists unique vector fields \(T, N : (a, b) \to \RR^2\) solving
+      \begin{equation*}
+      \begin{cases}
+      \partial_s \begin{pmatrix} T \\ N \end{pmatrix} &=
+      \begin{pmatrix}
+      0 & \kappa \\
+      -\kappa & 0
+      \end{pmatrix}
+      \begin{pmatrix} T \\ N \end{pmatrix} \\
+      T(0) &= T_0 \\
+      N(0) &= N_0
+      \end{cases}
+      \end{equation*}
+      and show moreover that \(N(s) = R_{\pi/2} T(s)\) for every \(s\).
+
+      /Hint/: Use the [[https://en.wikipedia.org/wiki/Picard%E2%80%93Lindel%C3%B6f_theorem][Picard-Lindelöf theorem]].
+
+   2. Let \(T\) be as in the previous part. Show that
+      \[
+      \gamma(s) = p + \int_0^s T(t) dt
+      \]
+      is the unique solution of
+      \begin{equation*}
+      \begin{cases}
+      \gamma'(s) &= T(s) \\
+      \gamma(0) &= p \\
+      \end{cases}
+      \end{equation*}
+
+   3. Let \(A : \RR^2 \to \RR^2\) be an orientation preserving rigid motion:
+      \[
+      A(x) = Mx + b
+      \]
+      where \(M\) is a \(2\times 2\) matrix such that \(\ip{Mx}{My} = \ip{x}{y}\) for every \(x, y \in \RR^2\), \(\det A > 0\) and \(b \in \RR^2\) is a fixed vector.
+
+      Show that for any regular, smooth parametrised curve \(\gamma : (a, b) \to \RR^2\) the curve \((A\gamma)(t) := A(\gamma(t))\) satisfies
+      \begin{equation*}
+      \begin{split}
+      T_{A\gamma} &= M T_{\gamma} \\
+      N_{A\gamma} &= M N_{\gamma} \\
+      \kappa_{A\gamma} &= \kappa
+      \end{split}
+      \end{equation*}
+      where \(N = R_{\pi/2} T\) for both curves. You may use the fact that \(\det A > 0\) implies \(A \circ R_{\pi/2} = R_{\pi/2} \circ A\).
+
+   4. Let \(\gamma, \sigma\) be regular, smooth parametrised curves such that \(\kappa_{\gamma} = \kappa_{\sigma}\). Let \(A\) be the rigid motion taking \(\sigma(0)\) to \(\gamma(0)\) and \(T_{\sigma}(0)\) to \(T_{\gamma}(0)\). Using the previous parts, show that \(A \sigma (s) = \gamma(s)\) for every \(s\).
