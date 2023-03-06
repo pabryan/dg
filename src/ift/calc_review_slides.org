@@ -1,0 +1,291 @@
+#+TITLE: Calculus Review
+#+OPTIONS: toc:nil num:nil
+
+* Topology on \(\RR^n\)
+** Open and closed balls
+
+#+BEGIN_env defn
+Given \(r > 0\) and \(x \in \RR^n\), the /open ball/ of radius \(r\) and centre \(x\) is the set
+\[
+B_r (x) = \{y \in \RR^n: \abs{x - y} < r\}.
+\]
+
+The /closed ball/ of radius \(r\) and centre \(x\) is the set
+\[
+\bar{B}_r (x) = \{y \in \RR^n: \abs{x - y} \leq r\}.
+\]
+#+END_env
+
+** Spheres
+
+#+BEGIN_env defn
+
+The /sphere/ of radius \(r\) and centre \(x\) is the set
+\[
+\SS^{n-1}_r (x) = \{y \in \RR^n: \abs{x - y} = r\}.
+\]
+#+END_env
+
+** Distance function
+
+#+BEGIN_env defn
+For \(x, y \in \RR^n\), the distance \(\abs{x - y}\) is defined to be
+\[
+\abs{x - y} = \sqrt{(x^1 - y^1)^2 + \cdots + (x^n - y^n)^2}
+\]
+where \(x = (x^1, \dots, x^n)\) and \(y = (y^1, \dots, y^n)\).
+#+END_env
+
+** Distance function
+
+- The open ball is the set of points of distance to \(x\) strictly less than \(r\).
+- The closed ball is the set of points of distance to \(x\) less than or equal to \(r\).
+- The sphere is the set of points of distance to \(x\) equal to \(r\).
+
+It is sometimes said that analysis is simply applications of the triangle inequality:
+\[
+\abs{x - y} \leq \abs{x - z} + \abs{z - y}.
+\]
+
+** Open and closed sets
+
+#+BEGIN_env defn
+A set \(U \subset \RR^n\) is said to be /open/ provided for every \(x \in U\), there exists an \(r = r(x)\) such that
+\[
+B_r(x) \subseteq U.
+\]
+
+
+A set \(C\) is /closed/ if it's complement,
+\[
+\RR^n \backslash C := \{y \in \RR^n : y \notin C\}
+\]
+is open.
+#+END_env
+
+** Open and closed sets
+
+- By this definition, open balls are open, closed balls are closed and spheres are closed.
+- Given any point of an open set, we can always move /uniformly/ a little in any direction and remain in the open set.
+
+** Bounded and compact sets
+
+#+BEGIN_env defn
+A set \(S \subseteq \RR^n\) is /bounded/ if there exists an \(x \in \RR^n\) and an \(r > 0\) such that \(S \subseteq B_r(x)\).
+
+A set \(K \subseteq \RR^n\) is /compact/ if it is closed and bounded.
+#+END_env
+
+** Bounded and compact sets
+
+- \(S \subseteq \RR^n\) is bounded iff for every \(x \in \RR^n\) there exists an \(r = r(x)\) such that \(S \subseteq B_r(x)\).
+- A set \(K \subseteq \RR^n\) is compact if and only if for every /open cover/ \(\{U_{\alpha}\}\), there exists a /finite subcover/.
+  - An /open cover/ is a collection of open sets \(\{U_{\alpha}\}\) such that \(K \subseteq \cup_{\alpha} U_{\alpha}\).
+  - A /finite subcover/ is a cover by finitely many \(U_{\alpha_1}, \cdots, U_{\alpha_N}\)
+  - Equivalent for \(\RR^n\).
+
+* Limits and continuity
+** Limits
+
+#+BEGIN_env defn
+A sequence \((x_n)_{n\in \NN} \subseteq \RR^n\) /converges/ to \(x \in \RR^n\) if for every \(\epsilon > 0\), there exists a \(N \in \NN\) such that \((x_n)_{n \geq N} \subseteq B_{\epsilon} (x)\). We write \(\lim_{n\to\infty} x_n = x\).
+#+END_env
+
+** Cauchy Sequences
+
+#+BEGIN_env defn
+The sequence \((x_n)\) is /Cauchy/ if for every \(\epsilon > 0\), there exists a \(N \in \NN\) such that \((x_m)_{m \geq N} \subseteq B_{\epsilon} (x_n)\) for every \(n \geq N\).
+#+END_env
+
+** Limits and Cauchy Sequences
+
+- The condition for convergence to \(x\) says that \(\abs{x - x_n} < \epsilon\) for \(n \geq N\).
+- The condition to be a Cauchy sequence says that \(\abs{x_n - x_m} < \epsilon\) for \(m, n \geq N\).
+
+** Sequential Continuity
+
+#+BEGIN_env defn :title "Sequential definition"
+A function \(f : \RR^n \to \RR^m\) is continuous at \(x \in \RR^n\) if for /every/ sequence \((x_n)\) with \(\lim_{n \to \infty} = x\) we have \(\lim_{n \to \infty} f(x_n) = f(x)\).
+#+END_env
+
+** Epsilon-Delta Continuity
+
+#+BEGIN_env defn :title "Epsilon-Delta definition"
+Write
+\[
+\lim_{x \to x_0} f(x) = y
+\]
+provided for every \(\epsilon > 0\), there exists a \(\delta > 0\) such that \(f(B_{\delta} (x_0)) \subseteq B_{\epsilon} (y)\).
+
+Then \(f\) is continuous at \(x_0\) if \(\lim_{x \to x_0} f(x) = f(x_0)\).
+#+END_env
+
+** Topological Continuity
+
+
+#+BEGIN_env defn :title "Topological definition"
+The function \(f\) is continuous (at every \(x_0\)) if \(f^{-1} (V)\) is an open set for every open set \(V \subseteq \RR^m\).
+#+END_env
+
+** Continuity Remarks
+
+- The first definition requires that \(f(x_n) \to f(x)\) for /every/ sequence.
+- The condition in the second definition that \(f(B_{\delta} (x_0)) \subseteq B_{\epsilon} (y)\) is the same thing as \(\abs{f(x) - f(x_0)} < \epsilon\) whenever \(\abs{x - x_0} < \delta\).
+- The second definition says that given /any tolerance \(\epsilon > 0\)/, there is an /adjustment \(\delta > 0\)/ so that provided we are sufficiently close to \(x_0\) (i.e. \(\abs{x - x_0} < \delta\)), then \(f(x)\) is within the desired tolerance of \(f(x_0)\) (i.e. \(\abs{f(x) - f(x_0)} < \epsilon\).
+
+** Continuity Remarks
+
+- The equivalence of the first and second definitions is a standard exercise in analysis using the /completeness/ of the real numbers \(\RR\).
+- The final definition is the general /topological/ definition.
+- The equivalence of the topological and \(\epsilon\)-\(\delta\) definitions follows by writing \(U = \cup_{y \in U} B_{r(y)} (y)\) as a union of open balls and using properties of the pull-back \(f^{-1}\).
+
+** A cautionary example
+
+Let
+\[
+f(x, y) = \begin{cases}
+\frac{x^2 y}{x^4 + y^2}, \quad (x, y) \ne (0, 0) \\
+0, \quad (x, y) = (0, 0).
+\end{cases}
+\]
+
+
+Then \(f\) is *not* continuous at \((x, y) = (0, 0)\).
+
+#+BEGIN_notes
+However, along every straight line through the origin \(y = ax\), the limit is in fact \(0\)! That is,
+\[
+\lim_{t \to 0} f(t, at) = \lim_{t\to 0} \frac{t^2 \cdot at}{t^4 + a^2t^2} = \lim_{t\to 0} \frac{t^2}{t^2} \frac{at}{t^2 + a^2} = 0.
+\]
+
+But along the curve \(y = x^2\), we get something else:
+\[
+\lim_{t \to 0} f(t, t^2) = \lim_{t\to 0} \frac{t^2 \cdot t^2}{t^4 + (t^2)^2} = \lim_{t\to 0} \frac{t^4}{t^4} \frac{1}{2} = \frac{1}{2}.
+\]
+#+END_notes
+
+* Differentiability
+** Partial derivatives
+
+#+BEGIN_env defn
+The \(i\)'th /partial derivative/ of a function \(f : \RR^n \to \RR\) at \(x = (x^1, \dots, x^n)\) is
+\begin{equation*}
+\begin{split}
+\partial_i f (x) &= \frac{\partial f}{\partial x^i} (x) \\
+&= \lim_{h\to 0} \frac{f(x^1, \dots, x^i + h, \dots x^n) - f(x^1, \dots, x^n)}{h}
+\end{split}
+\end{equation*}
+#+END_env
+
+
+Partial derivatives are the usual derivatives in one variable holding all other variables fixed.
+
+** Directional derivatives
+
+#+BEGIN_env defn
+Let \(X \in \RR^n\). The /directional derivative/ \(\partial_X f (x)\) of \(f\) at \(x\) in the direction \(X\) is
+\[
+\partial_X f (x) = \partial_t|_{t=0} f(x + tX) = \lim_{h \to 0} \frac{f(x + hX) - f(x)}{h}.
+\]
+#+END_env
+
+
+\(\partial_i f = \partial_{e_i} f\)
+
+** Taylor's Theorem in one dimension
+
+Recall that Taylor's theorem with remainder states that
+\[
+f(x) = f(x_0) + f'(x_0) (x-x_0) + R_{x_0} (x)
+\]
+where
+\[
+\lim_{x\to x_0} \frac{\abs{R_{x_0} (x)}}{x-x_0} = 0.
+\]
+We write \(R_{x_0} (x) = \omicron(x)\) as \(x \to x_0\).
+
+** Differentiability
+
+#+BEGIN_env defn
+We say \(f : \RR^n \to \RR^m\) is differentiable at \(x_0\) if there exists a linear map \(L_{x_0} : \RR^n \to \RR^m\) such that
+\[
+\lim_{x\to x_0} \frac{\abs{f(x) - f(x_0) - L_{x_0} (x-x_0)}}{\abs{x-x_0}} = 0.
+\]
+#+END_env
+
+** Taylor's Theorem
+
+There exists a linear map written \(L_{x_0} = df_{x_0}\) such that
+\[
+f(x) = f(x_0) + df_{x_0} (x-x_0) + \omicron(\abs{x-x_0})
+\]
+as \(x \to x_0\)
+
+** Differential and Partial derivatives
+
+Let \(f\) be differentiable at \(x_0\). For \(h \neq 0\), let \(x = x_0 + he_i\).
+\[
+0 = \lim_{h\to 0} \abs{\frac{f(x_0 + h e_i) - f(x_0)}{h} - \frac{df_{x_0} (h e_i)}{h}}
+\]
+hence
+\[
+\partial_i f(x_0) = df_{x_0} (e_i)
+\]
+
+** A cautionary example
+
+Let
+\[
+f(x, y) = \begin{cases}
+\frac{xy}{x^2 + y^2}, & (x, y) \ne (0, 0) \\
+0, & (x, y) = (0, 0).
+\end{cases}
+\]
+
+\[
+\partial_x f (0, 0) = \partial_y f (0, 0) = 0.
+\]
+
+But \(\partial_{(1,1)} f (0, 0)\) is not defined.
+
+** \(C^1\) functions
+
+#+BEGIN_env defn
+A function \(f : \RR^n \to \RR^m\) is \(C^1\) (i.e. has continuous derivative) if \(f\) is differentiable at each \(x\) and moreover, the map
+\[
+x \mapsto df_x
+\]
+is continuous. This is equivalent to having /continuous/ partial derivatives.
+#+END_env
+
+** \(C^1\) functions
+
+Note here that \(df_x\) is a linear map \(\RR^n \to \RR^m\) and the set of all these is linearly isomorphic to the space \(M_{n, m}\) of \(n\) by \(m\) matrices, which is itself linearly isomorphic to \(\RR^{nm}\) (index by \(i,j\) with \(1 \leq i \leq n\) and \(1 \leq j \leq m\)).
+
+** Jacobian Matrix
+
+Concretely we may realise \(df_x\) as the Jacobian matrix
+\[
+(df_x)_{ij} = \partial_i f^j (x)
+\]
+since \(df_x (e_i) = \partial_i f (x) = (\partial_i f^1, \dots, \partial_i f^n)\)
+
+
+Then \(x \in \RR^n \mapsto df_x \in \RR^{nm}\) is a map between Euclidean spaces so we can ask if it's differentiable. We say \(f\) is \(C^2\) if \(df\) is \(C^1\) and more generally, \(f\) is \(C^k\) if \(d^k f\) is continuous.
+
+** Chain Rule
+
+#+BEGIN_env thm :title "Chain Rule"
+
+The chain rule states that if \(f : \RR^n \to \RR^m\) is differentiable at \(x_0\) and \(g : \RR^m \to \RR^k\) is differentiable at \(f(x_0)\), then
+\[
+d(f \circ h)_{x_0} = dh_{f(x_0)} \cdot df_{x_0}.
+\]
+#+END_env
+
+
+By the /chain rule/, given any curve \(\gamma\) such that \(\gamma(0) = x\) and \(\gamma'(0) = X\) we have
+\[
+df_x \cdot X = \partial_t|_{t=0} f(\gamma(t)).
+\]
+
