@@ -47,7 +47,7 @@
    
 4. *High Dimension Frenet-Serret*
 
-   Let \(\gamma : (a, b) \to \RR^n\) be a regular, smooth parametrised curve such that \(\lbrace\gamma'(s), \dots, \gamma^{(n-1)}(s)\rbrace\) are linearly independent for every \(s \in (a, b)\). Show that there exists functions \(\kappa_1, \dots, \kappa_{n-1}\) and vector fields \(N_1, \dots, N_{n-1}\) such that \(\{T, N_1, \dots, N_{n-1}\}\) is an orthonormal basis for \(\RR^n\) and
+   Let \(\gamma : (a, b) \to \RR^n\) be a regular, smooth curve parametrised by arc length and such that \(\lbrace\gamma'(s), \dots, \gamma^{(n-1)}(s)\rbrace\) are linearly independent for every \(s \in (a, b)\). Show that there exists functions \(\kappa_1, \dots, \kappa_{n-2}\) and vector fields \(N_1, \dots, N_{n-1}\) such that \(\{T, N_1, \dots, N_{n-1}\}\) is an orthonormal basis for \(\RR^n\) and
    
    \begin{equation*}
    \partial_s \begin{pmatrix} T \\ N_1 \\ \vdots \\ N_{n-1} \end{pmatrix} =
@@ -56,14 +56,14 @@
    -\kappa & 0 & \kappa_1 & & & \text{\huge 0} & \\
    0 & -\kappa_1 & 0 & & & & \\
    & & & \ddots & & & \\
-   & & & & 0 & \kappa_{n-2} & 0 \\
-   & \text{\huge 0} & & & -\kappa_{n-2} & 0 & \kappa_{n-1}  \\
-   & & & & 0 & -\kappa_{n-1} & 0 \\
+   & & & & 0 & \kappa_{n-3} & 0 \\
+   & \text{\huge 0} & & & -\kappa_{n-3} & 0 & \kappa_{n-2}  \\
+   & & & & 0 & -\kappa_{n-2} & 0 \\
    \end{pmatrix}
    \begin{pmatrix} T \\ N_1 \\ \vdots \\ N_{n-1} \end{pmatrix}
    \end{equation*}
 
-   /Hint/: Consider the case of \(n=3\) first to see how the condition \(\kappa \neq 0\) is equivalent to the linear independence of \(\lbrace\gamma', \gamma''\rbrace\), which then allows us to complete \(\lbrace T, N \rbrace\) to a basis. For the general case, use induction recalling Gram-Schmidt.
+   /Hint/: Consider the case of \(n=3\) first to see how the condition \(\kappa \neq 0\) is equivalent to the linear independence of \(\lbrace\gamma', \gamma''\rbrace\), which then allows us to complete \(\lbrace T, N \rbrace\) to a basis by introducing \(B \perp T, N\). Then consider the case \(n=4\). In the general case, use induction applying Gram-Schmidt and the hypotheses.
 
 5. *Curvature as a Total Invariant*
 
