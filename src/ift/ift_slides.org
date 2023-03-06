@@ -164,33 +164,35 @@ But along the curve \(y = x^2\), we get something else:
 \]
 #+END_notes
 
-* Differentiability                                                :noexport:
+* Differentiability
 ** Partial derivatives
 
-#+BEGIN_defn
+#+BEGIN_env defn
 The \(i\)'th /partial derivative/ of a function \(f : \RR^n \to \RR\) at \(x = (x^1, \dots, x^n)\) is
-\[
-\partial_i f (x) = \frac{\partial f}{\partial x^i} (x) = \lim_{h\to 0} \frac{f(x^1, \dots, x^{i-1}, x^i + h, x^{i+1}, \dots x^n) - f(x^1, \dots, x^n)}{h}.
-\]
-whenever the limit exists.
-#+END_defn
+\begin{equation*}
+\begin{split}
+\partial_i f (x) &= \frac{\partial f}{\partial x^i} (x) \\
+&= \lim_{h\to 0} \frac{f(x^1, \dots, x^i + h, \dots x^n) - f(x^1, \dots, x^n)}{h}
+\end{split}
+\end{equation*}
+#+END_env
 
 
-The partial derivative is simply the usual derivative of a function of one variable holding all other variables fixed.
+Partial derivatives are the usual derivatives in one variable holding all other variables fixed.
 
 ** Directional derivatives
 
-#+BEGIN_defn
-Let \(X = (X^1, \dots, X^n) \in \RR^n\). The /directional derivative/ \(df_x \cdot X\) of \(f\) at \(x\) in the direction \(X\) is
+#+BEGIN_env defn
+Let \(X \in \RR^n\). The /directional derivative/ \(\partial_X f (x)\) of \(f\) at \(x\) in the direction \(X\) is
 \[
 \partial_X f (x) = \partial_t|_{t=0} f(x + tX) = \lim_{h \to 0} \frac{f(x + hX) - f(x)}{h}.
 \]
-#+END_defn
+#+END_env
 
 
-The partial derivative is simply the directional derivative with \(X = e_i\) where \(e_i = (0, \dots, 0, 1, 0, \dots, 0)\) with the \(1\) in the \(i\)'th position is the so-called \(i\)'th basis vector.
+\(\partial_i f = \partial_{e_i} f\)
 
-** The Differential
+** Taylor's Theorem in one dimension
 
 Recall that Taylor's theorem with remainder states that
 \[
@@ -200,40 +202,36 @@ where
 \[
 \lim_{x\to x_0} \frac{\abs{R_{x_0} (x)}}{x-x_0} = 0.
 \]
-We write \(R_{x_0} (x) = \littleo(x)\) as \(x \to x_0\).
+We write \(R_{x_0} (x) = \omicron(x)\) as \(x \to x_0\).
 
+** Differentiability
 
-#+BEGIN_defn
+#+BEGIN_env defn
 We say \(f : \RR^n \to \RR^m\) is differentiable at \(x_0\) if there exists a linear map \(L_{x_0} : \RR^n \to \RR^m\) such that
 \[
-\lim_{x\to x_0} \frac{\abs{f(x) - f(x_0) - L_{x_0} \cdot (x-x_0)}}{\abs{x-x_0}} = 0.
+\lim_{x\to x_0} \frac{\abs{f(x) - f(x_0) - L_{x_0} (x-x_0)}}{\abs{x-x_0}} = 0.
 \]
-#+END_defn
+#+END_env
 
+** Taylor's Theorem
 
-That is, there exists a linear map written \(L_{x_0} = df_{x_0}\) such that
+There exists a linear map written \(L_{x_0} = df_{x_0}\) such that
 \[
-f(x) = f(x_0) + df_{x_0} \cdot (x-x_0) + \littleo(\abs{x-x_0}), \quad \text{as \(x \to x_0\)}.
+f(x) = f(x_0) + df_{x_0} (x-x_0) + \omicron(\abs{x-x_0})
 \]
+as \(x \to x_0\)
 
-** Differentiable imples partial derivatives exist
+** Differential and Partial derivatives
 
-Let \(f\) be differentiable at \(x_0 = (x_0^1, \dots, x_0^n)\). For \(h \neq 0\), let \(x = (x_0^1, \dots, x_0^{i-1}, x_0^i + h, x_0^{i+1}, \dots, x_0^n) = x_0 + he_i\). We have
+Let \(f\) be differentiable at \(x_0\). For \(h \neq 0\), let \(x = x_0 + he_i\).
 \[
-\partial_i f(x_0) = \lim_{h\to 0} \frac{f(x_0 + h e_i) - f(x_0)}{h}
+0 = \lim_{h\to 0} \abs{\frac{f(x_0 + h e_i) - f(x_0)}{h} - \frac{df_{x_0} (h e_i)}{h}}
 \]
-provided the limit exists. Differentiability ensures that
+hence
 \[
-0 = \lim_{h\to 0} \abs{\frac{f(x_0 + h e_i) - f(x_0)}{h} - \frac{df_{x_0} \cdot h e_i}{h}}
+\partial_i f(x_0) = df_{x_0} (e_i)
 \]
 
-and hence
-\[
-\lim_{h\to 0} \frac{f(x_0 + h e_i) - f(x_0)}{h} = \lim_{h \to 0} \frac{1}{h} df_{x_0} \cdot h e_i = df_{x_0} \cdot e_i.
-\]
-exists.
-
-- *Exercise*: Show that the same argument proves \(\partial_X f (x_0) = df_{x_0} (X)\) exists.
 ** A cautionary example
 
 Let
@@ -244,52 +242,46 @@ f(x, y) = \begin{cases}
 \end{cases}
 \]
 
-
-Notice that
 \[
-\partial_x f (0, 0) = \partial_t|_{t=0} f(t, 0) = \partial_t|_{t=0} \frac{t \cdot 0}{t^2 + 0^2} = 0.
+\partial_x f (0, 0) = \partial_y f (0, 0) = 0.
 \]
 
-Likewise \(\partial_y f(0, 0) = 0\).
-
-However,
-\[
-\partial_{(1, 1)} f (0, 0) = \partial_t|_{t=0} f(t, t) = \lim_{t\to 0} \frac{1}{t} (f(t, t) - f(0, 0))
-\]
-is undefined since \(f(t, t) = t^2/(t^2 + t^2) = 1/2\).
-
-Defining, \(f(0, 0) = 1/2\) doesn't help because then \(\partial_{(1, 2)} f (0, 0)\) doesn't exist. In fact, \(f\) is not even continuous at \((0, 0)\).
+But \(\partial_{(1,1)} f (0, 0)\) is not defined.
 
 ** \(C^1\) functions
 
-#+BEGIN_defn
+#+BEGIN_env defn
 A function \(f : \RR^n \to \RR^m\) is \(C^1\) (i.e. has continuous derivative) if \(f\) is differentiable at each \(x\) and moreover, the map
 \[
 x \mapsto df_x
 \]
 is continuous. This is equivalent to having /continuous/ partial derivatives.
-#+END_defn
+#+END_env
 
+** \(C^1\) functions
 
 Note here that \(df_x\) is a linear map \(\RR^n \to \RR^m\) and the set of all these is linearly isomorphic to the space \(M_{n, m}\) of \(n\) by \(m\) matrices, which is itself linearly isomorphic to \(\RR^{nm}\) (index by \(i,j\) with \(1 \leq i \leq n\) and \(1 \leq j \leq m\)).
 
-Concretely we may realise \(df_x\) as the matrix
+** Jacobian Matrix
+
+Concretely we may realise \(df_x\) as the Jacobian matrix
 \[
-(df_x)_{ij} = \partial_i f^j (x) \quad \text{since} \quad df_x \cdot e_i = \partial_i f (x) = (\partial_i f^1, \dots, \partial_i f^n).
+(df_x)_{ij} = \partial_i f^j (x)
 \]
+since \(df_x (e_i) = \partial_i f (x) = (\partial_i f^1, \dots, \partial_i f^n)\)
 
 
-Then \(df : \RR^n \to \RR^{nm}\) is a map between Euclidean spaces so we can ask if it's differentiable. Then \(f\) is \(C^2\) if \(d^2 f\) is \(C^1\) and more generally, \(f\) is \(C^k\) if \(d^k f\) is continuous.
+Then \(x \in \RR^n \mapsto df_x \in \RR^{nm}\) is a map between Euclidean spaces so we can ask if it's differentiable. We say \(f\) is \(C^2\) if \(df\) is \(C^1\) and more generally, \(f\) is \(C^k\) if \(d^k f\) is continuous.
 
 ** Chain Rule
 
-#+BEGIN_theorem
-[Chain Rule]
+#+BEGIN_env thm :title "Chain Rule"
+
 The chain rule states that if \(f : \RR^n \to \RR^m\) is differentiable at \(x_0\) and \(g : \RR^m \to \RR^k\) is differentiable at \(f(x_0)\), then
 \[
 d(f \circ h)_{x_0} = dh_{f(x_0)} \cdot df_{x_0}.
 \]
-#+END_theorem
+#+END_env
 
 
 By the /chain rule/, given any curve \(\gamma\) such that \(\gamma(0) = x\) and \(\gamma'(0) = X\) we have
@@ -297,8 +289,6 @@ By the /chain rule/, given any curve \(\gamma\) such that \(\gamma(0) = x\) and 
 df_x \cdot X = \partial_t|_{t=0} f(\gamma(t)).
 \]
 
-
-In other words, to compute \(\partial_X f (x)\) we may replace the curve \(t \mapsto x + t X\) with any other curve such that \(\gamma(0) = x\) and \(\gamma'(0) = X\).
 * Inverse and Implicit Function Theorems                           :noexport:
 ** One Dimensional Inverse Function Theorem
 
