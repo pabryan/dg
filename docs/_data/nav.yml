@@ -11,18 +11,22 @@
   short_title: Curvature and Global Curves
   link: "/global_curves"
 - num: "03"
+  title: Inverse Function Theorem
+  short_title: Inverse Function Theorem
+  link: "/ift"
+- num: "04"
   title: Surfaces
   short_title: Surfaces
   link: "/surfaces"
-- num: "04"
+- num: "05"
   title: Geometry and Curvature of Surfaces
   short_title: Surface Geometry
   link: "/geometry_curvature_surfaces"
-- num: "05"
+- num: "06"
   title: Manifolds
   short_title: Manifolds
   link: "/manifolds"
-- num: "06"
+- num: "07"
   title: Smooth Maps
   short_title: Smooth Maps
   link: "/smooth_maps"
@@ -30,14 +34,10 @@
   title: Vector Fields
   short_title: Vector Fields
   link: "/vector_fields"
-- num: "08"
+- num: "09"
   title: Tensor Bundles
   short_title: Tensor Bundles
   link: "/tensor_bundles"
-- num: "09"
-  title: Differential Forms
-  short_title: Differential Forms
-  link: "/differential_forms"
 - num: "10"
   title: Riemannian Metrics and Connections
   short_title: Metrics and Connctions
