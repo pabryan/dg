@@ -289,44 +289,26 @@ By the /chain rule/, given any curve \(\gamma\) such that \(\gamma(0) = x\) and 
 df_x \cdot X = \partial_t|_{t=0} f(\gamma(t)).
 \]
 
-* Inverse and Implicit Function Theorems                           :noexport:
-** One Dimensional Inverse Function Theorem
+* Contraction Mappings
+** Contraction mappings
 
-#+BEGIN_theorem
-Let \(f : \RR \to \RR\) be a smooth function with \(f'(x_0) \ne 0\), there exists an interval \(I\) containing \(x_0\) and an interval \(J\) containing \(f(x_0)\) so that \(f : I \to J\) is a diffeomorphism. That is, there exists an inverse function \(f^{1} : J \to I\). Moreover, for all \(y \in J\),
-\[
-(f^{-1})' (y) = \frac{1}{f'(f^{-1} (y))}.
-\]
-#+END_theorem
-
-
-- To be explicit, the definition of \(f^{-1}\) means that \(f \circ f^{-1} (y) = y)\) for all \(y \in J\) and \(f^{-1} \circ f (x) = x\) for all \(x \in I\).
-- In this case, observe that if \(h : J \to \RR\) is a smooth function, then so too is \(h \circ f\). This defines the /pull-back/
-  \[
-  f^{\ast} : h \in C^{\infty}(J, \RR) \mapsto h \circ f \in C^{\infty} (I, \RR).
-  \]
- 
-- *Exercise*: Show that \(f^{\ast}\) is a bijection with inverse \((f^{-1})^{\ast}\).
-
-** Contraction mappings and fixed points
-
-#+BEGIN_defn
+#+BEGIN_env defn
 A map \(T : \bar{B}_r(p) \to \bar{B}_r(p)\) is a /contraction map/ if there exists a constant \(0 \leq L < 1\) such that
 \[
 \abs{T(x) - T(y)} \leq L \abs{x - y}.
 \]
-#+END_defn
+#+END_env
 
-#+BEGIN_theorem
-[Banach fixed point theorem]
+** Fixed Points
+
+#+BEGIN_env thm :title "Banach fixed point theorem"
 
 Let \(T\) be a contraction map. Then there exists a unique /fixed point/ \(x^{\ast} \in B_r(p)\) of \(T\). That is, there exists a unique point \(x^{\ast}\) such that \(T(x^{\ast}) = x^{\ast}\).
-#+END_theorem
+#+END_env
 
-** Proof of contraction mapping theorem (Uniqueness)
+** Proof (Uniqueness)
 
-#+BEGIN_proof
-\let\qed\relax
+#+BEGIN_pf
 Fundamental contraction identity:
 
 \begin{align*}
@@ -340,15 +322,11 @@ Therefore
 \[
 \abs{x - y} \leq \frac{\abs{x - T(x)} + \abs{T(y) - y}}{1-L}
 \]
+#+END_pf
 
+** Proof (Existence)
 
-Thus we obtain /uniqueness/: if \(T(x) = x\) and \(T(y) = y\), then \(\abs{x - y} \leq 0\) and hence \(x = y\).
-#+END_proof
-
-** Proof of contraction mapping theorem (Existence)
-
-#+BEGIN_proof
-\let\qed\relax
+#+BEGIN_pf
 Pick any \(x_0\) and define \(x_n = T^n(x_0) = \underbrace{T \circ \cdots \circ T}_{n \text{ times}}  (x_0)\)
 
 The claim is that \(x^{\ast} = \lim_{n\to\infty} x_n\) exists and is the desired fixed point.
@@ -357,290 +335,66 @@ Supposing first that the limit exists, then using \(x_n = T(x_{n-1})\) we have
 \[
 x_{\ast} = \lim_{n\to\infty} x_n = \lim_{n\to\infty} T(x_{n-1}) = T(\lim_{n\to\infty} x_{n-1}) = T(x^{\ast})
 \]
-where we pass the limit through \(T\) since a contraction mapping is continuous (for any \(\epsilon\) choose \(\delta = \epsilon/L\)).
-#+END_proof
+#+END_pf
 
-** Proof of contraction mapping theorem (Existence)
+** Proof (Existence)
 
-#+BEGIN_proof
-To prove that \(x_n = T^n(x_0)\) has a limit we prove it's a Cauchy sequence. By the fundamental contraction identity
+#+BEGIN_pf
+\(x_n = T^n(x_0)\) is a Cauchy sequence:
 \begin{align*}
-\abs{T^n(x_0) - T^m(x_0)} &\leq \frac{\abs{T(T^n(x_0)) - T^n(x_0)} + \abs{T(T^m(x_0)) - T^m(x_0)}}{1-L} \\
+\lvert T^n&(x_0) - T^m(x_0) \rvert \\
+&\leq \frac{\abs{T(T^n(x_0)) - T^n(x_0)} + \abs{T(T^m(x_0)) - T^m(x_0)}}{1-L} \\
 &= \frac{\abs{T^n(T(x_0)) - T^n(x_0)} + \abs{T^m(T(x_0) - T^m(x_0)}}{1-L} \\
-&\le \frac{L^n \abs{T(x_0) - x_0} + L^m \abs{T(x_0) - x_0}}{1-L} \\
-&= \frac {L^n + L^m} {1-L} \abs{T(x_0) - x_0} \to 0 \quad \text{as \(n,m \to \infty\)}.
+&\leq \frac{L^n \abs{T(x_0) - x_0} + L^m \abs{T(x_0) - x_0}}{1-L} \to 0
 \end{align*}
+#+END_pf
 
+* Inverse Function Theorem
+** \(1D\) Inverse Function Theorem
 
-Here we used that \(0 \leq L < 1\) and by induction that (*exercise!*)
-\[
-\abs{T^n(x) - T^n(y)} \leq L^n \abs{x - y}.
-\]
-#+END_proof
+#+BEGIN_env thm
+Let \(f : \RR \to \RR\) be a smooth function with \(f'(x_0) \ne 0\), there exists an interval \(I\) containing \(x_0\) and an interval \(J\) containing \(f(x_0)\) so that \(f : I \to J\) is a diffeomorphism.
+#+END_env
 
 ** Inverse Function Theorem
 
-#+BEGIN_theorem
-Let \(f : \RR^n \to \RR^n\) a smooth function such that \(df_{x_0}\) is invertible at \(x_0\). Then there is an open set \(U\) containing \(x_0\) and an open set \(V\) containing \(f(x_0)\) such that \(f|U : U \to V\) is a diffeomorphism. Moreover
+#+BEGIN_env thm
+Let \(f : \RR^n \to \RR^n\) a smooth function such that \(df_{x_0}\) is invertible at \(x_0\). Then there is an open set \(U\) containing \(x_0\) and an open set \(V\) containing \(f(x_0)\) such that \(f|_U : U \to V\) is a diffeomorphism. Moreover
 \[
-df^{-1}_{f(x_0)} = (df_{x_0})^{-1}.
+df^{-1}_{f(x_0)} = (df_{x_0})^{-1}
 \]
-#+END_theorem
+#+END_env
 
+** IFT
 
-#+BEGIN_remark
-Notice that if \(f\) is a diffeomorphism, then \(f^{-1} \circ f (x) = x\). That is, \(f^{-1} \circ f = \Id_x\). Since \(d\Id_x = \Id_n\), by the chain rule we have
+If \(f\) is a diffeomorphism, then \(f^{-1} \circ f (x) = x\). That is, \(f^{-1} \circ f = \Id_x\).
+
+Since \(d\Id_x = \Id_n\), by the chain rule we have
 \[
 \Id_n = d\Id_x = d(f^{-1} \circ f)_{x_0} = df^{-1}_{f(x_0)} \cdot df_{x_0}.
 \]
-
 
 That is \(df_{x_0}\) is invertible and
 \[
 (df_{x_0})^{-1} = df^{-1}_{f(x_0)}.
 \]
-#+END_remark
 
-** Inverse Function Theorem: Idea
+** IFT: Idea
 
-#+BEGIN_proof
-\let\qed\relax
-Here's the basic idea: By definition, we have
 \[
-f(x) = f(x_0) + df_{x_0} \cdot (x - x_0) + \littleo(|x-x_0|).
+f(x) = f(x_0) + df_{x_0} \cdot (x - x_0) + \omicron(|x-x_0|).
 \]
 
-
-Ignoring the error term for the moment, by assumption since \(df_{x_0}\) is invertible, we can solve /uniquely/ for \(x\):
+Ignoring \(\omicron(|x-x_0|)\):
 \[
-f(x) = f(x_0) + df_{x_0} \cdot (x - x_0) \quad \Rightarrow \quad x = x_0 + df_{x_0}^{-1} (f(x) - f(x_0)).
+f(x) = f(x_0) + df_{x_0} \cdot (x - x_0)
 \]
 
+\[
+x = x_0 + df_{x_0}^{-1} (f(x) - f(x_0)).
+\]
 
-Write \(y = f(x)\) and \(y_0 = f(x_0)\). Since \(y\) uniquely determines \(x\) we may write \(x = f^{-1}(y)\) and
 \[
 f^{-1}(y) = f^{-1}(y_0) + df_{x_0}^{-1} \cdot (y - y_0).
 \]
-
-So we need to deal with the error terms.
-#+END_proof
-
-** Inverse Function Theorem: Contraction
-
-#+BEGIN_proof
-\let\qed\relax
-We use the contraction mapping theorem: Define for each fixed \(y\),
-\[
-T_y (x) = x - df_{x_0}^{-1} (f(x) - y).
-\]
-
-
-Then since \(f\) is \(C^1\), so too is \(T\) (dropping the \(y\) subscript for convenience) and
-\[
-dT_{x_0} = d\Id_{x_0} - df_{x_0}^{-1} df_{x_0} = 0.
-\]
-
-
-By continuity of \(dT\), there exists an open neighbourhood \(U\) of \(x_0\) such that \(\|dT_{x_0}\| \leq 1/2\). That is, for \(x \in U\) and \(X \in \RR^n\),
-\[
-\abs{dT_{x} \cdot X} \leq \frac{1}{2} \abs{X}.
-\]
-#+END_proof
-
-** Inverse Function Theorem: Contraction
-
-#+BEGIN_proof
-\let\qed\relax
-From \(\abs{dT_{x} \cdot X} \leq \frac{1}{2} \abs{X}\), and the mean value inequality, we obtain
-\[
-\abs{T(x_1) - T(x_2)} \leq \frac{1}{2}\abs{x_1 - x_2}
-\]
-so that \(T\) is \emph{contractive} for \(x_1, x_2 \in U\).
-
-
-In order to conclude that \(T\) has a unique fixed point, we need to verify that there is an \(r > 0\) such that \(T : \bar{B}_r(x_0) \to \bar{B}_r(x_0)\).
-
-
-Since \(x_0 \in U\) and \(U\) is open, there exists an \(r > 0\) such that 
-\(B_r(x_0) \subseteq U\).
-#+END_Proof
-
-** Inverse function theorem: Contraction
-
-#+BEGIN_proof
-\let\qed\relax
-
-Now we restrict the range of possible \(y\): Let \(y_0 = f(x_0)\) and \(y \in B_s(y_0)\) with \(s\) any number satisfying
-\[
-0 < s < \frac{1-L}{\|df_{x_0}^{-1}\|} r.
-\]
-
-
-Then for \(x \in B_r(x_0)\), recalling \(T(x) = x - df_{x_0}^{-1}(f(x) - y)\) we have
-\begin{align*}
-\abs{T(x) - x_0} &\leq \abs{T(x) - T(x_0)} + \abs{T(x_0) - x_0} \\
-&\leq L\abs{x-x_0} + \abs{-df_{x_0}^{-1}(f(x_0) - y)} \\
-&\leq L\abs{x-x_0} + \|df_{x_0}^{-1}\| \abs{y_0 - y} \\
-&\leq r L + \|df_{x_0}^{-1}\|s \\
-&\leq r L + (1-L)r = r.
-\end{align*}
-
-
-#+END_proof
-
-** Inverse function theorem: Fixed Point
-
-#+BEGIN_proof
-\let\qed\relax
-That is \(T(x) \in \bar{B}_{x_0} (r)\) for \(x \in \bar{B}_{x_0} (r)\) and \(y \in \bar{B}_s (y_0)\).
-
-Thus for any \(y \in \bar{B}_s(x_0)\), \(T_y : \bar{B}_r (x_0) \to \bar{B}_r (x_0)\) is a contraction mapping, hence:
-
-For each such \(y\), there exists a unique fixed point \(x^{\ast}_y \in \bar{B}_r (x_0)\). That is
-\[
-x^{\ast}_y = T_y(x^{\ast}_y) = x^{\ast}_y - df_{x_0}^{-1} (f(x^{\ast}_y) - y).
-\]
-
-
-Cancelling \(x^{\ast}_y\) from both sides and since \(df_{x_0}^{-1}\) is non-singular,
-\[
-df_{x_0}^{-1} (f(x^{\ast}_y) - y) = 0 \Rightarrow f(x^{\ast}_y) = y.
-\]
-
-#+END_proof
-
-** Inverse function theorem: Continuity of Inverse
-
-#+BEGIN_proof
-\let\qed\relax
-*We have finally found our inverse function:* \(f^{-1} (y) = x^{\ast}_y\) for \(y \in B_s(y_0)\). Note we need to restrict the range of \(x\) to the open set \(f^{-1}(B_s(y_0)) \cap B_r(x_0)\) so that \(f\) maps this set into \(B_s(y_0)\).
-
-
-Since \(T\) is a contraction
-\[
-\abs{x_1 - x_2 - df_{x_0}^{-1}(f(x_1) - f(x_2))} = \abs{T(x_1) - T(x_2)} \leq L \abs{x_1 - x_2}.
-\]
-
-
-By the /reverse triangle inequality/
-\[
-\abs{x_1 - x_2} - \abs{df_{x_0}^{-1}(f(x_1) - f(x_2))} \leq L \abs{x_1 - x_2}.
-\]
-
-
-That is,
-\[
-\abs{x_1 - x_2} \leq \frac{\abs{df_{x_0}^{-1}(f(x_1) - f(x_2))}}{1 - L} \leq \frac{\|df_{x_0}^{-1}\|}{1 - L} \abs{f(x_1) - f(x_2)}.
-\]
-#+END_proof
-
-** Inverse function theorem: Continuity of Inverse
-
-#+BEGIN_proof
-\let\qed\relax
-
-We have
-\[
-\abs{x_1 - x_2} \leq \frac{\|df_{x_0}^{-1}\|}{1 - L} \abs{f(x_1) - f(x_2)}.
-\]
-
-
-Letting \(y_i = f(x_i)\) so that \(x_i = f^{-1}(y_i)\) gives continuity (even Lipschitz):
-\[
-\abs{f^{-1}(y_1) - f^{-1}(y_2)} \leq \frac{\|df_{x_0}^{-1}\|}{1 - L}\abs{y_1 - y_2}.
-\]
-
-
-Lipschitz is almost differentiable but not quite (e.g. \(f(x) = |x|\)).
-#+END_proof
-
-** Inverse function theorem: Differentiability
-
-#+BEGIN_proof
-\let\qed\relax
-Pick any arbitrary \(y \in B_s(y_0)\) and any \(h\) such that \(y + h \in B_s(y_0)\), say \(h \in B_{\epsilon} (0)\) so that \(y + h \in B_{\epsilon} (y) \subseteq B_s(y_0)\).
-
-Let \(x = f^{-1} (y)\) and define
-\[
-R = f^{-1} (y + h) - f^{-1} (y) - df_{x}^{-1} \cdot h.
-\]
-
-
-We need to show that
-\[
-\lim_{h\to 0} \frac{\abs{R}}{\abs{h}} = 0.
-\]
-#+END_proof
-
-** Inverse function theorem: Differentiability
-
-#+BEGIN_proof
-\let\qed\relax
-
-Let \(k = f^{-1}(y + h) - f^{-1} (y)\) so that \(h = f(x + k) - f(x)\). Then
-
-\begin{align*}
-R &= f^{-1} (y + h) - f^{-1} (y) - df_{x}^{-1} \cdot h \\
-&= k - df_x^{-1} (f(x + k) - f(x)) \\
-&= k - df_x^{-1}(df_x k + \littleo(k)) \\
-&= -df_x^{-1} (\littleo(k)).
-\end{align*}
-#+END_proof
-
-** Inverse function theorem: Differentiability
-
-#+BEGIN_proof
-\let\qed\relax
-
-Since \(f^{-1}\) is Lipschitz, with constant \(M\) say, we have
-\[
-\abs{k} = \abs{f^{-1}(y + h) - f^{-1}(y)} \leq M \abs{y + h - y} = M \abs{h}.
-\]
-
-
-Therefore,
-\[
-\frac{\abs{R}}{\abs{h}} \leq \|df_x^{-1}\| \frac{\littleo(k)}{\abs{h}} \leq M \|df_x^{-1}\| \frac{\littleo(k)}{\abs{k}}.
-\]
-
-
-The right hand side goes to zero as \(h \to 0\) since \(\abs{k} \leq M \abs{h}\) implies \(k \to 0\) and then by definition of \(\littleo(k)\).
-#+END_proof
-
-** Inverse function theorem: Higher regularity
-
-#+BEGIN_proof
-\let\qed\relax
-So to summarise we have shown the existence of a differentiable local inverse \(f^{-1}\) to \(f\) with differential
-\[
-d(f^{-1})_y = (df_x)^{-1}
-\]
-where \(x = f^{-1}(y)\).
-
-Now, by Cramers's rule, given an invertible matrix \(A\), the inverse is
-\[
-A^{-1} = \frac{1}{\det A} \operatorname{adj} A
-\]
-where the \(\operatorname{adj} A\) is the /adjugate matrix/ formed from cofactors of \(A\) - that is the determinants of the minors of \(A\).
-
-
-As a function then, \(A \mapsto A^{-1}\) we see that the components are rational functions of the entries of \(A\) (since determinants are polynomials in the entries of \(A\)).
-#+END_proof
-
-** Inverse function theorem: Higher regularity
-
-#+BEGIN_proof
-
-Then the inverse function \(\operatorname{Inv}\) is in fact a smooth function from the open set of non-singular matrices (i.e. those with \(\det A \ne 0\)) to itself.
-
-Then since \(x \mapsto df_x\) is smooth,
-\[
-y \mapsto df^{-1}_{f^{-1}(y)} = \operatorname{Inv} \circ df \circ f^{-1} (y)
-\]
-is the composition of \(C^0\) functions and hence \(df^{-1}\) is also \(C^0\).
-
-That is \(f^{-1}\) is \(C^1\). Therefore in fact \(df^{-1}\) is the composition of \(C^1\) functions hence is also \(C^1\).
-
-That is \(f^{-1}\) is \(C^2\). Now we just iterate to get \(f^{-1}\) is \(C^k\) for any \(k\) and hence smooth.
-#+END_proof
 

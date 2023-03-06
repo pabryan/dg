@@ -1,0 +1,209 @@
+#+TITLE: Inverse Function Theorem Proof
+#+OPTIONS: toc:nil num:nil
+
+* Inverse Function Theorem Proof
+** Inverse Function Theorem
+
+#+BEGIN_env thm
+Let \(f : \RR^n \to \RR^n\) a smooth function such that \(df_{x_0}\) is invertible at \(x_0\). Then there is an open set \(U\) containing \(x_0\) and an open set \(V\) containing \(f(x_0)\) such that \(f|_U : U \to V\) is a diffeomorphism. Moreover
+\[
+df^{-1}_{f(x_0)} = (df_{x_0})^{-1}
+\]
+#+END_env
+
+** IFT: Proof
+
+To prove the Inverse Function Theorem, given \(y\) we uniquely solve \(f(x) = y\) by defining
+
+\[
+T_y (x) = x - df_{x_0}^{-1} (f(x) - y).
+\]
+
+and show that for suitable \(r > 0\), \(T_y\) is a contraction map \(\bar{B}_r(x_0) \to \bar{B}_r(x_0)\).
+
+** IFT: Contraction
+
+Contraction mapping theorem: define for each fixed \(y\),
+\[
+T_y (x) = x - df_{x_0}^{-1} (f(x) - y).
+\]
+
+\[
+dT_{x_0} = d\Id_{x_0} - df_{x_0}^{-1} df_{x_0} = 0.
+\]
+
+Continuity of \(dT\) gives an open neighbourhood \(U\) of \(x_0\) such that \(\|dT_{x_0}\| \leq 1/2\):
+\[
+\abs{dT_{x} \cdot X} \leq \frac{1}{2} \abs{X}.
+\]
+
+** IFT: Contraction
+
+\(\abs{dT_{x} \cdot X} \leq \frac{1}{2} \abs{X}\) and mean value inequality:
+\[
+\abs{T(x_1) - T(x_2)} \leq \frac{1}{2}\abs{x_1 - x_2}
+\]
+so that \(T\) is /contractive/ for \(x_1, x_2 \in U\).
+
+** IFT: Self Map
+
+In order to conclude that \(T\) has a unique fixed point, we need to verify that there is an \(r > 0\) such that \(T : \bar{B}_r(x_0) \to \bar{B}_r(x_0)\).
+
+Since \(x_0 \in U\) and \(U\) is open, there exists an \(r > 0\) such that \(B_r(x_0) \subseteq U\).
+
+** IFT: Self Map
+
+Now we restrict the range of possible \(y\): Let \(y_0 = f(x_0)\) and \(y \in B_s(y_0)\) with \(s\) any number satisfying
+\[
+0 < s < \frac{1-L}{\|df_{x_0}^{-1}\|} r.
+\]
+
+** IFT: Self Map
+
+Then for \(x \in B_r(x_0)\), recalling \(T(x) = x - df_{x_0}^{-1}(f(x) - y)\) we have
+\begin{align*}
+\abs{T(x) - x_0} &\leq \abs{T(x) - T(x_0)} + \abs{T(x_0) - x_0} \\
+&\leq L\abs{x-x_0} + \abs{-df_{x_0}^{-1}(f(x_0) - y)} \\
+&\leq L\abs{x-x_0} + \|df_{x_0}^{-1}\| \abs{y_0 - y} \\
+&\leq r L + \|df_{x_0}^{-1}\|s \\
+&\leq r L + (1-L)r = r.
+\end{align*}
+
+** IFT: Fixed Point
+
+That is \(T(x) \in \bar{B}_{x_0} (r)\) for \(x \in \bar{B}_{x_0} (r)\) and \(y \in \bar{B}_s (y_0)\).
+
+Thus for any \(y \in \bar{B}_s(x_0)\), \(T_y : \bar{B}_r (x_0) \to \bar{B}_r (x_0)\) is a contraction mapping, hence:
+
+For each such \(y\), there exists a unique fixed point \(x^{\ast}_y \in \bar{B}_r (x_0)\). That is
+\[
+x^{\ast}_y = T_y(x^{\ast}_y) = x^{\ast}_y - df_{x_0}^{-1} (f(x^{\ast}_y) - y).
+\]
+
+** IFT: Fixed Point
+
+\[
+x^{\ast}_y = T_y(x^{\ast}_y) = x^{\ast}_y - df_{x_0}^{-1} (f(x^{\ast}_y) - y).
+\]
+
+Cancelling \(x^{\ast}_y\) from both sides and since \(df_{x_0}^{-1}\) is non-singular,
+\[
+df_{x_0}^{-1} (f(x^{\ast}_y) - y) = 0 \Rightarrow f(x^{\ast}_y) = y.
+\]
+
+** IFT: Inverse
+
+*We have finally found our inverse function:* \(f^{-1} (y) = x^{\ast}_y\) for \(y \in B_s(y_0)\). Note we need to restrict the range of \(x\) to the open set \(f^{-1}(B_s(y_0)) \cap B_r(x_0)\) so that \(f\) maps this set into \(B_s(y_0)\).
+
+** IFT: Continuity of Inverse
+
+Since \(T\) is a contraction
+\begin{equation*}
+\begin{split}
+\abs{x_1 - x_2 - df_{x_0}^{-1}(f(x_1) - f(x_2))} &= \abs{T(x_1) - T(x_2)} \\
+&\leq L \abs{x_1 - x_2}.
+\end{split}
+\end{equation*}
+
+By the /reverse triangle inequality/
+\[
+\abs{x_1 - x_2} - \abs{df_{x_0}^{-1}(f(x_1) - f(x_2))} \leq L \abs{x_1 - x_2}.
+\]
+
+** IFT: Continuity of Inverse
+
+\[
+\abs{x_1 - x_2} - \abs{df_{x_0}^{-1}(f(x_1) - f(x_2))} \leq L \abs{x_1 - x_2}.
+\]
+
+\begin{equation*}
+\begin{split}
+\abs{x_1 - x_2} &\leq \frac{\abs{df_{x_0}^{-1}(f(x_1) - f(x_2))}}{1 - L} \\
+&\leq \frac{\|df_{x_0}^{-1}\|}{1 - L} \abs{f(x_1) - f(x_2)}.
+\end{split}
+\end{equation*}
+
+** IFT: Continuity of Inverse
+
+We have
+\[
+\abs{x_1 - x_2} \leq \frac{\|df_{x_0}^{-1}\|}{1 - L} \abs{f(x_1) - f(x_2)}.
+\]
+
+Letting \(y_i = f(x_i)\) so that \(x_i = f^{-1}(y_i)\) gives continuity (even Lipschitz):
+\[
+\abs{f^{-1}(y_1) - f^{-1}(y_2)} \leq \frac{\|df_{x_0}^{-1}\|}{1 - L}\abs{y_1 - y_2}.
+\]
+
+** IFT: Differentiability
+
+Pick any arbitrary \(y \in B_s(y_0)\) and any \(h\) such that \(y + h \in B_s(y_0)\), say \(h \in B_{\epsilon} (0)\) so that \(y + h \in B_{\epsilon} (y) \subseteq B_s(y_0)\).
+
+Let \(x = f^{-1} (y)\) and define
+\[
+R = f^{-1} (y + h) - f^{-1} (y) - df_{x}^{-1} \cdot h.
+\]
+
+We need to show that
+\[
+\lim_{h\to 0} \frac{\abs{R}}{\abs{h}} = 0.
+\]
+
+** IFT: Differentiability
+
+Let \(k = f^{-1}(y + h) - f^{-1} (y)\) so that \(h = f(x + k) - f(x)\). Then
+
+\begin{align*}
+R &= f^{-1} (y + h) - f^{-1} (y) - df_{x}^{-1} \cdot h \\
+&= k - df_x^{-1} (f(x + k) - f(x)) \\
+&= k - df_x^{-1}(df_x k + \omicron(k)) \\
+&= -df_x^{-1} (\omicron(k)).
+\end{align*}
+
+** IFT: Differentiability
+
+Since \(f^{-1}\) is Lipschitz, with constant \(M\) say, we have
+\[
+\abs{k} = \abs{f^{-1}(y + h) - f^{-1}(y)} \leq M \abs{y + h - y} = M \abs{h}.
+\]
+\[
+\frac{\abs{R}}{\abs{h}} \leq \|df_x^{-1}\| \frac{\omicron(k)}{\abs{h}} \leq M \|df_x^{-1}\| \frac{\omicron(k)}{\abs{k}}.
+\]
+
+The right hand side goes to zero as \(h \to 0\) since \(\abs{k} \leq M \abs{h}\) implies \(k \to 0\) and then by definition of \(\omicron(k)\).
+
+** IFT: Higher regularity
+
+So to summarise we have shown the existence of a differentiable local inverse \(f^{-1}\) to \(f\) with differential
+\[
+d(f^{-1})_y = (df_x)^{-1}
+\]
+where \(x = f^{-1}(y)\).
+
+Now, by Cramers's rule, given an invertible matrix \(A\), the inverse is
+\[
+A^{-1} = \frac{1}{\det A} \operatorname{adj} A
+\]
+where the \(\operatorname{adj} A\) is the /adjugate matrix/ formed from cofactors of \(A\) - that is the determinants of the minors of \(A\).
+
+As a function then, \(A \mapsto A^{-1}\) we see that the components are rational functions of the entries of \(A\) (since determinants are polynomials in the entries of \(A\)).
+
+** IFT: Higher regularity
+
+The inverse function \(\operatorname{Inv}\) is smooth function from the open set of non-singular matrices (\(\det A \ne 0\)) to itself.
+
+Then since \(x \mapsto df_x\) is smooth,
+\[
+y \mapsto df^{-1}_y = (df_{f^{-1}(y)})^{-1} = \operatorname{Inv} \circ df \circ f^{-1} (y)
+\]
+is a composition of \(C^0\) functions hence \(C^0\). Then \(f^{-1}\) is \(C^1\).
+
+** IFT: Higher regularity
+
+\[
+df^{-1}_y = \operatorname{Inv} \circ df \circ f^{-1} (y)
+\]
+
+Now \(df^{-1}\) is the composition of \(C^1\) functions hence is also \(C^1\).
+
+That is \(f^{-1}\) is \(C^2\). Now we just iterate to get \(f^{-1}\) is \(C^k\) for any \(k\) and hence smooth.
