@@ -1,0 +1,249 @@
+---
+layout: org-slides
+---
+
+<section class="outline-2" id="outline-container-org532b8df">
+<h2 id="org532b8df">Topology on \(\RR^n\)</h2>
+<div class="outline-text-2" id="text-org532b8df">
+</div>
+<section class="outline-3" id="outline-container-orgbdbab48">
+<h3 id="orgbdbab48">Open and closed balls</h3>
+<div class="outline-text-3" id="text-orgbdbab48">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Given \(r &gt; 0\) and \(x \in \RR^n\), the <i>open ball</i> of radius \(r\) and centre \(x\) is the set
+\[
+B_r (x) = \{y \in \RR^n: \abs{x - y} &lt; r\}.
+\]
+</p>
+<p>
+The <i>closed ball</i> of radius \(r\) and centre \(x\) is the set
+\[
+\bar{B}_r (x) = \{y \in \RR^n: \abs{x - y} \leq r\}.
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org760ebb3">
+<h3 id="org760ebb3">Spheres</h3>
+<div class="outline-text-3" id="text-org760ebb3">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The <i>sphere</i> of radius \(r\) and centre \(x\) is the set
+\[
+\SS^{n-1}_r (x) = \{y \in \RR^n: \abs{x - y} = r\}.
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org0f4b9ba">
+<h3 id="org0f4b9ba">Distance function</h3>
+<div class="outline-text-3" id="text-org0f4b9ba">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+For \(x, y \in \RR^n\), the distance \(\abs{x - y}\) is defined to be
+\[
+\abs{x - y} = \sqrt{(x^1 - y^1)^2 + \cdots + (x^n - y^n)^2}
+\]
+where \(x = (x^1, \dots, x^n)\) and \(y = (y^1, \dots, y^n)\).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgfa32724">
+<h3 id="orgfa32724">Distance function</h3>
+<div class="outline-text-3" id="text-orgfa32724">
+<ul class="org-ul">
+<li>The open ball is the set of points of distance to \(x\) strictly less than \(r\).</li>
+<li>The closed ball is the set of points of distance to \(x\) less than or equal to \(r\).</li>
+<li>The sphere is the set of points of distance to \(x\) equal to \(r\).</li>
+</ul>
+<p>
+It is sometimes said that analysis is simply applications of the triangle inequality:
+\[
+\abs{x - y} \leq \abs{x - z} + \abs{z - y}.
+\]
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orge448cfe">
+<h3 id="orge448cfe">Open and closed sets</h3>
+<div class="outline-text-3" id="text-orge448cfe">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A set \(U \subset \RR^n\) is said to be <i>open</i> provided for every \(x \in U\), there exists an \(r = r(x)\) such that
+\[
+B_r(x) \subseteq U.
+\]
+</p>
+<p>
+A set \(C\) is <i>closed</i> if it’s complement,
+\[
+\RR^n \backslash C := \{y \in \RR^n : y \notin C\}
+\]
+is open.
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgc616d6a">
+<h3 id="orgc616d6a">Open and closed sets</h3>
+<div class="outline-text-3" id="text-orgc616d6a">
+<ul class="org-ul">
+<li>By this definition, open balls are open, closed balls are closed and spheres are closed.</li>
+<li>Given any point of an open set, we can always move <i>uniformly</i> a little in any direction and remain in the open set.</li>
+</ul>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org204ebd7">
+<h3 id="org204ebd7">Bounded and compact sets</h3>
+<div class="outline-text-3" id="text-org204ebd7">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A set \(S \subseteq \RR^n\) is <i>bounded</i> if there exists an \(x \in \RR^n\) and an \(r &gt; 0\) such that \(S \subseteq B_r(x)\).
+</p>
+<p>
+A set \(K \subseteq \RR^n\) is <i>compact</i> if it is closed and bounded.
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org09d9097">
+<h3 id="org09d9097">Bounded and compact sets</h3>
+<div class="outline-text-3" id="text-org09d9097">
+<ul class="org-ul">
+<li>\(S \subseteq \RR^n\) is bounded iff for every \(x \in \RR^n\) there exists an \(r = r(x)\) such that \(S \subseteq B_r(x)\).</li>
+<li>A set \(K \subseteq \RR^n\) is compact if and only if for every <i>open cover</i> \(\{U_{\alpha}\}\), there exists a <i>finite subcover</i>.
+<ul class="org-ul">
+<li>An <i>open cover</i> is a collection of open sets \(\{U_{\alpha}\}\) such that \(K \subseteq \cup_{\alpha} U_{\alpha}\).</li>
+<li>A <i>finite subcover</i> is a cover by finitely many \(U_{\alpha_1}, \cdots, U_{\alpha_N}\)</li>
+<li>Equivalent for \(\RR^n\).</li>
+</ul></li>
+</ul>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-orgbbe208f">
+<h2 id="orgbbe208f">Limits and continuity</h2>
+<div class="outline-text-2" id="text-orgbbe208f">
+</div>
+<section class="outline-3" id="outline-container-orga21e6e5">
+<h3 id="orga21e6e5">Limits</h3>
+<div class="outline-text-3" id="text-orga21e6e5">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A sequence \((x_n)_{n\in \NN} \subseteq \RR^n\) <i>converges</i> to \(x \in \RR^n\) if for every \(\epsilon &gt; 0\), there exists a \(N \in \NN\) such that \((x_n)_{n \geq N} \subseteq B_{\epsilon} (x)\). We write \(\lim_{n\to\infty} x_n = x\).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgc9709f6">
+<h3 id="orgc9709f6">Cauchy Sequences</h3>
+<div class="outline-text-3" id="text-orgc9709f6">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The sequence \((x_n)\) is <i>Cauchy</i> if for every \(\epsilon &gt; 0\), there exists a \(N \in \NN\) such that \((x_m)_{m \geq N} \subseteq B_{\epsilon} (x_n)\) for every \(n \geq N\).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org4a238b5">
+<h3 id="org4a238b5">Limits and Cauchy Sequences</h3>
+<div class="outline-text-3" id="text-org4a238b5">
+<ul class="org-ul">
+<li>The condition for convergence to \(x\) says that \(\abs{x - x_n} &lt; \epsilon\) for \(n \geq N\).</li>
+<li>The condition to be a Cauchy sequence says that \(\abs{x_n - x_m} &lt; \epsilon\) for \(m, n \geq N\).</li>
+</ul>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgc84cdbf">
+<h3 id="orgc84cdbf">Sequential Continuity</h3>
+<div class="outline-text-3" id="text-orgc84cdbf">
+<div class="defn card"><div class="card-header"><h5 class="card-title"> : Sequential definition</h5></div><div class="card-body">
+<p>
+A function \(f : \RR^n \to \RR^m\) is continuous at \(x \in \RR^n\) if for <i>every</i> sequence \((x_n)\) with \(\lim_{n \to \infty} = x\) we have \(\lim_{n \to \infty} f(x_n) = f(x)\).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org9e9211c">
+<h3 id="org9e9211c">Epsilon-Delta Continuity</h3>
+<div class="outline-text-3" id="text-org9e9211c">
+<div class="defn card"><div class="card-header"><h5 class="card-title"> : Epsilon-Delta definition</h5></div><div class="card-body">
+<p>
+Write
+\[
+\lim_{x \to x_0} f(x) = y
+\]
+provided for every \(\epsilon &gt; 0\), there exists a \(\delta &gt; 0\) such that \(f(B_{\delta} (x_0)) \subseteq B_{\epsilon} (y)\).
+</p>
+<p>
+Then \(f\) is continuous at \(x_0\) if \(\lim_{x \to x_0} f(x) = f(x_0)\).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgd176415">
+<h3 id="orgd176415">Topological Continuity</h3>
+<div class="outline-text-3" id="text-orgd176415">
+<div class="defn card"><div class="card-header"><h5 class="card-title"> : Topological definition</h5></div><div class="card-body">
+<p>
+The function \(f\) is continuous (at every \(x_0\)) if \(f^{-1} (V)\) is an open set for every open set \(V \subseteq \RR^m\).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgd8823bc">
+<h3 id="orgd8823bc">Continuity Remarks</h3>
+<div class="outline-text-3" id="text-orgd8823bc">
+<ul class="org-ul">
+<li>The first definition requires that \(f(x_n) \to f(x)\) for <i>every</i> sequence.</li>
+<li>The condition in the second definition that \(f(B_{\delta} (x_0)) \subseteq B_{\epsilon} (y)\) is the same thing as \(\abs{f(x) - f(x_0)} &lt; \epsilon\) whenever \(\abs{x - x_0} &lt; \delta\).</li>
+<li>The second definition says that given <i>any tolerance \(\epsilon &gt; 0\)</i>, there is an <i>adjustment \(\delta &gt; 0\)</i> so that provided we are sufficiently close to \(x_0\) (i.e. \(\abs{x - x_0} &lt; \delta\)), then \(f(x)\) is within the desired tolerance of \(f(x_0)\) (i.e. \(\abs{f(x) - f(x_0)} &lt; \epsilon\).</li>
+</ul>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org74077fa">
+<h3 id="org74077fa">Continuity Remarks</h3>
+<div class="outline-text-3" id="text-org74077fa">
+<ul class="org-ul">
+<li>The equivalence of the first and second definitions is a standard exercise in analysis using the <i>completeness</i> of the real numbers \(\RR\).</li>
+<li>The final definition is the general <i>topological</i> definition.</li>
+<li>The equivalence of the topological and \(\epsilon\)-\(\delta\) definitions follows by writing \(U = \cup_{y \in U} B_{r(y)} (y)\) as a union of open balls and using properties of the pull-back \(f^{-1}\).</li>
+</ul>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org8c27877">
+<h3 id="org8c27877">A cautionary example</h3>
+<div class="outline-text-3" id="text-org8c27877">
+<p>
+Let
+\[
+f(x, y) = \begin{cases}
+\frac{x^2 y}{x^4 + y^2}, \quad (x, y) \ne (0, 0) \\
+0, \quad (x, y) = (0, 0).
+\end{cases}
+\]
+</p>
+<p>
+Then \(f\) is <b>not</b> continuous at \((x, y) = (0, 0)\).
+</p>
+<aside class="notes">
+<p>
+However, along every straight line through the origin \(y = ax\), the limit is in fact \(0\)! That is,
+\[
+\lim_{t \to 0} f(t, at) = \lim_{t\to 0} \frac{t^2 \cdot at}{t^4 + a^2t^2} = \lim_{t\to 0} \frac{t^2}{t^2} \frac{at}{t^2 + a^2} = 0.
+\]
+</p>
+<p>
+But along the curve \(y = x^2\), we get something else:
+\[
+\lim_{t \to 0} f(t, t^2) = \lim_{t\to 0} \frac{t^2 \cdot t^2}{t^4 + (t^2)^2} = \lim_{t\to 0} \frac{t^4}{t^4} \frac{1}{2} = \frac{1}{2}.
+\]
+</p>
+</aside>
+</div>
+</section>
+</section>
