@@ -1,7 +1,7 @@
 {% assign d = site["blocks"] | where: "label", include.label | first %}
-<div class="defn card my-3 mx-0">
+<div class="eg card my-3 mx-0">
   <div class="card-header text-white" style="background-color: #00802b;">
-    <h5 class="card-title">Example: {{ d.heading }}</h5>
+    <h5 class="card-title"> : {{ d.heading }}</h5>
   </div>
   <div class="card-body">
     <p class="card-text">
