@@ -65,3 +65,18 @@ body {
 .pf h5.card-title::before {
     content: "Proof"
 }
+
+mjx-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+@media (max-width: 700px) {
+    .MathJax {
+	font-size: 0.8em;
+    }
+    .shrinkeq {
+	font-size: 70%;
+    }
+}
+
