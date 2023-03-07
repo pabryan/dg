@@ -1,5 +1,5 @@
 ---
-Heading: Total Length
+heading: Total Length
 label: arc_length
 ---
 

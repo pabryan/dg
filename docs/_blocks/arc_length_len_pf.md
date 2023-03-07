@@ -1,7 +1,7 @@
 ---
-Heading: Total Length is Well Defined
+heading: Total Length is Well Defined
 label: arc_length_len_pf
-----
+---
 
 We have
 
