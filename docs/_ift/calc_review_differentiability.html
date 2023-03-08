@@ -1,0 +1,208 @@
+---
+title: Calculus Review - Differentiability
+name: calc_review_differentiability
+type: topic
+---
+
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The \(i\)'th <i>partial derivative</i> of a function \(f : \RR^n \to \RR\) at \(x = (x^1, \dots, x^n)\) is
+</p>
+\begin{equation*}
+\begin{split}
+\partial_i f (x) &= \frac{\partial f}{\partial x^i} (x) \\
+&= \lim_{h\to 0} \frac{f(x^1, \dots, x^i + h, \dots x^n) - f(x^1, \dots, x^n)}{h}
+\end{split}
+\end{equation*}
+
+</div></div>
+
+
+<p>
+Partial derivatives are the usual derivatives in one variable holding all other variables fixed.
+</p>
+
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(X \in \RR^n\). The <i>directional derivative</i> \(\partial_X f (x)\) of \(f\) at \(x\) in the direction \(X\) is
+\[
+\partial_X f (x) = \partial_t|_{t=0} f(x + tX) = \lim_{h \to 0} \frac{f(x + hX) - f(x)}{h}.
+\]
+</p>
+
+</div></div>
+
+<p>
+Note that the \(i\)'th partial derivative is the directional derivative in the \(e_i\) direction where \(e_i = (0, \dots, 0, 1, 0, \dots 0)\) with the \(1\) in the \(i\)'th spot. That is,
+\[
+\partial_i f = \partial_{e_i} f
+\]
+</p>
+
+<p>
+Recall that Taylor's theorem with remainder states that
+\[
+f(x) = f(x_0) + f'(x_0) (x-x_0) + R_{x_0} (x)
+\]
+where
+\[
+\lim_{x\to x_0} \frac{\abs{R_{x_0} (x)}}{x-x_0} = 0.
+\]
+We write \(R_{x_0} (x) = \omicron(\abs{x-x_0})\) as \(x \to x_0\).
+</p>
+
+
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+We say \(f : \RR^n \to \RR^m\) is differentiable at \(x_0\) if there exists a linear map \(L_{x_0} : \RR^n \to \RR^m\) such that
+\[
+\lim_{x\to x_0} \frac{\abs{f(x) - f(x_0) - L_{x_0} (x-x_0)}}{\abs{x-x_0}} = 0.
+\]
+</p>
+
+</div></div>
+
+<p>
+Thus if \(f\) is differentiable we have a higher dimensional version of Taylor's theorem. That is, there exists a linear map written \(L_{x_0} = df_{x_0}\) such that
+\[
+f(x) = f(x_0) + df_{x_0} (x-x_0) + \omicron(\abs{x-x_0})
+\]
+as \(x \to x_0\)
+</p>
+
+
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(f\) be differentiable at \(x_0\). Then for each \(i=1, \dots, n\), \(\partial_i f (x_0)\) exists and
+\[
+\partial_i f(x_0) = df_{x_0} (e_i).
+\]
+</p>
+
+</div></div>
+
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+For \(h \neq 0\), let \(x = x_0 + he_i\).
+\[
+0 = \lim_{h\to 0} \abs{\frac{f(x_0 + h e_i) - f(x_0)}{h} - \frac{df_{x_0} (h e_i)}{h}}
+\]
+hence
+\[
+\partial_i f(x_0) = df_{x_0} (e_i)
+\]
+</p>
+
+</div></div>
+
+<div class="ex card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Show that if \(f\) is differentiable at \(x_0\), then for any \(X \in \RR^n\), the directional derivative \(df_{x_0} (X)\) is defined.
+</p>
+
+</div></div>
+
+<div class="eg card"><div class="card-header"><h5 class="card-title"> : Cautionary Example</h5></div><div class="card-body">
+<p>
+Let
+\[
+f(x, y) = \begin{cases}
+\frac{xy}{x^2 + y^2}, & (x, y) \ne (0, 0) \\
+0, & (x, y) = (0, 0).
+\end{cases}
+\]
+</p>
+
+<p>
+Then
+</p>
+\begin{equation*}
+\begin{split}
+\partial_x f (0, 0) &= \lim_{h\to 0} \frac{f(h, 0) - f(0, 0)}{h} \\
+&= \lim_{h\to 0} \frac{1}{h} \frac{h \cdot 0}{h^2 + 0^2} \\
+&= 0.
+\end{split}
+\end{equation*}
+
+<p>
+Likewise, \(\partial_y f (0, 0) = 0\) and hence both partial dertivatives exists at \((0, 0)\). However, \(\partial_{(1,1)} f (0, 0)\) is not defined since
+</p>
+\begin{equation*}
+\begin{split}
+\partial_{(1,1)} f (0, 0) &= \lim_{h \to 0} \frac{f(h, h) - f(0, 0)}{h} \\
+&= \lim_{h \to 0} \frac{f(h, h)}{h} \\
+&= \lim_{h \to 0} \frac{1}{h} \frac{hh}{h^2 + h^2} \\
+&= \lim_{h \to 0} \frac{1}{2h}.
+\end{split}
+\end{equation*}
+
+<p>
+Thus \(f\) cannot be differentiable at \((0, 0)\) since if it were differentiable, all directional derivatives would exist. Note that in this example, for \((x, y) \neq (0, 0)\) we have
+\[
+\partial_x f = \frac{y(y^2 -x^2)}{(x^2 + y^2)^2}
+\]
+and so
+\[
+\partial_x f (0, y) = \frac{1}{y}
+\]
+which is not continuous up to \(y = 0\) even though \(\partial_x f(0, 0)\) is defined.
+</p>
+
+</div></div>
+
+<p>
+The issue here is that the partial derivatives, though defined everywhere, are not continuous. This kind of issue does not come up with for \(C^1\) functions.
+</p>
+
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A function \(f : \RR^n \to \RR^m\) is \(C^1\) (i.e. has continuous derivative) if \(f\) is differentiable at each \(x\) and moreover, the map
+\[
+x \mapsto df_x
+\]
+is continuous. This is equivalent to having <i>continuous</i> partial derivatives.
+</p>
+
+</div></div>
+
+<p>
+Note here that \(df_x\) is a linear map \(\RR^n \to \RR^m\) and the set of all these is linearly isomorphic to the space \(M_{n, m}\) of \(n\) by \(m\) matrices, which is itself linearly isomorphic to \(\RR^{nm}\) (index by \(i,j\) with \(1 \leq i \leq n\) and \(1 \leq j \leq m\)).
+</p>
+
+<p>
+Concretely we may realise \(df_x\) as the Jacobian matrix
+\[
+(df_x)_{ij} = \partial_i f^j (x)
+\]
+since \(df_x (e_i) = \partial_i f (x) = (\partial_i f^1, \dots, \partial_i f^n)\)
+</p>
+
+
+<p>
+Then \(x \in \RR^n \mapsto df_x \in \RR^{nm}\) is a map between Euclidean spaces so we can ask if it's differentiable. We say \(f\) is \(C^2\) if \(df\) is \(C^1\) and more generally, \(f\) is \(C^k\) if \(d^k f\) is continuous.
+</p>
+
+<p>
+For our purposes, perhaps the most important of the basic results for differentiable functions is the chain rule.
+</p>
+
+<div class="thm card"><div class="card-header"><h5 class="card-title"> : Chain Rule</h5></div><div class="card-body">
+
+<p>
+The chain rule states that if \(f : \RR^n \to \RR^m\) is differentiable at \(x_0\) and \(g : \RR^m \to \RR^k\) is differentiable at \(f(x_0)\), then
+\[
+d(f \circ h)_{x_0} = dh_{f(x_0)} \cdot df_{x_0}.
+\]
+</p>
+
+</div></div>
+
+<div class="ex card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Show that by the <i>chain rule</i>, given any curve \(\gamma\) such that \(\gamma(0) = x\) and \(\gamma'(0) = X\) we have
+\[
+df_x \cdot X = \partial_t|_{t=0} f(\gamma(t)).
+\]
+</p>
+
+</div></div>

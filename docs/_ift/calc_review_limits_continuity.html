@@ -1,0 +1,93 @@
+---
+title: Calculus Review - Limits and Continuity
+name: calc_review_limits_continuity
+type: topic
+---
+
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A sequence \((x_n)_{n\in \NN} \subseteq \RR^n\) <i>converges</i> to \(x \in \RR^n\) if for every \(\epsilon > 0\), there exists a \(N \in \NN\) such that \((x_n)_{n \geq N} \subseteq B_{\epsilon} (x)\). We write \(\lim_{n\to\infty} x_n = x\).
+</p>
+
+</div></div>
+
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The sequence \((x_n)\) is <i>Cauchy</i> if for every \(\epsilon > 0\), there exists a \(N \in \NN\) such that \((x_m)_{m \geq N} \subseteq B_{\epsilon} (x_n)\) for every \(n \geq N\).
+</p>
+
+</div></div>
+
+<ul class="org-ul">
+<li>The condition for convergence to \(x\) says that \(\abs{x - x_n} < \epsilon\) for \(n \geq N\).</li>
+<li>The condition to be a Cauchy sequence says that \(\abs{x_n - x_m} < \epsilon\) for \(m, n \geq N\).</li>
+</ul>
+
+<div class="defn card"><div class="card-header"><h5 class="card-title"> : Sequential Continuity</h5></div><div class="card-body">
+<p>
+A function \(f : \RR^n \to \RR^m\) is continuous at \(x \in \RR^n\) if for <i>every</i> sequence \((x_n)\) with \(\lim_{n \to \infty} = x\) we have \(\lim_{n \to \infty} f(x_n) = f(x)\).
+</p>
+
+</div></div>
+
+<div class="defn card"><div class="card-header"><h5 class="card-title"> : (epsilon)-(delta) Continuity</h5></div><div class="card-body">
+<p>
+Write
+\[
+\lim_{x \to x_0} f(x) = y
+\]
+provided for every \(\epsilon > 0\), there exists a \(\delta > 0\) such that \(f(B_{\delta} (x_0)) \subseteq B_{\epsilon} (y)\).
+</p>
+
+<p>
+Then \(f\) is continuous at \(x_0\) if \(\lim_{x \to x_0} f(x) = f(x_0)\).
+</p>
+
+</div></div>
+
+<div class="defn card"><div class="card-header"><h5 class="card-title"> : Topological Contitnuity</h5></div><div class="card-body">
+<p>
+The function \(f\) is continuous (at every \(x_0\)) if \(f^{-1} (V)\) is an open set for every open set \(V \subseteq \RR^m\).
+</p>
+
+</div></div>
+
+<ul class="org-ul">
+<li>The first definition requires that \(f(x_n) \to f(x)\) for <i>every</i> sequence.</li>
+<li>The condition in the second definition that \(f(B_{\delta} (x_0)) \subseteq B_{\epsilon} (y)\) is the same thing as \(\abs{f(x) - f(x_0)} < \epsilon\) whenever \(\abs{x - x_0} < \delta\).</li>
+<li>The second definition says that given <i>any tolerance \(\epsilon > 0\)</i>, there is an <i>adjustment \(\delta > 0\)</i> so that provided we are sufficiently close to \(x_0\) (i.e. \(\abs{x - x_0} < \delta\)), then \(f(x)\) is within the desired tolerance of \(f(x_0)\) (i.e. \(\abs{f(x) - f(x_0)} < \epsilon\).</li>
+<li>The equivalence of the first and second definitions is a standard exercise in analysis using the <i>completeness</i> of the real numbers \(\RR\).</li>
+<li>The final definition is the general <i>topological</i> definition.</li>
+<li>The equivalence of the topological and \(\epsilon\)-\(\delta\) definitions follows by writing \(U = \cup_{y \in U} B_{r(y)} (y)\) as a union of open balls and using properties of the pull-back \(f^{-1}\).</li>
+</ul>
+
+<div class="eg card"><div class="card-header"><h5 class="card-title"> : Cautionary Example</h5></div><div class="card-body">
+<p>
+Let
+\[
+f(x, y) = \begin{cases}
+\frac{x^2 y}{x^4 + y^2}, \quad (x, y) \ne (0, 0) \\
+0, \quad (x, y) = (0, 0).
+\end{cases}
+\]
+</p>
+
+<p>
+Then \(f\) is <b>not</b> continuous at \((x, y) = (0, 0)\).
+</p>
+
+<p>
+Along every straight line through the origin \(y = ax\), the limit is in fact \(0\):
+\[
+\lim_{t \to 0} f(t, at) = \lim_{t\to 0} \frac{t^2 \cdot at}{t^4 + a^2t^2} = \lim_{t\to 0} \frac{t^2}{t^2} \frac{at}{t^2 + a^2} = 0.
+\]
+</p>
+
+<p>
+But along the curve \(y = x^2\), we get something else:
+\[
+\lim_{t \to 0} f(t, t^2) = \lim_{t\to 0} \frac{t^2 \cdot t^2}{t^4 + (t^2)^2} = \lim_{t\to 0} \frac{t^4}{t^4} \frac{1}{2} = \frac{1}{2}.
+\]
+</p>
+
+</div></div>

@@ -4,6 +4,9 @@ title: Inverse Function Theorem
 short_title: Inverse Function Theorem
 collection: ift
 sections:
+  - calc_review_topology
+  - calc_review_limits_continuity
+  - calc_review_differentiability
 ---
 
 <a href="{{ '/slides/calc_review' | relative_url }}" target="_blank">Calculus Review Slides</a>

@@ -1,0 +1,99 @@
+---
+title: Calculus Review - Topology
+name: calc_review_topology
+type: topic
+---
+
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Given \(r > 0\) and \(x \in \RR^n\), the <i>open ball</i> of radius \(r\) and centre \(x\) is the set
+\[
+B_r (x) = \{y \in \RR^n: \abs{x - y} < r\}.
+\]
+</p>
+
+<p>
+The <i>closed ball</i> of radius \(r\) and centre \(x\) is the set
+\[
+\bar{B}_r (x) = \{y \in \RR^n: \abs{x - y} \leq r\}.
+\]
+</p>
+
+<p>
+The <i>sphere</i> of radius \(r\) and centre \(x\) is the set
+\[
+\SS^{n-1}_r (x) = \{y \in \RR^n: \abs{x - y} = r\}.
+\]
+</p>
+
+</div></div>
+
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+For \(x, y \in \RR^n\), the distance \(\abs{x - y}\) is defined to be
+\[
+\abs{x - y} = \sqrt{(x^1 - y^1)^2 + \cdots + (x^n - y^n)^2}
+\]
+where \(x = (x^1, \dots, x^n)\) and \(y = (y^1, \dots, y^n)\).
+</p>
+
+</div></div>
+
+<ul class="org-ul">
+<li>The open ball is the set of points of distance to \(x\) strictly less than \(r\).</li>
+<li>The closed ball is the set of points of distance to \(x\) less than or equal to \(r\).</li>
+<li>The sphere is the set of points of distance to \(x\) equal to \(r\).</li>
+</ul>
+
+<p>
+It is sometimes said that analysis is simply applications of the triangle inequality:
+\[
+\abs{x - y} \leq \abs{x - z} + \abs{z - y}.
+\]
+</p>
+
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A set \(U \subset \RR^n\) is said to be <i>open</i> provided for every \(x \in U\), there exists an \(r = r(x)\) such that
+\[
+B_r(x) \subseteq U.
+\]
+</p>
+
+
+<p>
+A set \(C\) is <i>closed</i> if it's complement,
+\[
+\RR^n \backslash C := \{y \in \RR^n : y \notin C\}
+\]
+is open.
+</p>
+
+</div></div>
+
+
+<ul class="org-ul">
+<li>By this definition, open balls are open, closed balls are closed and spheres are closed.</li>
+<li>Given any point of an open set, we can always move <i>uniformly</i> a little in any direction and remain in the open set.</li>
+</ul>
+
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A set \(S \subseteq \RR^n\) is <i>bounded</i> if there exists an \(x \in \RR^n\) and an \(r > 0\) such that \(S \subseteq B_r(x)\).
+</p>
+
+<p>
+A set \(K \subseteq \RR^n\) is <i>compact</i> if it is closed and bounded.
+</p>
+
+</div></div>
+
+<ul class="org-ul">
+<li>\(S \subseteq \RR^n\) is bounded iff for every \(x \in \RR^n\) there exists an \(r = r(x)\) such that \(S \subseteq B_r(x)\).</li>
+<li>A set \(K \subseteq \RR^n\) is compact if and only if for every <i>open cover</i> \(\{U_{\alpha}\}\), there exists a <i>finite subcover</i>.
+<ul class="org-ul">
+<li>An <i>open cover</i> is a collection of open sets \(\{U_{\alpha}\}\) such that \(K \subseteq \cup_{\alpha} U_{\alpha}\).</li>
+<li>A <i>finite subcover</i> is a cover by finitely many \(U_{\alpha_1}, \cdots, U_{\alpha_N}\)</li>
+<li>Equivalent for \(\RR^n\).</li>
+</ul></li>
+</ul>
