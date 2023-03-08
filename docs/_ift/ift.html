@@ -1,0 +1,124 @@
+---
+title: Inverse Function Theorem
+name: ift
+type: topic
+---
+
+<p>
+From calculus we have the result:
+</p>
+
+<div class="thm card"><div class="card-header"><h5 class="card-title"> : (1D) Inverse Function Theorem</h5></div><div class="card-body">
+<p>
+Let \(f : \RR \to \RR\) be a smooth function with \(f'(x_0) \ne 0\), there exists an interval \(I\) containing \(x_0\) and an interval \(J\) containing \(f(x_0)\) so that \(f : I \to J\) is a diffeomorphism.
+</p>
+
+</div></div>
+
+<p>
+Generalising to arbitrary dimensions:
+</p>
+
+<div class="thm card"><div class="card-header"><h5 class="card-title"> : Inverse Function Theorem</h5></div><div class="card-body">
+<p>
+Let \(f : \RR^n \to \RR^n\) a smooth function such that \(df_{x_0}\) is invertible at \(x_0\). Then there is an open set \(U\) containing \(x_0\) and an open set \(V\) containing \(f(x_0)\) such that \(f|_U : U \to V\) is a diffeomorphism. Moreover
+\[
+df^{-1}_{f(x_0)} = (df_{x_0})^{-1}
+\]
+</p>
+
+</div></div>
+
+<p>
+Note that if \(f\) is a diffeomorphism, then \(f^{-1} \circ f (x) = x\). That is, \(f^{-1} \circ f = \Id_x\). Since \(d\Id_x = \Id_n\), by the chain rule we have
+\[
+\Id_n = d\Id_x = d(f^{-1} \circ f)_{x_0} = df^{-1}_{f(x_0)} \cdot df_{x_0}.
+\]
+That is \(df_{x_0}\) is invertible and
+\[
+(df_{x_0})^{-1} = df^{-1}_{f(x_0)}.
+\]
+Thus \(d(f^{-1})\) at \(y_0 = f(x_0)\) is necessarily equal to \((df)^{-1}\) at \(x_0\). In one dimension \(df = f'\) and \(d(f^{-1}) = 1/f'\).
+</p>
+
+<p>
+The basic idea is that if \(df\) is invertible, then \(f\) is invertible to first order. Writing
+\[
+f(x) = f(x_0) + df_{x_0} \cdot (x - x_0) + \omicron(|x-x_0|).
+\]
+Let us ignore the \(\omicron(|x-x_0|)\) term (after all, it's insignificant compared with everything else for \(x\) near \(x_0\)!) and assume
+\[
+f(x) = f(x_0) + df_{x_0} \cdot (x - x_0).
+\]
+Then we can rearrange to solve for \(x\) to get
+\[
+x = x_0 + df_{x_0}^{-1} (f(x) - f(x_0)).
+\]
+Writing \(y = f(x)\) and \(y_0 = f(x_0)\) we obtain the inverse,
+\[
+f^{-1}(y) = f^{-1}(y_0) + df_{x_0}^{-1} \cdot (y - y_0).
+\]
+</p>
+
+<p>
+The task then is to work out how to deal with the presense of the \(\omicron(\abs{x-x_0})\) term. The approach is to construct a suitable <i>contraction</i> map (i.e. a map that strictly shrinks distances - see more below). We will prove the inverse function theorem below after considering some consequences. As a prview, to prove the Inverse Function Theorem, given \(y\) we need a uniquely solution of \(f(x) = y\). Define
+\[
+T_y (x) = x - df_{x_0}^{-1} (f(x) - y).
+\]
+Then we show that for suitable \(r > 0\), \(T_y\) is a contraction map \(\bar{B}_r(x_0) \to \bar{B}_r(x_0)\) and a cornerstone result in analysis (namely the Banach Fixed Point Theorem) implies that \(T_y\) posses a unique fixed point \(x^{\ast}_y\). That is, there is a unique point \(x^{\ast}_y \in \bar{B}_r(x_0)\) such that \(T_y(x^{\ast}_y) = x^{\ast}_y\). Observe then that
+</p>
+\begin{equation*}
+\begin{split}
+T_y(x^{\ast}_y - x^{\ast}_y &\Leftrightarrow df_{x_0}^{-1} (f(x^{\ast}_y) - y) \\
+&\Leftrightarrow f(x^{\ast}_y) = y.
+\end{split}
+\end{equation*}
+<p>
+The last equivalence follows from the assumption that \(df_{x_0}\) is invertible. Thus \(f(x^{\ast}_y) = y)\) if and only if \(T_y\) has a fixed point \(x^{\ast}_y\). By showing this fixed point is unique we then may unambiguously define
+\[
+f^{-1}(y) = x^{\ast}_y.
+\]
+</p>
+
+<p>
+Here is an example application of the Inverse Function Theorem.
+</p>
+
+<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Consider
+</p>
+\begin{equation*}
+\begin{cases}
+x - y^2 &= a \\
+x^2 + y + y^3 &= b
+\end{cases}
+\end{equation*}
+
+<p>
+For \((a, b) = (0, 0)\): \((x, y) = (0, 0)\) is a solution.
+</p>
+
+<p>
+<b>Question</b>: For what \((a, b)\) is the system solvable?
+</p>
+
+<p>
+To answer the question, let \(F(x, y) = (x - y^2, x^2 + y - y^3)\). Then
+</p>
+\begin{equation*}
+dF = \begin{pmatrix}
+1 & -2y \\
+2x & 1 - 3y^2
+\end{pmatrix}
+\end{equation*}
+
+<p>
+We have \(dF_{(0, 0)} = \operatorname{Id}\) hence by the IFT there is a neighbourhood of \((x, y) = (0, 0)\) for which \(F\) maps diffeomorphically onto a neighbourhood of \((a, b) = (0, 0)\). Therefore, for \((a, b)\) in a neighbourhood of \((0, 0)\), there is a neighbourhood of \((0, 0)\) containing a unique solution of \(F(x, y) = (a, b)\).
+</p>
+
+<p>
+Note that given \((a, b))\), there is not generally a unique solution. In fact, even for \((a, b) = (0, 0)\) there is not a unique solution since if \(y\) is a real root of \(y^3 + y^2 + 1\), then \(F(y^2, y) = (0, 0)\). Such a root always exists since \(y^3 + y^2 + 1\) is an odd-degree polynomial.
+</p>
+
+</div></div>

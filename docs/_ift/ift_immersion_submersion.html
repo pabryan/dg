@@ -1,0 +1,126 @@
+---
+title: Immersion and Submersion Theorems
+name: ift_immersion_submersion
+type: topic
+---
+
+<p>
+Here are some further statements equivalent to the Inverse Function Theorem, and hence also equivalent to the Implicit Function Theorem.
+</p>
+
+<div class="ex card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Prove that the theorems below are equivalent to the Inverse Function Theorem. You may find it easier to prove equivalence with the Implicit Function Theorem which is equivalent anyway.
+</p>
+
+</div></div>
+
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(F : \RR^{n+k} \to \RR^{k}\) be a smooth map. Then \(F\) is an <i>submersion</i> if \(dF\) is surjective.
+</p>
+
+</div></div>
+
+<p>
+Note that
+</p>
+\begin{equation*}
+\begin{split}
+dF \text{ surjective} & \Leftrightarrow dF \text{ has maximal rank} \\
+& \Leftrightarrow \operatorname{rnk} dF = k = \operatorname{dim} \operatorname{coDom} (dF) \\
+& \Leftrightarrow \operatorname{dim} \ker dF = n
+\end{split}
+\end{equation*}
+
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+An projection of \(\RR^{n+k}\) onto \(\RR^k\) is a map of the form
+\[
+\pi: x \in \RR^{n+k} \mapsto (x^{n+1}, \dots, x^{n+k}) \in \RR^k
+\]
+</p>
+
+</div></div>
+
+<p>
+Note that \(d\pi = \begin{pmatrix} \operatorname{Id}_n & 0_k \end{pmatrix}\) is surjective.
+</p>
+
+<p>
+We may also change the order: eg. \(\pi(x_1, x_2, x_3) = (x_2, x_3)\)
+</p>
+
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(F\) be a submersion. Then \(F\) is locally a projection up to diffeomorphism.
+</p>
+
+</div></div>
+
+<p>
+There are diffeomorphisms
+</p>
+\begin{align*}
+\varphi & : U \subseteq \RR^{n+k} \to V \subseteq \RR^{n+k} \\
+\psi & : W \subseteq \RR^k \to Z \subseteq \RR^k \\
+\end{align*}
+<p>
+such that \(F|_U = \psi^{-1} \circ \pi \circ \varphi\)
+</p>
+
+<p>
+Dual to the notion of submersion is the notion of immersion.
+</p>
+
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(F : \RR^n \to \RR^{n+k}\) be a smooth map. Then \(F\) is an <i>immersion</i> if \(dF\) is injective.
+</p>
+
+</div></div>
+
+\begin{equation*}
+\begin{split}
+dF \text{ injective} & \Leftrightarrow dF \text{ has maximal rank} \\
+& \Leftrightarrow \operatorname{rnk} dF = n = \operatorname{dim} \operatorname{Dom} (dF) \\
+& \Leftrightarrow \operatorname{dim} \ker dF = 0
+\end{split}
+\end{equation*}
+
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+An inclusion of \(\RR^n\) into \(\RR^{n+k}\) is a map of the form
+\[
+\iota: x \in \RR^n \mapsto (x, 0_k)
+\]
+where \(0_k = (0, \dots, 0) \in \RR^k\).
+</p>
+
+</div></div>
+
+<p>
+Note that \(d\iota = \begin{pmatrix} \operatorname{Id}_n \\ 0_k \end{pmatrix}\) is injective.
+</p>
+
+<p>
+We may also change the order: eg. \(\iota(x_1, x_2) = (0, x_1, x_2, 0)\)
+</p>
+
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(F\) be an immersion. Then \(F\) is locally an inclusion up to diffeomorphism.
+</p>
+
+</div></div>
+
+<p>
+There are diffeomorphisms
+</p>
+\begin{align*}
+\varphi & : U \subseteq \RR^n \to V \subseteq \RR^n \\
+\psi & : W \subseteq \RR^{n+k} \to Z \subseteq \RR^{n+k} \\
+\end{align*}
+<p>
+such that \(F|_U = \psi^{-1} \circ \iota \circ \varphi\)
+</p>

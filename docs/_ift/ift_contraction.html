@@ -1,0 +1,63 @@
+---
+title: Contraction Mappings
+name: ift_contraction
+type: topic
+---
+
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A map \(T : \bar{B}_r(p) \to \bar{B}_r(p)\) is a <i>contraction map</i> if there exists a constant \(0 \leq L < 1\) such that
+\[
+\abs{T(x) - T(y)} \leq L \abs{x - y}.
+\]
+</p>
+
+</div></div>
+
+<p>
+A contraction map strictly decreases the distance between two points. The primary significane of the definition is the following:
+</p>
+
+<div class="thm card"><div class="card-header"><h5 class="card-title"> : Banach fixed point theorem</h5></div><div class="card-body">
+
+<p>
+Let \(T\) be a contraction map. Then there exists a unique <i>fixed point</i> \(x^{\ast} \in B_r(p)\) of \(T\). That is, there exists a unique point \(x^{\ast}\) such that \(T(x^{\ast}) = x^{\ast}\).
+</p>
+
+</div></div>
+
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+We have
+</p>
+\begin{align*}
+\abs{x - y} &\leq \abs{x - T(x)} + \abs{T(x) - y} \\
+&\leq \abs{x - T(x)} + \abs{T(x) - T(y)} + \abs{T(y) - y} \\
+&\leq \abs{x - T(x)} + L \abs{x - y} + \abs{T(y) - y}.
+\end{align*}
+<p>
+and hence
+\[
+\abs{x - y} \leq \frac{\abs{x - T(x)} + \abs{T(y) - y}}{1-L}
+\]
+Thus if \(T(x) = x\) and \(T(y) = y)\) then \(x = y\) and hence fixed points are unique.
+</p>
+
+<p>
+To prove existence, pick any \(x_0\) and define \(x_n = T^n(x_0) = \underbrace{T \circ \cdots \circ T}_{n \text{ times}}  (x_0)\). Supposing first that the limit exists, then using \(x_n = T(x_{n-1})\) we have
+\[
+x_{\ast} = \lim_{n\to\infty} x_n = \lim_{n\to\infty} T(x_{n-1}) = T(\lim_{n\to\infty} x_{n-1}) = T(x^{\ast})
+\]
+Thus \(x_{\ast}\) is a fixed point and we just need to prove the limit exists. We do this by showing that  \(x_n = T^n(x_0)\) is a Cauchy sequence:
+</p>
+\begin{align*}
+\lvert T^n&(x_0) - T^m(x_0) \rvert \\
+&\leq \frac{\abs{T(T^n(x_0)) - T^n(x_0)} + \abs{T(T^m(x_0)) - T^m(x_0)}}{1-L} \\
+&= \frac{\abs{T^n(T(x_0)) - T^n(x_0)} + \abs{T^m(T(x_0) - T^m(x_0)}}{1-L} \\
+&\leq \frac{L^n \abs{T(x_0) - x_0} + L^m \abs{T(x_0) - x_0}}{1-L} \to 0
+\end{align*}
+<p>
+as \(m,n \to \infty\). Note here that we used \(\abs{T^n(x) - T^n(y)} \leq L^n \abs{x - y}\) which follows by induction. Completness now ensures the limit exists and the proof is complete.
+</p>
+
+</div></div>
