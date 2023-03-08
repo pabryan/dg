@@ -1,6 +1,66 @@
 #+TITLE: Inverse Function Theorem Proof
 #+OPTIONS: toc:nil num:nil
 
+* Contraction Mappings
+** Contraction mappings
+
+#+BEGIN_env defn
+A map \(T : \bar{B}_r(p) \to \bar{B}_r(p)\) is a /contraction map/ if there exists a constant \(0 \leq L < 1\) such that
+\[
+\abs{T(x) - T(y)} \leq L \abs{x - y}.
+\]
+#+END_env
+
+** Fixed Points
+
+#+BEGIN_env thm :title "Banach fixed point theorem"
+
+Let \(T\) be a contraction map. Then there exists a unique /fixed point/ \(x^{\ast} \in B_r(p)\) of \(T\). That is, there exists a unique point \(x^{\ast}\) such that \(T(x^{\ast}) = x^{\ast}\).
+#+END_env
+
+** Proof (Uniqueness)
+
+#+BEGIN_pf
+Fundamental contraction identity:
+
+\begin{align*}
+\abs{x - y} &\leq \abs{x - T(x)} + \abs{T(x) - y} \\
+&\leq \abs{x - T(x)} + \abs{T(x) - T(y)} + \abs{T(y) - y} \\
+&\leq \abs{x - T(x)} + L \abs{x - y} + \abs{T(y) - y}.
+\end{align*}
+
+
+Therefore
+\[
+\abs{x - y} \leq \frac{\abs{x - T(x)} + \abs{T(y) - y}}{1-L}
+\]
+#+END_pf
+
+** Proof (Existence)
+
+#+BEGIN_pf
+Pick any \(x_0\) and define \(x_n = T^n(x_0) = \underbrace{T \circ \cdots \circ T}_{n \text{ times}}  (x_0)\)
+
+The claim is that \(x^{\ast} = \lim_{n\to\infty} x_n\) exists and is the desired fixed point.
+
+Supposing first that the limit exists, then using \(x_n = T(x_{n-1})\) we have
+\[
+x_{\ast} = \lim_{n\to\infty} x_n = \lim_{n\to\infty} T(x_{n-1}) = T(\lim_{n\to\infty} x_{n-1}) = T(x^{\ast})
+\]
+#+END_pf
+
+** Proof (Existence)
+
+#+BEGIN_pf
+\(x_n = T^n(x_0)\) is a Cauchy sequence:
+\begin{align*}
+\lvert T^n&(x_0) - T^m(x_0) \rvert \\
+&\leq \frac{\abs{T(T^n(x_0)) - T^n(x_0)} + \abs{T(T^m(x_0)) - T^m(x_0)}}{1-L} \\
+&= \frac{\abs{T^n(T(x_0)) - T^n(x_0)} + \abs{T^m(T(x_0) - T^m(x_0)}}{1-L} \\
+&\leq \frac{L^n \abs{T(x_0) - x_0} + L^m \abs{T(x_0) - x_0}}{1-L} \to 0
+\end{align*}
+#+END_pf
+
 * Inverse Function Theorem Proof
 ** Inverse Function Theorem
 
