@@ -61,7 +61,7 @@ x_{\ast} = \lim_{n\to\infty} x_n = \lim_{n\to\infty} T(x_{n-1}) = T(\lim_{n\to\i
 \end{align*}
 #+END_pf
 
-* Inverse Function Theorem Proof
+* IFT Proof: Outline
 ** Inverse Function Theorem
 
 #+BEGIN_env thm
@@ -73,20 +73,23 @@ df^{-1}_{f(x_0)} = (df_{x_0})^{-1}
 
 ** IFT: Proof
 
-To prove the Inverse Function Theorem, given \(y\) we uniquely solve \(f(x) = y\) by defining
+Define \(T_y (x) = x - df_{x_0}^{-1} (f(x) - y)\)
 
-\[
-T_y (x) = x - df_{x_0}^{-1} (f(x) - y).
-\]
+- Step 1 :: \(T_y\) is a contraction \(T_y : \bar{B}_r(x_0) \to \bar{B}_r(x_0)\)
+- Step 2 :: Prove \(f^{-1}\) is smooth.
 
-and show that for suitable \(r > 0\), \(T_y\) is a contraction map \(\bar{B}_r(x_0) \to \bar{B}_r(x_0)\).
-
+* IFT Proof: Contraction
 ** IFT: Contraction
 
-Contraction mapping theorem: define for each fixed \(y\),
+#+BEGIN_env lem
+For each fixed \(y\) sufficiently close to \(y_0 = F(x_0)\),
 \[
-T_y (x) = x - df_{x_0}^{-1} (f(x) - y).
+T_y (x) = x - df_{x_0}^{-1} (f(x) - y)
 \]
+is a contraction map.
+#+END_env
+
+** IFT: Contraction
 
 \[
 dT_{x_0} = d\Id_{x_0} - df_{x_0}^{-1} df_{x_0} = 0.
@@ -129,31 +132,45 @@ Then for \(x \in B_r(x_0)\), recalling \(T(x) = x - df_{x_0}^{-1}(f(x) - y)\) we
 &\leq r L + (1-L)r = r.
 \end{align*}
 
+* IFT Proof: Fixed Point and Inverse
 ** IFT: Fixed Point
 
-That is \(T(x) \in \bar{B}_{x_0} (r)\) for \(x \in \bar{B}_{x_0} (r)\) and \(y \in \bar{B}_s (y_0)\).
+#+BEGIN_env lem
+For each \(y \in \bar{B}_s(y_0)\), there exists a unique fixed point \(x^{\ast}_y \in \bar{B}_r (x_0)\) for \(T_y\)
+#+END_env
 
-Thus for any \(y \in \bar{B}_s(x_0)\), \(T_y : \bar{B}_r (x_0) \to \bar{B}_r (x_0)\) is a contraction mapping, hence:
+- Proof :: \(T_y : \bar{B}_r (x_0) \to \bar{B}_r (x_0)\) is a contraction mapping.
 
-For each such \(y\), there exists a unique fixed point \(x^{\ast}_y \in \bar{B}_r (x_0)\). That is
+** IFT: Fixed Point
+
 \[
 x^{\ast}_y = T_y(x^{\ast}_y) = x^{\ast}_y - df_{x_0}^{-1} (f(x^{\ast}_y) - y).
 \]
 
-** IFT: Fixed Point
-
-\[
-x^{\ast}_y = T_y(x^{\ast}_y) = x^{\ast}_y - df_{x_0}^{-1} (f(x^{\ast}_y) - y).
-\]
-
-Cancelling \(x^{\ast}_y\) from both sides and since \(df_{x_0}^{-1}\) is non-singular,
-\[
-df_{x_0}^{-1} (f(x^{\ast}_y) - y) = 0 \Rightarrow f(x^{\ast}_y) = y.
-\]
+Cancelling \(x^{\ast}_y\) from both sides and using the fact that \(df_{x_0}^{-1}\) is non-singular:
+\begin{equation*}
+\begin{split}
+x^{\ast}_y = T_y(x^{\ast}_y) &\Leftrightarrow df_{x_0}^{-1} (f(x^{\ast}_y) - y) = 0 \\
+&\Leftrightarrow f(x^{\ast}_y) = y
+\end{split}
+\end{equation*}
 
 ** IFT: Inverse
 
-*We have finally found our inverse function:* \(f^{-1} (y) = x^{\ast}_y\) for \(y \in B_s(y_0)\). Note we need to restrict the range of \(x\) to the open set \(f^{-1}(B_s(y_0)) \cap B_r(x_0)\) so that \(f\) maps this set into \(B_s(y_0)\).
+*We have finally found our inverse function:*
+\[
+f^{-1} (y) = x^{\ast}_y
+\]
+for \(y \in B_s(y_0)\).
+
+Note we need to restrict the range of \(x\) to the open set \(f^{-1}(B_s(y_0)) \cap B_r(x_0)\) so that \(f\) maps this set into \(B_s(y_0)\).
+
+* IFT Proof: Continuity
+** IFT: Continuity of Inverse
+
+#+BEGIN_env lem
+The (local) inverse \(f^{-1}\) is continuous.
+#+END_env
 
 ** IFT: Continuity of Inverse
 
@@ -195,6 +212,13 @@ Letting \(y_i = f(x_i)\) so that \(x_i = f^{-1}(y_i)\) gives continuity (even Li
 \abs{f^{-1}(y_1) - f^{-1}(y_2)} \leq \frac{\|df_{x_0}^{-1}\|}{1 - L}\abs{y_1 - y_2}.
 \]
 
+* IFT Proof: Differentiability
+** IFT: Differentiability
+
+#+BEGIN_env lem
+The (local) inverse \(f^{-1}\) is differentiable.
+#+END_env
+
 ** IFT: Differentiability
 
 Pick any arbitrary \(y \in B_s(y_0)\) and any \(h\) such that \(y + h \in B_s(y_0)\), say \(h \in B_{\epsilon} (0)\) so that \(y + h \in B_{\epsilon} (y) \subseteq B_s(y_0)\).
@@ -231,6 +255,14 @@ Since \(f^{-1}\) is Lipschitz, with constant \(M\) say, we have
 \]
 
 The right hand side goes to zero as \(h \to 0\) since \(\abs{k} \leq M \abs{h}\) implies \(k \to 0\) and then by definition of \(\omicron(k)\).
+
+* IFT Proof: Higher Regularity
+
+** IFT: Higher Reularity
+
+#+BEGIN_env lem
+The (local) inverse, \(f^{-1}\) is smooth.
+#+END_env
 
 ** IFT: Higher regularity
 
