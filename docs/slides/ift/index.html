@@ -2,101 +2,13 @@
 layout: org-slides
 ---
 
-<section class="outline-2" id="outline-container-org832cf80">
-<h2 id="org832cf80">Contraction Mappings</h2>
-<div class="outline-text-2" id="text-org832cf80">
+<section class="outline-2" id="outline-container-org02894a8">
+<h2 id="org02894a8">Inverse Function Theorem</h2>
+<div class="outline-text-2" id="text-org02894a8">
 </div>
-<section class="outline-3" id="outline-container-orgdc65cdc">
-<h3 id="orgdc65cdc">Contraction mappings</h3>
-<div class="outline-text-3" id="text-orgdc65cdc">
-<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
-<p>
-A map \(T : \bar{B}_r(p) \to \bar{B}_r(p)\) is a <i>contraction map</i> if there exists a constant \(0 \leq L &lt; 1\) such that
-\[
-\abs{T(x) - T(y)} \leq L \abs{x - y}.
-\]
-</p>
-</div></div>
-</div>
-</section>
-<section class="outline-3" id="outline-container-org0f68bff">
-<h3 id="org0f68bff">Fixed Points</h3>
-<div class="outline-text-3" id="text-org0f68bff">
-<div class="thm card"><div class="card-header"><h5 class="card-title"> : Banach fixed point theorem</h5></div><div class="card-body">
-<p>
-Let \(T\) be a contraction map. Then there exists a unique <i>fixed point</i> \(x^{\ast} \in B_r(p)\) of \(T\). That is, there exists a unique point \(x^{\ast}\) such that \(T(x^{\ast}) = x^{\ast}\).
-</p>
-</div></div>
-</div>
-</section>
-<section class="outline-3" id="outline-container-orgf0ae3ce">
-<h3 id="orgf0ae3ce">Proof (Uniqueness)</h3>
-<div class="outline-text-3" id="text-orgf0ae3ce">
-<div class="pf" id="org591c03a">
-<p>
-Fundamental contraction identity:
-</p>
-
-\begin{align*}
-\abs{x - y} &amp;\leq \abs{x - T(x)} + \abs{T(x) - y} \\
-&amp;\leq \abs{x - T(x)} + \abs{T(x) - T(y)} + \abs{T(y) - y} \\
-&amp;\leq \abs{x - T(x)} + L \abs{x - y} + \abs{T(y) - y}.
-\end{align*}
-
-
-<p>
-Therefore
-\[
-\abs{x - y} \leq \frac{\abs{x - T(x)} + \abs{T(y) - y}}{1-L}
-\]
-</p>
-</div>
-</div>
-</section>
-<section class="outline-3" id="outline-container-orga56e133">
-<h3 id="orga56e133">Proof (Existence)</h3>
-<div class="outline-text-3" id="text-orga56e133">
-<div class="pf" id="orge316b05">
-<p>
-Pick any \(x_0\) and define \(x_n = T^n(x_0) = \underbrace{T \circ \cdots \circ T}_{n \text{ times}}  (x_0)\)
-</p>
-<p>
-The claim is that \(x^{\ast} = \lim_{n\to\infty} x_n\) exists and is the desired fixed point.
-</p>
-<p>
-Supposing first that the limit exists, then using \(x_n = T(x_{n-1})\) we have
-\[
-x_{\ast} = \lim_{n\to\infty} x_n = \lim_{n\to\infty} T(x_{n-1}) = T(\lim_{n\to\infty} x_{n-1}) = T(x^{\ast})
-\]
-</p>
-</div>
-</div>
-</section>
-<section class="outline-3" id="outline-container-org20ccccf">
-<h3 id="org20ccccf">Proof (Existence)</h3>
-<div class="outline-text-3" id="text-org20ccccf">
-<div class="pf" id="orga82dd68">
-<p>
-\(x_n = T^n(x_0)\) is a Cauchy sequence:
-</p>
-\begin{align*}
-\lvert T^n&amp;(x_0) - T^m(x_0) \rvert \\
-&amp;\leq \frac{\abs{T(T^n(x_0)) - T^n(x_0)} + \abs{T(T^m(x_0)) - T^m(x_0)}}{1-L} \\
-&amp;= \frac{\abs{T^n(T(x_0)) - T^n(x_0)} + \abs{T^m(T(x_0) - T^m(x_0)}}{1-L} \\
-&amp;\leq \frac{L^n \abs{T(x_0) - x_0} + L^m \abs{T(x_0) - x_0}}{1-L} \to 0
-\end{align*}
-
-</div>
-</div>
-</section>
-</section>
-<section class="outline-2" id="outline-container-org1793054">
-<h2 id="org1793054">Inverse Function Theorem</h2>
-<div class="outline-text-2" id="text-org1793054">
-</div>
-<section class="outline-3" id="outline-container-org5277c86">
-<h3 id="org5277c86">\(1D\) Inverse Function Theorem</h3>
-<div class="outline-text-3" id="text-org5277c86">
+<section class="outline-3" id="outline-container-org5080346">
+<h3 id="org5080346">\(1D\) Inverse Function Theorem</h3>
+<div class="outline-text-3" id="text-org5080346">
 <div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
 <p>
 Let \(f : \RR \to \RR\) be a smooth function with \(f'(x_0) \ne 0\), there exists an interval \(I\) containing \(x_0\) and an interval \(J\) containing \(f(x_0)\) so that \(f : I \to J\) is a diffeomorphism.
@@ -104,9 +16,9 @@ Let \(f : \RR \to \RR\) be a smooth function with \(f'(x_0) \ne 0\), there exist
 </div></div>
 </div>
 </section>
-<section class="outline-3" id="outline-container-org2489784">
-<h3 id="org2489784">Inverse Function Theorem</h3>
-<div class="outline-text-3" id="text-org2489784">
+<section class="outline-3" id="outline-container-orgfdb6a22">
+<h3 id="orgfdb6a22">Inverse Function Theorem</h3>
+<div class="outline-text-3" id="text-orgfdb6a22">
 <div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
 <p>
 Let \(f : \RR^n \to \RR^n\) a smooth function such that \(df_{x_0}\) is invertible at \(x_0\). Then there is an open set \(U\) containing \(x_0\) and an open set \(V\) containing \(f(x_0)\) such that \(f|_U : U \to V\) is a diffeomorphism. Moreover
@@ -117,9 +29,9 @@ df^{-1}_{f(x_0)} = (df_{x_0})^{-1}
 </div></div>
 </div>
 </section>
-<section class="outline-3" id="outline-container-orgdccd3d6">
-<h3 id="orgdccd3d6">IFT</h3>
-<div class="outline-text-3" id="text-orgdccd3d6">
+<section class="outline-3" id="outline-container-org1652e6d">
+<h3 id="org1652e6d">IFT: Chain Rule</h3>
+<div class="outline-text-3" id="text-org1652e6d">
 <p>
 If \(f\) is a diffeomorphism, then \(f^{-1} \circ f (x) = x\). That is, \(f^{-1} \circ f = \Id_x\).
 </p>
@@ -137,9 +49,9 @@ That is \(df_{x_0}\) is invertible and
 </p>
 </div>
 </section>
-<section class="outline-3" id="outline-container-orgdcc1822">
-<h3 id="orgdcc1822">IFT: Idea</h3>
-<div class="outline-text-3" id="text-orgdcc1822">
+<section class="outline-3" id="outline-container-org5b4749d">
+<h3 id="org5b4749d">IFT: Idea</h3>
+<div class="outline-text-3" id="text-org5b4749d">
 <p>
 \[
 f(x) = f(x_0) + df_{x_0} \cdot (x - x_0) + \omicron(|x-x_0|).
@@ -163,9 +75,9 @@ f^{-1}(y) = f^{-1}(y_0) + df_{x_0}^{-1} \cdot (y - y_0).
 </p>
 </div>
 </section>
-<section class="outline-3" id="outline-container-org0564013">
-<h3 id="org0564013">IFT: Contraction</h3>
-<div class="outline-text-3" id="text-org0564013">
+<section class="outline-3" id="outline-container-org82f5f0e">
+<h3 id="org82f5f0e">IFT: Contraction</h3>
+<div class="outline-text-3" id="text-org82f5f0e">
 <p>
 To prove the Inverse Function Theorem, given \(y\) we uniquely solve \(f(x) = y\) by defining
 </p>
@@ -180,15 +92,57 @@ and show that for suitable \(r &gt; 0\), \(T_y\) is a contraction map \(\bar{B}_
 </div>
 </section>
 </section>
-<section class="outline-2" id="outline-container-orgbd45716">
-<h2 id="orgbd45716">Implicit Function Theorem</h2>
-<div class="outline-text-2" id="text-orgbd45716">
+<section class="outline-2" id="outline-container-org1d3314a">
+<h2 id="org1d3314a">IFT: Example</h2>
+<div class="outline-text-2" id="text-org1d3314a">
 </div>
-<section class="outline-3" id="outline-container-org3ae060e">
-<h3 id="org3ae060e">Implicit Function Theorem</h3>
-<div class="outline-text-3" id="text-org3ae060e">
+<section class="outline-3" id="outline-container-orge0a3566">
+<h3 id="orge0a3566">IFT: Example</h3>
+<div class="outline-text-3" id="text-orge0a3566">
+\begin{equation*}
+\begin{cases}
+x - y^2 &amp;= a \\
+x^2 + y + y^3 &amp;= b
+\end{cases}
+\end{equation*}
+
 <p>
-For \((x, y) \in \RR^n \oplus \RR^k \simeq \RR^{n+k}\) write
+For \((a, b) = (0, 0)\): \((x, y) = (0, 0)\) is a solution.
+</p>
+<p>
+<b>Question</b>: For what \((a, b)\) is the system solvable?
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgf54e726">
+<h3 id="orgf54e726">IFT: Example</h3>
+<div class="outline-text-3" id="text-orgf54e726">
+<p>
+Let \(F(x, y) = (x - y^2, x^2 + y - y^3)\)
+</p>
+
+\begin{equation*}
+dF = \begin{pmatrix}
+1 &amp; -2y \\
+2x &amp; 1 - 3y^2
+\end{pmatrix}
+\end{equation*}
+
+<p>
+The \(dF_{(0, 0)} = \operatorname{Id}\) hence by the IFT there is a neighbourhood of \((x, y) = (0, 0)\) for which \(F\) maps diffeomorphically onto a neighbourhood of \((a, b) = (0, 0)\) hence there is a unique solution for \((a, b)\) in a neighbourhood of \((0, 0)\).
+</p>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org181313e">
+<h2 id="org181313e">Implicit Function Theorem</h2>
+<div class="outline-text-2" id="text-org181313e">
+</div>
+<section class="outline-3" id="outline-container-org9877c0c">
+<h3 id="org9877c0c">Implicit Function Theorem</h3>
+<div class="outline-text-3" id="text-org9877c0c">
+<p>
+For \((x, y) \in \RR^n \oplus \RR^k \simeq \RR^{n+k}\) we write
 </p>
 \begin{equation*}
 dF = \begin{pmatrix} d_x F &amp; d_y F \end{pmatrix}
@@ -204,9 +158,9 @@ F(x, g(x)) = F(x_0, y_0).
 </div></div>
 </div>
 </section>
-<section class="outline-3" id="outline-container-org205ced8">
-<h3 id="org205ced8">Proof</h3>
-<div class="outline-text-3" id="text-org205ced8">
+<section class="outline-3" id="outline-container-org0ea7bd6">
+<h3 id="org0ea7bd6">Proof</h3>
+<div class="outline-text-3" id="text-org0ea7bd6">
 <p>
 Define
 \[
@@ -217,14 +171,14 @@ Define
 \begin{equation*}
 d\bar{F} = \begin{pmatrix}
 \operatorname{Id}_n &amp; 0 \\
-\ast &amp; d_y F
+d_x F &amp; d_y F
 \end{pmatrix}
 \end{equation*}
 </div>
 </section>
-<section class="outline-3" id="outline-container-org5975386">
-<h3 id="org5975386">Proof</h3>
-<div class="outline-text-3" id="text-org5975386">
+<section class="outline-3" id="outline-container-orga9b2a14">
+<h3 id="orga9b2a14">Proof</h3>
+<div class="outline-text-3" id="text-orga9b2a14">
 <p>
 \(d\bar{F}\) is invertible, hence by the inverse function theorem, \(\bar{F}\) is locally invertible.
 </p>
@@ -242,9 +196,25 @@ g(x) = G(x, c)
 </p>
 </div>
 </section>
-<section class="outline-3" id="outline-container-org68e6f04">
-<h3 id="org68e6f04">Unit Circle</h3>
-<div class="outline-text-3" id="text-org68e6f04">
+<section class="outline-3" id="outline-container-orgc069b60">
+<h3 id="orgc069b60">Interpretation</h3>
+<div class="outline-text-3" id="text-orgc069b60">
+<p>
+Consider the level set
+</p>
+<p>
+\[
+F^{-1}(c) = \lbrace (x, y) : F(x, y) = c \rbrace.
+\]
+</p>
+<p>
+If \(d_y F\) is invertible for each \((x, y) \in F^{-1}(c)\), then the level set is locally the graph of a smooth function.
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgac4cfd7">
+<h3 id="orgac4cfd7">Unit Circle</h3>
+<div class="outline-text-3" id="text-orgac4cfd7">
 <div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
 <p>
 Let \(F(x, y) = x^2 + y^2\)
@@ -267,26 +237,91 @@ F(x, \sqrt{1-x^2}) = 1
 </div>
 </section>
 </section>
-<section class="outline-2" id="outline-container-org46685fb">
-<h2 id="org46685fb">Immersion and Submersion Theorems</h2>
-<div class="outline-text-2" id="text-org46685fb">
+<section class="outline-2" id="outline-container-org1b17028">
+<h2 id="org1b17028">Submersion Theorem</h2>
+<div class="outline-text-2" id="text-org1b17028">
 </div>
-<section class="outline-3" id="outline-container-orgaa18d4f">
-<h3 id="orgaa18d4f">Immersions</h3>
-<div class="outline-text-3" id="text-orgaa18d4f">
+<section class="outline-3" id="outline-container-orgf9a4c76">
+<h3 id="orgf9a4c76">Submersions</h3>
+<div class="outline-text-3" id="text-orgf9a4c76">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(F : \RR^{n+k} \to \RR^{k}\) be a smooth map. Then \(F\) is a <i>submersion</i> if \(dF\) is surjective.
+</p>
+</div></div>
+
+\begin{equation*}
+\begin{split}
+dF \text{ surjective} &amp; \Leftrightarrow \text{Maximal Rank} \\
+&amp; \Leftrightarrow \operatorname{rnk} dF = k = \operatorname{dim} \operatorname{coDom} (dF) \\
+&amp; \Leftrightarrow \operatorname{dim} \ker dF = n
+\end{split}
+\end{equation*}
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgad5d37a">
+<h3 id="orgad5d37a">Projections</h3>
+<div class="outline-text-3" id="text-orgad5d37a">
+<p>
+An projection of \(\RR^{n+k}\) onto \(\RR^k\) is a map of the form
+\[
+\pi: x \in \RR^{n+k} \mapsto (x^{n+1}, \dots, x^{n+k}) \in \RR^k
+\]
+</p>
+<p>
+Note that \(d\pi = \begin{pmatrix} \operatorname{Id}_n &amp; 0_k \end{pmatrix}\) is surjective.
+</p>
+<p>
+We may also change the order: eg. \(\pi(x_1, x_2, x_3) = (x_2, x_3)\)
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgbae0d4f">
+<h3 id="orgbae0d4f">Sumbersion Theorem</h3>
+<div class="outline-text-3" id="text-orgbae0d4f">
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(F\) be a submersion. Then \(F\) is locally a projection up to diffeomorphism.
+</p>
+</div></div>
+<p>
+There are diffeomorphisms
+</p>
+\begin{align*}
+\varphi &amp; : U \subseteq \RR^{n+k} \to V \subseteq \RR^{n+k} \\
+\psi &amp; : W \subseteq \RR^k \to Z \subseteq \RR^k \\
+\end{align*}
+<p>
+such that \(F|_U = \psi^{-1} \circ \pi \circ \varphi\)
+</p>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-orge63ea63">
+<h2 id="orge63ea63">Immersion Theorems</h2>
+<div class="outline-text-2" id="text-orge63ea63">
+</div>
+<section class="outline-3" id="outline-container-orgfb1cbe9">
+<h3 id="orgfb1cbe9">Immersions</h3>
+<div class="outline-text-3" id="text-orgfb1cbe9">
 <div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
 <p>
 Let \(F : \RR^n \to \RR^{n+k}\) be a smooth map. Then \(F\) is an <i>immersion</i> if \(dF\) is injective.
 </p>
 </div></div>
-<p>
-Injection \(\Leftrightarrow\) \(\ker dF = \lbrace 0 \rbrace\) \(\Leftrightarrow\) \(\operatorname{rnk} dF = n\)
-</p>
+
+\begin{equation*}
+\begin{split}
+dF \text{ injective} &amp; \Leftrightarrow \text{Maximal Rank} \\
+&amp; \Leftrightarrow \operatorname{rnk} dF = n = \operatorname{dim} \operatorname{Dom} (dF) \\
+&amp; \Leftrightarrow \operatorname{dim} \ker dF = 0
+\end{split}
+\end{equation*}
 </div>
 </section>
-<section class="outline-3" id="outline-container-org159457e">
-<h3 id="org159457e">Inclusions</h3>
-<div class="outline-text-3" id="text-org159457e">
+<section class="outline-3" id="outline-container-org6a1b5b5">
+<h3 id="org6a1b5b5">Inclusions</h3>
+<div class="outline-text-3" id="text-org6a1b5b5">
 <p>
 An inclusion of \(\RR^n\) into \(\RR^{n+k}\) is a map of the form
 \[
@@ -302,9 +337,9 @@ We may also change the order: eg. \(\iota(x_1, x_2) = (0, x_1, x_2, 0)\)
 </p>
 </div>
 </section>
-<section class="outline-3" id="outline-container-org9401e45">
-<h3 id="org9401e45">Immersion Theorem</h3>
-<div class="outline-text-3" id="text-org9401e45">
+<section class="outline-3" id="outline-container-orgfb1071f">
+<h3 id="orgfb1071f">Immersion Theorem</h3>
+<div class="outline-text-3" id="text-orgfb1071f">
 <div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
 <p>
 Let \(F\) be an immersion. Then \(F\) is locally an inclusion up to diffeomorphism.
@@ -319,56 +354,6 @@ There are diffeomorphisms
 \end{align*}
 <p>
 such that \(F|_U = \psi^{-1} \circ \iota \circ \varphi\)
-</p>
-</div>
-</section>
-<section class="outline-3" id="outline-container-orgcf4ee0d">
-<h3 id="orgcf4ee0d">Submersions</h3>
-<div class="outline-text-3" id="text-orgcf4ee0d">
-<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
-<p>
-Let \(F : \RR^{n+k} \to \RR^{k}\) be a smooth map. Then \(F\) is an <i>submersion</i> if \(dF\) is surjective.
-</p>
-</div></div>
-<p>
-Surjection \(\Leftrightarrow\) \(\operatorname{rnk} dF = k\) \(\operatorname{dim} \ker dF = n\) \(\Leftrightarrow\) 
-</p>
-</div>
-</section>
-<section class="outline-3" id="outline-container-org09ab8ad">
-<h3 id="org09ab8ad">Projections</h3>
-<div class="outline-text-3" id="text-org09ab8ad">
-<p>
-An projection of \(\RR^{n+k}\) onto \(\RR^k\) is a map of the form
-\[
-\pi: x \in \RR^{n+k} \mapsto (x^{n+1}, \dots, x^{n+k}) \in \RR^k
-\]
-</p>
-<p>
-Note that \(d\pi = \begin{pmatrix} \operatorname{Id}_n &amp; 0_k \end{pmatrix}\) is surjective.
-</p>
-<p>
-We may also change the order: eg. \(\pi(x_1, x_2, x_3) = (x_2, x_3)\)
-</p>
-</div>
-</section>
-<section class="outline-3" id="outline-container-orgc5567dd">
-<h3 id="orgc5567dd">Sumbersion Theorem</h3>
-<div class="outline-text-3" id="text-orgc5567dd">
-<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
-<p>
-Let \(F\) be a submersion. Then \(F\) is locally a projection up to diffeomorphism.
-</p>
-</div></div>
-<p>
-There are diffeomorphisms
-</p>
-\begin{align*}
-\varphi &amp; : U \subseteq \RR^{n+k} \to V \subseteq \RR^{n+k} \\
-\psi &amp; : W \subseteq \RR^k \to Z \subseteq \RR^k \\
-\end{align*}
-<p>
-such that \(F|_U = \psi^{-1} \circ \pi \circ \varphi\)
 </p>
 </div>
 </section>
