@@ -1,66 +1,6 @@
 #+TITLE: Inverse Function Theorem
 #+OPTIONS: toc:nil num:nil
 
-* Contraction Mappings
-** Contraction mappings
-
-#+BEGIN_env defn
-A map \(T : \bar{B}_r(p) \to \bar{B}_r(p)\) is a /contraction map/ if there exists a constant \(0 \leq L < 1\) such that
-\[
-\abs{T(x) - T(y)} \leq L \abs{x - y}.
-\]
-#+END_env
-
-** Fixed Points
-
-#+BEGIN_env thm :title "Banach fixed point theorem"
-
-Let \(T\) be a contraction map. Then there exists a unique /fixed point/ \(x^{\ast} \in B_r(p)\) of \(T\). That is, there exists a unique point \(x^{\ast}\) such that \(T(x^{\ast}) = x^{\ast}\).
-#+END_env
-
-** Proof (Uniqueness)
-
-#+BEGIN_pf
-Fundamental contraction identity:
-
-\begin{align*}
-\abs{x - y} &\leq \abs{x - T(x)} + \abs{T(x) - y} \\
-&\leq \abs{x - T(x)} + \abs{T(x) - T(y)} + \abs{T(y) - y} \\
-&\leq \abs{x - T(x)} + L \abs{x - y} + \abs{T(y) - y}.
-\end{align*}
-
-
-Therefore
-\[
-\abs{x - y} \leq \frac{\abs{x - T(x)} + \abs{T(y) - y}}{1-L}
-\]
-#+END_pf
-
-** Proof (Existence)
-
-#+BEGIN_pf
-Pick any \(x_0\) and define \(x_n = T^n(x_0) = \underbrace{T \circ \cdots \circ T}_{n \text{ times}}  (x_0)\)
-
-The claim is that \(x^{\ast} = \lim_{n\to\infty} x_n\) exists and is the desired fixed point.
-
-Supposing first that the limit exists, then using \(x_n = T(x_{n-1})\) we have
-\[
-x_{\ast} = \lim_{n\to\infty} x_n = \lim_{n\to\infty} T(x_{n-1}) = T(\lim_{n\to\infty} x_{n-1}) = T(x^{\ast})
-\]
-#+END_pf
-
-** Proof (Existence)
-
-#+BEGIN_pf
-\(x_n = T^n(x_0)\) is a Cauchy sequence:
-\begin{align*}
-\lvert T^n&(x_0) - T^m(x_0) \rvert \\
-&\leq \frac{\abs{T(T^n(x_0)) - T^n(x_0)} + \abs{T(T^m(x_0)) - T^m(x_0)}}{1-L} \\
-&= \frac{\abs{T^n(T(x_0)) - T^n(x_0)} + \abs{T^m(T(x_0) - T^m(x_0)}}{1-L} \\
-&\leq \frac{L^n \abs{T(x_0) - x_0} + L^m \abs{T(x_0) - x_0}}{1-L} \to 0
-\end{align*}
-#+END_pf
-
 * Inverse Function Theorem
 ** \(1D\) Inverse Function Theorem
 
@@ -77,7 +17,7 @@ df^{-1}_{f(x_0)} = (df_{x_0})^{-1}
 \]
 #+END_env
 
-** IFT
+** IFT: Chain Rule
 
 If \(f\) is a diffeomorphism, then \(f^{-1} \circ f (x) = x\). That is, \(f^{-1} \circ f = \Id_x\).
 
@@ -120,10 +60,37 @@ T_y (x) = x - df_{x_0}^{-1} (f(x) - y).
 
 and show that for suitable \(r > 0\), \(T_y\) is a contraction map \(\bar{B}_r(x_0) \to \bar{B}_r(x_0)\).
 
+* IFT: Example
+** IFT: Example
+
+\begin{equation*}
+\begin{cases}
+x - y^2 &= a \\
+x^2 + y + y^3 &= b
+\end{cases}
+\end{equation*}
+
+For \((a, b) = (0, 0)\): \((x, y) = (0, 0)\) is a solution.
+
+*Question*: For what \((a, b)\) is the system solvable?
+
+** IFT: Example
+
+Let \(F(x, y) = (x - y^2, x^2 + y - y^3)\)
+
+\begin{equation*}
+dF = \begin{pmatrix}
+1 & -2y \\
+2x & 1 - 3y^2
+\end{pmatrix}
+\end{equation*}
+
+The \(dF_{(0, 0)} = \operatorname{Id}\) hence by the IFT there is a neighbourhood of \((x, y) = (0, 0)\) for which \(F\) maps diffeomorphically onto a neighbourhood of \((a, b) = (0, 0)\) hence there is a unique solution for \((a, b)\) in a neighbourhood of \((0, 0)\).
+
 * Implicit Function Theorem
 ** Implicit Function Theorem
 
-For \((x, y) \in \RR^n \oplus \RR^k \simeq \RR^{n+k}\) write
+For \((x, y) \in \RR^n \oplus \RR^k \simeq \RR^{n+k}\) we write
 \begin{equation*}
 dF = \begin{pmatrix} d_x F & d_y F \end{pmatrix}
 \end{equation*}
@@ -145,7 +112,7 @@ Define
 \begin{equation*}
 d\bar{F} = \begin{pmatrix}
 \operatorname{Id}_n & 0 \\
-\ast & d_y F
+d_x F & d_y F
 \end{pmatrix}
 \end{equation*}
 
@@ -162,6 +129,16 @@ Letting \(c = F(x_0,y_0)\),
 \[
 g(x) = G(x, c)
 \]
+
+** Interpretation
+
+Consider the level set
+
+\[
+F^{-1}(c) = \lbrace (x, y) : F(x, y) = c \rbrace.
+\]
+
+If \(d_y F\) is invertible for each \((x, y) \in F^{-1}(c)\), then the level set is locally the graph of a smooth function.
 
 ** Unit Circle
 
@@ -180,14 +157,58 @@ F(x, \sqrt{1-x^2}) = 1
 \]
 #+END_env
 
-* Immersion and Submersion Theorems
+* Submersion Theorem
+** Submersions
+
+#+BEGIN_env defn
+Let \(F : \RR^{n+k} \to \RR^{k}\) be a smooth map. Then \(F\) is a /submersion/ if \(dF\) is surjective.
+#+END_env
+
+\begin{equation*}
+\begin{split}
+dF \text{ surjective} & \Leftrightarrow \text{Maximal Rank} \\
+& \Leftrightarrow \operatorname{rnk} dF = k = \operatorname{dim} \operatorname{coDom} (dF) \\
+& \Leftrightarrow \operatorname{dim} \ker dF = n
+\end{split}
+\end{equation*}
+
+** Projections
+
+An projection of \(\RR^{n+k}\) onto \(\RR^k\) is a map of the form
+\[
+\pi: x \in \RR^{n+k} \mapsto (x^{n+1}, \dots, x^{n+k}) \in \RR^k
+\]
+
+Note that \(d\pi = \begin{pmatrix} \operatorname{Id}_n & 0_k \end{pmatrix}\) is surjective.
+
+We may also change the order: eg. \(\pi(x_1, x_2, x_3) = (x_2, x_3)\)
+** Sumbersion Theorem
+
+#+BEGIN_env thm
+Let \(F\) be a submersion. Then \(F\) is locally a projection up to diffeomorphism.
+#+END_env
+
+There are diffeomorphisms
+\begin{align*}
+\varphi & : U \subseteq \RR^{n+k} \to V \subseteq \RR^{n+k} \\
+\psi & : W \subseteq \RR^k \to Z \subseteq \RR^k \\
+\end{align*}
+such that \(F|_U = \psi^{-1} \circ \pi \circ \varphi\)
+
+* Immersion Theorems
 ** Immersions
 
 #+BEGIN_env defn
 Let \(F : \RR^n \to \RR^{n+k}\) be a smooth map. Then \(F\) is an /immersion/ if \(dF\) is injective.
 #+END_env
 
-Injection \(\Leftrightarrow\) \(\ker dF = \lbrace 0 \rbrace\) \(\Leftrightarrow\) \(\operatorname{rnk} dF = n\)
+\begin{equation*}
+\begin{split}
+dF \text{ injective} & \Leftrightarrow \text{Maximal Rank} \\
+& \Leftrightarrow \operatorname{rnk} dF = n = \operatorname{dim} \operatorname{Dom} (dF) \\
+& \Leftrightarrow \operatorname{dim} \ker dF = 0
+\end{split}
+\end{equation*}
 
 ** Inclusions
 
@@ -213,34 +234,3 @@ There are diffeomorphisms
 \psi & : W \subseteq \RR^{n+k} \to Z \subseteq \RR^{n+k} \\
 \end{align*}
 such that \(F|_U = \psi^{-1} \circ \iota \circ \varphi\)
-
-** Submersions
-
-#+BEGIN_env defn
-Let \(F : \RR^{n+k} \to \RR^{k}\) be a smooth map. Then \(F\) is an /submersion/ if \(dF\) is surjective.
-#+END_env
-
-Surjection \(\Leftrightarrow\) \(\operatorname{rnk} dF = k\) \(\operatorname{dim} \ker dF = n\) \(\Leftrightarrow\) 
-
-** Projections
-
-An projection of \(\RR^{n+k}\) onto \(\RR^k\) is a map of the form
-\[
-\pi: x \in \RR^{n+k} \mapsto (x^{n+1}, \dots, x^{n+k}) \in \RR^k
-\]
-
-Note that \(d\pi = \begin{pmatrix} \operatorname{Id}_n & 0_k \end{pmatrix}\) is surjective.
-
-We may also change the order: eg. \(\pi(x_1, x_2, x_3) = (x_2, x_3)\)
-** Sumbersion Theorem
-
-#+BEGIN_env thm
-Let \(F\) be a submersion. Then \(F\) is locally a projection up to diffeomorphism.
-#+END_env
-
-There are diffeomorphisms
-\begin{align*}
-\varphi & : U \subseteq \RR^{n+k} \to V \subseteq \RR^{n+k} \\
-\psi & : W \subseteq \RR^k \to Z \subseteq \RR^k \\
-\end{align*}
-such that \(F|_U = \psi^{-1} \circ \pi \circ \varphi\)
