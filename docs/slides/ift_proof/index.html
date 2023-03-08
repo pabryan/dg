@@ -2,13 +2,101 @@
 layout: org-slides
 ---
 
-<section class="outline-2" id="outline-container-org492808a">
-<h2 id="org492808a">Inverse Function Theorem Proof</h2>
-<div class="outline-text-2" id="text-org492808a">
+<section class="outline-2" id="outline-container-org473a5bb">
+<h2 id="org473a5bb">Contraction Mappings</h2>
+<div class="outline-text-2" id="text-org473a5bb">
 </div>
-<section class="outline-3" id="outline-container-org059cfaa">
-<h3 id="org059cfaa">Inverse Function Theorem</h3>
-<div class="outline-text-3" id="text-org059cfaa">
+<section class="outline-3" id="outline-container-org6e8dac1">
+<h3 id="org6e8dac1">Contraction mappings</h3>
+<div class="outline-text-3" id="text-org6e8dac1">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A map \(T : \bar{B}_r(p) \to \bar{B}_r(p)\) is a <i>contraction map</i> if there exists a constant \(0 \leq L &lt; 1\) such that
+\[
+\abs{T(x) - T(y)} \leq L \abs{x - y}.
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgd22b846">
+<h3 id="orgd22b846">Fixed Points</h3>
+<div class="outline-text-3" id="text-orgd22b846">
+<div class="thm card"><div class="card-header"><h5 class="card-title"> : Banach fixed point theorem</h5></div><div class="card-body">
+<p>
+Let \(T\) be a contraction map. Then there exists a unique <i>fixed point</i> \(x^{\ast} \in B_r(p)\) of \(T\). That is, there exists a unique point \(x^{\ast}\) such that \(T(x^{\ast}) = x^{\ast}\).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org01fbe03">
+<h3 id="org01fbe03">Proof (Uniqueness)</h3>
+<div class="outline-text-3" id="text-org01fbe03">
+<div class="pf" id="org7510be6">
+<p>
+Fundamental contraction identity:
+</p>
+
+\begin{align*}
+\abs{x - y} &amp;\leq \abs{x - T(x)} + \abs{T(x) - y} \\
+&amp;\leq \abs{x - T(x)} + \abs{T(x) - T(y)} + \abs{T(y) - y} \\
+&amp;\leq \abs{x - T(x)} + L \abs{x - y} + \abs{T(y) - y}.
+\end{align*}
+
+
+<p>
+Therefore
+\[
+\abs{x - y} \leq \frac{\abs{x - T(x)} + \abs{T(y) - y}}{1-L}
+\]
+</p>
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgd9ed686">
+<h3 id="orgd9ed686">Proof (Existence)</h3>
+<div class="outline-text-3" id="text-orgd9ed686">
+<div class="pf" id="orgb6f7bb3">
+<p>
+Pick any \(x_0\) and define \(x_n = T^n(x_0) = \underbrace{T \circ \cdots \circ T}_{n \text{ times}}  (x_0)\)
+</p>
+<p>
+The claim is that \(x^{\ast} = \lim_{n\to\infty} x_n\) exists and is the desired fixed point.
+</p>
+<p>
+Supposing first that the limit exists, then using \(x_n = T(x_{n-1})\) we have
+\[
+x_{\ast} = \lim_{n\to\infty} x_n = \lim_{n\to\infty} T(x_{n-1}) = T(\lim_{n\to\infty} x_{n-1}) = T(x^{\ast})
+\]
+</p>
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgd48e3b6">
+<h3 id="orgd48e3b6">Proof (Existence)</h3>
+<div class="outline-text-3" id="text-orgd48e3b6">
+<div class="pf" id="orgf0f7e8a">
+<p>
+\(x_n = T^n(x_0)\) is a Cauchy sequence:
+</p>
+\begin{align*}
+\lvert T^n&amp;(x_0) - T^m(x_0) \rvert \\
+&amp;\leq \frac{\abs{T(T^n(x_0)) - T^n(x_0)} + \abs{T(T^m(x_0)) - T^m(x_0)}}{1-L} \\
+&amp;= \frac{\abs{T^n(T(x_0)) - T^n(x_0)} + \abs{T^m(T(x_0) - T^m(x_0)}}{1-L} \\
+&amp;\leq \frac{L^n \abs{T(x_0) - x_0} + L^m \abs{T(x_0) - x_0}}{1-L} \to 0
+\end{align*}
+
+</div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-orgce70fd6">
+<h2 id="orgce70fd6">IFT Proof: Outline</h2>
+<div class="outline-text-2" id="text-orgce70fd6">
+</div>
+<section class="outline-3" id="outline-container-org84938b9">
+<h3 id="org84938b9">Inverse Function Theorem</h3>
+<div class="outline-text-3" id="text-org84938b9">
 <div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
 <p>
 Let \(f : \RR^n \to \RR^n\) a smooth function such that \(df_{x_0}\) is invertible at \(x_0\). Then there is an open set \(U\) containing \(x_0\) and an open set \(V\) containing \(f(x_0)\) such that \(f|_U : U \to V\) is a diffeomorphism. Moreover
@@ -19,31 +107,40 @@ df^{-1}_{f(x_0)} = (df_{x_0})^{-1}
 </div></div>
 </div>
 </section>
-<section class="outline-3" id="outline-container-org32ac79b">
-<h3 id="org32ac79b">IFT: Proof</h3>
-<div class="outline-text-3" id="text-org32ac79b">
+<section class="outline-3" id="outline-container-org11c4b58">
+<h3 id="org11c4b58">IFT: Proof</h3>
+<div class="outline-text-3" id="text-org11c4b58">
 <p>
-To prove the Inverse Function Theorem, given \(y\) we uniquely solve \(f(x) = y\) by defining
+Define \(T_y (x) = x - df_{x_0}^{-1} (f(x) - y)\)
 </p>
-<p>
-\[
-T_y (x) = x - df_{x_0}^{-1} (f(x) - y).
-\]
-</p>
-<p>
-and show that for suitable \(r &gt; 0\), \(T_y\) is a contraction map \(\bar{B}_r(x_0) \to \bar{B}_r(x_0)\).
-</p>
+<dl class="org-dl">
+<dt>Step 1</dt><dd>\(T_y\) is a contraction \(T_y : \bar{B}_r(x_0) \to \bar{B}_r(x_0)\)</dd>
+<dt>Step 2</dt><dd>Prove \(f^{-1}\) is smooth.</dd>
+</dl>
 </div>
 </section>
-<section class="outline-3" id="outline-container-org1b9ca50">
-<h3 id="org1b9ca50">IFT: Contraction</h3>
-<div class="outline-text-3" id="text-org1b9ca50">
+</section>
+<section class="outline-2" id="outline-container-org5dbb632">
+<h2 id="org5dbb632">IFT Proof: Contraction</h2>
+<div class="outline-text-2" id="text-org5dbb632">
+</div>
+<section class="outline-3" id="outline-container-orgc1084f8">
+<h3 id="orgc1084f8">IFT: Contraction</h3>
+<div class="outline-text-3" id="text-orgc1084f8">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
 <p>
-Contraction mapping theorem: define for each fixed \(y\),
+For each fixed \(y\) sufficiently close to \(y_0 = F(x_0)\),
 \[
-T_y (x) = x - df_{x_0}^{-1} (f(x) - y).
+T_y (x) = x - df_{x_0}^{-1} (f(x) - y)
 \]
+is a contraction map.
 </p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgcb3f99a">
+<h3 id="orgcb3f99a">IFT: Contraction</h3>
+<div class="outline-text-3" id="text-orgcb3f99a">
 <p>
 \[
 dT_{x_0} = d\Id_{x_0} - df_{x_0}^{-1} df_{x_0} = 0.
@@ -57,9 +154,9 @@ Continuity of \(dT\) gives an open neighbourhood \(U\) of \(x_0\) such that \(\|
 </p>
 </div>
 </section>
-<section class="outline-3" id="outline-container-orgffde81e">
-<h3 id="orgffde81e">IFT: Contraction</h3>
-<div class="outline-text-3" id="text-orgffde81e">
+<section class="outline-3" id="outline-container-orgcc87480">
+<h3 id="orgcc87480">IFT: Contraction</h3>
+<div class="outline-text-3" id="text-orgcc87480">
 <p>
 \(\abs{dT_{x} \cdot X} \leq \frac{1}{2} \abs{X}\) and mean value inequality:
 \[
@@ -69,9 +166,9 @@ so that \(T\) is <i>contractive</i> for \(x_1, x_2 \in U\).
 </p>
 </div>
 </section>
-<section class="outline-3" id="outline-container-orgef9182f">
-<h3 id="orgef9182f">IFT: Self Map</h3>
-<div class="outline-text-3" id="text-orgef9182f">
+<section class="outline-3" id="outline-container-org60469a1">
+<h3 id="org60469a1">IFT: Self Map</h3>
+<div class="outline-text-3" id="text-org60469a1">
 <p>
 In order to conclude that \(T\) has a unique fixed point, we need to verify that there is an \(r &gt; 0\) such that \(T : \bar{B}_r(x_0) \to \bar{B}_r(x_0)\).
 </p>
@@ -80,9 +177,9 @@ Since \(x_0 \in U\) and \(U\) is open, there exists an \(r &gt; 0\) such that \(
 </p>
 </div>
 </section>
-<section class="outline-3" id="outline-container-org0134d28">
-<h3 id="org0134d28">IFT: Self Map</h3>
-<div class="outline-text-3" id="text-org0134d28">
+<section class="outline-3" id="outline-container-org73e79b1">
+<h3 id="org73e79b1">IFT: Self Map</h3>
+<div class="outline-text-3" id="text-org73e79b1">
 <p>
 Now we restrict the range of possible \(y\): Let \(y_0 = f(x_0)\) and \(y \in B_s(y_0)\) with \(s\) any number satisfying
 \[
@@ -91,9 +188,9 @@ Now we restrict the range of possible \(y\): Let \(y_0 = f(x_0)\) and \(y \in B_
 </p>
 </div>
 </section>
-<section class="outline-3" id="outline-container-orgddf0499">
-<h3 id="orgddf0499">IFT: Self Map</h3>
-<div class="outline-text-3" id="text-orgddf0499">
+<section class="outline-3" id="outline-container-org4373f92">
+<h3 id="org4373f92">IFT: Self Map</h3>
+<div class="outline-text-3" id="text-org4373f92">
 <p>
 Then for \(x \in B_r(x_0)\), recalling \(T(x) = x - df_{x_0}^{-1}(f(x) - y)\) we have
 </p>
@@ -106,50 +203,76 @@ Then for \(x \in B_r(x_0)\), recalling \(T(x) = x - df_{x_0}^{-1}(f(x) - y)\) we
 \end{align*}
 </div>
 </section>
-<section class="outline-3" id="outline-container-org4380851">
-<h3 id="org4380851">IFT: Fixed Point</h3>
-<div class="outline-text-3" id="text-org4380851">
+</section>
+<section class="outline-2" id="outline-container-org95cb966">
+<h2 id="org95cb966">IFT Proof: Fixed Point and Inverse</h2>
+<div class="outline-text-2" id="text-org95cb966">
+</div>
+<section class="outline-3" id="outline-container-org505f316">
+<h3 id="org505f316">IFT: Fixed Point</h3>
+<div class="outline-text-3" id="text-org505f316">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
 <p>
-That is \(T(x) \in \bar{B}_{x_0} (r)\) for \(x \in \bar{B}_{x_0} (r)\) and \(y \in \bar{B}_s (y_0)\).
+For each \(y \in \bar{B}_s(y_0)\), there exists a unique fixed point \(x^{\ast}_y \in \bar{B}_r (x_0)\) for \(T_y\)
 </p>
+</div></div>
+<dl class="org-dl">
+<dt>Proof</dt><dd>\(T_y : \bar{B}_r (x_0) \to \bar{B}_r (x_0)\) is a contraction mapping.</dd>
+</dl>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org9909937">
+<h3 id="org9909937">IFT: Fixed Point</h3>
+<div class="outline-text-3" id="text-org9909937">
 <p>
-Thus for any \(y \in \bar{B}_s(x_0)\), \(T_y : \bar{B}_r (x_0) \to \bar{B}_r (x_0)\) is a contraction mapping, hence:
-</p>
-<p>
-For each such \(y\), there exists a unique fixed point \(x^{\ast}_y \in \bar{B}_r (x_0)\). That is
 \[
 x^{\ast}_y = T_y(x^{\ast}_y) = x^{\ast}_y - df_{x_0}^{-1} (f(x^{\ast}_y) - y).
 \]
 </p>
+<p>
+Cancelling \(x^{\ast}_y\) from both sides and using the fact that \(df_{x_0}^{-1}\) is non-singular:
+</p>
+\begin{equation*}
+\begin{split}
+x^{\ast}_y = T_y(x^{\ast}_y) &amp;\Leftrightarrow df_{x_0}^{-1} (f(x^{\ast}_y) - y) = 0 \\
+&amp;\Leftrightarrow f(x^{\ast}_y) = y
+\end{split}
+\end{equation*}
 </div>
 </section>
-<section class="outline-3" id="outline-container-orgd355c77">
-<h3 id="orgd355c77">IFT: Fixed Point</h3>
-<div class="outline-text-3" id="text-orgd355c77">
+<section class="outline-3" id="outline-container-org7c23327">
+<h3 id="org7c23327">IFT: Inverse</h3>
+<div class="outline-text-3" id="text-org7c23327">
 <p>
+<b>We have finally found our inverse function:</b>
 \[
-x^{\ast}_y = T_y(x^{\ast}_y) = x^{\ast}_y - df_{x_0}^{-1} (f(x^{\ast}_y) - y).
+f^{-1} (y) = x^{\ast}_y
 \]
+for \(y \in B_s(y_0)\).
 </p>
 <p>
-Cancelling \(x^{\ast}_y\) from both sides and since \(df_{x_0}^{-1}\) is non-singular,
-\[
-df_{x_0}^{-1} (f(x^{\ast}_y) - y) = 0 \Rightarrow f(x^{\ast}_y) = y.
-\]
+Note we need to restrict the range of \(x\) to the open set \(f^{-1}(B_s(y_0)) \cap B_r(x_0)\) so that \(f\) maps this set into \(B_s(y_0)\).
 </p>
 </div>
 </section>
-<section class="outline-3" id="outline-container-orgfd60250">
-<h3 id="orgfd60250">IFT: Inverse</h3>
-<div class="outline-text-3" id="text-orgfd60250">
+</section>
+<section class="outline-2" id="outline-container-org558ca72">
+<h2 id="org558ca72">IFT Proof: Continuity</h2>
+<div class="outline-text-2" id="text-org558ca72">
+</div>
+<section class="outline-3" id="outline-container-org41a3381">
+<h3 id="org41a3381">IFT: Continuity of Inverse</h3>
+<div class="outline-text-3" id="text-org41a3381">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
 <p>
-<b>We have finally found our inverse function:</b> \(f^{-1} (y) = x^{\ast}_y\) for \(y \in B_s(y_0)\). Note we need to restrict the range of \(x\) to the open set \(f^{-1}(B_s(y_0)) \cap B_r(x_0)\) so that \(f\) maps this set into \(B_s(y_0)\).
+The (local) inverse \(f^{-1}\) is continuous.
 </p>
+</div></div>
 </div>
 </section>
-<section class="outline-3" id="outline-container-orga64e576">
-<h3 id="orga64e576">IFT: Continuity of Inverse</h3>
-<div class="outline-text-3" id="text-orga64e576">
+<section class="outline-3" id="outline-container-org4a81e48">
+<h3 id="org4a81e48">IFT: Continuity of Inverse</h3>
+<div class="outline-text-3" id="text-org4a81e48">
 <p>
 Since \(T\) is a contraction
 </p>
@@ -168,9 +291,9 @@ By the <i>reverse triangle inequality</i>
 </p>
 </div>
 </section>
-<section class="outline-3" id="outline-container-orgcdf3300">
-<h3 id="orgcdf3300">IFT: Continuity of Inverse</h3>
-<div class="outline-text-3" id="text-orgcdf3300">
+<section class="outline-3" id="outline-container-orgcd89cb4">
+<h3 id="orgcd89cb4">IFT: Continuity of Inverse</h3>
+<div class="outline-text-3" id="text-orgcd89cb4">
 <p>
 \[
 \abs{x_1 - x_2} - \abs{df_{x_0}^{-1}(f(x_1) - f(x_2))} \leq L \abs{x_1 - x_2}.
@@ -185,9 +308,9 @@ By the <i>reverse triangle inequality</i>
 \end{equation*}
 </div>
 </section>
-<section class="outline-3" id="outline-container-orga085249">
-<h3 id="orga085249">IFT: Continuity of Inverse</h3>
-<div class="outline-text-3" id="text-orga085249">
+<section class="outline-3" id="outline-container-org2d4cf94">
+<h3 id="org2d4cf94">IFT: Continuity of Inverse</h3>
+<div class="outline-text-3" id="text-org2d4cf94">
 <p>
 We have
 \[
@@ -202,9 +325,24 @@ Letting \(y_i = f(x_i)\) so that \(x_i = f^{-1}(y_i)\) gives continuity (even Li
 </p>
 </div>
 </section>
-<section class="outline-3" id="outline-container-orgb67048f">
-<h3 id="orgb67048f">IFT: Differentiability</h3>
-<div class="outline-text-3" id="text-orgb67048f">
+</section>
+<section class="outline-2" id="outline-container-orgeb857c6">
+<h2 id="orgeb857c6">IFT Proof: Differentiability</h2>
+<div class="outline-text-2" id="text-orgeb857c6">
+</div>
+<section class="outline-3" id="outline-container-orgfde6628">
+<h3 id="orgfde6628">IFT: Differentiability</h3>
+<div class="outline-text-3" id="text-orgfde6628">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The (local) inverse \(f^{-1}\) is differentiable.
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org75269c0">
+<h3 id="org75269c0">IFT: Differentiability</h3>
+<div class="outline-text-3" id="text-org75269c0">
 <p>
 Pick any arbitrary \(y \in B_s(y_0)\) and any \(h\) such that \(y + h \in B_s(y_0)\), say \(h \in B_{\epsilon} (0)\) so that \(y + h \in B_{\epsilon} (y) \subseteq B_s(y_0)\).
 </p>
@@ -222,9 +360,9 @@ We need to show that
 </p>
 </div>
 </section>
-<section class="outline-3" id="outline-container-org959534c">
-<h3 id="org959534c">IFT: Differentiability</h3>
-<div class="outline-text-3" id="text-org959534c">
+<section class="outline-3" id="outline-container-orga791b55">
+<h3 id="orga791b55">IFT: Differentiability</h3>
+<div class="outline-text-3" id="text-orga791b55">
 <p>
 Let \(k = f^{-1}(y + h) - f^{-1} (y)\) so that \(h = f(x + k) - f(x)\). Then
 </p>
@@ -237,9 +375,9 @@ R &amp;= f^{-1} (y + h) - f^{-1} (y) - df_{x}^{-1} \cdot h \\
 \end{align*}
 </div>
 </section>
-<section class="outline-3" id="outline-container-org9fd4f94">
-<h3 id="org9fd4f94">IFT: Differentiability</h3>
-<div class="outline-text-3" id="text-org9fd4f94">
+<section class="outline-3" id="outline-container-orgb2b3de8">
+<h3 id="orgb2b3de8">IFT: Differentiability</h3>
+<div class="outline-text-3" id="text-orgb2b3de8">
 <p>
 Since \(f^{-1}\) is Lipschitz, with constant \(M\) say, we have
 \[
@@ -254,9 +392,24 @@ The right hand side goes to zero as \(h \to 0\) since \(\abs{k} \leq M \abs{h}\)
 </p>
 </div>
 </section>
-<section class="outline-3" id="outline-container-orge6435f0">
-<h3 id="orge6435f0">IFT: Higher regularity</h3>
-<div class="outline-text-3" id="text-orge6435f0">
+</section>
+<section class="outline-2" id="outline-container-orgb123c2a">
+<h2 id="orgb123c2a">IFT Proof: Higher Regularity</h2>
+<div class="outline-text-2" id="text-orgb123c2a">
+</div>
+<section class="outline-3" id="outline-container-orgd4c1ad0">
+<h3 id="orgd4c1ad0">IFT: Higher Reularity</h3>
+<div class="outline-text-3" id="text-orgd4c1ad0">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The (local) inverse, \(f^{-1}\) is smooth.
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgf32000f">
+<h3 id="orgf32000f">IFT: Higher regularity</h3>
+<div class="outline-text-3" id="text-orgf32000f">
 <p>
 So to summarise we have shown the existence of a differentiable local inverse \(f^{-1}\) to \(f\) with differential
 \[
@@ -265,7 +418,7 @@ d(f^{-1})_y = (df_x)^{-1}
 where \(x = f^{-1}(y)\).
 </p>
 <p>
-Now, by Cramers's rule, given an invertible matrix \(A\), the inverse is
+Now, by Cramers’s rule, given an invertible matrix \(A\), the inverse is
 \[
 A^{-1} = \frac{1}{\det A} \operatorname{adj} A
 \]
@@ -276,9 +429,9 @@ As a function then, \(A \mapsto A^{-1}\) we see that the components are rational
 </p>
 </div>
 </section>
-<section class="outline-3" id="outline-container-org9bca006">
-<h3 id="org9bca006">IFT: Higher regularity</h3>
-<div class="outline-text-3" id="text-org9bca006">
+<section class="outline-3" id="outline-container-org5d9a1fe">
+<h3 id="org5d9a1fe">IFT: Higher regularity</h3>
+<div class="outline-text-3" id="text-org5d9a1fe">
 <p>
 The inverse function \(\operatorname{Inv}\) is smooth function from the open set of non-singular matrices (\(\det A \ne 0\)) to itself.
 </p>
@@ -291,9 +444,9 @@ is a composition of \(C^0\) functions hence \(C^0\). Then \(f^{-1}\) is \(C^1\).
 </p>
 </div>
 </section>
-<section class="outline-3" id="outline-container-orgbd2c583">
-<h3 id="orgbd2c583">IFT: Higher regularity</h3>
-<div class="outline-text-3" id="text-orgbd2c583">
+<section class="outline-3" id="outline-container-org9b902c1">
+<h3 id="org9b902c1">IFT: Higher regularity</h3>
+<div class="outline-text-3" id="text-org9b902c1">
 <p>
 \[
 df^{-1}_y = \operatorname{Inv} \circ df \circ f^{-1} (y)
