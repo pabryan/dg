@@ -1,0 +1,95 @@
+#+OPTIONS: toc:nil
+#+BEGIN_export html
+---
+title: Implicit Function Theorem
+name: ift_implicit
+type: topic
+---
+#+END_export
+
+Using the isomorphism, \(\RR^n \oplus \RR^k \simeq \RR^{n+k}\) we may write a point in \(\RR^{n+k}\) as \((x, y)\) with \(x \in \RR^n\) and \(y \in \RR^k\). Then for a function \(F = F(x, y) : \RR^{n+k} \to \RR^k\) we also split the differential into \(x,y\) parts:
+\begin{equation*}
+dF = \begin{pmatrix} d_x F & d_y F \end{pmatrix}.
+\end{equation*}
+
+#+BEGIN_env thm :title "Implicit Function Theorem"
+Let \(F : \RR^{n+k} \to \RR^k\) be smooth with \((x_0, y_0)\) such that \(d_y F|_{(x_0, y_0)}\) is invertible. Then there is an open neighbourhood \(U\) of \(x_0\) and a unique smooth function \(g : U \to \RR^n\) such that
+\[
+F(x, g(x)) = F(x_0, y_0).
+\]
+#+END_env
+
+The Implicit Function Theorem is equivalent to the Inverse Function Theorem. Here we show how to derive the Implicit Function Theorem from the Inverse Function Theorem.
+
+#+BEGIN_env pf
+Define
+\[
+\bar{F}(x, y) = (x, F(x, y)) \in \RR^{n+k}
+\]
+Then
+\begin{equation*}
+d\bar{F} = \begin{pmatrix}
+\operatorname{Id}_n & 0 \\
+\ast & d_y F
+\end{pmatrix}
+\end{equation*}
+is invertible at \((x_0, y_0)\) since the assumption is that \(d_y F\) is invertible at \((x_0, y_0)\). Hence by the inverse function theorem, \(\bar{F}\) is locally invertible.
+
+Since \(\bar{F}(x, y) = (x, F(x, y))\),
+\[
+\bar{F}^{-1}(x, y) = (x, G(x, y))
+\]
+for a smooth function \(G : \RR^{n+k} \to \RR^k\). This follows by writing \(\bar{F}^{-1} = (H, G)\), from which we claim that necessarily \(H(x, y) = x\). By the definition of inverse functions,
+\begin{equation*}
+\begin{split}
+(x, y) &= \bar{F} \circ \bar{F}^{-1} (x, y) \\
+&= \bar{F} (H(x, y), G(x, y)) \\
+&= (H(x, y), F(G(x, y))).
+\end{split}
+\end{equation*}
+Comparing the first component of the left and right hand sides we see that \(x = H(x, y)\) as claimed.
+
+Now let \(c = F(x_0,y_0)\) and
+\[
+g(x) = G(x, c)
+\]
+from which it follows that
+\begin{equation*}
+\begin{split}
+(x, F(x, g(x))) &= \bar{F} (x, g(x)) \\
+&= \bar{F} (x, G(x, c)) \\
+&= \bar{F} \circ \bar{F}^{-1} (x, c) \\
+&= (x, c)
+\end{split}
+\end{equation*}
+and \(F(x, g(x)) = c = F(x_0, y_0)\) as required.
+#+END_env
+
+#+BEGIN_env ex
+Assuming the Implicit Function Theorem is true, prove the Inverse Function Theorem.
+#+END_env
+
+We may interpret the Implicit Function Theorem as follows: consider the level set
+\[
+F^{-1}(c) = \lbrace (x, y) : F(x, y) = c \rbrace.
+\]
+If \(d_y F\) is invertible for each \((x, y) \in F^{-1}(c)\), then the level set is locally the graph of a smooth function.
+
+#+BEGIN_env ex
+Let \(F : \RR^{n+k} \to \RR^k\) be a smooth function such that \(dF\) has rank \(k\) at \(z_0 \in \RR^{n+k}\). By permuting the indices, use the Implicit Function Theorem to show that for \(z\) in a neighbourhood of \(z_0\), we may parametrise the level set \(F(z) = F(z_0)\) as the graph of a smooth function \(g : \RR^n \to \RR^k\).
+#+END_env
+
+#+BEGIN_env eg
+Let \(F(x, y) = x^2 + y^2\)
+
+Here \(n=k=1\)
+
+\begin{equation*}
+dF = \begin{pmatrix} 2x & 2y \end{pmatrix}
+\end{equation*}
+
+For \(x \neq \pm 1\)
+\[
+F(x, \sqrt{1-x^2}) = 1
+\]
+#+END_env
