@@ -179,9 +179,10 @@ An projection of \(\RR^{n+k}\) onto \(\RR^k\) is a map of the form
 \pi: x \in \RR^{n+k} \mapsto (x^{n+1}, \dots, x^{n+k}) \in \RR^k
 \]
 
-Note that \(d\pi = \begin{pmatrix} \operatorname{Id}_n & 0_k \end{pmatrix}\) is surjective.
+Note that \(d\pi = \begin{pmatrix} 0 & \operatorname{Id}_k \end{pmatrix}\) is surjective.
 
 We may also change the order: eg. \(\pi(x_1, x_2, x_3) = (x_2, x_3)\)
+
 ** Sumbersion Theorem
 
 #+BEGIN_env thm
