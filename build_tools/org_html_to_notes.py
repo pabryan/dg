@@ -4,6 +4,7 @@
 import sys
 import os
 from bs4 import BeautifulSoup
+import frontmatter
 
 def convert_section(s, soup):
     sid = s["id"]
@@ -38,24 +39,32 @@ def convert_section(s, soup):
         
     body.insert(0, B)
 
-def convert(infile, outfile):
+def convert(html):
     section_class = "outline-2"
 
-    with open(infile, 'r') as f:
-        contents = f.read()
-        soup = BeautifulSoup(contents, 'lxml')
+    soup = BeautifulSoup(html, "lxml")
 
     sections = soup.find_all("div", class_=section_class)
+
+    s1 = sections[0]
+    accordion = soup.new_tag("accordion")
+    s1.insert_before(accordion)
+
     for s in sections:
+        accordion.append(s)
         convert_section(s, soup)
 
-    body = "---" + os.linesep + "layout: org-notes" + os.linesep + "---" + os.linesep + os.linesep
-
-    for child in soup.body.children:
-        body += str(child)
-        
-    with open(outfile, "w") as file:
-        file.write(body)
+    return (" ".join(str(c) for c in soup.body.children))
             
 if __name__ == "__main__":
-    convert(sys.argv[1], sys.argv[2])
+    infile = sys.argv[1]
+    outfile = sys.argv[2]
+
+    with open(infile, 'r') as f:
+        contents = frontmatter.load(f)
+
+    contents["layout"] = "org-notes"
+    contents.content = convert(contents.content)
+
+    with open(outfile, "w") as f:
+        f.write(frontmatter.dumps(contents))
