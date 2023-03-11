@@ -1,0 +1,977 @@
+---
+layout: org-notes
+short_title: Inverse Function Theorem
+title: Inverse Function Theorem
+---
+
+<ul>
+<li><a href="{{ '/slides/calc_review' | relative_url }}" target="_blank">Calculus Review Slides</a></li>
+<li><a href="{{ '/slides/ift' | relative_url }}" target="_blank">Inverse Function Theorem Slides</a></li>
+<li><a href="{{ '/slides/ift_proof' | relative_url }}" target="_blank">Inverse Function Proof Theorem Slides</a></li>
+<li><a href="{{ '/pdf/ift.pdf' | relative_url }}" target="_blank">PDF Notes</a></li>
+</ul>
+ <accordion><div class="accordion-item" id="outline-container-orgcf2081b-item"><h1 class="accordion-header" id="outline-container-orgcf2081b-header"><button aria-controls="outline-container-orgcf2081b-collapse" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#outline-container-orgcf2081b-collapse" data-bs-toggle="collapse" id="orgcf2081b" type="button">Calculus Review - Topology</button></h1><div aria-labelledby="outline-container-orgcf2081b-header" class="accordion-collapse collapse" id="outline-container-orgcf2081b-collapse"><div class="accordion-body p-3 m-0" id="text-orgcf2081b-body">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Given \(r &gt; 0\) and \(x \in \RR^n\), the <i>open ball</i> of radius \(r\) and centre \(x\) is the set
+\[
+B_r (x) = \{y \in \RR^n: \abs{x - y} &lt; r\}.
+\]
+</p>
+<p>
+The <i>closed ball</i> of radius \(r\) and centre \(x\) is the set
+\[
+\bar{B}_r (x) = \{y \in \RR^n: \abs{x - y} \leq r\}.
+\]
+</p>
+<p>
+The <i>sphere</i> of radius \(r\) and centre \(x\) is the set
+\[
+\SS^{n-1}_r (x) = \{y \in \RR^n: \abs{x - y} = r\}.
+\]
+</p>
+</div></div>
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+For \(x, y \in \RR^n\), the distance \(\abs{x - y}\) is defined to be
+\[
+\abs{x - y} = \sqrt{(x^1 - y^1)^2 + \cdots + (x^n - y^n)^2}
+\]
+where \(x = (x^1, \dots, x^n)\) and \(y = (y^1, \dots, y^n)\).
+</p>
+</div></div>
+<ul class="org-ul">
+<li>The open ball is the set of points of distance to \(x\) strictly less than \(r\).</li>
+<li>The closed ball is the set of points of distance to \(x\) less than or equal to \(r\).</li>
+<li>The sphere is the set of points of distance to \(x\) equal to \(r\).</li>
+</ul>
+<p>
+It is sometimes said that analysis is simply applications of the triangle inequality:
+\[
+\abs{x - y} \leq \abs{x - z} + \abs{z - y}.
+\]
+</p>
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A set \(U \subset \RR^n\) is said to be <i>open</i> provided for every \(x \in U\), there exists an \(r = r(x)\) such that
+\[
+B_r(x) \subseteq U.
+\]
+</p>
+<p>
+A set \(C\) is <i>closed</i> if it's complement,
+\[
+\RR^n \backslash C := \{y \in \RR^n : y \notin C\}
+\]
+is open.
+</p>
+</div></div>
+<ul class="org-ul">
+<li>By this definition, open balls are open, closed balls are closed and spheres are closed.</li>
+<li>Given any point of an open set, we can always move <i>uniformly</i> a little in any direction and remain in the open set.</li>
+</ul>
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A set \(S \subseteq \RR^n\) is <i>bounded</i> if there exists an \(x \in \RR^n\) and an \(r &gt; 0\) such that \(S \subseteq B_r(x)\).
+</p>
+<p>
+A set \(K \subseteq \RR^n\) is <i>compact</i> if it is closed and bounded.
+</p>
+</div></div>
+<ul class="org-ul">
+<li>\(S \subseteq \RR^n\) is bounded iff for every \(x \in \RR^n\) there exists an \(r = r(x)\) such that \(S \subseteq B_r(x)\).</li>
+<li>A set \(K \subseteq \RR^n\) is compact if and only if for every <i>open cover</i> \(\{U_{\alpha}\}\), there exists a <i>finite subcover</i>.
+<ul class="org-ul">
+<li>An <i>open cover</i> is a collection of open sets \(\{U_{\alpha}\}\) such that \(K \subseteq \cup_{\alpha} U_{\alpha}\).</li>
+<li>A <i>finite subcover</i> is a cover by finitely many \(U_{\alpha_1}, \cdots, U_{\alpha_N}\)</li>
+<li>Equivalent for \(\RR^n\).</li>
+</ul></li>
+</ul>
+</div></div>
+
+
+</div><div class="accordion-item" id="outline-container-org3308041-item"><h1 class="accordion-header" id="outline-container-org3308041-header"><button aria-controls="outline-container-org3308041-collapse" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#outline-container-org3308041-collapse" data-bs-toggle="collapse" id="org3308041" type="button">Calculus Review - Limits</button></h1><div aria-labelledby="outline-container-org3308041-header" class="accordion-collapse collapse" id="outline-container-org3308041-collapse"><div class="accordion-body p-3 m-0" id="text-org3308041-body">
+<p>
+The fundamental concept in calculus is that of limits.
+</p>
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A sequence \((x_n)_{n\in \NN} \subseteq \RR^n\) <i>converges</i> to \(x \in \RR^n\) if for every \(\epsilon &gt; 0\), there exists a \(N \in \NN\) such that \((x_n)_{n \geq N} \subseteq B_{\epsilon} (x)\). We write \(\lim_{n\to\infty} x_n = x\).
+</p>
+</div></div>
+<p>
+The condition for convergence to \(x\) says that \(\abs{x - x_n} &lt; \epsilon\) for \(n \geq N\).
+</p>
+<p>
+To prove a limit converges, we need to know what the limit should be, and then prove the sequence converges to that limit. But how can we know what the limit should be? The next idea allows us to avoid the issue entirely and prove a sequence is convergent using only properties of the sequence itself, and without guessing what the limit should be.
+</p>
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The sequence \((x_n)\) is <i>Cauchy</i> if for every \(\epsilon &gt; 0\), there exists a \(N \in \NN\) such that \((x_m)_{m \geq N} \subseteq B_{\epsilon} (x_n)\) for every \(n \geq N\).
+</p>
+</div></div>
+<p>
+The condition to be a Cauchy sequence says that \(\abs{x_n - x_m} &lt; \epsilon\) for \(m, n \geq N\).
+</p>
+<p>
+How does this help us prove a sequence is convergent?
+</p>
+<div class="thm card"><div class="card-header"><h5 class="card-title"> : Completeness</h5></div><div class="card-body">
+<p>
+A sequence is convergent if and only if it is Cauchy.
+</p>
+</div></div>
+<p>
+We won't prove this here as it's a standard result in analysis. Note that the theorem does not give us any idea of what the limit should be, just that it exists.
+</p>
+</div></div>
+
+
+</div><div class="accordion-item" id="outline-container-org01305fb-item"><h1 class="accordion-header" id="outline-container-org01305fb-header"><button aria-controls="outline-container-org01305fb-collapse" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#outline-container-org01305fb-collapse" data-bs-toggle="collapse" id="org01305fb" type="button">Continuity Review - Continuity</button></h1><div aria-labelledby="outline-container-org01305fb-header" class="accordion-collapse collapse" id="outline-container-org01305fb-collapse"><div class="accordion-body p-3 m-0" id="text-org01305fb-body">
+<p>
+From limits we can introduce continuity.
+</p>
+<div class="defn card"><div class="card-header"><h5 class="card-title"> : Sequential Continuity</h5></div><div class="card-body">
+<p>
+A function \(f : \RR^n \to \RR^m\) is continuous at \(x \in \RR^n\) if for <i>every</i> sequence \((x_n)\) with \(\lim_{n \to \infty} = x\) we have \(\lim_{n \to \infty} f(x_n) = f(x)\).
+</p>
+</div></div>
+<p>
+The above definition is for limits of sequences, which are discrete objects. The continuous version is as follows.
+</p>
+<div class="defn card"><div class="card-header"><h5 class="card-title"> : \(\epsilon\)-\(\delta\) Continuity</h5></div><div class="card-body">
+<p>
+Write
+\[
+\lim_{x \to x_0} f(x) = y
+\]
+provided for every \(\epsilon &gt; 0\), there exists a \(\delta &gt; 0\) such that \(f(B_{\delta} (x_0)) \subseteq B_{\epsilon} (y)\).
+</p>
+<p>
+Then \(f\) is continuous at \(x_0\) if \(\lim_{x \to x_0} f(x) = f(x_0)\).
+</p>
+</div></div>
+<p>
+There is yet another version of continuity. The previous definitions deal with continuity at a single point which is a local property. A global property would be for a function to be continuous at every point. There is another very useful way to define global continuity.
+</p>
+<div class="defn card"><div class="card-header"><h5 class="card-title"> : Topological Contitnuity</h5></div><div class="card-body">
+<p>
+The function \(f\) is continuous (at every \(x_0\)) if \(f^{-1} (V)\) is an open set for every open set \(V \subseteq \RR^m\).
+</p>
+</div></div>
+<p>
+Now we have three definitions. Fortunately we have the following theorem:
+</p>
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A function is sequentially continuous at \(x_0\) if and only if it is \(\epsilon\)-\(\delta\) continuous at \(x_0\). A function is (sequentially/\(\epsilon\)-\(\delta\)) continuous at every point if and only if it is topologically continuous.
+</p>
+</div></div>
+<p>
+The theorem allows us to simply refer continuity at a point \(x_0\) (with no mention of sequential or \(\epsilon\)-\(\delta\)). Similarly we may talk of a continuous function, meaning continuity at all points, or equivalently, meaning topologically continuity.
+</p>
+<ul class="org-ul">
+<li>The first definition requires that \(f(x_n) \to f(x)\) for <i>every</i> sequence.</li>
+<li>The condition in the second definition that \(f(B_{\delta} (x_0)) \subseteq B_{\epsilon} (y)\) is the same thing as \(\abs{f(x) - f(x_0)} &lt; \epsilon\) whenever \(\abs{x - x_0} &lt; \delta\).</li>
+<li>The second definition says that given <i>any tolerance \(\epsilon &gt; 0\)</i>, there is an <i>adjustment \(\delta &gt; 0\)</i> so that provided we are sufficiently close to \(x_0\) (i.e. \(\abs{x - x_0} &lt; \delta\)), then \(f(x)\) is within the desired tolerance of \(f(x_0)\) (i.e. \(\abs{f(x) - f(x_0)} &lt; \epsilon\).</li>
+<li>The equivalence of the first and second definitions is a standard exercise in analysis using the <i>completeness</i> of the real numbers \(\RR\).</li>
+<li>The final definition is the general <i>topological</i> definition.</li>
+<li>The equivalence of the topological and \(\epsilon\)-\(\delta\) definitions follows by writing \(U = \cup_{y \in U} B_{r(y)} (y)\) as a union of open balls and using properties of the pull-back \(f^{-1}\).</li>
+</ul>
+<div class="eg card"><div class="card-header"><h5 class="card-title"> : Cautionary Example</h5></div><div class="card-body">
+<p>
+Let
+\[
+f(x, y) = \begin{cases}
+\frac{x^2 y}{x^4 + y^2}, \quad (x, y) \ne (0, 0) \\
+0, \quad (x, y) = (0, 0).
+\end{cases}
+\]
+</p>
+<p>
+Then \(f\) is <b>not</b> continuous at \((x, y) = (0, 0)\).
+</p>
+<p>
+Along every straight line through the origin \(y = ax\), the limit is in fact \(0\):
+\[
+\lim_{t \to 0} f(t, at) = \lim_{t\to 0} \frac{t^2 \cdot at}{t^4 + a^2t^2} = \lim_{t\to 0} \frac{t^2}{t^2} \frac{at}{t^2 + a^2} = 0.
+\]
+</p>
+<p>
+But along the curve \(y = x^2\), we get something else:
+\[
+\lim_{t \to 0} f(t, t^2) = \lim_{t\to 0} \frac{t^2 \cdot t^2}{t^4 + (t^2)^2} = \lim_{t\to 0} \frac{t^4}{t^4} \frac{1}{2} = \frac{1}{2}.
+\]
+</p>
+</div></div>
+</div></div>
+
+
+</div><div class="accordion-item" id="outline-container-orgada19e8-item"><h1 class="accordion-header" id="outline-container-orgada19e8-header"><button aria-controls="outline-container-orgada19e8-collapse" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#outline-container-orgada19e8-collapse" data-bs-toggle="collapse" id="orgada19e8" type="button">Calculus Review - Differentiability</button></h1><div aria-labelledby="outline-container-orgada19e8-header" class="accordion-collapse collapse" id="outline-container-orgada19e8-collapse"><div class="accordion-body p-3 m-0" id="text-orgada19e8-body">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The \(i\)'th <i>partial derivative</i> of a function \(f : \RR^n \to \RR\) at \(x = (x^1, \dots, x^n)\) is
+</p>
+\begin{equation*}
+\begin{split}
+\partial_i f (x) &amp;= \frac{\partial f}{\partial x^i} (x) \\
+&amp;= \lim_{h\to 0} \frac{f(x^1, \dots, x^i + h, \dots x^n) - f(x^1, \dots, x^n)}{h}
+\end{split}
+\end{equation*}
+
+</div></div>
+<p>
+Partial derivatives are the usual derivatives in one variable holding all other variables fixed.
+</p>
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(X \in \RR^n\). The <i>directional derivative</i> \(\partial_X f (x)\) of \(f\) at \(x\) in the direction \(X\) is
+\[
+\partial_X f (x) = \partial_t|_{t=0} f(x + tX) = \lim_{h \to 0} \frac{f(x + hX) - f(x)}{h}.
+\]
+</p>
+</div></div>
+<p>
+Note that the \(i\)'th partial derivative is the directional derivative in the \(e_i\) direction where \(e_i = (0, \dots, 0, 1, 0, \dots 0)\) with the \(1\) in the \(i\)'th spot. That is,
+\[
+\partial_i f = \partial_{e_i} f
+\]
+</p>
+<p>
+Recall that Taylor's theorem with remainder states that
+\[
+f(x) = f(x_0) + f'(x_0) (x-x_0) + R_{x_0} (x)
+\]
+where
+\[
+\lim_{x\to x_0} \frac{\abs{R_{x_0} (x)}}{x-x_0} = 0.
+\]
+We write \(R_{x_0} (x) = \omicron(\abs{x-x_0})\) as \(x \to x_0\).
+</p>
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+We say \(f : \RR^n \to \RR^m\) is differentiable at \(x_0\) if there exists a linear map \(L_{x_0} : \RR^n \to \RR^m\) such that
+\[
+\lim_{x\to x_0} \frac{\abs{f(x) - f(x_0) - L_{x_0} (x-x_0)}}{\abs{x-x_0}} = 0.
+\]
+</p>
+</div></div>
+<p>
+Thus if \(f\) is differentiable we have a higher dimensional version of Taylor's theorem. That is, there exists a linear map written \(L_{x_0} = df_{x_0}\) such that
+\[
+f(x) = f(x_0) + df_{x_0} (x-x_0) + \omicron(\abs{x-x_0})
+\]
+as \(x \to x_0\)
+</p>
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(f\) be differentiable at \(x_0\). Then for each \(i=1, \dots, n\), \(\partial_i f (x_0)\) exists and
+\[
+\partial_i f(x_0) = df_{x_0} (e_i).
+\]
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+For \(h \neq 0\), let \(x = x_0 + he_i\).
+\[
+0 = \lim_{h\to 0} \abs{\frac{f(x_0 + h e_i) - f(x_0)}{h} - \frac{df_{x_0} (h e_i)}{h}}
+\]
+hence
+\[
+\partial_i f(x_0) = df_{x_0} (e_i)
+\]
+</p>
+</div></div>
+<div class="ex card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Show that if \(f\) is differentiable at \(x_0\), then for any \(X \in \RR^n\), the directional derivative \(df_{x_0} (X)\) is defined.
+</p>
+</div></div>
+<div class="eg card"><div class="card-header"><h5 class="card-title"> : Cautionary Example</h5></div><div class="card-body">
+<p>
+Let
+\[
+f(x, y) = \begin{cases}
+\frac{xy}{x^2 + y^2}, &amp; (x, y) \ne (0, 0) \\
+0, &amp; (x, y) = (0, 0).
+\end{cases}
+\]
+</p>
+<p>
+Then
+</p>
+\begin{equation*}
+\begin{split}
+\partial_x f (0, 0) &amp;= \lim_{h\to 0} \frac{f(h, 0) - f(0, 0)}{h} \\
+&amp;= \lim_{h\to 0} \frac{1}{h} \frac{h \cdot 0}{h^2 + 0^2} \\
+&amp;= 0.
+\end{split}
+\end{equation*}
+
+<p>
+Likewise, \(\partial_y f (0, 0) = 0\) and hence both partial dertivatives exists at \((0, 0)\). However, \(\partial_{(1,1)} f (0, 0)\) is not defined since
+</p>
+\begin{equation*}
+\begin{split}
+\partial_{(1,1)} f (0, 0) &amp;= \lim_{h \to 0} \frac{f(h, h) - f(0, 0)}{h} \\
+&amp;= \lim_{h \to 0} \frac{f(h, h)}{h} \\
+&amp;= \lim_{h \to 0} \frac{1}{h} \frac{hh}{h^2 + h^2} \\
+&amp;= \lim_{h \to 0} \frac{1}{2h}.
+\end{split}
+\end{equation*}
+
+<p>
+Thus \(f\) cannot be differentiable at \((0, 0)\) since if it were differentiable, all directional derivatives would exist. Note that in this example, for \((x, y) \neq (0, 0)\) we have
+\[
+\partial_x f = \frac{y(y^2 -x^2)}{(x^2 + y^2)^2}
+\]
+and so
+\[
+\partial_x f (0, y) = \frac{1}{y}
+\]
+which is not continuous up to \(y = 0\) even though \(\partial_x f(0, 0)\) is defined.
+</p>
+</div></div>
+<p>
+The issue here is that the partial derivatives, though defined everywhere, are not continuous. This kind of issue does not come up with for \(C^1\) functions.
+</p>
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A function \(f : \RR^n \to \RR^m\) is \(C^1\) (i.e. has continuous derivative) if \(f\) is differentiable at each \(x\) and moreover, the map
+\[
+x \mapsto df_x
+\]
+is continuous. This is equivalent to having <i>continuous</i> partial derivatives.
+</p>
+</div></div>
+<p>
+Note here that \(df_x\) is a linear map \(\RR^n \to \RR^m\) and the set of all these is linearly isomorphic to the space \(M_{n, m}\) of \(n\) by \(m\) matrices, which is itself linearly isomorphic to \(\RR^{nm}\) (index by \(i,j\) with \(1 \leq i \leq n\) and \(1 \leq j \leq m\)).
+</p>
+<p>
+Concretely we may realise \(df_x\) as the Jacobian matrix
+\[
+(df_x)_{ij} = \partial_i f^j (x)
+\]
+since \(df_x (e_i) = \partial_i f (x) = (\partial_i f^1, \dots, \partial_i f^n)\)
+</p>
+<p>
+Then \(x \in \RR^n \mapsto df_x \in \RR^{nm}\) is a map between Euclidean spaces so we can ask if it's differentiable. We say \(f\) is \(C^2\) if \(df\) is \(C^1\) and more generally, \(f\) is \(C^k\) if \(d^k f\) is continuous.
+</p>
+<p>
+For our purposes, perhaps the most important of the basic results for differentiable functions is the chain rule.
+</p>
+<div class="thm card"><div class="card-header"><h5 class="card-title"> : Chain Rule</h5></div><div class="card-body">
+<p>
+The chain rule states that if \(f : \RR^n \to \RR^m\) is differentiable at \(x_0\) and \(g : \RR^m \to \RR^k\) is differentiable at \(f(x_0)\), then
+\[
+d(f \circ h)_{x_0} = dh_{f(x_0)} \cdot df_{x_0}.
+\]
+</p>
+</div></div>
+<div class="ex card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Show that by the <i>chain rule</i>, given any curve \(\gamma\) such that \(\gamma(0) = x\) and \(\gamma'(0) = X\) we have
+\[
+df_x \cdot X = \partial_t|_{t=0} f(\gamma(t)).
+\]
+</p>
+</div></div>
+</div></div>
+
+
+</div><div class="accordion-item" id="outline-container-org39d61f7-item"><h1 class="accordion-header" id="outline-container-org39d61f7-header"><button aria-controls="outline-container-org39d61f7-collapse" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#outline-container-org39d61f7-collapse" data-bs-toggle="collapse" id="org39d61f7" type="button">Inverse Function Theorem</button></h1><div aria-labelledby="outline-container-org39d61f7-header" class="accordion-collapse collapse" id="outline-container-org39d61f7-collapse"><div class="accordion-body p-3 m-0" id="text-org39d61f7-body">
+<p>
+From calculus we have the result:
+</p>
+<div class="thm card"><div class="card-header"><h5 class="card-title"> : (1D) Inverse Function Theorem</h5></div><div class="card-body">
+<p>
+Let \(f : \RR \to \RR\) be a smooth function with \(f'(x_0) \ne 0\), there exists an interval \(I\) containing \(x_0\) and an interval \(J\) containing \(f(x_0)\) so that \(f : I \to J\) is a diffeomorphism.
+</p>
+</div></div>
+<p>
+Generalising to arbitrary dimensions:
+</p>
+<div class="thm card"><div class="card-header"><h5 class="card-title"> : Inverse Function Theorem</h5></div><div class="card-body">
+<p>
+Let \(f : \RR^n \to \RR^n\) a smooth function such that \(df_{x_0}\) is invertible at \(x_0\). Then there is an open set \(U\) containing \(x_0\) and an open set \(V\) containing \(f(x_0)\) such that \(f|_U : U \to V\) is a diffeomorphism. Moreover
+\[
+df^{-1}_{f(x_0)} = (df_{x_0})^{-1}
+\]
+</p>
+</div></div>
+<p>
+Note that if \(f\) is a diffeomorphism, then \(f^{-1} \circ f (x) = x\). That is, \(f^{-1} \circ f = \Id_x\). Since \(d\Id_x = \Id_n\), by the chain rule we have
+\[
+\Id_n = d\Id_x = d(f^{-1} \circ f)_{x_0} = df^{-1}_{f(x_0)} \cdot df_{x_0}.
+\]
+That is \(df_{x_0}\) is invertible and
+\[
+(df_{x_0})^{-1} = df^{-1}_{f(x_0)}.
+\]
+Thus \(d(f^{-1})\) at \(y_0 = f(x_0)\) is necessarily equal to \((df)^{-1}\) at \(x_0\). In one dimension \(df = f'\) and \(d(f^{-1}) = 1/f'\).
+</p>
+<p>
+The basic idea is that if \(df\) is invertible, then \(f\) is invertible to first order. Writing
+\[
+f(x) = f(x_0) + df_{x_0} \cdot (x - x_0) + \omicron(|x-x_0|).
+\]
+Let us ignore the \(\omicron(|x-x_0|)\) term (after all, it's insignificant compared with everything else for \(x\) near \(x_0\)!) and assume
+\[
+f(x) = f(x_0) + df_{x_0} \cdot (x - x_0).
+\]
+Then we can rearrange to solve for \(x\) to get
+\[
+x = x_0 + df_{x_0}^{-1} (f(x) - f(x_0)).
+\]
+Writing \(y = f(x)\) and \(y_0 = f(x_0)\) we obtain the inverse,
+\[
+f^{-1}(y) = f^{-1}(y_0) + df_{x_0}^{-1} \cdot (y - y_0).
+\]
+</p>
+<p>
+The task then is to work out how to deal with the presense of the \(\omicron(\abs{x-x_0})\) term. The approach is to construct a suitable <i>contraction</i> map (i.e. a map that strictly shrinks distances - see more below). We will prove the inverse function theorem below after considering some consequences. As a prview, to prove the Inverse Function Theorem, given \(y\) we need a uniquely solution of \(f(x) = y\). Define
+\[
+T_y (x) = x - df_{x_0}^{-1} (f(x) - y).
+\]
+Then we show that for suitable \(r &gt; 0\), \(T_y\) is a contraction map \(\bar{B}_r(x_0) \to \bar{B}_r(x_0)\) and a cornerstone result in analysis (namely the Banach Fixed Point Theorem) implies that \(T_y\) posses a unique fixed point \(x^{\ast}_y\). That is, there is a unique point \(x^{\ast}_y \in \bar{B}_r(x_0)\) such that \(T_y(x^{\ast}_y) = x^{\ast}_y\). Observe then that
+</p>
+\begin{equation*}
+\begin{split}
+T_y(x^{\ast}_y) = x^{\ast}_y &amp;\Leftrightarrow df_{x_0}^{-1} (f(x^{\ast}_y) - y) \\
+&amp;\Leftrightarrow f(x^{\ast}_y) = y.
+\end{split}
+\end{equation*}
+<p>
+The last equivalence follows from the assumption that \(df_{x_0}\) is invertible. Thus \(f(x^{\ast}_y) = y)\) if and only if \(T_y\) has a fixed point \(x^{\ast}_y\). By showing this fixed point is unique we then may unambiguously define
+\[
+f^{-1}(y) = x^{\ast}_y.
+\]
+</p>
+<p>
+Here is an example application of the Inverse Function Theorem.
+</p>
+<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Consider
+</p>
+\begin{equation*}
+\begin{cases}
+x - y^2 &amp;= a \\
+x^2 + y + y^3 &amp;= b
+\end{cases}
+\end{equation*}
+
+<p>
+For \((a, b) = (0, 0)\): \((x, y) = (0, 0)\) is a solution.
+</p>
+<p>
+<b>Question</b>: For what \((a, b)\) is the system solvable?
+</p>
+<p>
+To answer the question, let \(F(x, y) = (x - y^2, x^2 + y - y^3)\). Then
+</p>
+\begin{equation*}
+dF = \begin{pmatrix}
+1 &amp; -2y \\
+2x &amp; 1 - 3y^2
+\end{pmatrix}
+\end{equation*}
+
+<p>
+We have \(dF_{(0, 0)} = \operatorname{Id}\) hence by the IFT there is a neighbourhood of \((x, y) = (0, 0)\) for which \(F\) maps diffeomorphically onto a neighbourhood of \((a, b) = (0, 0)\). Therefore, for \((a, b)\) in a neighbourhood of \((0, 0)\), there is a neighbourhood of \((0, 0)\) containing a unique solution of \(F(x, y) = (a, b)\).
+</p>
+<p>
+Note that given \((a, b))\), there is not generally a unique solution. In fact, even for \((a, b) = (0, 0)\) there is not a unique solution since if \(y\) is a real root of \(y^3 + y^2 + 1\), then \(F(y^2, y) = (0, 0)\). Such a root always exists since \(y^3 + y^2 + 1\) is an odd-degree polynomial.
+</p>
+</div></div>
+</div></div>
+
+
+</div><div class="accordion-item" id="outline-container-orge723683-item"><h1 class="accordion-header" id="outline-container-orge723683-header"><button aria-controls="outline-container-orge723683-collapse" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#outline-container-orge723683-collapse" data-bs-toggle="collapse" id="orge723683" type="button">Implicit Function Theorem</button></h1><div aria-labelledby="outline-container-orge723683-header" class="accordion-collapse collapse" id="outline-container-orge723683-collapse"><div class="accordion-body p-3 m-0" id="text-orge723683-body">
+<p>
+Using the isomorphism, \(\RR^n \oplus \RR^k \simeq \RR^{n+k}\) we may write a point in \(\RR^{n+k}\) as \((x, y)\) with \(x \in \RR^n\) and \(y \in \RR^k\). Then for a function \(F = F(x, y) : \RR^{n+k} \to \RR^k\) we also split the differential into \(x,y\) parts:
+</p>
+\begin{equation*}
+dF = \begin{pmatrix} d_x F &amp; d_y F \end{pmatrix}.
+\end{equation*}
+
+<div class="thm card"><div class="card-header"><h5 class="card-title"> : Implicit Function Theorem</h5></div><div class="card-body">
+<p>
+Let \(F : \RR^{n+k} \to \RR^k\) be smooth with \((x_0, y_0)\) such that \(d_y F|_{(x_0, y_0)}\) is invertible. Then there is an open neighbourhood \(U\) of \(x_0\) and a unique smooth function \(g : U \to \RR^n\) such that
+\[
+F(x, g(x)) = F(x_0, y_0).
+\]
+</p>
+</div></div>
+<p>
+The Implicit Function Theorem is equivalent to the Inverse Function Theorem. Here we show how to derive the Implicit Function Theorem from the Inverse Function Theorem.
+</p>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Define
+\[
+\bar{F}(x, y) = (x, F(x, y)) \in \RR^{n+k}
+\]
+Then
+</p>
+\begin{equation*}
+d\bar{F} = \begin{pmatrix}
+\operatorname{Id}_n &amp; 0 \\
+\ast &amp; d_y F
+\end{pmatrix}
+\end{equation*}
+<p>
+is invertible at \((x_0, y_0)\) since the assumption is that \(d_y F\) is invertible at \((x_0, y_0)\). Hence by the inverse function theorem, \(\bar{F}\) is locally invertible.
+</p>
+<p>
+Since \(\bar{F}(x, y) = (x, F(x, y))\),
+\[
+\bar{F}^{-1}(x, y) = (x, G(x, y))
+\]
+for a smooth function \(G : \RR^{n+k} \to \RR^k\). This follows by writing \(\bar{F}^{-1} = (H, G)\), from which we claim that necessarily \(H(x, y) = x\). By the definition of inverse functions,
+</p>
+\begin{equation*}
+\begin{split}
+(x, y) &amp;= \bar{F} \circ \bar{F}^{-1} (x, y) \\
+&amp;= \bar{F} (H(x, y), G(x, y)) \\
+&amp;= (H(x, y), F(G(x, y))).
+\end{split}
+\end{equation*}
+<p>
+Comparing the first component of the left and right hand sides we see that \(x = H(x, y)\) as claimed.
+</p>
+<p>
+Now let \(c = F(x_0,y_0)\) and
+\[
+g(x) = G(x, c)
+\]
+from which it follows that
+</p>
+\begin{equation*}
+\begin{split}
+(x, F(x, g(x))) &amp;= \bar{F} (x, g(x)) \\
+&amp;= \bar{F} (x, G(x, c)) \\
+&amp;= \bar{F} \circ \bar{F}^{-1} (x, c) \\
+&amp;= (x, c)
+\end{split}
+\end{equation*}
+<p>
+and \(F(x, g(x)) = c = F(x_0, y_0)\) as required.
+</p>
+</div></div>
+<div class="ex card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Assuming the Implicit Function Theorem is true, prove the Inverse Function Theorem.
+</p>
+</div></div>
+<p>
+We may interpret the Implicit Function Theorem as follows: consider the level set
+\[
+F^{-1}(c) = \lbrace (x, y) : F(x, y) = c \rbrace.
+\]
+If \(d_y F\) is invertible for each \((x, y) \in F^{-1}(c)\), then the level set is locally the graph of a smooth function.
+</p>
+<div class="ex card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(F : \RR^{n+k} \to \RR^k\) be a smooth function such that \(dF\) has rank \(k\) at \(z_0 \in \RR^{n+k}\). By permuting the indices, use the Implicit Function Theorem to show that for \(z\) in a neighbourhood of \(z_0\), we may parametrise the level set \(F(z) = F(z_0)\) as the graph of a smooth function \(g : \RR^n \to \RR^k\).
+</p>
+</div></div>
+<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(F(x, y) = x^2 + y^2\)
+</p>
+<p>
+Here \(n=k=1\)
+</p>
+
+\begin{equation*}
+dF = \begin{pmatrix} 2x &amp; 2y \end{pmatrix}
+\end{equation*}
+
+<p>
+For \(x \neq \pm 1\)
+\[
+F(x, \sqrt{1-x^2}) = 1
+\]
+</p>
+</div></div>
+</div></div>
+
+
+</div><div class="accordion-item" id="outline-container-orgcbe57a7-item"><h1 class="accordion-header" id="outline-container-orgcbe57a7-header"><button aria-controls="outline-container-orgcbe57a7-collapse" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#outline-container-orgcbe57a7-collapse" data-bs-toggle="collapse" id="orgcbe57a7" type="button">Immersions and Submersions</button></h1><div aria-labelledby="outline-container-orgcbe57a7-header" class="accordion-collapse collapse" id="outline-container-orgcbe57a7-collapse"><div class="accordion-body p-3 m-0" id="text-orgcbe57a7-body">
+<p>
+Here are some further statements equivalent to the Inverse Function Theorem, and hence also equivalent to the Implicit Function Theorem.
+</p>
+<div class="ex card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Prove that the theorems below are equivalent to the Inverse Function Theorem. You may find it easier to prove equivalence with the Implicit Function Theorem which is equivalent anyway.
+</p>
+</div></div>
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(F : \RR^{n+k} \to \RR^{k}\) be a smooth map. Then \(F\) is an <i>submersion</i> if \(dF\) is surjective.
+</p>
+</div></div>
+<p>
+Note that
+</p>
+\begin{equation*}
+\begin{split}
+dF \text{ surjective} &amp; \Leftrightarrow dF \text{ has maximal rank} \\
+&amp; \Leftrightarrow \operatorname{rnk} dF = k = \operatorname{dim} \operatorname{coDom} (dF) \\
+&amp; \Leftrightarrow \operatorname{dim} \ker dF = n
+\end{split}
+\end{equation*}
+
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+An projection of \(\RR^{n+k}\) onto \(\RR^k\) is a map of the form
+\[
+\pi: x \in \RR^{n+k} \mapsto (x^{n+1}, \dots, x^{n+k}) \in \RR^k
+\]
+</p>
+</div></div>
+<p>
+Note that \(d\pi = \begin{pmatrix} \operatorname{Id}_n &amp; 0_k \end{pmatrix}\) is surjective.
+</p>
+<p>
+We may also change the order: eg. \(\pi(x_1, x_2, x_3) = (x_2, x_3)\)
+</p>
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(F\) be a submersion. Then \(F\) is locally a projection up to diffeomorphism.
+</p>
+</div></div>
+<p>
+There are diffeomorphisms
+</p>
+\begin{align*}
+\varphi &amp; : U \subseteq \RR^{n+k} \to V \subseteq \RR^{n+k} \\
+\psi &amp; : W \subseteq \RR^k \to Z \subseteq \RR^k \\
+\end{align*}
+<p>
+such that \(F|_U = \psi^{-1} \circ \pi \circ \varphi\)
+</p>
+<p>
+Dual to the notion of submersion is the notion of immersion.
+</p>
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(F : \RR^n \to \RR^{n+k}\) be a smooth map. Then \(F\) is an <i>immersion</i> if \(dF\) is injective.
+</p>
+</div></div>
+
+\begin{equation*}
+\begin{split}
+dF \text{ injective} &amp; \Leftrightarrow dF \text{ has maximal rank} \\
+&amp; \Leftrightarrow \operatorname{rnk} dF = n = \operatorname{dim} \operatorname{Dom} (dF) \\
+&amp; \Leftrightarrow \operatorname{dim} \ker dF = 0
+\end{split}
+\end{equation*}
+
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+An inclusion of \(\RR^n\) into \(\RR^{n+k}\) is a map of the form
+\[
+\iota: x \in \RR^n \mapsto (x, 0_k)
+\]
+where \(0_k = (0, \dots, 0) \in \RR^k\).
+</p>
+</div></div>
+<p>
+Note that \(d\iota = \begin{pmatrix} \operatorname{Id}_n \\ 0_k \end{pmatrix}\) is injective.
+</p>
+<p>
+We may also change the order: eg. \(\iota(x_1, x_2) = (0, x_1, x_2, 0)\)
+</p>
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(F\) be an immersion. Then \(F\) is locally an inclusion up to diffeomorphism.
+</p>
+</div></div>
+<p>
+There are diffeomorphisms
+</p>
+\begin{align*}
+\varphi &amp; : U \subseteq \RR^n \to V \subseteq \RR^n \\
+\psi &amp; : W \subseteq \RR^{n+k} \to Z \subseteq \RR^{n+k} \\
+\end{align*}
+<p>
+such that \(F|_U = \psi^{-1} \circ \iota \circ \varphi\)
+</p>
+</div></div>
+
+
+</div><div class="accordion-item" id="outline-container-org602af36-item"><h1 class="accordion-header" id="outline-container-org602af36-header"><button aria-controls="outline-container-org602af36-collapse" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#outline-container-org602af36-collapse" data-bs-toggle="collapse" id="org602af36" type="button">Contractions</button></h1><div aria-labelledby="outline-container-org602af36-header" class="accordion-collapse collapse" id="outline-container-org602af36-collapse"><div class="accordion-body p-3 m-0" id="text-org602af36-body">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A map \(T : \bar{B}_r(p) \to \bar{B}_r(p)\) is a <i>contraction map</i> if there exists a constant \(0 \leq L &lt; 1\) such that
+\[
+\abs{T(x) - T(y)} \leq L \abs{x - y}.
+\]
+</p>
+</div></div>
+<p>
+A contraction map strictly decreases the distance between two points. The primary significane of the definition is the following:
+</p>
+<div class="thm card"><div class="card-header"><h5 class="card-title"> : Banach fixed point theorem</h5></div><div class="card-body">
+<p>
+Let \(T\) be a contraction map. Then there exists a unique <i>fixed point</i> \(x^{\ast} \in B_r(p)\) of \(T\). That is, there exists a unique point \(x^{\ast}\) such that \(T(x^{\ast}) = x^{\ast}\).
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+We have
+</p>
+\begin{align*}
+\abs{x - y} &amp;\leq \abs{x - T(x)} + \abs{T(x) - y} \\
+&amp;\leq \abs{x - T(x)} + \abs{T(x) - T(y)} + \abs{T(y) - y} \\
+&amp;\leq \abs{x - T(x)} + L \abs{x - y} + \abs{T(y) - y}.
+\end{align*}
+<p>
+and hence
+\[
+\abs{x - y} \leq \frac{\abs{x - T(x)} + \abs{T(y) - y}}{1-L}
+\]
+Thus if \(T(x) = x\) and \(T(y) = y)\) then \(x = y\) and hence fixed points are unique.
+</p>
+<p>
+To prove existence, pick any \(x_0\) and define \(x_n = T^n(x_0) = \underbrace{T \circ \cdots \circ T}_{n \text{ times}}  (x_0)\). Supposing first that the limit exists, then using \(x_n = T(x_{n-1})\) we have
+\[
+x_{\ast} = \lim_{n\to\infty} x_n = \lim_{n\to\infty} T(x_{n-1}) = T(\lim_{n\to\infty} x_{n-1}) = T(x^{\ast})
+\]
+Thus \(x_{\ast}\) is a fixed point and we just need to prove the limit exists. We do this by showing that  \(x_n = T^n(x_0)\) is a Cauchy sequence:
+</p>
+\begin{align*}
+\lvert T^n&amp;(x_0) - T^m(x_0) \rvert \\
+&amp;\leq \frac{\abs{T(T^n(x_0)) - T^n(x_0)} + \abs{T(T^m(x_0)) - T^m(x_0)}}{1-L} \\
+&amp;= \frac{\abs{T^n(T(x_0)) - T^n(x_0)} + \abs{T^m(T(x_0) - T^m(x_0)}}{1-L} \\
+&amp;\leq \frac{L^n \abs{T(x_0) - x_0} + L^m \abs{T(x_0) - x_0}}{1-L} \to 0
+\end{align*}
+<p>
+as \(m,n \to \infty\). Note here that we used \(\abs{T^n(x) - T^n(y)} \leq L^n \abs{x - y}\) which follows by induction. Completness now ensures the limit exists and the proof is complete.
+</p>
+</div></div>
+</div></div>
+
+
+</div><div class="accordion-item" id="outline-container-org6b189ca-item"><h1 class="accordion-header" id="outline-container-org6b189ca-header"><button aria-controls="outline-container-org6b189ca-collapse" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#outline-container-org6b189ca-collapse" data-bs-toggle="collapse" id="org6b189ca" type="button">Proof of Inverse Function Theorem</button></h1><div aria-labelledby="outline-container-org6b189ca-header" class="accordion-collapse collapse" id="outline-container-org6b189ca-collapse"><div class="accordion-body p-3 m-0" id="text-org6b189ca-body">
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(f : \RR^n \to \RR^n\) a smooth function such that \(df_{x_0}\) is invertible at \(x_0\). Then there is an open set \(U\) containing \(x_0\) and an open set \(V\) containing \(f(x_0)\) such that \(f|_U : U \to V\) is a diffeomorphism. Moreover
+\[
+df^{-1}_{f(x_0)} = (df_{x_0})^{-1}
+\]
+</p>
+</div></div>
+<p>
+The strategy of proof is as follows: Define \(T_y (x) = x - df_{x_0}^{-1} (f(x) - y)\). Then we have two steps.
+</p>
+<dl class="org-dl">
+<dt>Step 1</dt><dd>\(T_y\) is a contraction \(T_y : \bar{B}_r(x_0) \to \bar{B}_r(x_0)\)</dd>
+<dt>Step 2</dt><dd>Prove \(f^{-1}\) is smooth.</dd>
+</dl>
+<p>
+We will actually break up each step into smaller lemmas.
+</p>
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+For each fixed \(y\) sufficiently close to \(y_0 = F(x_0)\),
+\[
+T_y (x) = x - df_{x_0}^{-1} (f(x) - y)
+\]
+is a contraction map.
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+dT_{x_0} = d\Id_{x_0} - df_{x_0}^{-1} df_{x_0} = 0.
+\]
+</p>
+<p>
+Continuity of \(dT\) gives an open neighbourhood \(U\) of \(x_0\) such that \(\|dT_{x_0}\| \leq 1/2\):
+\[
+\abs{dT_{x} \cdot X} \leq \frac{1}{2} \abs{X}.
+\]
+</p>
+<p>
+From \(\abs{dT_{x} \cdot X} \leq \frac{1}{2} \abs{X}\) and the mean value inequality,
+\[
+\abs{T(x_1) - T(x_2)} \leq \frac{1}{2}\abs{x_1 - x_2}
+\]
+so that \(T\) is <i>contractive</i> for \(x_1, x_2 \in U\).
+</p>
+</div></div>
+<p>
+In order to conclude that \(T\) has a unique fixed point, we need to verify that there is an \(r &gt; 0\) such that \(T : \bar{B}_r(x_0) \to \bar{B}_r(x_0)\). Since \(x_0 \in U\) and \(U\) is open, there exists an \(r &gt; 0\) such that \(B_r(x_0) \subseteq U\).
+</p>
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(y_0 = f(x_0)\) and \(y \in B_s(y_0)\) with \(s\) any number satisfying
+\[
+0 &lt; s &lt; \frac{1-L}{\|df_{x_0}^{-1}\|} r.
+\]
+Then for any \(y \in B_s(y_0)\), \(T_y\) maps \(\bar{B}_r(x_0)\) to itself.
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+For \(x \in B_r(x_0)\), recalling \(T(x) = x - df_{x_0}^{-1}(f(x) - y)\) we have
+</p>
+\begin{align*}
+\abs{T(x) - x_0} &amp;\leq \abs{T(x) - T(x_0)} + \abs{T(x_0) - x_0} \\
+&amp;\leq L\abs{x-x_0} + \abs{-df_{x_0}^{-1}(f(x_0) - y)} \\
+&amp;\leq L\abs{x-x_0} + \|df_{x_0}^{-1}\| \abs{y_0 - y} \\
+&amp;\leq r L + \|df_{x_0}^{-1}\|s \\
+&amp;\leq r L + (1-L)r = r.
+\end{align*}
+
+</div></div>
+<p>
+Let us state explicitly what the previous lemmas give us.
+</p>
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+For each \(y \in \bar{B}_s(y_0)\), there exists a unique fixed point \(x^{\ast}_y \in \bar{B}_r (x_0)\) for \(T_y\) and hence \(f\) restricted to \(f^{-1}(B_s(y_0) \cap B_r(x_0)\) is invertible.
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+For each \(y \in B_s(y_0)\), \(T_y : \bar{B}_r (x_0) \to \bar{B}_r (x_0)\) is a contraction mapping hence has a unique fixed point \(x^{\ast}_y\):
+\[
+x^{\ast}_y = T_y(x^{\ast}_y) = x^{\ast}_y - df_{x_0}^{-1} (f(x^{\ast}_y) - y).
+\]
+Cancelling \(x^{\ast}_y\) from both sides and using the fact that \(df_{x_0}^{-1}\) is non-singular:
+</p>
+\begin{equation*}
+\begin{split}
+x^{\ast}_y = T_y(x^{\ast}_y) &amp;\Leftrightarrow df_{x_0}^{-1} (f(x^{\ast}_y) - y) = 0 \\
+&amp;\Leftrightarrow f(x^{\ast}_y) = y
+\end{split}
+\end{equation*}
+<p>
+Thus the unique fixed point \(x^{\ast}_y\) is also the unique solution of \(f(x) = y)\) for \(x \in B_r(x_0)\) provided \(f(x^{\ast}_y \in B_s(y_0)\) and we may define
+\[
+f^{-1} (y) = x^{\ast}_y.
+\]
+Note we need to restrict the range of \(x\) to the open set \(f^{-1}(B_s(y_0)) \cap B_r(x_0)\) so that \(f\) maps this set into \(B_s(y_0)\).
+</p>
+</div></div>
+<p>
+Now we move onto step 2, which we also prove by a series of lemmas.
+</p>
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The (local) inverse \(f^{-1}\) is continuous.
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{equation*}
+\begin{split}
+\abs{x_1 - x_2 - df_{x_0}^{-1}(f(x_1) - f(x_2))} &amp;= \abs{T(x_1) - T(x_2)} \\
+&amp;\leq L \abs{x_1 - x_2}.
+\end{split}
+\end{equation*}
+<p>
+By the <i>reverse triangle inequality</i>
+\[
+\abs{x_1 - x_2} - \abs{df_{x_0}^{-1}(f(x_1) - f(x_2))} \leq L \abs{x_1 - x_2}.
+\]
+Thus
+</p>
+\begin{equation*}
+\begin{split}
+\abs{x_1 - x_2} &amp;\leq \frac{\abs{df_{x_0}^{-1}(f(x_1) - f(x_2))}}{1 - L} \\
+&amp;\leq \frac{\|df_{x_0}^{-1}\|}{1 - L} \abs{f(x_1) - f(x_2)}.
+\end{split}
+\end{equation*}
+<p>
+Letting \(y_i = f(x_i)\) so that \(x_i = f^{-1}(y_i)\) gives continuity (even Lipschitz):
+\[
+\abs{f^{-1}(y_1) - f^{-1}(y_2)} \leq \frac{\|df_{x_0}^{-1}\|}{1 - L}\abs{y_1 - y_2}.
+\]
+</p>
+</div></div>
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The (local) inverse \(f^{-1}\) is differentiable.
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Pick any arbitrary \(y \in B_s(y_0)\) and any \(h\) such that \(y + h \in B_s(y_0)\), say \(h \in B_{\epsilon} (0)\) so that \(y + h \in B_{\epsilon} (y) \subseteq B_s(y_0)\).
+</p>
+<p>
+Let \(x = f^{-1} (y)\) and define
+\[
+R = f^{-1} (y + h) - f^{-1} (y) - df_{x}^{-1} \cdot h.
+\]
+</p>
+<p>
+We need to show that
+\[
+\lim_{h\to 0} \frac{\abs{R}}{\abs{h}} = 0.
+\]
+Let \(k = f^{-1}(y + h) - f^{-1} (y)\) so that \(h = f(x + k) - f(x)\). Then
+</p>
+\begin{align*}
+R &amp;= f^{-1} (y + h) - f^{-1} (y) - df_{x}^{-1} \cdot h \\
+&amp;= k - df_x^{-1} (f(x + k) - f(x)) \\
+&amp;= k - df_x^{-1}(df_x k + \omicron(k)) \\
+&amp;= -df_x^{-1} (\omicron(k)).
+\end{align*}
+<p>
+Since \(f^{-1}\) is Lipschitz, with constant \(M\) say, we have
+\[
+\abs{k} = \abs{f^{-1}(y + h) - f^{-1}(y)} \leq M \abs{y + h - y} = M \abs{h}.
+\]
+\[
+\frac{\abs{R}}{\abs{h}} \leq \|df_x^{-1}\| \frac{\omicron(k)}{\abs{h}} \leq M \|df_x^{-1}\| \frac{\omicron(k)}{\abs{k}}.
+\]
+The right hand side goes to zero as \(h \to 0\) since \(\abs{k} \leq M \abs{h}\) implies \(k \to 0\) and then by definition of \(\omicron(k)\).
+</p>
+</div></div>
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The (local) inverse, \(f^{-1}\) is smooth.
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+We have shown the existence of a differentiable local inverse \(f^{-1}\) to \(f\) with differential
+\[
+d(f^{-1})_y = (df_x)^{-1}
+\]
+where \(x = f^{-1}(y)\).
+</p>
+<p>
+Now, by Cramers's rule, given an invertible matrix \(A\), the inverse is
+\[
+A^{-1} = \frac{1}{\det A} \operatorname{adj} A
+\]
+where the \(\operatorname{adj} A\) is the <i>adjugate matrix</i> formed from cofactors of \(A\) - that is the determinants of the minors of \(A\). As a function then, \(A \mapsto A^{-1}\) we see that the components are rational functions of the entries of \(A\) (since determinants are polynomials in the entries of \(A\)). The inverse function \(\operatorname{Inv}\) is smooth function from the open set of non-singular matrices (\(\det A \ne 0\)) to itself.
+</p>
+<p>
+Then since \(x \mapsto df_x\) is smooth,
+\[
+y \mapsto df^{-1}_y = (df_{f^{-1}(y)})^{-1} = \operatorname{Inv} \circ df \circ f^{-1} (y)
+\]
+is a composition of \(C^0\) functions hence \(C^0\). Then \(f^{-1}\) is \(C^1\).
+</p>
+<p>
+Now
+\[
+df^{-1}_y = \operatorname{Inv} \circ df \circ f^{-1} (y)
+\]
+and \(df^{-1}\) is the composition of \(C^1\) functions hence is also \(C^1\).
+</p>
+<p>
+That is \(f^{-1}\) is \(C^2\). By induction, \(f^{-1}\) is \(C^k\) for any \(k\) and hence smooth.
+</p>
+</div></div>
+</div></div>
+
+
+</div></accordion>
