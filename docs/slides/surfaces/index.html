@@ -1,0 +1,123 @@
+---
+layout: org-slides
+---
+
+<section class="outline-2" id="outline-container-orgfd80cf0">
+<h2 id="orgfd80cf0">Graphs of functions</h2>
+<div class="outline-text-2" id="text-orgfd80cf0">
+</div>
+<section class="outline-3" id="outline-container-orgb8cac89">
+<h3 id="orgb8cac89">The graph of a function</h3>
+<div class="outline-text-3" id="text-orgb8cac89">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(f : U \subseteq_{\text{open}} \RR^2 \to \RR\) be smooth function
+\[
+\graph f := \{(u, v, f(u, v)) : (u, v) \in U\} \subseteq \RR^3.
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgdc33cd6">
+<h3 id="orgdc33cd6">Parametrisation</h3>
+<div class="outline-text-3" id="text-orgdc33cd6">
+<p>
+\[
+F(u, v) = (u, v, f(u, v))
+\]
+is a <i>parmetrisation</i> of \(\graph f\).
+</p>
+<p>
+\(F\) gives a one to one identification of the points \((x, y, z) \in \graph f\) with the points \((u, v) \in U\) an open set of \(\RR^2\) on which we can do calculus!
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org5927af0">
+<h3 id="org5927af0">Paraboloid</h3>
+<div class="outline-text-3" id="text-org5927af0">
+<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(f (u, v) = u^2 + v^2\)
+</p>
+<p>
+\[
+\graph(f) = (u, v, u^2 + v^2)
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org3fab0d1">
+<h3 id="org3fab0d1">Smooth functions on a graph</h3>
+<div class="outline-text-3" id="text-org3fab0d1">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A function \(\eta : \graph f \to \RR\) is smooth if the function
+</p>
+<p>
+\(\eta \circ F (x, y) = \eta(x, y, f(x, y))\) is smooth.
+</p>
+<p>
+A function \(\eta = (\eta^1, \dots, \eta^m) : \graph f \to \RR^m\) is smooth if each \(\eta^i\) is.
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org9eb9da8">
+<h3 id="org9eb9da8">Ambient Smooth Functions</h3>
+<div class="outline-text-3" id="text-org9eb9da8">
+<p>
+If \(\bar{\eta} : \RR^3 \to \RR\) is smooth then, by the chain rule \(\eta := \bar{\eta}|_{\graph f}\) is smooth since
+\[
+\eta \circ F = \bar{\eta}\lvert_{\graph f} \circ F = \bar{\eta} \circ F
+\]
+is the composition of smooth functions.
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org2f3aa2a">
+<h3 id="org2f3aa2a">Extension of smooth functions</h3>
+<div class="outline-text-3" id="text-org2f3aa2a">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(\eta : \graph f \to \RR\) be a smooth function. Then <i>locally</i> there exists a smooth function \(\bar{\eta} : \RR^3 \to \RR\) such that \(\eta = \bar{\eta}\lvert_{\graph f}\)
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org537db8f">
+<h3 id="org537db8f">Proof - Inclusions</h3>
+<div class="outline-text-3" id="text-org537db8f">
+<p>
+In the special case that \(f \equiv 0\):
+</p>
+<p>
+\(F(u, v) = (u, v, 0)\) is an inclusion.
+</p>
+<p>
+By assumption \(\eta \circ F (u, v) = \eta(u, v, 0)\) is smooth.
+</p>
+<p>
+Define \(\bar{\eta}(x, y, z) = \eta \circ \pi (x, y, z) = \eta(x, y, 0)\).
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org0d90a23">
+<h3 id="org0d90a23">Proof - General Case</h3>
+<div class="outline-text-3" id="text-org0d90a23">
+<p>
+\(F\) is an immersion: \(F = \psi^{-1} \circ \iota \circ \varphi\)
+</p>
+<p>
+\(\psi(\graph(f)) = \lbrace z=0 \rbrace\)
+</p>
+<p>
+\(\mu = \eta \circ \psi^{-1} \circ \iota = \eta \circ F \circ \varphi^{-1}\) is smooth on \(\lbrace z = 0 \rbrace\)
+</p>
+<p>
+\(\bar{\eta} = \bar{\mu} \circ \psi\)
+</p>
+</div>
+</section>
+</section>
