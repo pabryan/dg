@@ -1,0 +1,152 @@
+#+OPTIONS: toc:nil num:nil
+#+BEGIN_export html
+---
+title: Surfaces
+short_title: Surfaces
+---
+#+END_export
+
+#+LaTeX_class: article_no_macros
+#+LaTeX_Header: \usepackage{pabnotes}
+#+LaTeX_Header: \newcommand{\weeknum}{04}
+#+LaTeX_Header: \newcommand{\topic}{Surfaces}
+
+#+BEGIN_export html
+<ul>
+<li><a href="{{ '/slides/surfaces' | relative_url }}" target="_blank">Surfaces Slides</a></li>
+</ul>
+#+END_export
+
+* Graphs
+
+#+BEGIN_env defn
+Let \(f : U \subseteq_{\text{open}} \RR^2 \to \RR\) be smooth function. The graph, \(\graph f\) is the set,
+\[
+\graph f := \{(u, v, f(u, v)) : (u, v) \in U\} \subseteq \RR^3.
+\]
+#+END_env
+
+The function \(F : U \to \RR^3\) defined by
+\[
+F(u, v) = (u, v, f(u, v))
+\]
+is a /parmetrisation/ of \(\graph f\).
+
+Observe that \(F\) gives a one to one identification of the points \((x, y, z) \in \graph f\) with the points \((u, v) \in U\) an open set of \(\RR^2\) on which we can do calculus! As a map \(F : U \to \graph(f)\), the inverse is \(F^{-1} = \pi|_{\graph(f)} : \graph(f) \to U\)
+\[
+F^{-1} : (x, y, z) \in \graph(f) \mapsto (x, y).
+\]
+
+#+BEGIN_env eg :title "Paraboloid"
+Consider the paraboloid,
+\[
+S = \lbrace (x, y, z) : z = x^2 + y^2 \rbrace.
+\]
+Let \(f (u, v) = u^2 + v^2\) in which case,
+\[
+\graph(f) = (u, v, u^2 + v^2) = S
+\]
+and a parametrisation is
+\[
+F(u, v) = (u, v, u^2 + v^2).
+\]
+#+END_env
+
+In general, we can't differentiate a function \(\eta : \graph(f) \to \RR\), for if \(p \in \graph(f)\) the definition of derivative gives
+\[
+\partial_X \eta (p) = \lim_{h \to 0} \frac{\eta(p + hX) - \eta(p)}{h}.
+\]
+In general \(p + h X \notin \graph{f}\), in which case the difference quotient is not even defined let alone the limit.
+
+For example, let \(p = (1, 0, 1)\) be a point on the paraboloid and let \(X = e_1 = (1, 0, 0)\). Then for any \(h\),
+\[
+p + hX = (1 + h, 0, 1)
+\]
+This is not a point on the parabolid \(z = x^2 + y^2\) and hence \(\eta(p + hX)\) is not defined if \(\eta\) is defined only on the graph.
+
+So we need to another way to define smooth functions. We do this via our parametrisation.
+
+#+BEGIN_env defn
+A function \(\eta : \graph f \to \RR\) is smooth if the function
+
+\(\eta \circ F (x, y) = \eta(x, y, f(x, y))\) is smooth.
+
+A function \(\eta = (\eta^1, \dots, \eta^m) : \graph f \to \RR^m\) is smooth if each \(\eta^i\) is.
+#+END_env
+
+In the case that we start with a smooth function on the ambient space, then restircting to \(\graph(f)\) is smooth. That is, if \(\bar{\eta} : \RR^3 \to \RR\) is smooth then, by the chain rule \(\eta := \bar{\eta}|_{\graph f}\) is smooth since
+\[
+\eta \circ F = \bar{\eta}\lvert_{\graph f} \circ F = \bar{\eta} \circ F
+\]
+is the composition of smooth functions.
+
+In fact, all smooth functions arise this way. Here's the local version of that statement.
+
+#+BEGIN_env lem
+Let \(\eta : \graph f \to \RR\) be a smooth function. Then /locally/ there exists a smooth function \(\bar{\eta} : \RR^3 \to \RR\) such that \(\eta = \bar{\eta}\lvert_{\graph f}\).
+#+END_env
+
+#+BEGIN_env pf :title "Special case - Immersions"
+In the special case that \(f \equiv 0\),
+\[
+F(u, v) = (u, v, 0)
+\]
+is an inclusion. By assumption \(\eta \circ F (u, v) = \eta(u, v, 0)\) is smooth. Define
+\[
+\bar{\eta}(x, y, z) = \eta \circ \pi (x, y, z) = \eta(x, y, 0)
+\]
+which is then smooth.
+#+END_env
+
+Thus extending smooth maps on inclusions into coordinate planes is straightforward. The general case follows by the Immersion Theorem which says that a surface is locally a coordinate plane up to diffeomorphism.
+
+#+BEGIN_env pf :title "General Case"
+\(F\) is an immersion, hence by the Immersion Theorem there are local diffeomorphisms such that \(F = \psi^{-1} \circ \iota \circ \varphi\). Since \(\psi \circ F = \iota \circ \varphi\) we get that \(\psi(\graph(f)) \subseteq \Img \iota = \lbrace z=0 \rbrace\).
+
+We can (locally) define a new smooth function \(\mu : \lbrace z = 0 \rbrace \to \RR\) by
+\[
+\mu = \eta \circ \psi^{-1}.
+\]
+Then
+\begin{equation*}
+\begin{split}
+\eta \circ F &= \eta \circ \psi^{-1} \circ \iota \circ \varphi \\
+&= \mu \circ \iota \circ \varphi
+\end{split}
+\end{equation*}
+is smooth since \(\eta \circ F\) is smooth by assumption. Thus
+\[
+\mu \circ \iota = \eta \circ F \circ \varphi^{-1}
+\]
+is smooth. Using the fact that \(\iota \circ \pi\) is the identity on \(\{z=0\}\) where \(\pi : \RR^3 \to \RR^2\) is the projection \((x, y, z) \mapsto (x, y)\) we get
+\[
+\mu = \mu \circ \iota \circ \pi = (\eta \circ F) \circ \varphi^{-1} \circ \pi
+\]
+is smooth.
+
+Then we let \(\bar{\mu}\) be a smooth extension of \(\mu\) and let
+\[
+\bar{\eta} = \bar{\mu} \circ \psi^{-1}
+\]
+which is smooth. Moreover, since \(\bar{\mu}|_{z=0} = \mu\),
+\begin{equation*}
+\begin{split}
+\bar{\eta}|_{\graph(f)} &= (\bar{\mu} \circ \psi^{-1})|_{\graph(f)} \\
+&= \bar{\mu}|_{z=0} \circ \psi^{-1}_{\graph(f)} \\
+&= (\mu \circ \psi^{-1})|_{\graph(f)} \\
+&= \eta
+\end{split}
+\end{equation*}
+and we obtain a local, smooth extension as required.
+#+END_env
+
+* Tangent Plane                                                    :noexport:
+
+#+BEGIN_env defn
+A /tangent vector/ to \(\graph f\) at \(x \in \graph f\) is a vector \(X = \gamma'(0)\in \RR^3\) where \(\gamma(0) = x\).
+
+The /tangent plane/, \(T_x \graph f\) to \(\graph f\) at \(x\) is the set of tangent vectors at \(x\).
+#+END_env
+
+Tangent vectors are velocity vectors to curves /along the graph/.
+
