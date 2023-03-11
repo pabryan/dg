@@ -8,7 +8,7 @@ short_title: Inverse Function Theorem
 #+END_export
 
 #+LaTeX_class: collab
-#+LaTeX_Header: \newcommand{\weeknum}{02}
+#+LaTeX_Header: \newcommand{\weeknum}{03}
 #+LaTeX_Header: \newcommand{\topic}{Inverse Function Theorem}
 #+LaTeX_Header: \input{../setup.tex}
 
