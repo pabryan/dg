@@ -1,3 +1,6 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{pabnotes}[2010/01/07 Useful maths macros]
+
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{amsmath}
@@ -24,18 +27,11 @@
 \let\oldexist\exists
 \renewcommand{\exists}{\oldexist \: }
 
-\newcommand{\RR}{\mathbb{R}}
-\newcommand{\CC}{\mathbb{C}}
-\renewcommand{\SS}{\mathbb{S}}
-\newcommand{\NN}{\mathbb{N}}
-\newcommand{\ZZ}{\mathbb{Z}}
-\newcommand{\Ric}{\operatorname{Ric}}
-\newcommand{\Tr}{\operatorname{Tr}}
-\newcommand{\Img}{\operatorname{Img}}
-\newcommand{\Id}{\operatorname{Id}}
-\newcommand{\avgint}{\mathop{\mathchoice{\,\rlap{-}\!\!\int}{\rlap{\raise.15em{\scriptstyle -}}\kern-.2em\int}{\rlap{\raise.09em{\scriptscriptstyle -}}\!\int}{\rlap{-}\!\int}}\nolimits}
-\newcommand{\abs}[1]{\left\lvert{#1}\right\rvert}
-\newcommand{\ip}[2]{\left\langle{#1},{#2}\right\rangle}
+% Include shared TeX/HTML macros
+\let\SS\undefined
+\input{macros}
+
+% These macros only work in TeX and not in HTML
 \newcommand{\hugezero}{\text{\huge 0}}
 \DeclareMathOperator{\omicron}{o}
 

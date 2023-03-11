@@ -7,9 +7,9 @@ short_title: Inverse Function Theorem
 #+END_export
 
 #+LaTeX_class: article_no_macros
+#+LaTeX_Header: \usepackage{pabnotes}
 #+LaTeX_Header: \newcommand{\weeknum}{03}
 #+LaTeX_Header: \newcommand{\topic}{Inverse Function Theorem}
-#+LaTeX_Header: \input{../setup.tex}
 
 #+BEGIN_export html
 <ul>
