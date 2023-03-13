@@ -74,110 +74,115 @@ Define \(\bar{\eta}(x, y, z) = \eta \circ \pi (x, y, z) = \eta(x, y, 0)\).
 
 \(\bar{\eta} = \bar{\mu} \circ \psi\)
 
-* Regular Surfaces                                                 :noexport:
+* Regular Surfaces
 ** Graphs are not enough
-*** picture
-     :PROPERTIES:
-     :BEAMER_col: 0.5
-     :END:
 
-#+ATTR_LATEX: :width .9\textwidth :height .8\textheight
-[[file:img/lec06_docarmo.jpg]]
-
-*** text
-     :PROPERTIES:
-     :BEAMER_col: 0.5
-     :END:
-
-- Graphs are /global/ surfaces. They are diffeomorphic to an open set in the plane. 
-- Many surfaces are not diffeomorphic to an open set in the plane! 
+- Graphs are /global/ surfaces. They are diffeomorphic to an open set in the plane.
+- Many surfaces are not diffeomorphic to an open set in the plane!
 - The sphere, a torus, etc.
+
+** Graphs are not enough
+
+#+BEGIN_export html
+{% include img_slides.html file="docarmo_cover.jpg" %}
+#+END_export
 
 ** Definition of Regular Surface
 
-#+BEGIN_definition
-A regular surface, \(S \subseteq \RR^3\) is subset of \(\RR^3\) such that there exists smooth /local parametrisations/ \(\varphi_{\alpha} : U_{\alpha} \subseteq \RR^2 \to \RR^3\) satisfying for each \(\alpha\),
+#+BEGIN_env defn
+A regular surface, \(S \subseteq \RR^3\) is covered by smooth /local parametrisations/ \(\varphi_{\alpha} : U_{\alpha} \subseteq \RR^2 \to \RR^3\) such that
 
-1. \(S = \union_{\alpha} V_{\alpha}\) where \(V_{\alpha} = \varphi_{\alpha}(U_{\alpha}) = W_{\alpha} \cap S\), \(W_{\alpha} \subseteq \RR^3\) open,
-2. \(\varphi_{\alpha}\) is a homeomorphism onto it's image \(V_{\alpha} = \varphi_{\alpha} (U_{\alpha})\)
-3. \(d\varphi_{\alpha}|_x : \RR^2 \to \RR^3\) is injective for each \(x \in U_{\alpha}\).
-#+END_definition
+1. \(S = \cup_{\alpha} V_{\alpha}\) where \(V_{\alpha} = \varphi_{\alpha}(U_{\alpha})\) is open in \(S\)
+2. \(\varphi_{\alpha}\) is a homeomorphism \(U_{\alpha} \to V_{\alpha}\)
+3. \(d\varphi_{\alpha}|_x : \RR^2 \to \RR^3\) is injective for each \(x \in U_{\alpha}\)
+#+END_env
 
+** Regular Surface
 
+#+BEGIN_export html
+{% include img_slides.html file="regular_surface.png" %}
+#+END_export
 
-*** Picture
-   :PROPERTIES:
-   :BEAMER_col: 1
-   :END:
+** Induced Topology
 
-#+BEGIN_center
-#+ATTR_LATEX: :width .9\textwidth :height .4\textheight
-[[file:img/lec05_regular_surface.png]]
-#+END_center
+- \(V \subset S\) is /open/ if and only if \(V = S \cap W\) for \(W \subseteq \RR^3\) open
 
-** Remarks on the definition
+- Continuity of the map
+  \[
+  \varphi_{\alpha}^{-1} : V_{\alpha} \subseteq S \subseteq \RR^3 \to U_{\alpha} \subseteq \RR^2
+  \]
 
-Surfaces /look locally like \(\RR^2\)/.
-- Items 1 and 2 say each point of \(S\) has a neighbourhood in a continuous one to one correspondence with an open set of the plane. 
-- Here continuity is derived from continuity on \(\RR^3\):
-  - Continuity of the map
-    \[
-    \varphi_{\alpha}^{-1} : V_{\alpha} \subseteq S \subseteq \RR^3 \to U_{\alpha} \subseteq \RR^2
-    \]
-    
-    means for all convergent sequences \((x_n) \subseteq V_{\alpha}\), we have
-    \[
-    \lim_{n \to \infty} \varphi_{\alpha}^{-1} (x_n) = \varphi_{\alpha}^{-1} (\lim_{n\to\infty} x_n).
-    \]
-    
-  - We say a subset \(V \subseteq S\) is open if and only if \(V = W \cap S\) for some open set \(W \subseteq \RR^3\). Thus each \(V_{\alpha} = W_{\alpha} \cap S\) is open. 
-- Differentiability is not so easy.
-  - Recall we need to make use of the /linear/ structure in order to define derivatives. 
-  - But \(S\) need not be a linear subspace!
+  means for all convergent sequences \((x_n) \subseteq V_{\alpha}\), we have
+  \[
+  \lim_{n \to \infty} \varphi_{\alpha}^{-1} (x_n) = \varphi_{\alpha}^{-1} (\lim_{n\to\infty} x_n).
+  \]
+
+* Change of Parameters
+** Change of Parameters
+
+#+BEGIN_export html
+{% include img_slides.html file="regular_surface_change_of_params.png" %}
+#+END_export
 
 ** Change of Parameters
 
-The third condition implies that for each $\alpha,\beta$, the /change of parameters/
+By the Inverse Function Theorem
 \[
 \tau_{\alpha\beta} = \varphi_{\beta}^{-1} \circ \varphi_{\alpha} : \varphi_{\alpha}^{-1} (V_{\beta}) \subseteq \RR^2 \to \varphi_{\beta}^{-1} (V_{\alpha}) \subseteq \RR^2
 \]
 is a *diffeomorphism*.
 
-That is, \(\tau_{\alpha\beta}\) is smooth with a smooth inverse. The inverse is in fact \(\tau_{\beta\alpha}\).
+\(\tau_{\alpha\beta}\) is smooth with a smooth inverse  \(\tau_{\beta\alpha}\).
 
+We could replace condition 3 that \(d\varphi_{\alpha}\) is injective with the condition that \(\tau_{\alpha\beta}\) is smooth.
 
+** Diffeomorphism Invariance
+\[
+\Phi_{\alpha\beta} : f \in C^{\infty}(\varphi_{\beta}^{-1} (V_{\alpha}), \RR) \mapsto f \circ \tau_{\alpha\beta} \in C^{\infty}(\varphi_{\alpha}^{-1} (V_{\beta}), \RR)
+\]
+is a bijection.
 
-- We could replace condition 3 that \(d\varphi_{\alpha}\) is injective with the condition that \(\tau_{\alpha\beta}\) is smooth.
-
-
-
-*** Picture
-   :PROPERTIES:
-   :BEAMER_col: 1
-   :END:
-
-#+BEGIN_center
-#+ATTR_LATEX: :width .4\textwidth :height .5\textheight
-[[file:img/lec05_change_of_param.png]]
-#+END_center
-
-** Key Property of Change of Parameters
-
-We have that \(\tau_{\alpha\beta}\) is a diffeomorphism.
-
-*Fact*:
-  \[
-  \Phi_{\alpha\beta} : f \in C^{\infty}(\varphi_{\beta}^{-1} (V_{\alpha}), \RR) \mapsto f \circ \tau_{\alpha\beta} \in C^{\infty}(\varphi_{\alpha}^{-1} (V_{\beta}), \RR)
-  \]
-  is a bijection.
-
-
-
-*** Calculus is diffeomorphism invariant!
-
-Therefore, $\Phi_{\alpha\beta}$ establishes a one-to-one correspondence of smooth functions in one parametrisation with smooth functions in another parametrisation. 
+$\Phi_{\alpha\beta}$ establishes a one-to-one correspondence of smooth functions in one parametrisation with smooth functions in another parametrisation. 
 
 A function \(f : \varphi_{\beta}^{-1} (V_{\alpha}) \to \RR\) is differentiable if and only if \(f \circ \tau_{\alpha\beta} : \varphi_{\alpha}^{-1} (V_{\beta}) \to \RR\) is differentiable.
+
+** Diffeomorphism
+
+#+BEGIN_env thm
+Let \(S\) be a regular surface with local parametrisations
+\[
+\varphi_{\alpha} : U_{\alpha} \to V_{\alpha} \subseteq S \subseteq \RR^3
+\]
+Then for each \(\alpha, \beta\) with \(V_{\alpha} \cap V_{\beta} \neq \emptyset\), \(\tau_{\alpha\beta}\) is smooth.
+
+Moreover, \(\tau_{\alpha\beta}\) is invertible with inverse \(\tau_{\beta\alpha}\) hence is a diffeomorphism.
+#+END_env
+
+** Proof Idea
+
+*Idea*: \(\tau_{\alpha\beta} = \varphi_{\beta}^{-1} \circ \varphi_{\alpha}\) is the composition of smooth functions.
+
+*Problem*: What does it mean for \(\varphi_{\beta}^{-1}\) to be smooth?
+
+*Solution*: Locally \(\varphi_{\beta}^{-1} = \Phi_{\beta}^{-1}|_S\) for \(\Phi_{\beta}^{-1} : \RR^3 \to \RR^3\) smooth.
+
+** Proof
+
+Apply the Inverse Function Theorem:
+
+\[
+\Phi_{\beta} (u, v, w) = \varphi_{\beta} (u, v) + w e_i
+\]
+
+\[
+\Phi_{\beta}|_{w=0} = \varphi_{\beta}
+\]
+
+\begin{equation*}
+d\Phi_{\beta} = \begin{pmatrix}
+\large{d\varphi} & e_i
+\end{pmatrix}
+\end{equation*}
 
 * Tangent Plane                                                    :noexport:
 ** Tangent Vectors
