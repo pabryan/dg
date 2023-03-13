@@ -117,6 +117,113 @@ A regular surface, \(S \subseteq \RR^3\) is covered by smooth /local parametrisa
   \lim_{n \to \infty} \varphi_{\alpha}^{-1} (x_n) = \varphi_{\alpha}^{-1} (\lim_{n\to\infty} x_n).
   \]
 
+* Examples
+** Example: Graphs
+
+- There is just one parametrisation:
+   \[
+   \varphi : (u, v) \mapsto (u, v, f(u, v))
+   \]
+
+- Inverse \(\varphi^{-1} = \pi_{z=0}\)
+- \[
+  d\varphi = \begin{pmatrix}
+  1 & 0 \\
+  0 & 1 \\
+  \partial_u f & \partial_v f
+  \end{pmatrix}
+  \]
+
+** Example The Unit Sphere
+
+The sphere is not a graph over any plane \(P \subseteq \RR^3\)
+
+- Let \(N\) be the normal to \(P\). Then for any point \(p \in P\), the line \(p + t N\) either intersects in exactly 2 distinct points, 1 point or no points.
+- Substitute: \(p + t N\) into \(x^2 + y^2 + z^2 = 1\) and you get a quadratic in \(t\).
+- Provided \(p + t N\) is not tangent to the sphere (multiplicity $2$ root), the quadratic has either $0$ roots or $2$ roots.
+
+** Hemisphere Parametrisation
+
+#+BEGIN_export html
+{% include img_slides.html file="docarmo_cover.jpg" %}
+#+END_export
+
+** Hemisphere Parametrisation: North-South
+
+Let \(U = \{u^2 + v^2 < 1\}\) be the unit disc.
+
+- Northern hemisphere (over \(z = 0\) plane)
+  \[
+  \varphi_N (u,v) = \left(u, v, \sqrt{1 - (u^2 + v^2)}\right)
+  \]
+
+- Southern hemisphere (over \(z = 0\) plane)
+  \[
+  \varphi_S (u,v) = \left(u, v, -\sqrt{1 - (u^2 + v^2)}\right)
+  \]
+
+** Hemisphere Parametrisation: East-West
+
+Let \(U = \{u^2 + v^2 < 1\}\) be the unit disc.
+
+- Eastern hemisphere (over \(y = 0\) plane)
+  \[
+  \varphi_E (u, v) = \left(u, \sqrt{1 - (u^2 + v^2)}, v\right)
+  \]
+
+- Western hemisphere (over \(y = 0\) plane)
+  \[
+  \varphi_W (u, v) = \left(u, -\sqrt{1 - (u^2 + v^2)}, v\right)
+  \]
+
+** Hemisphere Parametrisation: Front-Back
+
+Let \(U = \{u^2 + v^2 < 1\}\) be the unit disc.
+
+- Front hemisphere (over \(x = 0\) plane)
+  \[
+  \varphi_E (u, v) = \left(\sqrt{1 - (u^2 + v^2)}, u, v\right)
+  \]
+
+- Back hemisphere (over \(x = 0\) plane)
+  \[
+  \varphi_W (u, v) = \left(-\sqrt{1 - (u^2 + v^2)}, u, v\right)
+  \]
+
+** Polar Coordinates
+
+For \((\theta, \phi) \in (0, 2\pi) \times (0, \pi)\), define
+\[
+\varphi (\theta, \phi) = (\sin \phi \cos \theta, \sin \phi \sin \theta, \cos \phi)
+\]
+
+Then \(\varphi\) covers all of the sphere except for the semi-circle \(\{x \geq 0\} \cap \{y = 0\} \cap \SS^2\). 
+
+We cover the entire sphere by also using the parametrisation
+\[
+\psi (\theta, \phi) = (\sin \phi \cos \theta, \cos\phi, \sin \phi \sin \theta)
+\]
+
+** Example: Torus
+
+#+BEGIN_export html
+{% include img_slides.html file="torus.png" %}
+#+END_export
+
+** Torus
+
+- \(xz\)-plane circle \((x, y, z) = (a \cos \theta + b, 0, a \sin \theta)\)
+- Here \(a < b\). Rotate around the \(z\)-axis. 
+- The rotation is
+  \[
+  (x, z) \mapsto (x \cos \phi, x \sin \phi, z)
+  \]
+
+- Thus our parametrisation is
+  \[
+  (a \cos\phi \cos \theta + b \cos\phi, a \sin \phi \cos \theta + b \sin \phi, a \sin \theta).
+  \]
+
 * Change of Parameters
 ** Change of Parameters
 
@@ -298,98 +405,3 @@ induces a linear isomorphism between \(dF_{(u, v)} (\RR^2)\) and \(T_x \graph f\
 
 Thus the two vector space structures are equivalent in the sense that they are isomorphic.
 
-
-* Examples                                                         :noexport:
-** Graphs
-
-Graphs are regular surfaces.
-
-
-- There is just one parametrisation:
-   \[
-   \varphi : (u, v) \mapsto (u, v, f(u, v))
-   \]
-
-- This map is a homeomorphism with inverse \(\varphi^{-1}(x, y, z) = (x, y)\) which is continuous since it is just the projection \(\RR^3 \to \RR^2\) onto the \(z = 0\) plane. 
-- The differential is injective:
-  \[
-  d\varphi = \begin{pmatrix}
-  1 & 0 \\
-  0 & 1 \\
-  \partial_u f & \partial_v f
-  \end{pmatrix}
-  \]
-
-** The Sphere
-*** picture
-     :PROPERTIES:
-     :BEAMER_col: 0.5
-     :END:
-
-#+ATTR_LATEX: :width .9\textwidth :height .8\textheight
-[[file:img/lec06_docarmo.jpg]]
-
-*** text
-     :PROPERTIES:
-     :BEAMER_col: 0.5
-     :END:
-- The sphere is not a graph over any plane \(P \subseteq \RR^3\)
-- Let \(N\) be the normal to \(P\). Then for any point \(p \in P\), the line \(p + t N\) either intersects in exactly 2 distinct points, 1 point (precisely for \(t = 0\)) or no points. Why? 
-- Substitute: \(p + t N\) into \(x^2 + y^2 + z^2 = 1\) and you get a quadratic in \(t\).
-- Provided \(p + t N\) is not tangent to the sphere, the quadratic has either 0 roots or 2 roots.
-
-** Parametrising the sphere
-
-Let \(U = \{u^2 + v^2 < 1\}\) be the unit disc.  We do North, South, East, West.
-
-- Northern hemisphere (over \(z = 0\) plane)
-  \[
-  \varphi_N (u,v) = \left(u, v, \sqrt{1 - (u^2 + v^2)}\right)
-  \]
-
-- Southern hemisphere (over \(z = 0\) plane)
-  \[
-  \varphi_S (u,v) = \left(u, v, -\sqrt{1 - (u^2 + v^2)}\right)
-  \]
-
-- Eastern hemisphere (over \(y = 0\) plane)
-  \[
-  \varphi_E (u, v) = \left(u, \sqrt{1 - (u^2 + v^2)}, v\right)
-  \]
-
-- Western hemisphere (over \(y = 0\) plane)
-  \[
-  \varphi_W (u, v) = \left(u, -\sqrt{1 - (u^2 + v^2)}, v\right)
-  \]
-
-** Polar Coordinates
-
-Let \((\theta, \phi) \in (0, 2\pi) \times (0, \pi)\).
-
-Define
-\[
-\varphi (\theta, \phi) = (\sin \phi \cos \theta, \sin \phi \sin \theta, \cos \phi)
-\]
-
-
-Then \(\varphi\) covers all of the sphere expect for the semi-circle \(\{x \geq 0\} \cap \{y = 0\} \cap \sphere^2\). 
-
-We cover the entire sphere by also using the parametrisation
-\[
-\psi (\theta, \phi) = (\sin \phi \cos \theta, \cos\phi, \sin \phi \sin \theta)
-\]
-
-** The Torus
-#+ATTR_LATEX: :width .4\textwidth :height .4\textheight
-[[file:img/lec06_torus.png]]
-
-- Rotate an \(xz\)-plane circle \((x, y, z) = (a \cos \theta + b, 0, a \sin \theta)\) with \(a < b\) around the \(z\)-axis. 
-- The rotation is
-  \[
-  (x, z) \mapsto (x \cos \phi, x \sin \phi, z)
-  \]
-
-- Thus our parametrisation is
-  \[
-  (x, z) \mapsto (a \cos\phi \cos \theta + b \cos\phi, a \sin \phi \cos \theta + b \sin \phi, a \sin \theta).
-  \]
