@@ -1,1 +1,6 @@
-<img src="{{ include.file | prepend: '/img/' | relative_url }}" style="max-height:60%;max-width:60%;height:auto;width:auto;"/>
+{% assign float = "" %}
+{% if include.float and include.float != "" %}
+{% assign float = "float:" | append: include.float %}
+{% endif %}
+
+<img src="{{ include.file | prepend: '/img/' | relative_url }}" style="max-height:60%;max-width:60%;height:auto;width:auto;{{ float }}"/>
