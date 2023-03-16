@@ -249,13 +249,412 @@ Thus our parametrisation is
 \]
 #+END_env
 
+* Change of Parameters                                             :noexport:
+** Change of Parameters
+
+#+BEGIN_export html
+{% include img_slides.html file="regular_surface_change_of_params.png" %}
+#+END_export
+
+** Change of Parameters
+
+By the Inverse Function Theorem
+\[
+\tau_{\alpha\beta} = \varphi_{\beta}^{-1} \circ \varphi_{\alpha} : \varphi_{\alpha}^{-1} (V_{\beta}) \subseteq \RR^2 \to \varphi_{\beta}^{-1} (V_{\alpha}) \subseteq \RR^2
+\]
+is a *diffeomorphism*.
+
+\(\tau_{\alpha\beta}\) is smooth with a smooth inverse  \(\tau_{\beta\alpha}\).
+
+We could replace condition 3 that \(d\varphi_{\alpha}\) is injective with the condition that \(\tau_{\alpha\beta}\) is smooth.
+
+** Diffeomorphism Invariance
+\[
+\Phi_{\alpha\beta} : f \in C^{\infty}(\varphi_{\beta}^{-1} (V_{\alpha}), \RR) \mapsto f \circ \tau_{\alpha\beta} \in C^{\infty}(\varphi_{\alpha}^{-1} (V_{\beta}), \RR)
+\]
+is a bijection.
+
+$\Phi_{\alpha\beta}$ establishes a one-to-one correspondence of smooth functions in one parametrisation with smooth functions in another parametrisation. 
+
+A function \(f : \varphi_{\beta}^{-1} (V_{\alpha}) \to \RR\) is differentiable if and only if \(f \circ \tau_{\alpha\beta} : \varphi_{\alpha}^{-1} (V_{\beta}) \to \RR\) is differentiable.
+
+** Diffeomorphism
+
+#+BEGIN_env thm
+Let \(S\) be a regular surface with local parametrisations
+\[
+\varphi_{\alpha} : U_{\alpha} \to V_{\alpha} \subseteq S \subseteq \RR^3
+\]
+Then for each \(\alpha, \beta\) with \(V_{\alpha} \cap V_{\beta} \neq \emptyset\), \(\tau_{\alpha\beta}\) is smooth.
+
+Moreover, \(\tau_{\alpha\beta}\) is invertible with inverse \(\tau_{\beta\alpha}\) hence is a diffeomorphism.
+#+END_env
+
+** Proof Idea
+
+*Idea*: \(\tau_{\alpha\beta} = \varphi_{\beta}^{-1} \circ \varphi_{\alpha}\) is the composition of smooth functions.
+
+*Problem*: What does it mean for \(\varphi_{\beta}^{-1}\) to be smooth?
+
+*Solution*: Locally \(\varphi_{\beta}^{-1} = \Phi_{\beta}^{-1}|_S\) for \(\Phi_{\beta}^{-1} : \RR^3 \to \RR^3\) smooth.
+
+** Proof
+
+Apply the Inverse Function Theorem:
+
+\[
+\Phi_{\beta} (u, v, w) = \varphi_{\beta} (u, v) + w e_i
+\]
+
+\[
+\Phi_{\beta}|_{w=0} = \varphi_{\beta}
+\]
+
+\begin{equation*}
+d\Phi_{\beta} = \begin{pmatrix}
+\large{d\varphi} & e_i
+\end{pmatrix}
+\end{equation*}
+
 * Tangent Plane                                                    :noexport:
+** Tangent Plane
+** Tangent Vectors
 
 #+BEGIN_env defn
-A /tangent vector/ to \(\graph f\) at \(x \in \graph f\) is a vector \(X = \gamma'(0)\in \RR^3\) where \(\gamma(0) = x\).
+A /tangent vector/ to a regular surface \(S\) at \(p \in S\) is a vector \(X = \gamma'(0) \in \RR^3\) where
+\begin{equation*}
+\begin{cases}
+\gamma(t) & \in S \\
+\gamma(0) &= p \\
+\gamma'(0) &= X
+\end{cases}
+\end{equation*}
+for a smooth curve, \(\gamma : (-\delta, \delta) \to \RR^3\).
+#+END_env
 
-The /tangent plane/, \(T_x \graph f\) to \(\graph f\) at \(x\) is the set of tangent vectors at \(x\).
+** Tangent Plane
+
+#+BEGIN_env defn
+The /tangent plane/, \(T_p S\) to \(S\) at \(p\) is the set of tangent vectors at \(p\).
 #+END_env
 
 Tangent vectors are velocity vectors to curves /along the graph/.
+
+** Tangent Plane
+
+#+BEGIN_export html
+{% include img.html file="surface_tangent_plane.png" %}
+#+END_export
+
+** Tangent Plane via Parmetrisations
+
+#+BEGIN_env lem
+The tangent plane, \(T_p S = d\varphi_{(u, v)} (\RR^2)\) is a plane in \(\RR^3\) where \(\varphi\) is /any/ local parametrisation with \(\varphi(u, v) = p\).
+#+END_env
+
+** Tangent Plane via Parmetrisations
+
+#+BEGIN_env pf
+Let \((u, v) \in \RR^2\) be the unique point such that \(p = \varphi(u, v)\). 
+
+Given \(V \in \RR^2\), let \(\gamma(t) = \varphi((u, v) + t V)\) so that
+\[
+d\varphi (V) = \gamma'(0) \in T_p S.
+\]
+Thus \(d\varphi(\RR^2) \subseteq T_p S\).
+#+END_env
+
+** Tangent Plane via Parmetrisations
+
+#+BEGIN_env pf
+Conversely, given \(X = \gamma'(0)\), let
+\[
+\gamma(t) = \varphi \circ \varphi^{-1} (\gamma(t))
+\]
+
+\[
+X = \gamma'(0) = d\varphi (\varphi^{-1} \circ \gamma)'(0) \in d\varphi(\RR^2)
+\]
+Use a smooth extension \(\Phi^{-1}\) of \(\varphi^{-1}\) to ensure \(\varphi^{-1} \circ \gamma\) is smooth.
+
+Thus \(T_p S \subseteq d\varphi(\RR^2)\).
+#+END_env
+
+** Vector Space Structure
+
+Let \(X_1 = \gamma_1'(0)\), \(X_2 = \gamma_2'(0)\) and \(c^1, c^2 \in \RR\).
+
+In \(\RR^3\):
+\[
+c^1 X_1 + c^2 X_2 = \partial_t|_{t=0} \left[p + t(c^1 X_1 + c^2 X_2)\right]
+\]
+
+In general, \(p + t(c^1 X_1 + c^2 X_2) \notin S\)!
+
+** Vector Space Structure
+
+Let \(U_1, U_2 \in \RR^2\) such that \(d\varphi(U_i) = X_i\).
+
+Then
+\[
+c^1 X_1 + c^2 X_2 = d\varphi(c^1 U_1 + c^2 U_2)
+\]
+** Coordinate Basis
+*** Coordinate Basis
+*** Coordinate Curves
+
+Every smooth curve \(\mu : (a, b) \to U\) gives a smooth curve \(\gamma = \varphi \circ \mu : (a, b) \to S\) since
+\[
+\varphi^{-1} \circ \gamma = \varphi^{-1} \circ \varphi \circ \mu = \mu
+\]
+is smooth.
+
+#+BEGIN_env defn :title "Coordinate curves"
+\[
+\gamma_u (t) := \varphi(u_0 + t, v_0), \quad \gamma_v (t) := \varphi(u_0, v_0 + t)
+\]
+#+END_env
+
+*** Coordinate Basis
+
+#+BEGIN_env lem
+The tangent space \(T_p S\) is spanned by
+\begin{align*}
+e_u &:= \partial_t|_{t=0} \gamma_u = d\varphi (1, 0) \\
+e_v &:= \partial_t|_{t=0} \gamma_v = d\varphi (0, 1)
+\end{align*}
+#+END_env
+
+#+BEGIN_env pf
+\(e_u, e_v\) are linearly independent since \(d\varphi\) is injective.
+#+END_env
+
+*** Example
+
+Let \(S\) be the unit sphere and let
+\[
+\varphi(\theta, \phi) = (\sin\phi \cos\theta, \sin\phi \sin\theta, \cos\phi)
+\]
+be polar coordinates.
+
+\begin{align*}
+e_{\theta} &= \sin\phi(-\sin\theta, \cos\theta, 0) \\
+e_{\phi} &= (\cos\phi \cos\theta, \cos\phi \sin\theta, -\sin\phi) \\
+&= \cos\phi (\cos\theta, \sin\theta, 0) - \sin\phi (0, 0, 1)
+\end{align*}
+* Smooth Curves                                                    :noexport:
+** Smooth Curves
+** Smooth Curves
+
+#+BEGIN_env defn
+A curve \(\gamma : (a, b) \to S\) is /smooth/ if it is smooth as a map \((a, b) \to \RR^3\).
+#+END_env
+
+** Smooth Curves
+
+#+BEGIN_env lem
+A curve \(\gamma : (a, b) \to S\) is /smooth/
+
+- *if and only if* for any local parametrisation, \(\varphi_{\alpha}^{-1} \circ \gamma\) is smooth
+- *if and only if* there are local parametrisations \(\varphi_{\alpha}\) with \(\Img (\gamma) \subseteq \cup \varphi_{\alpha}(U_{\alpha})\) with \(\varphi_{\alpha}^{-1} \circ \gamma\) smooth.
+#+END_env
+
+** Smooth Curves: Proof
+
+*If* \(\varphi_{\alpha}^{-1} \circ \gamma\) is smooth
+
+*Then* \(\gamma = \varphi_{\alpha} \circ (\varphi_{\alpha}^{-1} \circ \gamma)\) is smooth.
+
+** Smooth Curves: Proof
+
+*If* \(\Img(\gamma)\) is covered by local parametrisations with \(\varphi_{\alpha}^{-1} \circ \gamma\) smooth.
+
+*Then* for any \(t_0 \in (a, b)\) and any \(\varphi_{\beta}\) with \(t_0 \in \Img \varphi_{\beta}\),
+\[
+\varphi_{\beta}^{-1} \circ \gamma = \varphi_{\beta}^{-1} \circ \varphi_{\alpha} \circ \varphi_{\alpha}^{-1} \circ \gamma = \tau_{\alpha\beta} \circ \varphi_{\alpha}^{-1} \circ \gamma
+\]
+is smooth at \(t_0\).
+
+** Smooth Curves: Proof
+
+*If* \(\gamma : (a, b) \to \RR^3\) is smooth
+
+*Then* \(\varphi_{\alpha}^{-1} \circ \gamma = \Phi_{\alpha}^{-1} \circ \gamma\) is smooth where \(\Phi_{\alpha}^{-1}\) is a smooth extension of \(\varphi_{\alpha}^{-1}\).
+** Smooth Maps
+** Smooth Maps
+
+#+BEGIN_env defn
+Let \(S\) be regular surface. \(f : S \to \RR^n\) is /smooth/ if \(f \circ \varphi\) is smooth and \(f : \RR^n \to S\) is smooth if \(\varphi^{-1} \circ f\) is smooth.
+#+END_env
+
+The inclusion \(\iota : S \to \RR^3\) is smooth.
+** Smooth Maps Between Surfaces
+** Smooth Maps Between Surfaces
+
+#+BEGIN_env defn
+Let \(S_1, S_2\) be regular surfaces. \(f : S_1 \to S_2\) is /smooth/ if \(\psi^{-1} \circ f \circ \varphi\) is smooth
+\[
+\varphi^{-1} \left(f^{-1}(Z) \cap V\right) \subseteq U \subseteq \RR^2 \to W \subseteq \RR^2
+\]
+for every pair of local parametrisations
+\[
+\varphi : U \to V \subseteq S, \quad \psi : W \to Z \subset S'
+\]
+#+END_env
+
+** Smooth Maps are Ambient Smooth Maps
+
+#+BEGIN_env lem
+The map \(f : S_1 \to S_2\) is smooth if and only if \(\iota_2 \circ f\) is a smooth map \(S_1 \to \RR^3\).
+#+END_env
+
+#+BEGIN_env pf
+\[
+\iota_2 \circ f = \psi \circ (\psi^{-1} \circ f)
+\]
+#+END_env
+
+** Composition
+
+#+BEGIN_env lem
+Let \(g : S_1 \to S_2\), \(f: S_2 \to S_3\) be smooth maps of regular surfaces. Then \(f \circ g\) is smooth.
+#+END_env
+
+#+BEGIN_env pf
+\[
+\varphi_3^{-1} \circ (f \circ g) \circ \varphi_1 = (\varphi_3^{-1} \circ f \circ \varphi_2) \circ (\varphi_2^{-1} \circ g \circ \varphi_1)
+\]
+#+END_env
+
+** Example: Cylinder to Sphere
+
+Let \(S_1\) be the cylinder \(\lbrace x^2 + y^2 = 1, -1 < z < 1 \rbrace\)
+
+Let \(S_s\) be the sphere \(\lbrace x^2 + y^2 + z^2 = 1 \rbrace\)
+
+\[
+f (x, y, z) = (\sqrt{1-z^2} x, \sqrt{1-z^2} y, z)
+\]
+
+** Example: Cylinder to Sphere
+
+In cylindrical coordinates for the cylinder and sphere,
+\[
+f(z, \theta) = (z, \theta)
+\]
+is certainly smooth!
+** Differential
+** The Differential
+
+#+BEGIN_env defn
+Let \(f : S_1 \to S_2\) be a smooth map. The differential, \(df_p\) of \(f\) at \(p \in S\) is the linear map
+\begin{equation*}
+\begin{split}
+df_x : T_p S_1 &\to T_{f(p)} S_2 \\
+\gamma'(0) &\mapsto (f \circ \gamma)'(0).
+\end{split}
+\end{equation*}
+#+END_env
+** The Differential
+
+#+BEGIN_env lem
+The differential is well defined.
+#+END_env
+
+#+BEGIN_env pf
+- \(f \circ \gamma\) is smooth:
+  \[
+   f \circ \gamma = \iota_2 \circ f \circ \iota_1 \circ \gamma.
+   \]
+
+- By the chain rule if \(\gamma'(0) = \sigma'(0)\),
+  \[
+  df(\gamma'(0)) = df(\sigma'(0))
+  \]
+#+END_env
+
+** Coordinate Description of Differential
+
+Let \(F(u, v) = \psi^{-1} \circ f \circ \varphi (u, v) = (F_1(u, v), F_2 (u, v))\) with \(p = \varphi(u_0, v_0)\):
+\[
+df_p = \begin{pmatrix}
+\frac{\partial F_1}{\partial u}(v_0, u_0) & \frac{\partial F_1}{\partial v}(v_0, u_0) \\
+\frac{\partial F_2}{\partial u}(v_0, u_0) & \frac{\partial F_2}{\partial v}(v_0, u_0)
+\end{pmatrix}
+\]
+** Example
+
+\[
+f : \operatorname{Cylinder} \to \SS^2
+\]
+
+\[
+f(x, y, z) = \left(\sqrt{1-z^2} x, \sqrt{1-z^2} y, z\right)
+\]
+
+** Cylindrical Basis For Cylinder
+
+\[
+\varphi_C(r, \theta) = (\cos \theta, \sin \theta, r) = (x, y, z)
+\]
+
+\begin{equation*}
+\begin{split}
+e_r &= (0, 0, 1) \\
+e_{\theta} &= (-\sin \theta, \cos \theta, 0) = (-y, x, 0)
+\end{split}
+\end{equation*}
+
+** Cylindrical Basis For Sphere
+
+\begin{equation*}
+\begin{split}
+\varphi_S (r, \theta) &= (\sqrt{1-r^2} \cos \theta, \sqrt{1-r^2} \sin \theta, r) \\
+&= (x, y, z)
+\end{split}
+\end{equation*}
+
+\begin{equation*}
+\begin{split}
+e_r &= \left(\tfrac{-r}{\sqrt{1-r^2}} \cos \theta, \tfrac{-r}{\sqrt{1-r^2}} \sin \theta, 1 \right) \\
+&= \left(\tfrac{-z}{1-z^2} x, \tfrac{-z}{1-z^2} y, 1\right) \\
+e_{\theta} &= (-\sqrt{1-r^2} \sin \theta, \sqrt{1-r^2} \cos \theta, 0) \\
+&= (-y, x, 0)
+\end{split}
+\end{equation*}
+
+** Cylindrical Differential
+
+Since \(\varphi_S^{-1} \circ f \circ \varphi_C = \Id\) in cylindrical coords:
+\[
+df = \Id!
+\]
+
+\[
+df(e_r) = e_r \quad df(e_{\theta}) = e_{\theta}
+\]
+
+Can directly differentiate
+\[
+f \circ \varphi_C (r, \theta) = \varphi_S
+\]
+
+** Spherical Polar Basis for Sphere
+
+\begin{align*}
+\varphi_{\SS^2} (\theta, \phi) &= (\sin\phi \cos\theta, \sin\phi \sin\theta, \cos\phi) \\
+&= (x, y, z) \\
+e_{\theta} &= (-\sin\phi\sin\theta, \sin\phi\cos\theta, 0) \\
+&= (-y, x, 0) \\
+e_{\phi} &= (\cos\phi \cos\theta, \cos\phi \sin\theta, -\sin\phi) \\
+&= \left(\tfrac{xz}{\sqrt{1-z^2}}, \tfrac{yz}{\sqrt{1-z^2}}, -\sqrt{1-z^2}\right)
+\end{align*}
+
+** Cylindrical to Spherical Differential
+
+\begin{align*}
+df(e_{\theta}) &= e_{\theta} \\
+df(e_r) &= \tfrac{-1}{\sqrt{1-z^2}} e_{\phi}
+\end{align*}
+
 
