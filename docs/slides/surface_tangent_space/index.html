@@ -1,0 +1,535 @@
+---
+layout: org-slides
+---
+
+<section class="outline-2" id="outline-container-orgc47bc77">
+<h2 id="orgc47bc77">Tangent Plane</h2>
+<div class="outline-text-2" id="text-orgc47bc77">
+</div>
+<section class="outline-3" id="outline-container-orgac65276">
+<h3 id="orgac65276">Tangent Plane</h3>
+</section>
+<section class="outline-3" id="outline-container-org5c0f1cb">
+<h3 id="org5c0f1cb">Tangent Vectors</h3>
+<div class="outline-text-3" id="text-org5c0f1cb">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A <i>tangent vector</i> to a regular surface \(S\) at \(p \in S\) is a vector \(X = \gamma'(0) \in \RR^3\) where
+</p>
+\begin{equation*}
+\begin{cases}
+\gamma(t) &amp; \in S \\
+\gamma(0) &amp;= p \\
+\gamma'(0) &amp;= X
+\end{cases}
+\end{equation*}
+<p>
+for a smooth curve, \(\gamma : (-\delta, \delta) \to \RR^3\).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgbf1c601">
+<h3 id="orgbf1c601">Tangent Plane</h3>
+<div class="outline-text-3" id="text-orgbf1c601">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The <i>tangent plane</i>, \(T_p S\) to \(S\) at \(p\) is the set of tangent vectors at \(p\).
+</p>
+</div></div>
+<p>
+Tangent vectors are velocity vectors to curves <i>along the graph</i>.
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org4821b78">
+<h3 id="org4821b78">Tangent Plane</h3>
+<div class="outline-text-3" id="text-org4821b78">
+{% include img.html file="surface_tangent_plane.png" %}
+</div>
+</section>
+<section class="outline-3" id="outline-container-org4728582">
+<h3 id="org4728582">Tangent Plane via Parmetrisations</h3>
+<div class="outline-text-3" id="text-org4728582">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The tangent plane, \(T_p S = d\varphi_{(u, v)} (\RR^2)\) is a plane in \(\RR^3\) where \(\varphi\) is <i>any</i> local parametrisation with \(\varphi(u, v) = p\).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgec8df86">
+<h3 id="orgec8df86">Tangent Plane via Parmetrisations</h3>
+<div class="outline-text-3" id="text-orgec8df86">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \((u, v) \in \RR^2\) be the unique point such that \(p = \varphi(u, v)\). 
+</p>
+<p>
+Given \(V \in \RR^2\), let \(\gamma(t) = \varphi((u, v) + t V)\) so that
+\[
+d\varphi (V) = \gamma'(0) \in T_p S.
+\]
+Thus \(d\varphi(\RR^2) \subseteq T_p S\).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org4aaef44">
+<h3 id="org4aaef44">Tangent Plane via Parmetrisations</h3>
+<div class="outline-text-3" id="text-org4aaef44">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Conversely, given \(X = \gamma'(0)\), let
+\[
+\gamma(t) = \varphi \circ \varphi^{-1} (\gamma(t))
+\]
+</p>
+<p>
+\[
+X = \gamma'(0) = d\varphi (\varphi^{-1} \circ \gamma)'(0) \in d\varphi(\RR^2)
+\]
+Use a smooth extension \(\Phi^{-1}\) of \(\varphi^{-1}\) to ensure \(\varphi^{-1} \circ \gamma\) is smooth.
+</p>
+<p>
+Thus \(T_p S \subseteq d\varphi(\RR^2)\).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org2cc570b">
+<h3 id="org2cc570b">Vector Space Structure</h3>
+<div class="outline-text-3" id="text-org2cc570b">
+<p>
+Let \(X_1 = \gamma_1'(0)\), \(X_2 = \gamma_2'(0)\) and \(c^1, c^2 \in \RR\).
+</p>
+<p>
+In \(\RR^3\):
+\[
+c^1 X_1 + c^2 X_2 = \partial_t|_{t=0} \left[p + t(c^1 X_1 + c^2 X_2)\right]
+\]
+</p>
+<p>
+In general, \(p + t(c^1 X_1 + c^2 X_2) \notin S\)!
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org2be2607">
+<h3 id="org2be2607">Vector Space Structure</h3>
+<div class="outline-text-3" id="text-org2be2607">
+<p>
+Let \(U_1, U_2 \in \RR^2\) such that \(d\varphi(U_i) = X_i\).
+</p>
+<p>
+Then
+\[
+c^1 X_1 + c^2 X_2 = d\varphi(c^1 U_1 + c^2 U_2)
+\]
+</p>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org86a7c56">
+<h2 id="org86a7c56">Smooth Curves</h2>
+<div class="outline-text-2" id="text-org86a7c56">
+</div>
+<section class="outline-3" id="outline-container-org5b29f63">
+<h3 id="org5b29f63">Smooth Curves</h3>
+</section>
+<section class="outline-3" id="outline-container-org4fc956c">
+<h3 id="org4fc956c">Smooth Curves</h3>
+<div class="outline-text-3" id="text-org4fc956c">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A curve \(\gamma : (a, b) \to S\) is <i>smooth</i> if it is smooth as a map \((a, b) \to \RR^3\).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgeb3966f">
+<h3 id="orgeb3966f">Smooth Curves</h3>
+<div class="outline-text-3" id="text-orgeb3966f">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A curve \(\gamma : (a, b) \to S\) is <i>smooth</i>
+</p>
+<ul class="org-ul">
+<li><b>if and only if</b> for any local parametrisation, \(\varphi_{\alpha}^{-1} \circ \gamma\) is smooth</li>
+<li><b>if and only if</b> there are local parametrisations \(\varphi_{\alpha}\) with \(\Img (\gamma) \subseteq \cup \varphi_{\alpha}(U_{\alpha})\) with \(\varphi_{\alpha}^{-1} \circ \gamma\) smooth.</li>
+</ul>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org7bf0479">
+<h3 id="org7bf0479">Smooth Curves: Proof</h3>
+<div class="outline-text-3" id="text-org7bf0479">
+<p>
+<b>If</b> \(\varphi_{\alpha}^{-1} \circ \gamma\) is smooth
+</p>
+<p>
+<b>Then</b> \(\gamma = \varphi_{\alpha} \circ (\varphi_{\alpha}^{-1} \circ \gamma)\) is smooth.
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org14b1951">
+<h3 id="org14b1951">Smooth Curves: Proof</h3>
+<div class="outline-text-3" id="text-org14b1951">
+<p>
+<b>If</b> \(\Img(\gamma)\) is covered by local parametrisations with \(\varphi_{\alpha}^{-1} \circ \gamma\) smooth.
+</p>
+<p>
+<b>Then</b> for any \(t_0 \in (a, b)\) and any \(\varphi_{\beta}\) with \(t_0 \in \Img \varphi_{\beta}\),
+\[
+\varphi_{\beta}^{-1} \circ \gamma = \varphi_{\beta}^{-1} \circ \varphi_{\alpha} \circ \varphi_{\alpha}^{-1} \circ \gamma = \tau_{\alpha\beta} \circ \varphi_{\alpha}^{-1} \circ \gamma
+\]
+is smooth at \(t_0\).
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgc622a75">
+<h3 id="orgc622a75">Smooth Curves: Proof</h3>
+<div class="outline-text-3" id="text-orgc622a75">
+<p>
+<b>If</b> \(\gamma : (a, b) \to \RR^3\) is smooth
+</p>
+<p>
+<b>Then</b> \(\varphi_{\alpha}^{-1} \circ \gamma = \Phi_{\alpha}^{-1} \circ \gamma\) is smooth where \(\Phi_{\alpha}^{-1}\) is a smooth extension of \(\varphi_{\alpha}^{-1}\).
+</p>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org237ac38">
+<h2 id="org237ac38">Coordinate Basis</h2>
+<div class="outline-text-2" id="text-org237ac38">
+</div>
+<section class="outline-3" id="outline-container-org42973a5">
+<h3 id="org42973a5">Coordinate Basis</h3>
+</section>
+<section class="outline-3" id="outline-container-org49a33c8">
+<h3 id="org49a33c8">Coordinate Curves</h3>
+<div class="outline-text-3" id="text-org49a33c8">
+<p>
+Every smooth curve \(\mu : (a, b) \to U\) gives a smooth curve \(\gamma = \varphi \circ \mu : (a, b) \to S\) since
+\[
+\varphi^{-1} \circ \gamma = \varphi^{-1} \circ \varphi \circ \mu = \mu
+\]
+is smooth.
+</p>
+<div class="defn card"><div class="card-header"><h5 class="card-title"> : Coordinate curves</h5></div><div class="card-body">
+<p>
+\[
+\gamma_u (t) := \varphi(u_0 + t, v_0), \quad \gamma_v (t) := \varphi(u_0, v_0 + t)
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org1853578">
+<h3 id="org1853578">Coordinate Basis</h3>
+<div class="outline-text-3" id="text-org1853578">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The tangent space \(T_p S\) is spanned by
+</p>
+\begin{align*}
+e_u &amp;:= \partial_t|_{t=0} \gamma_u = d\varphi (1, 0) \\
+e_v &amp;:= \partial_t|_{t=0} \gamma_v = d\varphi (0, 1)
+\end{align*}
+
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\(e_u, e_v\) are linearly independent since \(d\varphi\) is injective.
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orga9db3a9">
+<h3 id="orga9db3a9">Example</h3>
+<div class="outline-text-3" id="text-orga9db3a9">
+<p>
+Let \(S\) be the unit sphere and let
+\[
+\varphi(\theta, \phi) = (\sin\phi \cos\theta, \sin\phi \sin\theta, \cos\phi)
+\]
+be polar coordinates.
+</p>
+
+\begin{align*}
+e_{\theta} &amp;= \sin\phi(-\sin\theta, \cos\theta, 0) \\
+e_{\phi} &amp;= (\cos\phi \cos\theta, \cos\phi \sin\theta, -\sin\phi) \\
+&amp;= \cos\phi (\cos\theta, \sin\theta, 0) - \sin\phi (0, 0, 1)
+\end{align*}
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org2c5ea6b">
+<h2 id="org2c5ea6b">Smooth Maps</h2>
+<div class="outline-text-2" id="text-org2c5ea6b">
+</div>
+<section class="outline-3" id="outline-container-org1430703">
+<h3 id="org1430703">Smooth Maps</h3>
+</section>
+<section class="outline-3" id="outline-container-orgd6caf3d">
+<h3 id="orgd6caf3d">Smooth Maps</h3>
+<div class="outline-text-3" id="text-orgd6caf3d">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(S\) be regular surface. \(f : S \to \RR^n\) is <i>smooth</i> if \(f \circ \varphi\) is smooth and \(f : \RR^n \to S\) is smooth if \(\varphi^{-1} \circ f\) is smooth.
+</p>
+</div></div>
+<p>
+The inclusion \(\iota : S \to \RR^3\) is smooth.
+</p>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-orga9ce248">
+<h2 id="orga9ce248">Smooth Maps Between Surfaces</h2>
+<div class="outline-text-2" id="text-orga9ce248">
+</div>
+<section class="outline-3" id="outline-container-orgde04598">
+<h3 id="orgde04598">Smooth Maps Between Surfaces</h3>
+</section>
+<section class="outline-3" id="outline-container-org5975bf2">
+<h3 id="org5975bf2">Smooth Maps Between Surfaces</h3>
+<div class="outline-text-3" id="text-org5975bf2">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(S_1, S_2\) be regular surfaces. \(f : S_1 \to S_2\) is <i>smooth</i> if \(\psi^{-1} \circ f \circ \varphi\) is smooth
+\[
+\varphi^{-1} \left(f^{-1}(Z) \cap V\right) \subseteq U \subseteq \RR^2 \to W \subseteq \RR^2
+\]
+for every pair of local parametrisations
+\[
+\varphi : U \to V \subseteq S, \quad \psi : W \to Z \subset S'
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgf5b19e9">
+<h3 id="orgf5b19e9">Smooth Maps are Ambient Smooth Maps</h3>
+<div class="outline-text-3" id="text-orgf5b19e9">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The map \(f : S_1 \to S_2\) is smooth if and only if \(\iota_2 \circ f\) is a smooth map \(S_1 \to \RR^3\).
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+\iota_2 \circ f = \psi \circ (\psi^{-1} \circ f)
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org26026ee">
+<h3 id="org26026ee">Composition</h3>
+<div class="outline-text-3" id="text-org26026ee">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(g : S_1 \to S_2\), \(f: S_2 \to S_3\) be smooth maps of regular surfaces. Then \(f \circ g\) is smooth.
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+\varphi_3^{-1} \circ (f \circ g) \circ \varphi_1 = (\varphi_3^{-1} \circ f \circ \varphi_2) \circ (\varphi_2^{-1} \circ g \circ \varphi_1)
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org6a486e1">
+<h3 id="org6a486e1">Example: Cylinder to Sphere</h3>
+<div class="outline-text-3" id="text-org6a486e1">
+<p>
+Let \(S_1\) be the cylinder \(\lbrace x^2 + y^2 = 1, -1 &lt; z &lt; 1 \rbrace\)
+</p>
+<p>
+Let \(S_s\) be the sphere \(\lbrace x^2 + y^2 + z^2 = 1 \rbrace\)
+</p>
+<p>
+\[
+f (x, y, z) = (\sqrt{1-z^2} x, \sqrt{1-z^2} y, z)
+\]
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgd125a5e">
+<h3 id="orgd125a5e">Example: Cylinder to Sphere</h3>
+<div class="outline-text-3" id="text-orgd125a5e">
+<p>
+In cylindrical coordinates for the cylinder and sphere,
+\[
+f(z, \theta) = (z, \theta)
+\]
+is certainly smooth!
+</p>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-orgd268e77">
+<h2 id="orgd268e77">Differential</h2>
+<div class="outline-text-2" id="text-orgd268e77">
+</div>
+<section class="outline-3" id="outline-container-org9202333">
+<h3 id="org9202333">Differential</h3>
+</section>
+<section class="outline-3" id="outline-container-org010a4e1">
+<h3 id="org010a4e1">The Differential</h3>
+<div class="outline-text-3" id="text-org010a4e1">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(f : S_1 \to S_2\) be a smooth map. The differential, \(df_p\) of \(f\) at \(p \in S\) is the linear map
+</p>
+\begin{equation*}
+\begin{split}
+df_x : T_p S_1 &amp;\to T_{f(p)} S_2 \\
+\gamma'(0) &amp;\mapsto (f \circ \gamma)'(0).
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org620287b">
+<h3 id="org620287b">The Differential</h3>
+<div class="outline-text-3" id="text-org620287b">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The differential is well defined.
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<ul class="org-ul">
+<li>\(f \circ \gamma\) is smooth:
+\[
+   f \circ \gamma = \iota_2 \circ f \circ \iota_1 \circ \gamma.
+   \]</li>
+<li>By the chain rule if \(\gamma'(0) = \sigma'(0)\),
+\[
+  df(\gamma'(0)) = df(\sigma'(0))
+  \]</li>
+</ul>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orge270502">
+<h3 id="orge270502">Coordinate Description of Differential</h3>
+<div class="outline-text-3" id="text-orge270502">
+<p>
+Let \(F(u, v) = \psi^{-1} \circ f \circ \varphi (u, v) = (F_1(u, v), F_2 (u, v))\) with \(p = \varphi(u_0, v_0)\):
+\[
+df_p = \begin{pmatrix}
+\frac{\partial F_1}{\partial u}(v_0, u_0) &amp; \frac{\partial F_1}{\partial v}(v_0, u_0) \\
+\frac{\partial F_2}{\partial u}(v_0, u_0) &amp; \frac{\partial F_2}{\partial v}(v_0, u_0)
+\end{pmatrix}
+\]
+</p>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-orgade3d4b">
+<h2 id="orgade3d4b">Example: Cylinder to Sphere</h2>
+<div class="outline-text-2" id="text-orgade3d4b">
+</div>
+<section class="outline-3" id="outline-container-org966acc6">
+<h3 id="org966acc6">Example</h3>
+<div class="outline-text-3" id="text-org966acc6">
+<p>
+\[
+f : \operatorname{Cylinder} \to \SS^2
+\]
+</p>
+<p>
+\[
+f(x, y, z) = \left(\sqrt{1-z^2} x, \sqrt{1-z^2} y, z\right)
+\]
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org3c411e8">
+<h3 id="org3c411e8">Cylindrical Basis For Cylinder</h3>
+<div class="outline-text-3" id="text-org3c411e8">
+<p>
+\[
+\varphi_C(r, \theta) = (\cos \theta, \sin \theta, r) = (x, y, z)
+\]
+</p>
+
+\begin{equation*}
+\begin{split}
+e_r &amp;= (0, 0, 1) \\
+e_{\theta} &amp;= (-\sin \theta, \cos \theta, 0) = (-y, x, 0)
+\end{split}
+\end{equation*}
+</div>
+</section>
+<section class="outline-3" id="outline-container-org802f261">
+<h3 id="org802f261">Cylindrical Basis For Sphere</h3>
+<div class="outline-text-3" id="text-org802f261">
+\begin{equation*}
+\begin{split}
+\varphi_S (r, \theta) &amp;= (\sqrt{1-r^2} \cos \theta, \sqrt{1-r^2} \sin \theta, r) \\
+&amp;= (x, y, z)
+\end{split}
+\end{equation*}
+
+\begin{equation*}
+\begin{split}
+e_r &amp;= \left(\tfrac{-r}{\sqrt{1-r^2}} \cos \theta, \tfrac{-r}{\sqrt{1-r^2}} \sin \theta, 1 \right) \\
+&amp;= \left(\tfrac{-z}{1-z^2} x, \tfrac{-z}{1-z^2} y, 1\right) \\
+e_{\theta} &amp;= (-\sqrt{1-r^2} \sin \theta, \sqrt{1-r^2} \cos \theta, 0) \\
+&amp;= (-y, x, 0)
+\end{split}
+\end{equation*}
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgd2d72dc">
+<h3 id="orgd2d72dc">Cylindrical Differential</h3>
+<div class="outline-text-3" id="text-orgd2d72dc">
+<p>
+Since \(\varphi_S^{-1} \circ f \circ \varphi_C = \Id\) in cylindrical coords:
+\[
+df = \Id!
+\]
+</p>
+<p>
+\[
+df(e_r) = e_r \quad df(e_{\theta}) = e_{\theta}
+\]
+</p>
+<p>
+Can directly differentiate
+\[
+f \circ \varphi_C (r, \theta) = \varphi_S
+\]
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org3255135">
+<h3 id="org3255135">Spherical Polar Basis for Sphere</h3>
+<div class="outline-text-3" id="text-org3255135">
+\begin{align*}
+\varphi_{\SS^2} (\theta, \phi) &amp;= (\sin\phi \cos\theta, \sin\phi \sin\theta, \cos\phi) \\
+&amp;= (x, y, z) \\
+e_{\theta} &amp;= (-\sin\phi\sin\theta, \sin\phi\cos\theta, 0) \\
+&amp;= (-y, x, 0) \\
+e_{\phi} &amp;= (\cos\phi \cos\theta, \cos\phi \sin\theta, -\sin\phi) \\
+&amp;= \left(\tfrac{xz}{\sqrt{1-z^2}}, \tfrac{yz}{\sqrt{1-z^2}}, -\sqrt{1-z^2}\right)
+\end{align*}
+</div>
+</section>
+<section class="outline-3" id="outline-container-org66abb62">
+<h3 id="org66abb62">Cylindrical to Spherical Differential</h3>
+<div class="outline-text-3" id="text-org66abb62">
+\begin{align*}
+df(e_{\theta}) &amp;= e_{\theta} \\
+df(e_r) &amp;= \tfrac{-1}{\sqrt{1-z^2}} e_{\phi}
+\end{align*}
+</div>
+</section>
+</section>
