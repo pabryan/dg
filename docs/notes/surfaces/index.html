@@ -9,7 +9,7 @@ title: Surfaces
 <li><a href="{{ '/slides/surface_tangent_space' | relative_url }}" target="_blank">Tangent Space Slides</a></li>
 <li><a href="{{ '/pdf/surfaces.pdf' | relative_url }}" target="_blank">Surfaces PDF Notes</a></li>
 </ul> 
- <accordion><div class="accordion-item" id="outline-container-orga9bdf7c-item"><h1 class="accordion-header" id="outline-container-orga9bdf7c-header"><button aria-controls="outline-container-orga9bdf7c-collapse" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#outline-container-orga9bdf7c-collapse" data-bs-toggle="collapse" id="orga9bdf7c" type="button">Graphs</button></h1><div aria-labelledby="outline-container-orga9bdf7c-header" class="accordion-collapse collapse" id="outline-container-orga9bdf7c-collapse"><div class="accordion-body p-3 m-0" id="text-orga9bdf7c-body">
+ <accordion><div class="accordion-item" id="outline-container-org5f36307-item"><h1 class="accordion-header" id="outline-container-org5f36307-header"><button aria-controls="outline-container-org5f36307-collapse" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#outline-container-org5f36307-collapse" data-bs-toggle="collapse" id="org5f36307" type="button">Graphs</button></h1><div aria-labelledby="outline-container-org5f36307-header" class="accordion-collapse collapse" id="outline-container-org5f36307-collapse"><div class="accordion-body p-3 m-0" id="text-org5f36307-body">
 <div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
 <p>
 Let \(f : U \subseteq_{\text{open}} \RR^2 \to \RR\) be smooth function. The graph, \(\graph f\) is the set,
@@ -156,7 +156,7 @@ and we obtain a local, smooth extension as required.
 </div></div>
 
 
-</div><div class="accordion-item" id="outline-container-org65eb581-item"><h1 class="accordion-header" id="outline-container-org65eb581-header"><button aria-controls="outline-container-org65eb581-collapse" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#outline-container-org65eb581-collapse" data-bs-toggle="collapse" id="org65eb581" type="button">Regular Surfaces</button></h1><div aria-labelledby="outline-container-org65eb581-header" class="accordion-collapse collapse" id="outline-container-org65eb581-collapse"><div class="accordion-body p-3 m-0" id="text-org65eb581-body">
+</div><div class="accordion-item" id="outline-container-orga9ac50d-item"><h1 class="accordion-header" id="outline-container-orga9ac50d-header"><button aria-controls="outline-container-orga9ac50d-collapse" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#outline-container-orga9ac50d-collapse" data-bs-toggle="collapse" id="orga9ac50d" type="button">Regular Surfaces</button></h1><div aria-labelledby="outline-container-orga9ac50d-header" class="accordion-collapse collapse" id="outline-container-orga9ac50d-collapse"><div class="accordion-body p-3 m-0" id="text-orga9ac50d-body">
 <p>
 Graphs are <i>global</i> surfaces. They are diffeomorphic to an open set in the plane. Many surfaces are not diffeomorphic to an open set in the plane! For example, none of the sphere, torus, cylinder are diffeomorphic to the plane. The proof requires some topology so we won't discuss it here. It's just mentioned to show that the study of regular surfaces requires us to consider more than just graphs - we must widen our definition!
 </p>
@@ -193,7 +193,7 @@ In the definition of regular surface, we require that each \(\varphi_{\alpha}\) 
 </div></div>
 
 
-</div><div class="accordion-item" id="outline-container-org9b75e97-item"><h1 class="accordion-header" id="outline-container-org9b75e97-header"><button aria-controls="outline-container-org9b75e97-collapse" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#outline-container-org9b75e97-collapse" data-bs-toggle="collapse" id="org9b75e97" type="button">Examples of Regular Surfaces</button></h1><div aria-labelledby="outline-container-org9b75e97-header" class="accordion-collapse collapse" id="outline-container-org9b75e97-collapse"><div class="accordion-body p-3 m-0" id="text-org9b75e97-body">
+</div><div class="accordion-item" id="outline-container-orgd447fe7-item"><h1 class="accordion-header" id="outline-container-orgd447fe7-header"><button aria-controls="outline-container-orgd447fe7-collapse" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#outline-container-orgd447fe7-collapse" data-bs-toggle="collapse" id="orgd447fe7" type="button">Examples of Regular Surfaces</button></h1><div aria-labelledby="outline-container-orgd447fe7-header" class="accordion-collapse collapse" id="outline-container-orgd447fe7-collapse"><div class="accordion-body p-3 m-0" id="text-orgd447fe7-body">
 <div class="eg card"><div class="card-header"><h5 class="card-title"> : Graph of a Smooth Function</h5></div><div class="card-body">
 <p>
 The graph \(S = \graph(f)\) of a smooth function is a regular surface. There is just one parametrisation:
@@ -277,6 +277,95 @@ Thus our parametrisation is
 \]
 </p>
 </div></div>
+</div></div>
+
+
+</div><div class="accordion-item" id="outline-container-org5e6c5cc-item"><h1 class="accordion-header" id="outline-container-org5e6c5cc-header"><button aria-controls="outline-container-org5e6c5cc-collapse" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#outline-container-org5e6c5cc-collapse" data-bs-toggle="collapse" id="org5e6c5cc" type="button">Change of Parameters</button></h1><div aria-labelledby="outline-container-org5e6c5cc-header" class="accordion-collapse collapse" id="outline-container-org5e6c5cc-collapse"><div class="accordion-body p-3 m-0" id="text-org5e6c5cc-body">
+<p>
+We define calculus on a regular surface via the local parametrisations. To ensure this calculus is well defined on \(S\), we need to show that it's independent of the choice of local parametrisation. For this we need to relate one local parametrisation to another (at least where they overlap).
+</p>
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(S\) be a regular surface and let \(\varphi_{\alpha} : U_{\alpha} \to V_{\alpha}\), \(\varphi_{\beta} : U_{\beta} \to V_{\beta}\) be local parametrisations. Then <i>change of parameters</i>, or <i>transition map</i> from \(\alpha\) to \(\beta\) is the function
+\[
+\tau_{\alpha\beta} = \varphi_{\beta}^{-1} \circ \varphi_{\alpha} : \varphi_{\alpha}^{-1} (V_{\alpha} \cap V_{\beta}) \to \varphi_{\beta}^{-1} (V_{\alpha} \cap V_{\beta}).
+\]
+</p>
+</div></div>
+
+{% include img.html file="regular_surface_change_of_params.png" %}
+
+<p>
+The next theorem is crucial to the development of regular surfaces.
+</p>
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(S\) be a regular surface with local parametrisations
+\[
+\varphi_{\alpha} : U_{\alpha} \to V_{\alpha} \subseteq S \subseteq \RR^3
+\]
+Then for each \(\alpha, \beta\) with \(V_{\alpha} \cap V_{\beta} \neq \emptyset\), \(\tau_{\alpha\beta}\) is smooth.
+</p>
+<p>
+Moreover, \(\tau_{\alpha\beta}\) is invertible with inverse \(\tau_{\beta\alpha}\) hence is a diffeomorphism.
+</p>
+</div></div>
+<p>
+The idea is that \(\tau_{\alpha\beta} = \varphi_{\beta}^{-1} \circ \varphi_{\alpha}\) should be a composition of smooth functions. The problem is we don't know what it means for \(\varphi_{\beta}^{-1}\) to be smooth since it's domain is \(S\) which is in general not a linear space. The solution is to use the regularity condition to show that \(\varphi_{\beta}^{-1} = \Phi_{\beta}^{-1}|_S\) for \(\Phi_{\beta}^{-1} : \RR^3 \to \RR^3\) smooth.
+</p>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+At any fixed point, since \(\varphi_{\beta}\) has injective differential, the two columns of \(d\varphi_{\beta}\) are linearly independent and thus span a plane. Let \(X \in \RR^3\) be any vector not in the span of this plane. We apply the Inverse Function Theorem to the map
+\[
+\Phi_{\beta} (u, v, w) = \varphi_{\beta} (u, v) + w X,
+\]
+which extends \(\varphi_{\beta}\) in the sense that
+\[
+\Phi_{\beta}|_{w=0} = \varphi_{\beta}.
+\]
+Differentiating,
+</p>
+\begin{equation*}
+d\Phi_{\beta} = \begin{pmatrix}
+\large{d\varphi} &amp; X
+\end{pmatrix}
+\end{equation*}
+<p>
+is non-singular (i.e. invertible). By the Inverse Function Theorem, \(\Phi_{\beta}\) is locally a diffeomorphism. Now, \(\Phi_{\beta}|_{w=0} = \varphi\), hence the image of \({w=0}\) under \(\Phi_{\beta}\) is the image of \(\varphi\) which is contained in \(S\). Then \(\Phi_{\beta}^{-1}|_S = \varphi_{\beta}^{-1}\). Hence
+</p>
+\begin{equation*}
+\begin{split}
+\tau_{\alpha\beta} &amp;= \varphi_{\beta}^{-1} \circ \varphi_{\alpha} \\
+&amp;= \Phi_{\beta}^{-1} \circ \varphi_{\alpha}
+\end{split}
+\end{equation*}
+<p>
+is smooth.
+</p>
+</div></div>
+<p>
+We could in fact replace condition 3 in the definition of regular surface (that \(d\varphi_{\alpha}\) is injective) with the condition that \(\tau_{\alpha\beta}\) is smooth.
+</p>
+<div class="ex card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Suppose instead of requiring each \(\varphi_{\alpha}\) has injective differential, we require that the transition maps \(\tau_{\alpha\beta} = \varphi_{\beta}^{-1} \circ \alpha\) are smooth for every \(\alpha, \beta\). Show that this implies each \(\varphi_{\alpha}\) has injective differential.
+</p>
+</div></div>
+<p>
+The transition maps are diffeomorphisms between open sets in \(\RR^2\). Define an equivalence relation on all open sets of \(\RR^2\) where \(U \sim V\) if and only if there exists a diffeomorphism \(\tau : U \to V\). The idea is that when it comes to anything to do with calculus, we may consider diffeomorphic sets as the same. In particular, this applies to the overlaps of the transition maps.
+</p>
+<div class="ex card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(\tau : U \to V\) be a diffeomorphism. Show that
+\[
+\tau^{\ast} : f \in C^{\infty}(V \to \RR) \mapsto f \circ \tau \in C^{\infty}(U, \RR)
+\]
+is a bijection.
+</p>
+</div></div>
+<p>
+The map \(\tau_{\beta\alpha}^{\ast}\) establishes a one-to-one correspondence of smooth functions in one parametrisation with smooth functions in another parametrisation. A function \(f : \varphi_{\beta}^{-1} (V_{\alpha}) \to \RR\) is differentiable if and only if \(f \circ \tau_{\alpha\beta} : \varphi_{\alpha}^{-1} (V_{\beta}) \to \RR\) is differentiable.
+</p>
 </div></div>
 
 
