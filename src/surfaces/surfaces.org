@@ -249,36 +249,22 @@ Thus our parametrisation is
 \]
 #+END_env
 
-* Change of Parameters                                             :noexport:
-** Change of Parameters
+* Change of Parameters
+
+We define calculus on a regular surface via the local parametrisations. To ensure this calculus is well defined on \(S\), we need to show that it's independent of the choice of local parametrisation. For this we need to relate one local parametrisation to another (at least where they overlap).
+
+#+BEGIN_env defn
+Let \(S\) be a regular surface and let \(\varphi_{\alpha} : U_{\alpha} \to V_{\alpha}\), \(\varphi_{\beta} : U_{\beta} \to V_{\beta}\) be local parametrisations. Then /change of parameters/, or /transition map/ from \(\alpha\) to \(\beta\) is the function
+\[
+\tau_{\alpha\beta} = \varphi_{\beta}^{-1} \circ \varphi_{\alpha} : \varphi_{\alpha}^{-1} (V_{\alpha} \cap V_{\beta}) \to \varphi_{\beta}^{-1} (V_{\alpha} \cap V_{\beta}).
+\]
+#+END_env
 
 #+BEGIN_export html
-{% include img_slides.html file="regular_surface_change_of_params.png" %}
+{% include img.html file="regular_surface_change_of_params.png" %}
 #+END_export
 
-** Change of Parameters
-
-By the Inverse Function Theorem
-\[
-\tau_{\alpha\beta} = \varphi_{\beta}^{-1} \circ \varphi_{\alpha} : \varphi_{\alpha}^{-1} (V_{\beta}) \subseteq \RR^2 \to \varphi_{\beta}^{-1} (V_{\alpha}) \subseteq \RR^2
-\]
-is a *diffeomorphism*.
-
-\(\tau_{\alpha\beta}\) is smooth with a smooth inverse  \(\tau_{\beta\alpha}\).
-
-We could replace condition 3 that \(d\varphi_{\alpha}\) is injective with the condition that \(\tau_{\alpha\beta}\) is smooth.
-
-** Diffeomorphism Invariance
-\[
-\Phi_{\alpha\beta} : f \in C^{\infty}(\varphi_{\beta}^{-1} (V_{\alpha}), \RR) \mapsto f \circ \tau_{\alpha\beta} \in C^{\infty}(\varphi_{\alpha}^{-1} (V_{\beta}), \RR)
-\]
-is a bijection.
-
-$\Phi_{\alpha\beta}$ establishes a one-to-one correspondence of smooth functions in one parametrisation with smooth functions in another parametrisation. 
-
-A function \(f : \varphi_{\beta}^{-1} (V_{\alpha}) \to \RR\) is differentiable if and only if \(f \circ \tau_{\alpha\beta} : \varphi_{\alpha}^{-1} (V_{\beta}) \to \RR\) is differentiable.
-
-** Diffeomorphism
+The next theorem is crucial to the development of regular surfaces.
 
 #+BEGIN_env thm
 Let \(S\) be a regular surface with local parametrisations
@@ -290,31 +276,50 @@ Then for each \(\alpha, \beta\) with \(V_{\alpha} \cap V_{\beta} \neq \emptyset\
 Moreover, \(\tau_{\alpha\beta}\) is invertible with inverse \(\tau_{\beta\alpha}\) hence is a diffeomorphism.
 #+END_env
 
-** Proof Idea
+The idea is that \(\tau_{\alpha\beta} = \varphi_{\beta}^{-1} \circ \varphi_{\alpha}\) should be a composition of smooth functions. The problem is we don't know what it means for \(\varphi_{\beta}^{-1}\) to be smooth since it's domain is \(S\) which is in general not a linear space. The solution is to use the regularity condition to show that \(\varphi_{\beta}^{-1} = \Phi_{\beta}^{-1}|_S\) for \(\Phi_{\beta}^{-1} : \RR^3 \to \RR^3\) smooth.
 
-*Idea*: \(\tau_{\alpha\beta} = \varphi_{\beta}^{-1} \circ \varphi_{\alpha}\) is the composition of smooth functions.
-
-*Problem*: What does it mean for \(\varphi_{\beta}^{-1}\) to be smooth?
-
-*Solution*: Locally \(\varphi_{\beta}^{-1} = \Phi_{\beta}^{-1}|_S\) for \(\Phi_{\beta}^{-1} : \RR^3 \to \RR^3\) smooth.
-
-** Proof
-
-Apply the Inverse Function Theorem:
-
+#+BEGIN_env pf
+At any fixed point, since \(\varphi_{\beta}\) has injective differential, the two columns of \(d\varphi_{\beta}\) are linearly independent and thus span a plane. Let \(X \in \RR^3\) be any vector not in the span of this plane. We apply the Inverse Function Theorem to the map
 \[
-\Phi_{\beta} (u, v, w) = \varphi_{\beta} (u, v) + w e_i
+\Phi_{\beta} (u, v, w) = \varphi_{\beta} (u, v) + w X,
 \]
-
+which extends \(\varphi_{\beta}\) in the sense that
 \[
-\Phi_{\beta}|_{w=0} = \varphi_{\beta}
+\Phi_{\beta}|_{w=0} = \varphi_{\beta}.
 \]
-
+Differentiating,
 \begin{equation*}
 d\Phi_{\beta} = \begin{pmatrix}
-\large{d\varphi} & e_i
+\large{d\varphi} & X
 \end{pmatrix}
 \end{equation*}
+is non-singular (i.e. invertible). By the Inverse Function Theorem, \(\Phi_{\beta}\) is locally a diffeomorphism. Now, \(\Phi_{\beta}|_{w=0} = \varphi\), hence the image of \({w=0}\) under \(\Phi_{\beta}\) is the image of \(\varphi\) which is contained in \(S\). Then \(\Phi_{\beta}^{-1}|_S = \varphi_{\beta}^{-1}\). Hence
+\begin{equation*}
+\begin{split}
+\tau_{\alpha\beta} &= \varphi_{\beta}^{-1} \circ \varphi_{\alpha} \\
+&= \Phi_{\beta}^{-1} \circ \varphi_{\alpha}
+\end{split}
+\end{equation*}
+is smooth.
+#+END_env
+
+We could in fact replace condition 3 in the definition of regular surface (that \(d\varphi_{\alpha}\) is injective) with the condition that \(\tau_{\alpha\beta}\) is smooth.
+
+#+BEGIN_env ex
+Suppose instead of requiring each \(\varphi_{\alpha}\) has injective differential, we require that the transition maps \(\tau_{\alpha\beta} = \varphi_{\beta}^{-1} \circ \alpha\) are smooth for every \(\alpha, \beta\). Show that this implies each \(\varphi_{\alpha}\) has injective differential.
+#+END_env
+
+The transition maps are diffeomorphisms between open sets in \(\RR^2\). Define an equivalence relation on all open sets of \(\RR^2\) where \(U \sim V\) if and only if there exists a diffeomorphism \(\tau : U \to V\). The idea is that when it comes to anything to do with calculus, we may consider diffeomorphic sets as the same. In particular, this applies to the overlaps of the transition maps.
+
+#+BEGIN_env ex
+Let \(\tau : U \to V\) be a diffeomorphism. Show that
+\[
+\tau^{\ast} : f \in C^{\infty}(V \to \RR) \mapsto f \circ \tau \in C^{\infty}(U, \RR)
+\]
+is a bijection.
+#+END_env
+
+The map \(\tau_{\beta\alpha}^{\ast}\) establishes a one-to-one correspondence of smooth functions in one parametrisation with smooth functions in another parametrisation. A function \(f : \varphi_{\beta}^{-1} (V_{\alpha}) \to \RR\) is differentiable if and only if \(f \circ \tau_{\alpha\beta} : \varphi_{\alpha}^{-1} (V_{\beta}) \to \RR\) is differentiable.
 
 * Tangent Plane                                                    :noexport:
 ** Tangent Plane
