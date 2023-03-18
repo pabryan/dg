@@ -451,54 +451,59 @@ The change of basis matrix from \(\lbrace e_{\theta}, e_{\phi} \rbrace\) to \(\l
 \end{equation*}
 #+END_env
 
-* Smooth Curves                                                    :noexport:
-** Smooth Curves
-** Smooth Curves
+* Smooth Curves
+
+We begin with smooth curves on a regular surface.
 
 #+BEGIN_env defn
 A curve \(\gamma : (a, b) \to S\) is /smooth/ if it is smooth as a map \((a, b) \to \RR^3\).
 #+END_env
 
-** Smooth Curves
+This definition is what we used when defining tangent vectors, where they were defined as velocity vectors \(\gamma'(0)\) for smooth curves \(\gamma\) in \(\RR^3\) with image contained in \(S\). Using our definition of smooth curve in \(S\), we may now equivalently define tangent vectors as velocity vectors of smooth curves in \(S\).
 
 #+BEGIN_env lem
 A curve \(\gamma : (a, b) \to S\) is /smooth/
 
-- *if and only if* for any local parametrisation, \(\varphi_{\alpha}^{-1} \circ \gamma\) is smooth
-- *if and only if* there are local parametrisations \(\varphi_{\alpha}\) with \(\Img (\gamma) \subseteq \cup \varphi_{\alpha}(U_{\alpha})\) with \(\varphi_{\alpha}^{-1} \circ \gamma\) smooth.
+- *if and only if* for every local parametrisation, \(\varphi_{\alpha}^{-1} \circ \gamma\) is smooth
+- *if and only if* there are local parametrisations \(\lbrace \varphi_{\alpha} \rbrace_{\alpha \in A}\) index by a set \(A\) with \(\Img (\gamma) \subseteq \cup_{\alpha \in A} \varphi_{\alpha}(U_{\alpha})\) with \(\varphi_{\alpha}^{-1} \circ \gamma\) smooth for each \(\alpha \in A\).
 #+END_env
 
-** Smooth Curves: Proof
+Note that if \(t \in (a, b)\) such that \(\gamma(t) \notin V_{\alpha} = \varphi_{\alpha}(U_{\alpha})\), then \(\varphi_{\beta}^{-1} \circ \gamma\) is not defined. In this case, by convention we define it to be smooth; another interpretation is that it's vacuously true that \(\varphi_{\beta}^{-1} \circ \gamma\) is smooth at all points where it's defined since there are no points where it's defined!
 
-*If* \(\varphi_{\alpha}^{-1} \circ \gamma\) is smooth
+Note also, the first condition requires that \(\varphi_{\alpha}^{-1} \circ \gamma\) is smooth for *every possible* local parametrisation, while the second only requires this for \(\alpha \in A\). The set \(\lbrace \varphi_{\alpha} \rbrace_{\alpha \in A}\) in the second condition is known as a cover of \(\Img(\gamma)\).
 
-*Then* \(\gamma = \varphi_{\alpha} \circ (\varphi_{\alpha}^{-1} \circ \gamma)\) is smooth.
+#+BEGIN_env pf
+Let us first show the last two condition are equivalent. The first condition implies the second since if \(\varphi_{\alpha}^{-1} \circ \gamma\) is smooth for *every* local parametrisation, then it certainly is true for \(\alpha\) restricted to \(A\).
 
-** Smooth Curves: Proof
+Conversely, if \(\varphi_{\alpha}^{-1} \circ \gamma\) is smooth for each \(\alpha \in A\), then choose any \(\beta\) (not necessarily in \(A\)) such that \(V_{\beta} \cap \Img(\gamma) \neq \emptyset\) (otherwise \(\varphi_{\beta}^{-1} \circ \gamma\) is not defined and there is nothing to prove). For any \(t \in \gamma^{-1}(V_{\beta})\), choose \(\alpha\) so that \(\gamma(t) \in V_{\alpha}\). Then
+\begin{equation*}
+\begin{split}
+\varphi_{\beta}^{-1} \circ \gamma &= \varphi_{\beta}^{-1} \circ \varphi_{\alpha} \circ \varphi_{\alpha}^{-1} \circ \gamma \\
+&= \tau_{\alpha\beta} \circ \varphi_{\alpha}^{-1} \circ \gamma
+\end{split}
+\end{equation*}
+is smooth at \(t\).
 
-*If* \(\Img(\gamma)\) is covered by local parametrisations with \(\varphi_{\alpha}^{-1} \circ \gamma\) smooth.
-
-*Then* for any \(t_0 \in (a, b)\) and any \(\varphi_{\beta}\) with \(t_0 \in \Img \varphi_{\beta}\),
+Finally, we show that these two (equivalent) conditions are in turn equivalent to the smoothness of \(\gamma\) as a map into \(\RR^3\). If \(\varphi_{\alpha}^{-1} \circ \gamma\) is smooth for all local parametrisations, let \(t \in (a, b)\) and \(\alpha\) such that \(\gamma(t) \in V_{\alpha}\). Then
 \[
-\varphi_{\beta}^{-1} \circ \gamma = \varphi_{\beta}^{-1} \circ \varphi_{\alpha} \circ \varphi_{\alpha}^{-1} \circ \gamma = \tau_{\alpha\beta} \circ \varphi_{\alpha}^{-1} \circ \gamma
+\gamma(t) = \varphi_{\alpha} \circ (\varphi_{\alpha}^{-1} \circ \gamma) (t)
 \]
-is smooth at \(t_0\).
+is smooth at \(t\). Conversely, if \(\gamma\) is smooth into \(\RR^3\), then extend \(\phi_{\alpha}^{-1}\) to a smooth map in which case
+\[
+\varphi_{\alpha}^{-1} \circ \gamma = \Phi_{\alpha}^{-1} \circ \gamma
+\]
+is smooth.
+#+END_env
 
-** Smooth Curves: Proof
+* Smooth Maps
 
-*If* \(\gamma : (a, b) \to \RR^3\) is smooth
-
-*Then* \(\varphi_{\alpha}^{-1} \circ \gamma = \Phi_{\alpha}^{-1} \circ \gamma\) is smooth where \(\Phi_{\alpha}^{-1}\) is a smooth extension of \(\varphi_{\alpha}^{-1}\).
-** Smooth Maps
-** Smooth Maps
+Now let us consider smooth maps between surfaces. First we consider the simpler case of smooth maps between a surface and \(\RR^n\).
 
 #+BEGIN_env defn
 Let \(S\) be regular surface. \(f : S \to \RR^n\) is /smooth/ if \(f \circ \varphi\) is smooth and \(f : \RR^n \to S\) is smooth if \(\varphi^{-1} \circ f\) is smooth.
 #+END_env
 
-The inclusion \(\iota : S \to \RR^3\) is smooth.
-** Smooth Maps Between Surfaces
-** Smooth Maps Between Surfaces
+Note that the inclusion \(\iota : S \to \RR^3\) is smooth by definition.
 
 #+BEGIN_env defn
 Let \(S_1, S_2\) be regular surfaces. \(f : S_1 \to S_2\) is /smooth/ if \(\psi^{-1} \circ f \circ \varphi\) is smooth
@@ -511,8 +516,6 @@ for every pair of local parametrisations
 \]
 #+END_env
 
-** Smooth Maps are Ambient Smooth Maps
-
 #+BEGIN_env lem
 The map \(f : S_1 \to S_2\) is smooth if and only if \(\iota_2 \circ f\) is a smooth map \(S_1 \to \RR^3\).
 #+END_env
@@ -521,9 +524,10 @@ The map \(f : S_1 \to S_2\) is smooth if and only if \(\iota_2 \circ f\) is a sm
 \[
 \iota_2 \circ f = \psi \circ (\psi^{-1} \circ f)
 \]
+Since \(\psi\) is smooth, the right and side is smooth if and only if the \(\psi^{-1} \circ f\) is smooth.
 #+END_env
 
-** Composition
+As expected, composition of smooth function is again smooth.
 
 #+BEGIN_env lem
 Let \(g : S_1 \to S_2\), \(f: S_2 \to S_3\) be smooth maps of regular surfaces. Then \(f \circ g\) is smooth.
@@ -535,8 +539,7 @@ Let \(g : S_1 \to S_2\), \(f: S_2 \to S_3\) be smooth maps of regular surfaces. 
 \]
 #+END_env
 
-** Example: Cylinder to Sphere
-
+#+BEGIN_env eg
 Let \(S_1\) be the cylinder \(\lbrace x^2 + y^2 = 1, -1 < z < 1 \rbrace\)
 
 Let \(S_s\) be the sphere \(\lbrace x^2 + y^2 + z^2 = 1 \rbrace\)
@@ -545,15 +548,14 @@ Let \(S_s\) be the sphere \(\lbrace x^2 + y^2 + z^2 = 1 \rbrace\)
 f (x, y, z) = (\sqrt{1-z^2} x, \sqrt{1-z^2} y, z)
 \]
 
-** Example: Cylinder to Sphere
-
 In cylindrical coordinates for the cylinder and sphere,
 \[
 f(z, \theta) = (z, \theta)
 \]
 is certainly smooth!
-** Differential
-** The Differential
+#+END_env
+
+* The Differential                                                 :noexport:
 
 #+BEGIN_env defn
 Let \(f : S_1 \to S_2\) be a smooth map. The differential, \(df_p\) of \(f\) at \(p \in S\) is the linear map
