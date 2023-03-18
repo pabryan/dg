@@ -555,7 +555,9 @@ f(z, \theta) = (z, \theta)
 is certainly smooth!
 #+END_env
 
-* The Differential                                                 :noexport:
+* The Differential
+
+With our definition, we should be able to differentiate smooth maps. That is, we need to define the differential.
 
 #+BEGIN_env defn
 Let \(f : S_1 \to S_2\) be a smooth map. The differential, \(df_p\) of \(f\) at \(p \in S\) is the linear map
@@ -566,49 +568,43 @@ df_x : T_p S_1 &\to T_{f(p)} S_2 \\
 \end{split}
 \end{equation*}
 #+END_env
-** The Differential
 
 #+BEGIN_env lem
 The differential is well defined.
 #+END_env
 
 #+BEGIN_env pf
-- \(f \circ \gamma\) is smooth:
-  \[
-   f \circ \gamma = \iota_2 \circ f \circ \iota_1 \circ \gamma.
-   \]
+First we check that \(f \circ \gamma\) is smooth:
+\[
+f \circ \gamma = \iota_2 \circ f \circ \iota_1 \circ \gamma.
+\]
+Thus \(f \circ \gamma\) is a smooth curve in \(S_2\) and hence \(df(\gamma'(0)) \in T_{\gamma(0)} S_2\).
 
-- By the chain rule if \(\gamma'(0) = \sigma'(0)\),
-  \[
-  df(\gamma'(0)) = df(\sigma'(0))
-  \]
+Next we need to check that \(df\) does not depend on the choice of curve representing a tangent vector. That is, if \(\gamma(0) = \sigma(0)\) and \(\gamma'(0) = \sigma'(0)\), then by the chain rule
+\[
+df(\gamma'(0)) = df(\sigma'(0)).
+\]
 #+END_env
 
-** Coordinate Description of Differential
-
-Let \(F(u, v) = \psi^{-1} \circ f \circ \varphi (u, v) = (F_1(u, v), F_2 (u, v))\) with \(p = \varphi(u_0, v_0)\):
+In coordinates, if we write \(F(u, v) = \psi^{-1} \circ f \circ \varphi (u, v) = (F_1(u, v), F_2 (u, v))\) with \(p = \varphi(u_0, v_0)\), then
 \[
 df_p = \begin{pmatrix}
 \frac{\partial F_1}{\partial u}(v_0, u_0) & \frac{\partial F_1}{\partial v}(v_0, u_0) \\
 \frac{\partial F_2}{\partial u}(v_0, u_0) & \frac{\partial F_2}{\partial v}(v_0, u_0)
 \end{pmatrix}
 \]
-** Example
 
-\[
-f : \operatorname{Cylinder} \to \SS^2
-\]
-
+#+BEGIN_env eg
+Consider the cylinder to sphere map,
 \[
 f(x, y, z) = \left(\sqrt{1-z^2} x, \sqrt{1-z^2} y, z\right)
 \]
 
-** Cylindrical Basis For Cylinder
-
+In cylindrical coordinates for the cylinder,
 \[
 \varphi_C(r, \theta) = (\cos \theta, \sin \theta, r) = (x, y, z)
 \]
-
+and hence
 \begin{equation*}
 \begin{split}
 e_r &= (0, 0, 1) \\
@@ -616,15 +612,14 @@ e_{\theta} &= (-\sin \theta, \cos \theta, 0) = (-y, x, 0)
 \end{split}
 \end{equation*}
 
-** Cylindrical Basis For Sphere
-
+In cylindrical coordinates for the sphere,
 \begin{equation*}
 \begin{split}
 \varphi_S (r, \theta) &= (\sqrt{1-r^2} \cos \theta, \sqrt{1-r^2} \sin \theta, r) \\
 &= (x, y, z)
 \end{split}
 \end{equation*}
-
+and hence
 \begin{equation*}
 \begin{split}
 e_r &= \left(\tfrac{-r}{\sqrt{1-r^2}} \cos \theta, \tfrac{-r}{\sqrt{1-r^2}} \sin \theta, 1 \right) \\
@@ -634,24 +629,20 @@ e_{\theta} &= (-\sqrt{1-r^2} \sin \theta, \sqrt{1-r^2} \cos \theta, 0) \\
 \end{split}
 \end{equation*}
 
-** Cylindrical Differential
-
 Since \(\varphi_S^{-1} \circ f \circ \varphi_C = \Id\) in cylindrical coords:
 \[
 df = \Id!
 \]
-
+That is,
 \[
 df(e_r) = e_r \quad df(e_{\theta}) = e_{\theta}
 \]
-
-Can directly differentiate
+which can also be deduced by directly differentiating
 \[
-f \circ \varphi_C (r, \theta) = \varphi_S
+f \circ \varphi_C (r, \theta) = \varphi_S.
 \]
 
-** Spherical Polar Basis for Sphere
-
+In polar spherical coordinates for the sphere we have
 \begin{align*}
 \varphi_{\SS^2} (\theta, \phi) &= (\sin\phi \cos\theta, \sin\phi \sin\theta, \cos\phi) \\
 &= (x, y, z) \\
@@ -660,12 +651,9 @@ e_{\theta} &= (-\sin\phi\sin\theta, \sin\phi\cos\theta, 0) \\
 e_{\phi} &= (\cos\phi \cos\theta, \cos\phi \sin\theta, -\sin\phi) \\
 &= \left(\tfrac{xz}{\sqrt{1-z^2}}, \tfrac{yz}{\sqrt{1-z^2}}, -\sqrt{1-z^2}\right)
 \end{align*}
-
-** Cylindrical to Spherical Differential
-
+Then
 \begin{align*}
 df(e_{\theta}) &= e_{\theta} \\
 df(e_r) &= \tfrac{-1}{\sqrt{1-z^2}} e_{\phi}
 \end{align*}
-
-
+#+END_env
