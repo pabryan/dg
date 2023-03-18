@@ -321,9 +321,7 @@ is a bijection.
 
 The map \(\tau_{\beta\alpha}^{\ast}\) establishes a one-to-one correspondence of smooth functions in one parametrisation with smooth functions in another parametrisation. A function \(f : \varphi_{\beta}^{-1} (V_{\alpha}) \to \RR\) is differentiable if and only if \(f \circ \tau_{\alpha\beta} : \varphi_{\alpha}^{-1} (V_{\beta}) \to \RR\) is differentiable.
 
-* Tangent Plane                                                    :noexport:
-** Tangent Plane
-** Tangent Vectors
+* Tangent Plane
 
 #+BEGIN_env defn
 A /tangent vector/ to a regular surface \(S\) at \(p \in S\) is a vector \(X = \gamma'(0) \in \RR^3\) where
@@ -337,116 +335,122 @@ A /tangent vector/ to a regular surface \(S\) at \(p \in S\) is a vector \(X = \
 for a smooth curve, \(\gamma : (-\delta, \delta) \to \RR^3\).
 #+END_env
 
-** Tangent Plane
-
 #+BEGIN_env defn
 The /tangent plane/, \(T_p S\) to \(S\) at \(p\) is the set of tangent vectors at \(p\).
 #+END_env
 
-Tangent vectors are velocity vectors to curves /along the graph/.
-
-** Tangent Plane
+Tangent vectors are velocity vectors to curves /along a surface/ and the tangent space is the collection of all such vectors. We expect that since surfaces are two-dimensional, the tangent space should also be two-dimensional; i.e. a plane.
 
 #+BEGIN_export html
 {% include img.html file="surface_tangent_plane.png" %}
 #+END_export
 
-** Tangent Plane via Parmetrisations
-
 #+BEGIN_env lem
 The tangent plane, \(T_p S = d\varphi_{(u, v)} (\RR^2)\) is a plane in \(\RR^3\) where \(\varphi\) is /any/ local parametrisation with \(\varphi(u, v) = p\).
 #+END_env
 
-** Tangent Plane via Parmetrisations
-
 #+BEGIN_env pf
-Let \((u, v) \in \RR^2\) be the unique point such that \(p = \varphi(u, v)\). 
-
-Given \(V \in \RR^2\), let \(\gamma(t) = \varphi((u, v) + t V)\) so that
+Let \((u, v) \in \RR^2\) be the unique point such that \(p = \varphi(u, v)\). Given \(V \in \RR^2\), let \(\gamma(t) = \varphi((u, v) + t V)\) so that
 \[
 d\varphi (V) = \gamma'(0) \in T_p S.
 \]
 Thus \(d\varphi(\RR^2) \subseteq T_p S\).
-#+END_env
 
-** Tangent Plane via Parmetrisations
-
-#+BEGIN_env pf
 Conversely, given \(X = \gamma'(0)\), let
 \[
 \gamma(t) = \varphi \circ \varphi^{-1} (\gamma(t))
 \]
-
+Then
 \[
 X = \gamma'(0) = d\varphi (\varphi^{-1} \circ \gamma)'(0) \in d\varphi(\RR^2)
 \]
-Use a smooth extension \(\Phi^{-1}\) of \(\varphi^{-1}\) to ensure \(\varphi^{-1} \circ \gamma\) is smooth.
+Note here that we Use a smooth extension \(\Phi^{-1}\) of \(\varphi^{-1}\) to ensure \(\varphi^{-1} \circ \gamma\) is smooth.
 
 Thus \(T_p S \subseteq d\varphi(\RR^2)\).
 #+END_env
 
-** Vector Space Structure
-
-Let \(X_1 = \gamma_1'(0)\), \(X_2 = \gamma_2'(0)\) and \(c^1, c^2 \in \RR\).
-
-In \(\RR^3\):
+Let \(X_1 = \gamma_1'(0)\), \(X_2 = \gamma_2'(0)\) and \(c^1, c^2 \in \RR\). In \(\RR^3\):
 \[
 c^1 X_1 + c^2 X_2 = \partial_t|_{t=0} \left[p + t(c^1 X_1 + c^2 X_2)\right]
 \]
-
-In general, \(p + t(c^1 X_1 + c^2 X_2) \notin S\)!
-
-** Vector Space Structure
-
-Let \(U_1, U_2 \in \RR^2\) such that \(d\varphi(U_i) = X_i\).
-
-Then
+is the velocity vector of a curve, hence a tangent vector - in \(\RR^3\). For a surface \(S\) however, in general, \(p + t(c^1 X_1 + c^2 X_2) \notin S\) and this construction does not work. Instead we proceed as follows: pick any local parametrisation containing \(p\) and let \(U_1, U_2 \in \RR^2\) such that \(d\varphi(U_i) = X_i\). Then using the local parametrisation we may define
 \[
 c^1 X_1 + c^2 X_2 = d\varphi(c^1 U_1 + c^2 U_2)
 \]
-** Coordinate Basis
-*** Coordinate Basis
-*** Coordinate Curves
 
-Every smooth curve \(\mu : (a, b) \to U\) gives a smooth curve \(\gamma = \varphi \circ \mu : (a, b) \to S\) since
+#+BEGIN_env ex
+Show that \(c^1 X_1 + c^2 X_2\) does not depend on the choice of local parametrisation. /Hint/: use the fact that the transition map is a diffeomorphism.
+#+END_env
+
+Using coordinates, we can construct a basis for the tangent space. Note that this construction does depend on the choice of local parameterisation; if we choose a different local parametrisation, we get a different basis for the tangent space. What does not depend on the choice of local parametrisation is the tangent space itself.
+
+First observe that every smooth curve \(\mu : (a, b) \to U\) gives a smooth curve \(\gamma = \varphi \circ \mu : (a, b) \to S\) since
 \[
 \varphi^{-1} \circ \gamma = \varphi^{-1} \circ \varphi \circ \mu = \mu
 \]
-is smooth.
+is smooth. Thus given a curve \(\mu : (-\epsilon, \epsilon) \to U\) we get a tangent vector \((\varphi \circ \mu)'(0)\) at \(p = \varphi(\mu(0))\).
 
-#+BEGIN_env defn :title "Coordinate curves"
-\[
-\gamma_u (t) := \varphi(u_0 + t, v_0), \quad \gamma_v (t) := \varphi(u_0, v_0 + t)
-\]
+#+BEGIN_env defn :title "Coordinate Curves and Vectors"
+For each \((u, v) \in U\) we define the /coordinate curves/,
+\begin{align*}
+\gamma_u (t) &= \varphi(u_0 + t, v_0) \\
+\gamma_v (t) &= \varphi(u_0, v_0 + t).
+\end{align*}
+for \(t \in (-\epsilon, \epsilon)\) with \(\epsilon > 0\) sufficiently small so that \(\gamma_u(t), \gamma_t(v) \in U\). Note such an \(\epsilon\) always exists since \(U\) is open so that we may take \(\epsilon > 0\) such that \(B_{\epsilon}(u_0, v_0) \subseteq U\).
+
+The /coordinate tangent vectors/ are
+\begin{align*}
+e_u &:= \gamma_u'(0) = d\varphi (1, 0) \\
+e_v &:= \gamma_v'(0) = d\varphi (0, 1)
+\end{align*}
 #+END_env
 
-*** Coordinate Basis
-
 #+BEGIN_env lem
-The tangent space \(T_p S\) is spanned by
-\begin{align*}
-e_u &:= \partial_t|_{t=0} \gamma_u = d\varphi (1, 0) \\
-e_v &:= \partial_t|_{t=0} \gamma_v = d\varphi (0, 1)
-\end{align*}
+The tangent space \(T_p S\) is spanned by \(\lbrace e_u, e_v \rbrace\).
 #+END_env
 
 #+BEGIN_env pf
-\(e_u, e_v\) are linearly independent since \(d\varphi\) is injective.
+The vectors \(e_u = d\varphi(1, 0), e_v = d\varphi(0, 1)\) are linearly independent since \(d\varphi\) is injective and \((1, 0), (0, 1)\) are linearly independent. Since \(T_p S\) is \(2\)-dimensional, \(e_u, e_v\) then also span \(T_p S\) and are hence a basis.
 #+END_env
 
-*** Example
-
+#+BEGIN_env eg
 Let \(S\) be the unit sphere and let
-\[
-\varphi(\theta, \phi) = (\sin\phi \cos\theta, \sin\phi \sin\theta, \cos\phi)
-\]
-be polar coordinates.
-
+\begin{equation*}
+\begin{split}
+\varphi(\theta, \phi) &= (\sin\phi \cos\theta, \sin\phi \sin\theta, \cos\phi) \\
+&= (x, y, z)
+\end{split}
+\end{equation*}
+be polar coordinates. Then
 \begin{align*}
-e_{\theta} &= \sin\phi(-\sin\theta, \cos\theta, 0) \\
+e_{\theta} &= (-\sin\phi \sin\theta, \sin\phi \cos\theta, 0) \\
+&= (-y, x, 0) \\
 e_{\phi} &= (\cos\phi \cos\theta, \cos\phi \sin\theta, -\sin\phi) \\
-&= \cos\phi (\cos\theta, \sin\theta, 0) - \sin\phi (0, 0, 1)
+&= \cos\phi (\cos\theta, \sin\theta, 0) - \sin\phi (0, 0, 1) \\
+&= \left(\tfrac{xz}{\sqrt{1-z^2}}, \tfrac{yz}{\sqrt{1-z^2}}, -\sqrt{1-z^2}\right)
 \end{align*}
+
+In cylindrical coordinates
+\[
+\varphi(\eta, r) = (\sqrt{1-r^2} \cos\eta, \sqrt{1-r^2} \sin\eta, r)
+\]
+we have
+\begin{align*}
+e_{\eta} &= (-\sqrt{1-r^2} \sin \eta, \sqrt{1-r^2} \cos \eta, 0) \\
+&= (-y, x, 0) \\
+e_r &= \left(\tfrac{-r}{\sqrt{1-r^2}} \cos \eta, \tfrac{-r}{\sqrt{1-r^2}} \sin \eta, 1 \right) \\
+&= \left(\tfrac{-xz}{1-z^2}, \tfrac{-yz}{1-z^2}, 1\right)
+\end{align*}
+
+The change of basis matrix from \(\lbrace e_{\theta}, e_{\phi} \rbrace\) to \(\lbrace e_{\eta}, e_r \rbrace\) is
+\begin{equation*}
+\begin{pmatrix}
+1 & 0 \\
+0 &\tfrac{-1}{\sqrt{1-z^2}}
+\end{pmatrix}
+\end{equation*}
+#+END_env
+
 * Smooth Curves                                                    :noexport:
 ** Smooth Curves
 ** Smooth Curves
