@@ -1,0 +1,197 @@
+#+TITLE: Orientation and Intrinsic Geometry
+#+OPTIONS: toc:nil num:nil
+
+* Orientation And The Gauss Map                                    :noexport:
+** Orientation And The Gauss Map
+** Orientation of Euclidean Space
+
+#+BEGIN_env defn
+An orientation on \(\RR^n\) is an equivalence class of /ordered/ bases \(\mathcal{E} = (e_1, \cdots, e_n)\) where \(\mathcal{E} \sim \mathcal{F}\) if the change of basis matrix \(A_{\mathcal{E}\mathcal{F}}\) has positive determinant.
+#+END_env
+
+\pause
+
+Since \(\det \left(A_{\mathcal{E}\mathcal{F}} A_{\mathcal{F}\mathcal{G}}\right) = \det \left(A_{\mathcal{E}\mathcal{F}}\right) \det\left(A_{\mathcal{F}\mathcal{G}}\right)\), we do indeed have an equivalence relation, and there are /precisely two equivalence classes/.
+
+\pause
+
+\begin{example}
+Compute the change of basis from \(\mathcal{E} = (e_1, e_2)\) to \((e_1, e_1 + e_2), \quad (e_1, -e_2), \quad (e_2, e_1).\)
+\end{example}
+
+\pause
+
+\begin{example}
+Right hand orientation: \((e_1, e_2, e_3), (e_1, e_3, -e_2), \dots\)
+
+Left hand orientation: \((e_2, e_1, e_3), (e_1, -e_2, e_3), \dots\)
+\end{example}
+
+** Orientation preserving and reversing linear maps
+
+Choose an orientation \(\mathcal{O} = \{e_1, \cdots, e_n\}\) on \(\RR^n\).
+
+#+BEGIN_env defn
+An /invertible/ linear map \(T : \RR^n \to \RR^n\) is orientation preserving if \(T(\mathcal{O}) = \mathcal{O}\). That is, if
+\[
+\det \begin{pmatrix}
+T(e_1), \cdots, T(e_n)
+\end{pmatrix}
+= \det \begin{pmatrix}
+e_1, \cdots, e_n
+\end{pmatrix}
+\]
+or equivalently if \(\det T > 0\).
+#+END_env
+
+\pause
+
+\begin{example}
+\[
+\text{Preserving:} \quad
+T = \begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}, \quad
+T = \begin{pmatrix}
+1 & 1 \\
+1 & 0
+\end{pmatrix}, \quad
+T = \begin{pmatrix}
+2 & 1 \\
+3 & 5
+\end{pmatrix}.
+\]
+\[
+\text{Reversing:} \quad
+T = \begin{pmatrix}
+1 & 0 \\
+0 & -1
+\end{pmatrix}, \quad
+T = \begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}, \quad
+T = \begin{pmatrix}
+2 & 1 \\
+3 & 1
+\end{pmatrix}.
+\]
+\end{example}
+
+** Orientation of the tangent plane
+*** Tangent Plane Orientations
+**** Text
+      :PROPERTIES:
+      :BEAMER_col: 0.5
+      :END:
+
+Local parametrisation: \(\varphi : U \to S\).
+\[
+\left(\frac{\partial \varphi}{\partial u}, \frac{\partial \varphi}{\partial v}\right), \quad \left(\frac{\partial \varphi}{\partial v}, \frac{\partial \varphi}{\partial u}\right)
+\]
+**** Picture
+      :PROPERTIES:
+      :BEAMER_col: 0.5
+      :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .9\textwidth :height .4\textheight
+[[file:img/oriented_tangent_plane.png]]
+#+END_center
+
+\pause
+*** Definition
+The orientation induced by \(\varphi\) is /compatible/ with the orientation induced by \(\psi\) if \(\det d(\psi \circ \phi^{-1}) > 0\).
+\pause
+A regular surface, \(S\) is /orientable/ if there is a cover \(\varphi_{\alpha} : U_{\alpha} \to S\) such that \(\det(\tau_{\alpha\beta}) > 0\) for all \(\alpha, \beta\).
+
+** Examples
+
+- The sphere is orientable
+- The \mobius{} strip is /not/ orientable
+- Graphs, are orientable
+- Inverse images of regular point are orientable: here \(F: \RR^3 \to \RR\), \(S = F^{-1}(0)\) where \(dF_x\) has maximal rank (i.e. rank \(1\)) for all \(p \in \RR^3\) such that \(F(p) = 0\).
+
+** Orientation of surfaces
+
+#+BEGIN_theorem
+A surface \(S\) is orientable if and only if there is a differentiable field, \(N\) of unit normal vectors. That is, if and only there exists a differentiable map \(N : S \to \RR^3\) such that \(\abs{N(x)} = 1\) for all \(x \in S\) and such that \(N(x) \perp X\) for all $X \in T_x S$.
+#+END_theorem
+
+\pause
+
+*Remember there are precisely two orientations!*
+
+\pause
+
+There are two possible unit normal fields, \(N\) and \(-N\). Choosing an orientation is equivalent to choosing a normal field.
+
+\pause
+
+- The proof of the theorem follows from the following lemma:
+
+#+BEGIN_lemma
+Let \(\varphi (u, v) : U \subseteq \RR^2 \to S\) and \(\psi (s, t) : V \subseteq \RR^2 \to S\) be local parametrisations. Then
+\[
+\partial_u \varphi \times \partial_v \varphi = \left[\det d(\psi^{-1} \circ \varphi)\right] \partial_s \psi \times \partial_t \psi.
+\]
+#+END_lemma
+
+** Gauss Map
+
+#+BEGIN_env defn
+ An orientable surface \(S\) along with a choice of orientation is called an /oriented surface/.
+#+END_env
+
+\pause
+
+#+BEGIN_env defn
+Let \(S\) be an oriented surface. The /Gauss Map/ is the unit normal map
+\[
+x \in S \mapsto N(x) \in \sphere^2 = \{X \in \RR^3 : \|X\| = 1\}.
+\]
+#+END_env
+
+\pause
+
+With respect to a local parametrisation
+\[
+N = \frac{\partial_u \varphi \times \partial_v \varphi}{\abs{\partial_u \varphi \times \partial_v \varphi}}.
+\]
+
+** Examples
+
+*** Sphere:
+
+\[
+S = \{x^2 + y^2 + z^2 = 1\}, \quad N(p) = p
+\]
+
+\pause
+
+*** Graph:
+\[
+S = \{(x, y, f(x, y))\}, \quad N(x, y, f(x)) = \frac{1}{\sqrt{1 + f_x^2 + f_y^2}} (-f_x, -f_y, 1).
+\]
+
+\pause
+
+*** Inverse image of regular point
+
+\[
+S = \{F^{-1}(c)\}, \quad N(p) = \frac{\nabla F(p)}{|\nabla F(p)|}.
+\]
+
+* Intrinsic Geometry
+** Intrinsic Geometry
+** Intrinsic Geometry
+
+If we know \(g\), we may do geometry on \(S\) without any reference to how it sits in \(\RR^3\)! This is /intrinsic geometry/.
+
+What exactly is the definition of \(g\) if we don't refer to \(\RR^3\)?
+
+At this point, the best we can do is say that \(g\) is determined by a collection of smooth, matrix valued maps \((u, v) \in U \mapsto (g_{ij}(u, v))\) in each local parametrisation that are symmetric and positive definite at each point \((u, v)\). We also require that under a change of coordinates, \(\tau\) we have
+\[
+g^{\varphi \circ \tau}_{ab} = \sum_{ij} g^{\varphi}_{ij} \partial_{y^a} \tau^i \partial_{y^b} \tau^j.
+\]
