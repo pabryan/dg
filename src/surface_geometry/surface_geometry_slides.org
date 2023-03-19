@@ -1,0 +1,353 @@
+#+TITLE: Surface Geometry
+#+OPTIONS: toc:nil num:nil
+
+* Riemannian Metric
+** Riemannian Metric
+** Metric (First Fundamental Form)
+
+#+BEGIN_env defn
+The metric \(g\) on \(S\) is the inner product \(g_x\) at each point \(x \in S\) defined for tangent vectors \(V, W \in T_x S \subseteq \RR^3\) by
+\[
+g_x(V, W) = \ip{V}{V}_{\RR^3}.
+\]
+#+END_env
+
+** Coordinate Expression of Metric
+
+\[
+V = c^1 \partial_{x_1} \varphi + c^2 \partial_{x_2} \varphi, \quad W = d^1 \partial_{x_1} \varphi + d^2 \partial_{x_2} \varphi
+\]
+
+\begin{equation*}
+\begin{split}
+g(V, W) &= \ip{c_1 \frac{\partial \varphi}{\partial x_1} + c_2 \frac{\partial \varphi}{\partial x_2}}{d_1 \frac{\partial \varphi}{\partial x_1} + d_2 \frac{\partial \varphi}{\partial x_2}} \\
+&= c_1 d_1 \ip{\frac{\partial \varphi}{\partial x_1}}{\frac{\partial \varphi}{\partial x_1}} + c_2 d_2 \ip{\frac{\partial \varphi}{\partial x_2}}{\frac{\partial \varphi}{\partial x_2}} \\
+&\quad + (c_1d_2 + c_2 d_1) \ip{\frac{\partial \varphi}{\partial x_1}}{\frac{\partial \varphi}{\partial x_2}} \\
+&= c_1 d_1 g_{11} + c_2 d_2 g_{22} + (c_1 d_2 + c_2 d_1) g_{12}.
+\end{split}
+\end{equation*}
+
+** Matrix Form in Local Coordinates
+
+\begin{equation*}
+g = \begin{pmatrix}
+g_{11} & g_{12} \\
+g_{21} & g_{22}
+\end{pmatrix}
+:=
+\begin{pmatrix}
+\ip{\frac{\partial \varphi}{\partial x_1}}{\frac{\partial \varphi}{\partial x_1}} &  \ip{\frac{\partial \varphi}{\partial x_1}}{\frac{\partial \varphi}{\partial x_2}} \\
+\ip{\frac{\partial \varphi}{\partial x_2}}{\frac{\partial \varphi}{\partial x_1}} & \ip{\frac{\partial \varphi}{\partial x_2}}{\frac{\partial \varphi}{\partial x_2}}
+\end{pmatrix}
+\end{equation*}
+
+\((g_{ij})\) is /positive definite/ and /symmetric/.
+
+** Change of Coordinates
+
+Change of coords \(\tau = \varphi^{-1} \circ \psi: \RR^2 \to \RR^2\):
+\begin{equation*}.
+\begin{split}
+g^{\psi}_{ab} &= g^{\varphi \circ \tau}_{ab} \\
+&= \ip{\partial_{y^a} (\varphi \circ \tau)}{\partial_{y^b} (\varphi \circ \tau)} \\
+&= \ip{\sum_i \partial_{x^i} \varphi \partial_{y^a} \tau^i}{\sum_j \partial_{x^j} \varphi \partial_{y^b} \tau^j} \\
+&= \sum_{ij} g_{ij} \partial_{y^a} \tau^i \partial_{y^b} \tau^j
+\end{split}
+\end{equation*}
+
+** Matrix Change of Coordinates
+
+\begin{equation*}
+\begin{split}
+g^{\varphi \circ \tau}(X, Y) &= \ip{d(\varphi \circ \tau) \cdot X}{d(\varphi \circ \tau) \cdot Y} \\
+&= \ip{d\varphi(d\tau \cdot X)}{d\varphi(d\tau \cdot y)} \\
+&= g^{\varphi} (d\tau \cdot X, d\tau \cdot Y).
+\end{split}
+\end{equation*}
+
+* Geometry Of Surfaces                                             :noexport:
+** Geometry Of Surfaces
+** Length and Angle of Tangent Vectors
+
+#+BEGIN_env defn
+Let \(X\) be a tangent vector. Then it's length is defined to be
+\[
+\abs{X}_g := \sqrt{g(X, X)}.
+\]
+#+END_env
+\pause
+
+#+BEGIN_env defn
+The angle, \(\theta\) between two tangent vectors \(X, Y\) (at the same point \(x \in S\)!) is defined by
+\[
+\cos \theta = \frac{g(X, Y)}{\abs{X}\abs{Y}} = g\left(\frac{X}{\abs{X}}, \frac{Y}{\abs{Y}}\right).
+\].
+#+END_env
+
+** Cauchy Schwartz Inequality
+
+#+BEGIN_lemma
+\[
+\abs{g(X, Y)} \leq \abs{X}\abs{Y}.
+\]
+#+END_lemma
+
+See https://en.wikipedia.org/wiki/Cauchy%E2%80%93Schwarz_inequality#First_proof
+\pause
+
+Rearranging Cauchy-Schwarz inequality for \(X, Y \ne 0\) gives
+\[
+\frac{g(X, Y)}{\abs{X}\abs{Y}} \in [-1, 1]
+\]
+and \(\theta\) is well defined after choosing an inverse \(\arccos\).\pause
+
+The simplest is to take \(\theta \in [0, \pi]\).
+
+** Arc Length
+
+#+BEGIN_defn
+Let \(\gamma : (a, b) \to S\) be a smooth curve. The /arc-length/ of \(\gamma\) is
+\[
+L(\gamma) = \int_a^b \abs{\gamma'(t)} dt.
+\]
+#+END_defn
+\pause
+
+As for plane and space curves, define the arc length parameter
+\[
+s(t) = \int_a^t \abs{\gamma'(\tau)} d\tau
+\]
+so that \(s'(t) = \abs{\gamma'(t)}\) is smoothly invertible for /regular/ curves (i.e. with \(\gamma'(t) \ne 0\)).
+\pause
+
+Then we may parametrisse \(\gamma\) by arclength:
+\[
+\gamma(s) = \gamma(t(s))
+\]
+satisfying \(\abs{\gamma'} \equiv 1\).
+
+** Area
+
+Let
+\[
+X_u = d\varphi (e_u) = \partial_u \varphi, \quad X_v = d\varphi (e_v) = \partial_v \varphi
+\]
+be coordinate vectors. \pause
+
+Since \(d\varphi\) is injective, \(X_u, X_v\) form a basis for \(T_x M\). \pause
+
+In fact \(X_u, X_v\) determines a parallelogram \(X_u \wedge X_v \subseteq T_x M\). \pause
+
+Taking a small rectangle \(R = \{(u, v) \in (u_0, u_0 + \Delta u) \times (v_0, v_0 + \Delta v)\}\), we approximate the area of \(\varphi(R) \subseteq S\) by
+\[
+\text{Area} (\varphi(S)) \simeq \text{Area} (X_u \wedge X_v) = \abs{X_u \times X_v} \text{Area}(R) = \abs{X_u \times X_v} \Delta u \Delta v.
+\]
+\pause
+
+Note that \(\abs{X_u \times X_v}^2 = \det \lambda^T \lambda = \det g\) where \(\lambda = (X_u \quad X_v)\)!
+\pause
+
+Area is the limit of a Riemann sum: for any region \(\Omega = \varphi(W) \subseteq \varphi(U)\)
+\[
+\text{Area} (\Omega) = \int_W \sqrt{\det g(u, v)} du dv.
+\]
+
+** Intrinsic Geometry
+
+- Notice that thinking of \(\gamma : (a, b) \to \RR^3\) we have
+  \[
+  g(\gamma'(0), \gamma'(0)) = \ip{\gamma'(0)}{\gamma'(0)}_{\RR^3}
+  \]
+  so that the length of tangent vectors and hence the length of curves is precisely the lengths obtained in \(\RR^3\).
+  \pause
+- Similar for angles and for area in terms of \(X_u, X_v\). \pause
+- The point is that, if we know \(g\), we may do geometry on \(S\) without any reference to how it sits in \(\RR^3\)! This is /intrinsic geometry/. \pause
+- But what exactly is the definition of \(g\) if we don't refer to \(\RR^3\)? \pause
+
+At this point, the best we can do is say that \(g\) is determined by a collection of smooth, matrix valued maps \((u, v) \in U \mapsto (g_{ij}(u, v))\) in each local parametrisation that are symmetric and positive definite at each point \((u, v)\). \pause We also require that under a change of coordinates, \(\tau\) we have
+\[
+g^{\varphi \circ \tau}_{ab} = \sum_{ij} g^{\varphi}_{ij} \partial_{y^a} \tau^i \partial_{y^b} \tau^j.
+\]
+* Orientation And The Gauss Map                                    :noexport:
+** Orientation And The Gauss Map
+** Orientation of Euclidean Space
+
+#+BEGIN_env defn
+An orientation on \(\RR^n\) is an equivalence class of /ordered/ bases \(\mathcal{E} = (e_1, \cdots, e_n)\) where \(\mathcal{E} \sim \mathcal{F}\) if the change of basis matrix \(A_{\mathcal{E}\mathcal{F}}\) has positive determinant.
+#+END_env
+
+\pause
+
+Since \(\det \left(A_{\mathcal{E}\mathcal{F}} A_{\mathcal{F}\mathcal{G}}\right) = \det \left(A_{\mathcal{E}\mathcal{F}}\right) \det\left(A_{\mathcal{F}\mathcal{G}}\right)\), we do indeed have an equivalence relation, and there are /precisely two equivalence classes/.
+
+\pause
+
+\begin{example}
+Compute the change of basis from \(\mathcal{E} = (e_1, e_2)\) to \((e_1, e_1 + e_2), \quad (e_1, -e_2), \quad (e_2, e_1).\)
+\end{example}
+
+\pause
+
+\begin{example}
+Right hand orientation: \((e_1, e_2, e_3), (e_1, e_3, -e_2), \dots\)
+
+Left hand orientation: \((e_2, e_1, e_3), (e_1, -e_2, e_3), \dots\)
+\end{example}
+
+** Orientation preserving and reversing linear maps
+
+Choose an orientation \(\mathcal{O} = \{e_1, \cdots, e_n\}\) on \(\RR^n\).
+
+#+BEGIN_env defn
+An /invertible/ linear map \(T : \RR^n \to \RR^n\) is orientation preserving if \(T(\mathcal{O}) = \mathcal{O}\). That is, if
+\[
+\det \begin{pmatrix}
+T(e_1), \cdots, T(e_n)
+\end{pmatrix}
+= \det \begin{pmatrix}
+e_1, \cdots, e_n
+\end{pmatrix}
+\]
+or equivalently if \(\det T > 0\).
+#+END_env
+
+\pause
+
+\begin{example}
+\[
+\text{Preserving:} \quad
+T = \begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}, \quad
+T = \begin{pmatrix}
+1 & 1 \\
+1 & 0
+\end{pmatrix}, \quad
+T = \begin{pmatrix}
+2 & 1 \\
+3 & 5
+\end{pmatrix}.
+\]
+\[
+\text{Reversing:} \quad
+T = \begin{pmatrix}
+1 & 0 \\
+0 & -1
+\end{pmatrix}, \quad
+T = \begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}, \quad
+T = \begin{pmatrix}
+2 & 1 \\
+3 & 1
+\end{pmatrix}.
+\]
+\end{example}
+
+** Orientation of the tangent plane
+*** Tangent Plane Orientations
+**** Text
+      :PROPERTIES:
+      :BEAMER_col: 0.5
+      :END:
+
+Local parametrisation: \(\varphi : U \to S\).
+\[
+\left(\frac{\partial \varphi}{\partial u}, \frac{\partial \varphi}{\partial v}\right), \quad \left(\frac{\partial \varphi}{\partial v}, \frac{\partial \varphi}{\partial u}\right)
+\]
+**** Picture
+      :PROPERTIES:
+      :BEAMER_col: 0.5
+      :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .9\textwidth :height .4\textheight
+[[file:img/oriented_tangent_plane.png]]
+#+END_center
+
+\pause
+*** Definition
+The orientation induced by \(\varphi\) is /compatible/ with the orientation induced by \(\psi\) if \(\det d(\psi \circ \phi^{-1}) > 0\).
+\pause
+A regular surface, \(S\) is /orientable/ if there is a cover \(\varphi_{\alpha} : U_{\alpha} \to S\) such that \(\det(\tau_{\alpha\beta}) > 0\) for all \(\alpha, \beta\).
+
+** Examples
+
+- The sphere is orientable
+- The \mobius{} strip is /not/ orientable
+- Graphs, are orientable
+- Inverse images of regular point are orientable: here \(F: \RR^3 \to \RR\), \(S = F^{-1}(0)\) where \(dF_x\) has maximal rank (i.e. rank \(1\)) for all \(p \in \RR^3\) such that \(F(p) = 0\).
+
+** Orientation of surfaces
+
+#+BEGIN_theorem
+A surface \(S\) is orientable if and only if there is a differentiable field, \(N\) of unit normal vectors. That is, if and only there exists a differentiable map \(N : S \to \RR^3\) such that \(\abs{N(x)} = 1\) for all \(x \in S\) and such that \(N(x) \perp X\) for all $X \in T_x S$.
+#+END_theorem
+
+\pause
+
+*Remember there are precisely two orientations!*
+
+\pause
+
+There are two possible unit normal fields, \(N\) and \(-N\). Choosing an orientation is equivalent to choosing a normal field.
+
+\pause
+
+- The proof of the theorem follows from the following lemma:
+
+#+BEGIN_lemma
+Let \(\varphi (u, v) : U \subseteq \RR^2 \to S\) and \(\psi (s, t) : V \subseteq \RR^2 \to S\) be local parametrisations. Then
+\[
+\partial_u \varphi \times \partial_v \varphi = \left[\det d(\psi^{-1} \circ \varphi)\right] \partial_s \psi \times \partial_t \psi.
+\]
+#+END_lemma
+
+** Gauss Map
+
+#+BEGIN_env defn
+ An orientable surface \(S\) along with a choice of orientation is called an /oriented surface/.
+#+END_env
+
+\pause
+
+#+BEGIN_env defn
+Let \(S\) be an oriented surface. The /Gauss Map/ is the unit normal map
+\[
+x \in S \mapsto N(x) \in \sphere^2 = \{X \in \RR^3 : \|X\| = 1\}.
+\]
+#+END_env
+
+\pause
+
+With respect to a local parametrisation
+\[
+N = \frac{\partial_u \varphi \times \partial_v \varphi}{\abs{\partial_u \varphi \times \partial_v \varphi}}.
+\]
+
+** Examples
+
+*** Sphere:
+
+\[
+S = \{x^2 + y^2 + z^2 = 1\}, \quad N(p) = p
+\]
+
+\pause
+
+*** Graph:
+\[
+S = \{(x, y, f(x, y))\}, \quad N(x, y, f(x)) = \frac{1}{\sqrt{1 + f_x^2 + f_y^2}} (-f_x, -f_y, 1).
+\]
+
+\pause
+
+*** Inverse image of regular point
+
+\[
+S = \{F^{-1}(c)\}, \quad N(p) = \frac{\nabla F(p)}{|\nabla F(p)|}.
+\]
+
+
