@@ -6,40 +6,69 @@
 
 Area is also determined by the metric.
 
-** Area
+** Infinitesimal Area
 
-Let
-\[
-X_u = d\varphi (e_u) = \partial_u \varphi, \quad X_v = d\varphi (e_v) = \partial_v \varphi
-\]
-be coordinate vectors.
+Parallelogram: \(e_u \wedge e_v \subseteq T_x M\)
 
-Since \(d\varphi\) is injective, \(X_u, X_v\) form a basis for \(T_x M\).
-
-** Area
-
-Parallelogram: \(X_u \wedge X_v \subseteq T_x M\)
-
-Taking a small rectangle \(R = \{(u, v) \in (u_0, u_0 + \Delta u) \times (v_0, v_0 + \Delta v)\}\), we approximate the area of \(\varphi(R) \subseteq S\) by
+Small rectangle \(R = (u_0, u_0 + \Delta u) \times (v_0, v_0 + \Delta v)\):
 \begin{equation*}
 \begin{split}
-\text{Area} (S) &\simeq \text{Area} (X_u \wedge X_v) \\
-
-&= \abs{X_u \times X_v} \text{Area}(R) \\
-&= \abs{X_u \times X_v} \Delta u \Delta v.
+\text{Area} (\varphi(R)) &\simeq \text{Area} (e_u \wedge e_v) \\
+&= \abs{e_u \times e_v} \text{Area}(R) \\
+&= \abs{e_u \times e_v} \Delta u \Delta v.
 \end{split}
 \end{equation*}
 
-** Area
+\[
+dA = \abs{e_u \times e_v} du dv
+\]
 
-Note that \(\abs{X_u \times X_v}^2 = \det \lambda^T \lambda = \det g\) where \(\lambda = (X_u \quad X_v)\)!
+** Region in Coordinates
 
-Area is the limit of a Riemann sum: for any region \(\Omega = \varphi(W)\)
+\(\abs{e_u \times e_v}^2 = \det \lambda^T \lambda = \det g\) where \(\lambda = (e_u \quad e_v)\)
+
+Area is the limit of a Riemann sum:
+
+#+BEGIN_env defn
+For any region \(\Omega = \varphi(W)\)
 \[
 \text{Area} (\Omega) = \int_W \sqrt{\det g(u, v)} du dv.
 \]
+#+END_env
+
+** General Region
+
+In general cover \(S\) by local parametrisations \(V_{\alpha}\).
+
+#+BEGIN_env defn
+\[
+\area(\Omega) = \sum_{\alpha} \area (\Omega \cap V_{\alpha}) - \text{ overlaps }
+\]
+#+END_env
+
+For example if \(S \subseteq V_1 \cup V_2\),
+\begin{equation*}
+\begin{split}
+\area(\Omega) =& \area(\Omega \cap V_1) + \area(\Omega \cap V_2) \\
+&- \area(\Omega \cap V_1 \cap V_2)
+\end{split}
+\end{equation*}
 
 ** Cylinder to Sphere
+
+Sphere: \(g^{\SS^2} = \begin{pmatrix}
+1 - r^2 & 0 \\
+0 & \tfrac{1}{1-r^2}
+\end{pmatrix}
+\)
+
+Cylinder: \(g^{\operatorname{Cyl}} = \delta\)
+
+Cylinder to Sphere is area preserving:
+\[
+\det g^{\SS^2} = \det g^{\operatorname{Cyl}}
+\]
+
 * Orientation And The Gauss Map                                    :noexport:
 ** Orientation And The Gauss Map
 ** Orientation of Euclidean Space
