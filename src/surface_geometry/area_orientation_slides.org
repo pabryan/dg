@@ -1,6 +1,45 @@
-#+TITLE: Orientation and Intrinsic Geometry
+#+TITLE: Area and Orientation
 #+OPTIONS: toc:nil num:nil
 
+* Area
+** Area
+
+Area is also determined by the metric.
+
+** Area
+
+Let
+\[
+X_u = d\varphi (e_u) = \partial_u \varphi, \quad X_v = d\varphi (e_v) = \partial_v \varphi
+\]
+be coordinate vectors.
+
+Since \(d\varphi\) is injective, \(X_u, X_v\) form a basis for \(T_x M\).
+
+** Area
+
+Parallelogram: \(X_u \wedge X_v \subseteq T_x M\)
+
+Taking a small rectangle \(R = \{(u, v) \in (u_0, u_0 + \Delta u) \times (v_0, v_0 + \Delta v)\}\), we approximate the area of \(\varphi(R) \subseteq S\) by
+\begin{equation*}
+\begin{split}
+\text{Area} (S) &\simeq \text{Area} (X_u \wedge X_v) \\
+
+&= \abs{X_u \times X_v} \text{Area}(R) \\
+&= \abs{X_u \times X_v} \Delta u \Delta v.
+\end{split}
+\end{equation*}
+
+** Area
+
+Note that \(\abs{X_u \times X_v}^2 = \det \lambda^T \lambda = \det g\) where \(\lambda = (X_u \quad X_v)\)!
+
+Area is the limit of a Riemann sum: for any region \(\Omega = \varphi(W)\)
+\[
+\text{Area} (\Omega) = \int_W \sqrt{\det g(u, v)} du dv.
+\]
+
+** Cylinder to Sphere
 * Orientation And The Gauss Map                                    :noexport:
 ** Orientation And The Gauss Map
 ** Orientation of Euclidean Space
@@ -183,15 +222,3 @@ S = \{(x, y, f(x, y))\}, \quad N(x, y, f(x)) = \frac{1}{\sqrt{1 + f_x^2 + f_y^2}
 S = \{F^{-1}(c)\}, \quad N(p) = \frac{\nabla F(p)}{|\nabla F(p)|}.
 \]
 
-* Intrinsic Geometry
-** Intrinsic Geometry
-** Intrinsic Geometry
-
-If we know \(g\), we may do geometry on \(S\) without any reference to how it sits in \(\RR^3\)! This is /intrinsic geometry/.
-
-What exactly is the definition of \(g\) if we don't refer to \(\RR^3\)?
-
-At this point, the best we can do is say that \(g\) is determined by a collection of smooth, matrix valued maps \((u, v) \in U \mapsto (g_{ij}(u, v))\) in each local parametrisation that are symmetric and positive definite at each point \((u, v)\). We also require that under a change of coordinates, \(\tau\) we have
-\[
-g^{\varphi \circ \tau}_{ab} = \sum_{ij} g^{\varphi}_{ij} \partial_{y^a} \tau^i \partial_{y^b} \tau^j.
-\]
