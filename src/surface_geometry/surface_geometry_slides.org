@@ -32,12 +32,16 @@ g(V, W) &= \ip{c_1 \frac{\partial \varphi}{\partial x_1} + c_2 \frac{\partial \v
 
 ** Matrix Form in Local Coordinates
 
+\[
+g(U, V) = U^T g V
+\]
+
 \begin{equation*}
 g = \begin{pmatrix}
 g_{11} & g_{12} \\
 g_{21} & g_{22}
 \end{pmatrix}
-:=
+=
 \begin{pmatrix}
 \ip{\frac{\partial \varphi}{\partial x_1}}{\frac{\partial \varphi}{\partial x_1}} &  \ip{\frac{\partial \varphi}{\partial x_1}}{\frac{\partial \varphi}{\partial x_2}} \\
 \ip{\frac{\partial \varphi}{\partial x_2}}{\frac{\partial \varphi}{\partial x_1}} & \ip{\frac{\partial \varphi}{\partial x_2}}{\frac{\partial \varphi}{\partial x_2}}
@@ -49,7 +53,7 @@ g_{21} & g_{22}
 ** Change of Coordinates
 
 Change of coords \(\tau = \varphi^{-1} \circ \psi: \RR^2 \to \RR^2\):
-\begin{equation*}.
+\begin{equation*}
 \begin{split}
 g^{\psi}_{ab} &= g^{\varphi \circ \tau}_{ab} \\
 &= \ip{\partial_{y^a} (\varphi \circ \tau)}{\partial_{y^b} (\varphi \circ \tau)} \\
@@ -68,30 +72,120 @@ g^{\varphi \circ \tau}(X, Y) &= \ip{d(\varphi \circ \tau) \cdot X}{d(\varphi \ci
 \end{split}
 \end{equation*}
 
+\[
+g^{\varphi \circ \tau} = d\tau^T g d\tau
+\]
+
 * Examples
 ** Examples
 ** Euclidean Metric
 
 #+BEGIN_env eg
+\[
+\varphi(u, v) = (u, v, 0)
+\]
 
+Then \(g = \delta\)
+
+i.e. \(g_{ij} = \delta_{ij}\)
 #+END_env
 
-** Spherical Metric
+** Sphere Metric: Spherical
 
 #+BEGIN_env eg
+\begin{align*}
+\varphi (\theta, \phi) &= (\sin\phi \cos\theta, \sin\phi \sin\theta, \cos\phi) \\
+e_{\theta} &= (-\sin\phi\sin\theta, \sin\phi\cos\theta, 0) \\
+e_{\phi} &= (\cos\phi \cos\theta, \cos\phi \sin\theta, -\sin\phi)
+\end{align*}
 
+\begin{equation*}
+g = \begin{pmatrix}
+\sin^2 \phi & 0 \\
+0 & 1
+\end{pmatrix}
+\end{equation*}
 #+END_env
+
+** Sphere Metric: Cylindrical
+
+#+BEGIN_env eg
+\begin{align*}
+\varphi (\eta, r) &= (\sqrt{1-r^2} \cos\eta, \sqrt{1-r^2} \sin\eta, r) \\
+e_{\eta} &= (-\sqrt{1-r^2} \sin \eta, \sqrt{1-r^2} \cos \eta, 0) \\
+e_r &= \left(\tfrac{-r}{\sqrt{1-r^2}} \cos \eta, \tfrac{-r}{\sqrt{1-r^2}} \sin \eta, 1 \right)
+\end{align*}
+
+\begin{equation*}
+g = \begin{pmatrix}
+1 - r^2 & 0 \\
+0 & \tfrac{1}{1-r^2}
+\end{pmatrix}
+\end{equation*}
+#+END_env
+
+** Cylindrical to Spherical
+
+\[
+(\eta, r) = (\theta, \cos \phi)
+\]
+
+\begin{equation*}
+\begin{split}
+g^{\operatorname{Cyl}} &= d\tau^T g^{\SS^2} d\tau \\
+&= \begin{pmatrix}
+1 & 0 \\
+0 & \tfrac{-1}{\sqrt{1-r^2}}
+\end{pmatrix}
+\begin{pmatrix}
+\sin^2 \phi & 0 \\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 \\
+0 & \tfrac{-1}{\sqrt{1-r^2}}
+\end{pmatrix} \\
+&= \begin{pmatrix}
+\sin^2 \phi & 0 \\
+0 & \tfrac{1}{1 - r^2}
+\end{pmatrix}
+= \begin{pmatrix}
+1-r^2 & 0 \\
+0 & \tfrac{1}{1 - r^2}
+\end{pmatrix}
+\end{split}
+\end{equation*}
 
 ** Paraboloid
 
 #+BEGIN_env eg
+\begin{align*}
+\varphi(u, v) &= (u, v, u^2 + v^2) \\
+e_u &= (1, 0, 2u) \\
+e_v &= (0, 1, 2v)
+\end{align*}
 
+\begin{equation*}
+g = \begin{pmatrix}
+1 + 4u^2 & 4uv \\
+4uv & 1 + 4v^2
+\end{pmatrix}
+\end{equation*}
 #+END_env
 
 * Angle and Length
 ** Angle and Length
 
 We can define angle and length by using the metric \(g\).
+
+** Length of Tangent Vectors
+
+#+BEGIN_env defn
+Let \(X\) be a tangent vector. Then it's length is defined to be
+\[
+\abs{X}_g := \sqrt{g(X, X)}.
+\]
+#+END_env
 
 ** Cauchy Schwartz Inequality
 
@@ -101,22 +195,13 @@ We can define angle and length by using the metric \(g\).
 \]
 #+END_lemma
 
-See https://en.wikipedia.org/wiki/Cauchy%E2%80%93Schwarz_inequality#First_proof
-
-Rearranging Cauchy-Schwarz inequality for \(X, Y \ne 0\) gives
+For \(X, Y \ne 0\)
 \[
 \frac{g(X, Y)}{\abs{X}\abs{Y}} \in [-1, 1]
 \]
 and \(\theta\) is well defined after choosing an inverse such as \(\theta \in [0, \pi]\).
 
-** Length and Angle of Tangent Vectors
-
-#+BEGIN_env defn
-Let \(X\) be a tangent vector. Then it's length is defined to be
-\[
-\abs{X}_g := \sqrt{g(X, X)}.
-\]
-#+END_env
+** Angle Between Tangent Vectors
 
 #+BEGIN_env defn
 The angle, \(\theta\) between two tangent vectors \(X, Y\) (at the same point \(x \in S\)!) is defined by
@@ -124,7 +209,6 @@ The angle, \(\theta\) between two tangent vectors \(X, Y\) (at the same point \(
 \cos \theta = \frac{g(X, Y)}{\abs{X}\abs{Y}} = g\left(\frac{X}{\abs{X}}, \frac{Y}{\abs{Y}}\right).
 \]
 #+END_env
-
 ** Arc Length
 
 #+BEGIN_defn
@@ -136,7 +220,60 @@ L(\gamma) = \int_a^b \abs{\gamma'(t)} dt = \int_a^b \sqrt{g_{\gamma(t)} (\gamma'
 
 This is just the arc-length in \(\RR^3\) but expressed in terms of \(g\).
 
-** Example: Sphere
+** Example: Paraboloid
+
+#+BEGIN_env eg
+Let \(\gamma(t) = (t, 0, t^2)\), \(\mu (t) = \varphi^{-1} \circ \gamma (t) = (t, 0)\)
+
+\begin{equation*}
+\begin{split}
+\abs{\gamma'}_{\RR^3}^2 &= \abs{\mu'}_{g(\mu(t))}^2 =
+\begin{pmatrix}
+1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+1 + 4u^2 & 4uv \\
+4uv & 1 + 4v^2
+\end{pmatrix}
+\begin{pmatrix}
+1 \\ 0
+\end{pmatrix} \\
+&= \begin{pmatrix}
+1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+1 + 4t^2 & 0 \\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+1 \\ 0
+\end{pmatrix} \\
+&= 1 + 4t^2
+\end{split}
+\end{equation*}
+
+\[
+L(\gamma) = \int \sqrt{1 + 4t^2} dt
+\]
+#+END_env
+
+** Example: Paraboloid
+
+#+BEGIN_env eg
+At \(p = (u, v, u^2 + v^2)\)
+
+\begin{align*}
+g(\gamma_u', \gamma_u') &= 1 + 4u^2 \\
+g(\gamma_v', \gamma_v') &= 1 + 4v^2 \\
+g(\gamma_u', \gamma_v') &= 4uv
+\end{align*}
+
+\[
+\cos \theta(\gamma_u', \gamma_v') = \frac{4uv}{\sqrt{1+4u^2}\sqrt{1+4v^2}}
+\]
+
+#+END_env
+
 * Area
 ** Area
 
@@ -154,20 +291,25 @@ Since \(d\varphi\) is injective, \(X_u, X_v\) form a basis for \(T_x M\).
 
 ** Area
 
-\(X_u, X_v\) determines a parallelogram \(X_u \wedge X_v \subseteq T_x M\).
+Parallelogram: \(X_u \wedge X_v \subseteq T_x M\)
 
 Taking a small rectangle \(R = \{(u, v) \in (u_0, u_0 + \Delta u) \times (v_0, v_0 + \Delta v)\}\), we approximate the area of \(\varphi(R) \subseteq S\) by
-\[
-\text{Area} (\varphi(S)) \simeq \text{Area} (X_u \wedge X_v) = \abs{X_u \times X_v} \text{Area}(R) = \abs{X_u \times X_v} \Delta u \Delta v.
-\]
+\begin{equation*}
+\begin{split}
+\text{Area} (S) &\simeq \text{Area} (X_u \wedge X_v) \\
+
+&= \abs{X_u \times X_v} \text{Area}(R) \\
+&= \abs{X_u \times X_v} \Delta u \Delta v.
+\end{split}
+\end{equation*}
 
 ** Area
 
 Note that \(\abs{X_u \times X_v}^2 = \det \lambda^T \lambda = \det g\) where \(\lambda = (X_u \quad X_v)\)!
 
-Area is the limit of a Riemann sum: for any region \(\Omega = \varphi(W) \subseteq \varphi(U)\)
+Area is the limit of a Riemann sum: for any region \(\Omega = \varphi(W)\)
 \[
 \text{Area} (\Omega) = \int_W \sqrt{\det g(u, v)} du dv.
 \]
 
-** Archimedes Cylinder to Sphere
+** Cylinder to Sphere
