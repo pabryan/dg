@@ -21,7 +21,7 @@
 - num: "05"
   title: Geometry and Curvature of Surfaces
   short_title: Surface Geometry
-  link: "/geometry_curvature_surfaces"
+  link: "/notes/surface_geometry"
 - num: "06"
   title: Manifolds
   short_title: Manifolds
