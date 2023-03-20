@@ -45,14 +45,14 @@ def convert(html):
     soup = BeautifulSoup(html, "lxml")
 
     sections = soup.find_all("div", class_=section_class)
+    if (len(sections) > 0):
+        s1 = sections[0]
+        accordion = soup.new_tag("accordion")
+        s1.insert_before(accordion)
 
-    s1 = sections[0]
-    accordion = soup.new_tag("accordion")
-    s1.insert_before(accordion)
-
-    for s in sections:
-        accordion.append(s)
-        convert_section(s, soup)
+        for s in sections:
+            accordion.append(s)
+            convert_section(s, soup)
 
     return (" ".join(str(c) for c in soup.body.children))
             
