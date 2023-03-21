@@ -1,0 +1,172 @@
+#+TITLE: Geometry of Surfaces
+#+OPTIONS: toc:nil num:nil
+
+* Angle and Length
+** Angle and Length
+
+We can define angle and length by using the metric \(g\).
+
+** Length of Tangent Vectors
+
+#+BEGIN_env defn
+Let \(X\) be a tangent vector. Then it's length is defined to be
+\[
+\abs{X}_g := \sqrt{g(X, X)}.
+\]
+#+END_env
+
+** Cauchy Schwartz Inequality
+
+#+BEGIN_lemma
+\[
+\abs{g(X, Y)} \leq \abs{X}\abs{Y}.
+\]
+#+END_lemma
+
+For \(X, Y \ne 0\)
+\[
+\frac{g(X, Y)}{\abs{X}\abs{Y}} \in [-1, 1]
+\]
+and \(\theta\) is well defined after choosing an inverse such as \(\theta \in [0, \pi]\).
+
+** Angle Between Tangent Vectors
+
+#+BEGIN_env defn
+The angle, \(\theta\) between two tangent vectors \(X, Y\) (at the same point \(x \in S\)!) is defined by
+\[
+\cos \theta = \frac{g(X, Y)}{\abs{X}\abs{Y}} = g\left(\frac{X}{\abs{X}}, \frac{Y}{\abs{Y}}\right).
+\]
+#+END_env
+** Arc Length
+
+#+BEGIN_defn
+Let \(\gamma : (a, b) \to S\) be a smooth curve. The /arc-length/ of \(\gamma\) is
+\[
+L(\gamma) = \int_a^b \abs{\gamma'(t)} dt = \int_a^b \sqrt{g_{\gamma(t)} (\gamma'(t), \gamma'(t))} dt.
+\]
+#+END_defn
+
+This is just the arc-length in \(\RR^3\) but expressed in terms of \(g\).
+
+** Example: Paraboloid
+
+#+BEGIN_env eg
+Let \(\gamma(t) = (t, 0, t^2)\), \(\mu (t) = \varphi^{-1} \circ \gamma (t) = (t, 0)\)
+
+\begin{equation*}
+\begin{split}
+\abs{\gamma'}_{\RR^3}^2 &= \abs{\mu'}_{g(\mu(t))}^2 =
+\begin{pmatrix}
+1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+1 + 4u^2 & 4uv \\
+4uv & 1 + 4v^2
+\end{pmatrix}
+\begin{pmatrix}
+1 \\ 0
+\end{pmatrix} \\
+&= \begin{pmatrix}
+1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+1 + 4t^2 & 0 \\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+1 \\ 0
+\end{pmatrix} \\
+&= 1 + 4t^2
+\end{split}
+\end{equation*}
+
+\[
+L(\gamma) = \int \sqrt{1 + 4t^2} dt
+\]
+#+END_env
+
+** Example: Paraboloid
+
+#+BEGIN_env eg
+At \(p = (u, v, u^2 + v^2)\)
+
+\begin{align*}
+g(\gamma_u', \gamma_u') &= 1 + 4u^2 \\
+g(\gamma_v', \gamma_v') &= 1 + 4v^2 \\
+g(\gamma_u', \gamma_v') &= 4uv
+\end{align*}
+
+\[
+\cos \theta(\gamma_u', \gamma_v') = \frac{4uv}{\sqrt{1+4u^2}\sqrt{1+4v^2}}
+\]
+
+#+END_env
+
+* Area
+** Area
+
+Area is also determined by the metric.
+
+** Infinitesimal Area
+
+Parallelogram: \(e_u \wedge e_v \subseteq T_x M\)
+
+Small rectangle \(R = (u_0, u_0 + \Delta u) \times (v_0, v_0 + \Delta v)\):
+\begin{equation*}
+\begin{split}
+\text{Area} (\varphi(R)) &\simeq \text{Area} (e_u \wedge e_v) \\
+&= \abs{e_u \times e_v} \text{Area}(R) \\
+&= \abs{e_u \times e_v} \Delta u \Delta v.
+\end{split}
+\end{equation*}
+
+\[
+dA = \abs{e_u \times e_v} du dv
+\]
+
+** Region in Coordinates
+
+\(\abs{e_u \times e_v}^2 = \det \lambda^T \lambda = \det g\) where \(\lambda = (e_u \quad e_v)\)
+
+Area is the limit of a Riemann sum:
+
+#+BEGIN_env defn
+For any region \(\Omega = \varphi(W)\)
+\[
+\text{Area} (\Omega) = \int_W \sqrt{\det g(u, v)} du dv.
+\]
+#+END_env
+
+** General Region
+
+In general cover \(S\) by local parametrisations \(V_{\alpha}\).
+
+#+BEGIN_env defn
+\[
+\area(\Omega) = \sum_{\alpha} \area (\Omega \cap V_{\alpha}) - \text{ overlaps }
+\]
+#+END_env
+
+For example if \(S \subseteq V_1 \cup V_2\),
+\begin{equation*}
+\begin{split}
+\area(\Omega) =& \area(\Omega \cap V_1) + \area(\Omega \cap V_2) \\
+&- \area(\Omega \cap V_1 \cap V_2)
+\end{split}
+\end{equation*}
+
+** Cylinder to Sphere
+
+Sphere: \(g^{\SS^2} = \begin{pmatrix}
+1 - r^2 & 0 \\
+0 & \tfrac{1}{1-r^2}
+\end{pmatrix}
+\)
+
+Cylinder: \(g^{\operatorname{Cyl}} = \delta\)
+
+Cylinder to Sphere is area preserving:
+\[
+\det g^{\SS^2} = \det g^{\operatorname{Cyl}}
+\]
+
