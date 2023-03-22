@@ -2,262 +2,35 @@
 layout: org-slides
 ---
 
-<section class="outline-2" id="outline-container-org4b184f8">
-<h2 id="org4b184f8">Riemannian Metric</h2>
-<div class="outline-text-2" id="text-org4b184f8">
+<section class="outline-2" id="outline-container-org925d8ed">
+<h2 id="org925d8ed">Angle and Length</h2>
+<div class="outline-text-2" id="text-org925d8ed">
 </div>
-<section class="outline-3" id="outline-container-orga5a151c">
-<h3 id="orga5a151c">Riemannian Metric</h3>
-<div class="outline-text-3" id="text-orga5a151c">
-<p>
-The Riemannian metric of a surface completely determines the geometry of the surface.
-</p>
-</div>
-</section>
-<section class="outline-3" id="outline-container-org0f789aa">
-<h3 id="org0f789aa">Metric (First Fundamental Form)</h3>
-<div class="outline-text-3" id="text-org0f789aa">
-<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
-<p>
-The (Riemmanian) metric \(g\) on \(S\) is the inner product \(g_p\) at each point \(p \in S\) defined for tangent vectors \(V, W \in T_p S \subseteq \RR^3\) by
-\[
-g_p(V, W) = \ip{V}{V}_{\RR^3}.
-\]
-</p>
-</div></div>
-</div>
-</section>
-<section class="outline-3" id="outline-container-org2282e70">
-<h3 id="org2282e70">Coordinate Expression of Metric</h3>
-<div class="outline-text-3" id="text-org2282e70">
-<p>
-\[
-V = c^1 \partial_{x_1} \varphi + c^2 \partial_{x_2} \varphi, \quad W = d^1 \partial_{x_1} \varphi + d^2 \partial_{x_2} \varphi
-\]
-</p>
-
-\begin{equation*}
-\begin{split}
-g(V, W) &amp;= \ip{c_1 \frac{\partial \varphi}{\partial x_1} + c_2 \frac{\partial \varphi}{\partial x_2}}{d_1 \frac{\partial \varphi}{\partial x_1} + d_2 \frac{\partial \varphi}{\partial x_2}} \\
-&amp;= c_1 d_1 \ip{\frac{\partial \varphi}{\partial x_1}}{\frac{\partial \varphi}{\partial x_1}} + c_2 d_2 \ip{\frac{\partial \varphi}{\partial x_2}}{\frac{\partial \varphi}{\partial x_2}} \\
-&amp;\quad + (c_1d_2 + c_2 d_1) \ip{\frac{\partial \varphi}{\partial x_1}}{\frac{\partial \varphi}{\partial x_2}} \\
-&amp;= c_1 d_1 g_{11} + c_2 d_2 g_{22} + (c_1 d_2 + c_2 d_1) g_{12}.
-\end{split}
-\end{equation*}
-</div>
-</section>
-<section class="outline-3" id="outline-container-org737b0bb">
-<h3 id="org737b0bb">Matrix Form in Local Coordinates</h3>
-<div class="outline-text-3" id="text-org737b0bb">
-<p>
-\[
-g(U, V) = U^T g V
-\]
-</p>
-
-\begin{equation*}
-g = \begin{pmatrix}
-g_{11} &amp; g_{12} \\
-g_{21} &amp; g_{22}
-\end{pmatrix}
-=
-\begin{pmatrix}
-\ip{\frac{\partial \varphi}{\partial x_1}}{\frac{\partial \varphi}{\partial x_1}} &amp;  \ip{\frac{\partial \varphi}{\partial x_1}}{\frac{\partial \varphi}{\partial x_2}} \\
-\ip{\frac{\partial \varphi}{\partial x_2}}{\frac{\partial \varphi}{\partial x_1}} &amp; \ip{\frac{\partial \varphi}{\partial x_2}}{\frac{\partial \varphi}{\partial x_2}}
-\end{pmatrix}
-\end{equation*}
-
-<p>
-\((g_{ij})\) is <i>positive definite</i> and <i>symmetric</i>.
-</p>
-</div>
-</section>
-<section class="outline-3" id="outline-container-orgaba06ba">
-<h3 id="orgaba06ba">Change of Coordinates</h3>
-<div class="outline-text-3" id="text-orgaba06ba">
-<p>
-Change of coords \(\tau = \varphi^{-1} \circ \psi: \RR^2 \to \RR^2\):
-</p>
-\begin{equation*}
-\begin{split}
-g^{\psi}_{ab} &amp;= g^{\varphi \circ \tau}_{ab} \\
-&amp;= \ip{\partial_{y^a} (\varphi \circ \tau)}{\partial_{y^b} (\varphi \circ \tau)} \\
-&amp;= \ip{\sum_i \partial_{x^i} \varphi \partial_{y^a} \tau^i}{\sum_j \partial_{x^j} \varphi \partial_{y^b} \tau^j} \\
-&amp;= \sum_{ij} g_{ij} \partial_{y^a} \tau^i \partial_{y^b} \tau^j
-\end{split}
-\end{equation*}
-</div>
-</section>
-<section class="outline-3" id="outline-container-orgf978074">
-<h3 id="orgf978074">Matrix Change of Coordinates</h3>
-<div class="outline-text-3" id="text-orgf978074">
-\begin{equation*}
-\begin{split}
-g^{\varphi \circ \tau}(X, Y) &amp;= \ip{d(\varphi \circ \tau) \cdot X}{d(\varphi \circ \tau) \cdot Y} \\
-&amp;= \ip{d\varphi(d\tau \cdot X)}{d\varphi(d\tau \cdot y)} \\
-&amp;= g^{\varphi} (d\tau \cdot X, d\tau \cdot Y).
-\end{split}
-\end{equation*}
-
-<p>
-\[
-g^{\varphi \circ \tau} = d\tau^T g d\tau
-\]
-</p>
-</div>
-</section>
-</section>
-<section class="outline-2" id="outline-container-orgcbdd7b5">
-<h2 id="orgcbdd7b5">Examples</h2>
-<div class="outline-text-2" id="text-orgcbdd7b5">
-</div>
-<section class="outline-3" id="outline-container-org0a9095a">
-<h3 id="org0a9095a">Examples</h3>
-</section>
-<section class="outline-3" id="outline-container-orge9b1d5b">
-<h3 id="orge9b1d5b">Euclidean Metric</h3>
-<div class="outline-text-3" id="text-orge9b1d5b">
-<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
-<p>
-\[
-\varphi(u, v) = (u, v, 0)
-\]
-</p>
-<p>
-Then \(g = \delta\)
-</p>
-<p>
-i.e. \(g_{ij} = \delta_{ij}\)
-</p>
-</div></div>
-</div>
-</section>
-<section class="outline-3" id="outline-container-org6d861e2">
-<h3 id="org6d861e2">Sphere Metric: Spherical</h3>
-<div class="outline-text-3" id="text-org6d861e2">
-<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
-\begin{align*}
-\varphi (\theta, \phi) &amp;= (\sin\phi \cos\theta, \sin\phi \sin\theta, \cos\phi) \\
-e_{\theta} &amp;= (-\sin\phi\sin\theta, \sin\phi\cos\theta, 0) \\
-e_{\phi} &amp;= (\cos\phi \cos\theta, \cos\phi \sin\theta, -\sin\phi)
-\end{align*}
-
-\begin{equation*}
-g = \begin{pmatrix}
-\sin^2 \phi &amp; 0 \\
-0 &amp; 1
-\end{pmatrix}
-\end{equation*}
-
-</div></div>
-</div>
-</section>
-<section class="outline-3" id="outline-container-org1877b3f">
-<h3 id="org1877b3f">Sphere Metric: Cylindrical</h3>
-<div class="outline-text-3" id="text-org1877b3f">
-<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
-\begin{align*}
-\varphi (\eta, r) &amp;= (\sqrt{1-r^2} \cos\eta, \sqrt{1-r^2} \sin\eta, r) \\
-e_{\eta} &amp;= (-\sqrt{1-r^2} \sin \eta, \sqrt{1-r^2} \cos \eta, 0) \\
-e_r &amp;= \left(\tfrac{-r}{\sqrt{1-r^2}} \cos \eta, \tfrac{-r}{\sqrt{1-r^2}} \sin \eta, 1 \right)
-\end{align*}
-
-\begin{equation*}
-g = \begin{pmatrix}
-1 - r^2 &amp; 0 \\
-0 &amp; \tfrac{1}{1-r^2}
-\end{pmatrix}
-\end{equation*}
-
-</div></div>
-</div>
-</section>
-<section class="outline-3" id="outline-container-org535b1cd">
-<h3 id="org535b1cd">Cylindrical to Spherical</h3>
-<div class="outline-text-3" id="text-org535b1cd">
-<p>
-\[
-(\eta, r) = (\theta, \cos \phi)
-\]
-</p>
-
-\begin{equation*}
-\begin{split}
-g^{\operatorname{Cyl}} &amp;= d\tau^T g^{\SS^2} d\tau \\
-&amp;= \begin{pmatrix}
-1 &amp; 0 \\
-0 &amp; \tfrac{-1}{\sqrt{1-r^2}}
-\end{pmatrix}
-\begin{pmatrix}
-\sin^2 \phi &amp; 0 \\
-0 &amp; 1
-\end{pmatrix}
-\begin{pmatrix}
-1 &amp; 0 \\
-0 &amp; \tfrac{-1}{\sqrt{1-r^2}}
-\end{pmatrix} \\
-&amp;= \begin{pmatrix}
-\sin^2 \phi &amp; 0 \\
-0 &amp; \tfrac{1}{1 - r^2}
-\end{pmatrix}
-= \begin{pmatrix}
-1-r^2 &amp; 0 \\
-0 &amp; \tfrac{1}{1 - r^2}
-\end{pmatrix}
-\end{split}
-\end{equation*}
-</div>
-</section>
-<section class="outline-3" id="outline-container-org622a724">
-<h3 id="org622a724">Paraboloid</h3>
-<div class="outline-text-3" id="text-org622a724">
-<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
-\begin{align*}
-\varphi(u, v) &amp;= (u, v, u^2 + v^2) \\
-e_u &amp;= (1, 0, 2u) \\
-e_v &amp;= (0, 1, 2v)
-\end{align*}
-
-\begin{equation*}
-g = \begin{pmatrix}
-1 + 4u^2 &amp; 4uv \\
-4uv &amp; 1 + 4v^2
-\end{pmatrix}
-\end{equation*}
-
-</div></div>
-</div>
-</section>
-</section>
-<section class="outline-2" id="outline-container-org94ece18">
-<h2 id="org94ece18">Angle and Length</h2>
-<div class="outline-text-2" id="text-org94ece18">
-</div>
-<section class="outline-3" id="outline-container-org967b21a">
-<h3 id="org967b21a">Angle and Length</h3>
-<div class="outline-text-3" id="text-org967b21a">
+<section class="outline-3" id="outline-container-orgbcbe128">
+<h3 id="orgbcbe128">Angle and Length</h3>
+<div class="outline-text-3" id="text-orgbcbe128">
 <p>
 We can define angle and length by using the metric \(g\).
 </p>
 </div>
 </section>
-<section class="outline-3" id="outline-container-org0362beb">
-<h3 id="org0362beb">Length of Tangent Vectors</h3>
-<div class="outline-text-3" id="text-org0362beb">
-<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<section class="outline-3" id="outline-container-orgdef9df0">
+<h3 id="orgdef9df0">Length of Tangent Vectors</h3>
+<div class="outline-text-3" id="text-orgdef9df0">
+<div class="env" id="org78eefbb">
 <p>
-Let \(X\) be a tangent vector. Then it’s length is defined to be
+Let \(X\) be a tangent vector. Then it's length is defined to be
 \[
 \abs{X}_g := \sqrt{g(X, X)}.
 \]
 </p>
-</div></div>
+</div>
 </div>
 </section>
-<section class="outline-3" id="outline-container-orgf406bcd">
-<h3 id="orgf406bcd">Cauchy Schwartz Inequality</h3>
-<div class="outline-text-3" id="text-orgf406bcd">
-<div class="lemma" id="org6efc1d4">
+<section class="outline-3" id="outline-container-orgff0186a">
+<h3 id="orgff0186a">Cauchy Schwartz Inequality</h3>
+<div class="outline-text-3" id="text-orgff0186a">
+<div class="lemma" id="org579130d">
 <p>
 \[
 \abs{g(X, Y)} \leq \abs{X}\abs{Y}.
@@ -273,23 +46,23 @@ and \(\theta\) is well defined after choosing an inverse such as \(\theta \in [0
 </p>
 </div>
 </section>
-<section class="outline-3" id="outline-container-orgdf720ec">
-<h3 id="orgdf720ec">Angle Between Tangent Vectors</h3>
-<div class="outline-text-3" id="text-orgdf720ec">
-<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<section class="outline-3" id="outline-container-org519bb0e">
+<h3 id="org519bb0e">Angle Between Tangent Vectors</h3>
+<div class="outline-text-3" id="text-org519bb0e">
+<div class="env" id="org899bd8f">
 <p>
 The angle, \(\theta\) between two tangent vectors \(X, Y\) (at the same point \(x \in S\)!) is defined by
 \[
 \cos \theta = \frac{g(X, Y)}{\abs{X}\abs{Y}} = g\left(\frac{X}{\abs{X}}, \frac{Y}{\abs{Y}}\right).
 \]
 </p>
-</div></div>
+</div>
 </div>
 </section>
-<section class="outline-3" id="outline-container-org56b6592">
-<h3 id="org56b6592">Arc Length</h3>
-<div class="outline-text-3" id="text-org56b6592">
-<div class="defn" id="org57fe1ea">
+<section class="outline-3" id="outline-container-org0a7fbd1">
+<h3 id="org0a7fbd1">Arc Length</h3>
+<div class="outline-text-3" id="text-org0a7fbd1">
+<div class="defn" id="org5c92367">
 <p>
 Let \(\gamma : (a, b) \to S\) be a smooth curve. The <i>arc-length</i> of \(\gamma\) is
 \[
@@ -302,10 +75,10 @@ This is just the arc-length in \(\RR^3\) but expressed in terms of \(g\).
 </p>
 </div>
 </section>
-<section class="outline-3" id="outline-container-orge8a54be">
-<h3 id="orge8a54be">Example: Paraboloid</h3>
-<div class="outline-text-3" id="text-orge8a54be">
-<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<section class="outline-3" id="outline-container-org94ea54c">
+<h3 id="org94ea54c">Example: Paraboloid</h3>
+<div class="outline-text-3" id="text-org94ea54c">
+<div class="env" id="orgb824583">
 <p>
 Let \(\gamma(t) = (t, 0, t^2)\), \(\mu (t) = \varphi^{-1} \circ \gamma (t) = (t, 0)\)
 </p>
@@ -342,13 +115,13 @@ Let \(\gamma(t) = (t, 0, t^2)\), \(\mu (t) = \varphi^{-1} \circ \gamma (t) = (t,
 L(\gamma) = \int \sqrt{1 + 4t^2} dt
 \]
 </p>
-</div></div>
+</div>
 </div>
 </section>
-<section class="outline-3" id="outline-container-orga9a2a6b">
-<h3 id="orga9a2a6b">Example: Paraboloid</h3>
-<div class="outline-text-3" id="text-orga9a2a6b">
-<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<section class="outline-3" id="outline-container-orgb2213aa">
+<h3 id="orgb2213aa">Example: Paraboloid</h3>
+<div class="outline-text-3" id="text-orgb2213aa">
+<div class="env" id="orga20bd26">
 <p>
 At \(p = (u, v, u^2 + v^2)\)
 </p>
@@ -364,7 +137,108 @@ g(\gamma_u', \gamma_v') &amp;= 4uv
 \cos \theta(\gamma_u', \gamma_v') = \frac{4uv}{\sqrt{1+4u^2}\sqrt{1+4v^2}}
 \]
 </p>
-</div></div>
+</div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org27bb4f5">
+<h2 id="org27bb4f5">Area</h2>
+<div class="outline-text-2" id="text-org27bb4f5">
+</div>
+<section class="outline-3" id="outline-container-orgd5d577f">
+<h3 id="orgd5d577f">Area</h3>
+<div class="outline-text-3" id="text-orgd5d577f">
+<p>
+Area is also determined by the metric.
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org6a7a0e2">
+<h3 id="org6a7a0e2">Infinitesimal Area</h3>
+<div class="outline-text-3" id="text-org6a7a0e2">
+<p>
+Parallelogram: \(e_u \wedge e_v \subseteq T_x M\)
+</p>
+<p>
+Small rectangle \(R = (u_0, u_0 + \Delta u) \times (v_0, v_0 + \Delta v)\):
+</p>
+\begin{equation*}
+\begin{split}
+\text{Area} (\varphi(R)) &amp;\simeq \text{Area} (e_u \wedge e_v) \\
+&amp;= \abs{e_u \times e_v} \text{Area}(R) \\
+&amp;= \abs{e_u \times e_v} \Delta u \Delta v.
+\end{split}
+\end{equation*}
+
+<p>
+\[
+dA = \abs{e_u \times e_v} du dv
+\]
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org5c991ea">
+<h3 id="org5c991ea">Region in Coordinates</h3>
+<div class="outline-text-3" id="text-org5c991ea">
+<p>
+\(\abs{e_u \times e_v}^2 = \det \lambda^T \lambda = \det g\) where \(\lambda = (e_u \quad e_v)\)
+</p>
+<p>
+Area is the limit of a Riemann sum:
+</p>
+<div class="env" id="orge16ecff">
+<p>
+For any region \(\Omega = \varphi(W)\)
+\[
+\text{Area} (\Omega) = \int_W \sqrt{\det g(u, v)} du dv.
+\]
+</p>
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgc37fe9a">
+<h3 id="orgc37fe9a">General Region</h3>
+<div class="outline-text-3" id="text-orgc37fe9a">
+<p>
+In general cover \(S\) by local parametrisations \(V_{\alpha}\).
+</p>
+<div class="env" id="orgf17934c">
+<p>
+\[
+\area(\Omega) = \sum_{\alpha} \area (\Omega \cap V_{\alpha}) - \text{ overlaps }
+\]
+</p>
+</div>
+<p>
+For example if \(S \subseteq V_1 \cup V_2\),
+</p>
+\begin{equation*}
+\begin{split}
+\area(\Omega) =&amp; \area(\Omega \cap V_1) + \area(\Omega \cap V_2) \\
+&amp;- \area(\Omega \cap V_1 \cap V_2)
+\end{split}
+\end{equation*}
+</div>
+</section>
+<section class="outline-3" id="outline-container-orge6c3748">
+<h3 id="orge6c3748">Cylinder to Sphere</h3>
+<div class="outline-text-3" id="text-orge6c3748">
+<p>
+Sphere: \(g^{\SS^2} = \begin{pmatrix}
+1 - r^2 &amp; 0 \\
+0 &amp; \tfrac{1}{1-r^2}
+\end{pmatrix}
+\)
+</p>
+<p>
+Cylinder: \(g^{\operatorname{Cyl}} = \delta\)
+</p>
+<p>
+Cylinder to Sphere is area preserving:
+\[
+\det g^{\SS^2} = \det g^{\operatorname{Cyl}}
+\]
+</p>
 </div>
 </section>
 </section>

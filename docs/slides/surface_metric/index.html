@@ -1,0 +1,231 @@
+---
+layout: org-slides
+---
+
+<section class="outline-2" id="outline-container-orgd5c144d">
+<h2 id="orgd5c144d">Riemannian Metric</h2>
+<div class="outline-text-2" id="text-orgd5c144d">
+</div>
+<section class="outline-3" id="outline-container-orgdb4012f">
+<h3 id="orgdb4012f">Riemannian Metric</h3>
+<div class="outline-text-3" id="text-orgdb4012f">
+<p>
+The Riemannian metric of a surface completely determines the geometry of the surface.
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org63be09c">
+<h3 id="org63be09c">Metric (First Fundamental Form)</h3>
+<div class="outline-text-3" id="text-org63be09c">
+<div class="env" id="orgad19ac6">
+<p>
+The (Riemmanian) metric \(g\) on \(S\) is the inner product \(g_p\) at each point \(p \in S\) defined for tangent vectors \(V, W \in T_p S \subseteq \RR^3\) by
+\[
+g_p(V, W) = \ip{V}{V}_{\RR^3}.
+\]
+</p>
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org37cda17">
+<h3 id="org37cda17">Coordinate Expression of Metric</h3>
+<div class="outline-text-3" id="text-org37cda17">
+<p>
+\[
+V = c^1 \partial_{x_1} \varphi + c^2 \partial_{x_2} \varphi, \quad W = d^1 \partial_{x_1} \varphi + d^2 \partial_{x_2} \varphi
+\]
+</p>
+
+\begin{equation*}
+\begin{split}
+g(V, W) &amp;= \ip{c_1 \frac{\partial \varphi}{\partial x_1} + c_2 \frac{\partial \varphi}{\partial x_2}}{d_1 \frac{\partial \varphi}{\partial x_1} + d_2 \frac{\partial \varphi}{\partial x_2}} \\
+&amp;= c_1 d_1 \ip{\frac{\partial \varphi}{\partial x_1}}{\frac{\partial \varphi}{\partial x_1}} + c_2 d_2 \ip{\frac{\partial \varphi}{\partial x_2}}{\frac{\partial \varphi}{\partial x_2}} \\
+&amp;\quad + (c_1d_2 + c_2 d_1) \ip{\frac{\partial \varphi}{\partial x_1}}{\frac{\partial \varphi}{\partial x_2}} \\
+&amp;= c_1 d_1 g_{11} + c_2 d_2 g_{22} + (c_1 d_2 + c_2 d_1) g_{12}.
+\end{split}
+\end{equation*}
+</div>
+</section>
+<section class="outline-3" id="outline-container-org6943163">
+<h3 id="org6943163">Matrix Form in Local Coordinates</h3>
+<div class="outline-text-3" id="text-org6943163">
+<p>
+\[
+g(U, V) = U^T g V
+\]
+</p>
+
+\begin{equation*}
+g = \begin{pmatrix}
+g_{11} &amp; g_{12} \\
+g_{21} &amp; g_{22}
+\end{pmatrix}
+=
+\begin{pmatrix}
+\ip{\frac{\partial \varphi}{\partial x_1}}{\frac{\partial \varphi}{\partial x_1}} &amp;  \ip{\frac{\partial \varphi}{\partial x_1}}{\frac{\partial \varphi}{\partial x_2}} \\
+\ip{\frac{\partial \varphi}{\partial x_2}}{\frac{\partial \varphi}{\partial x_1}} &amp; \ip{\frac{\partial \varphi}{\partial x_2}}{\frac{\partial \varphi}{\partial x_2}}
+\end{pmatrix}
+\end{equation*}
+
+<p>
+\((g_{ij})\) is <i>positive definite</i> and <i>symmetric</i>.
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org15b2f7c">
+<h3 id="org15b2f7c">Change of Coordinates</h3>
+<div class="outline-text-3" id="text-org15b2f7c">
+<p>
+Change of coords \(\tau = \varphi^{-1} \circ \psi: \RR^2 \to \RR^2\):
+</p>
+\begin{equation*}
+\begin{split}
+g^{\psi}_{ab} &amp;= g^{\varphi \circ \tau}_{ab} \\
+&amp;= \ip{\partial_{y^a} (\varphi \circ \tau)}{\partial_{y^b} (\varphi \circ \tau)} \\
+&amp;= \ip{\sum_i \partial_{x^i} \varphi \partial_{y^a} \tau^i}{\sum_j \partial_{x^j} \varphi \partial_{y^b} \tau^j} \\
+&amp;= \sum_{ij} g_{ij} \partial_{y^a} \tau^i \partial_{y^b} \tau^j
+\end{split}
+\end{equation*}
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgb76dfe9">
+<h3 id="orgb76dfe9">Matrix Change of Coordinates</h3>
+<div class="outline-text-3" id="text-orgb76dfe9">
+\begin{equation*}
+\begin{split}
+g^{\varphi \circ \tau}(X, Y) &amp;= \ip{d(\varphi \circ \tau) \cdot X}{d(\varphi \circ \tau) \cdot Y} \\
+&amp;= \ip{d\varphi(d\tau \cdot X)}{d\varphi(d\tau \cdot y)} \\
+&amp;= g^{\varphi} (d\tau \cdot X, d\tau \cdot Y).
+\end{split}
+\end{equation*}
+
+<p>
+\[
+g^{\varphi \circ \tau} = d\tau^T g d\tau
+\]
+</p>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org13f6f50">
+<h2 id="org13f6f50">Examples</h2>
+<div class="outline-text-2" id="text-org13f6f50">
+</div>
+<section class="outline-3" id="outline-container-org2e62378">
+<h3 id="org2e62378">Examples</h3>
+</section>
+<section class="outline-3" id="outline-container-orgd1be294">
+<h3 id="orgd1be294">Euclidean Metric</h3>
+<div class="outline-text-3" id="text-orgd1be294">
+<div class="env" id="orga3f77b8">
+<p>
+\[
+\varphi(u, v) = (u, v, 0)
+\]
+</p>
+<p>
+Then \(g = \delta\)
+</p>
+<p>
+i.e. \(g_{ij} = \delta_{ij}\)
+</p>
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orged53f4a">
+<h3 id="orged53f4a">Sphere Metric: Spherical</h3>
+<div class="outline-text-3" id="text-orged53f4a">
+<div class="env" id="org91ae066">
+\begin{align*}
+\varphi (\theta, \phi) &amp;= (\sin\phi \cos\theta, \sin\phi \sin\theta, \cos\phi) \\
+e_{\theta} &amp;= (-\sin\phi\sin\theta, \sin\phi\cos\theta, 0) \\
+e_{\phi} &amp;= (\cos\phi \cos\theta, \cos\phi \sin\theta, -\sin\phi)
+\end{align*}
+
+\begin{equation*}
+g = \begin{pmatrix}
+\sin^2 \phi &amp; 0 \\
+0 &amp; 1
+\end{pmatrix}
+\end{equation*}
+
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org9d220dd">
+<h3 id="org9d220dd">Sphere Metric: Cylindrical</h3>
+<div class="outline-text-3" id="text-org9d220dd">
+<div class="env" id="orgbc40137">
+\begin{align*}
+\varphi (\eta, r) &amp;= (\sqrt{1-r^2} \cos\eta, \sqrt{1-r^2} \sin\eta, r) \\
+e_{\eta} &amp;= (-\sqrt{1-r^2} \sin \eta, \sqrt{1-r^2} \cos \eta, 0) \\
+e_r &amp;= \left(\tfrac{-r}{\sqrt{1-r^2}} \cos \eta, \tfrac{-r}{\sqrt{1-r^2}} \sin \eta, 1 \right)
+\end{align*}
+
+\begin{equation*}
+g = \begin{pmatrix}
+1 - r^2 &amp; 0 \\
+0 &amp; \tfrac{1}{1-r^2}
+\end{pmatrix}
+\end{equation*}
+
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgc1e4afd">
+<h3 id="orgc1e4afd">Cylindrical to Spherical</h3>
+<div class="outline-text-3" id="text-orgc1e4afd">
+<p>
+\[
+(\eta, r) = (\theta, \cos \phi)
+\]
+</p>
+
+\begin{equation*}
+\begin{split}
+g^{\operatorname{Cyl}} &amp;= d\tau^T g^{\SS^2} d\tau \\
+&amp;= \begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; \tfrac{-1}{\sqrt{1-r^2}}
+\end{pmatrix}
+\begin{pmatrix}
+\sin^2 \phi &amp; 0 \\
+0 &amp; 1
+\end{pmatrix}
+\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; \tfrac{-1}{\sqrt{1-r^2}}
+\end{pmatrix} \\
+&amp;= \begin{pmatrix}
+\sin^2 \phi &amp; 0 \\
+0 &amp; \tfrac{1}{1 - r^2}
+\end{pmatrix}
+= \begin{pmatrix}
+1-r^2 &amp; 0 \\
+0 &amp; \tfrac{1}{1 - r^2}
+\end{pmatrix}
+\end{split}
+\end{equation*}
+</div>
+</section>
+<section class="outline-3" id="outline-container-org09c9653">
+<h3 id="org09c9653">Paraboloid</h3>
+<div class="outline-text-3" id="text-org09c9653">
+<div class="env" id="org4d794f4">
+\begin{align*}
+\varphi(u, v) &amp;= (u, v, u^2 + v^2) \\
+e_u &amp;= (1, 0, 2u) \\
+e_v &amp;= (0, 1, 2v)
+\end{align*}
+
+\begin{equation*}
+g = \begin{pmatrix}
+1 + 4u^2 &amp; 4uv \\
+4uv &amp; 1 + 4v^2
+\end{pmatrix}
+\end{equation*}
+
+</div>
+</div>
+</section>
+</section>
