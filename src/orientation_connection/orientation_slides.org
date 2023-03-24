@@ -1,38 +1,32 @@
 #+TITLE: Orientation
 #+OPTIONS: toc:nil num:nil
 
-* Orientation And The Gauss Map                                    :noexport:
-** Orientation And The Gauss Map
-** Orientation of Euclidean Space
+* Vector Space Orientation
+** Vector Space Orientation
+** Orientation of Vector Spaces
 
 #+BEGIN_env defn
-An orientation on \(\RR^n\) is an equivalence class of /ordered/ bases \(\mathcal{E} = (e_1, \cdots, e_n)\) where \(\mathcal{E} \sim \mathcal{F}\) if the change of basis matrix \(A_{\mathcal{E}\mathcal{F}}\) has positive determinant.
+An orientation on an \(n\)-dimensional vector space \(V\) is an equivalence class of /ordered/ bases \(\mathcal{E} = (e_1, \dots, e_n)\) where \(\mathcal{E} \sim \mathcal{F}\) if the change of basis matrix \(A_{\mathcal{E}\mathcal{F}}\) has positive determinant.
 #+END_env
-
-\pause
 
 Since \(\det \left(A_{\mathcal{E}\mathcal{F}} A_{\mathcal{F}\mathcal{G}}\right) = \det \left(A_{\mathcal{E}\mathcal{F}}\right) \det\left(A_{\mathcal{F}\mathcal{G}}\right)\), we do indeed have an equivalence relation, and there are /precisely two equivalence classes/.
 
-\pause
+** Orientation Examples
 
-\begin{example}
-Compute the change of basis from \(\mathcal{E} = (e_1, e_2)\) to \((e_1, e_1 + e_2), \quad (e_1, -e_2), \quad (e_2, e_1).\)
-\end{example}
+#+BEGIN_env eg
+Compute the change of basis and orientation from \(\mathcal{E} = (e_1, e_2)\) to \((e_1, e_1 + e_2), \quad (e_1, -e_2), \quad (e_2, e_1).\)
+#+END_env
 
-\pause
-
-\begin{example}
+#+BEGIN_env eg
 Right hand orientation: \((e_1, e_2, e_3), (e_1, e_3, -e_2), \dots\)
 
 Left hand orientation: \((e_2, e_1, e_3), (e_1, -e_2, e_3), \dots\)
-\end{example}
+#+END_env
 
-** Orientation preserving and reversing linear maps
-
-Choose an orientation \(\mathcal{O} = \{e_1, \cdots, e_n\}\) on \(\RR^n\).
+** Orientation Preserving Maps
 
 #+BEGIN_env defn
-An /invertible/ linear map \(T : \RR^n \to \RR^n\) is orientation preserving if \(T(\mathcal{O}) = \mathcal{O}\). That is, if
+An /invertible/ linear map \(T : V \to V\) is orientation preserving if \(T(\mathcal{O}) = \mathcal{O}\) for both orientations \(\mathcal{O}\). That is, if
 \[
 \det \begin{pmatrix}
 T(e_1), \cdots, T(e_n)
@@ -44,26 +38,29 @@ e_1, \cdots, e_n
 or equivalently if \(\det T > 0\).
 #+END_env
 
-\pause
+** Orientation Preserving Examples
 
-\begin{example}
+#+BEGIN_env eg
 \[
-\text{Preserving:} \quad
 T = \begin{pmatrix}
 1 & 0 \\
 0 & 1
 \end{pmatrix}, \quad
 T = \begin{pmatrix}
-1 & 1 \\
+1 & -1 \\
 1 & 0
 \end{pmatrix}, \quad
 T = \begin{pmatrix}
 2 & 1 \\
 3 & 5
-\end{pmatrix}.
+\end{pmatrix}
 \]
+#+END_env
+
+** Orientation Reversing Examples
+
+#+BEGIN_env eg
 \[
-\text{Reversing:} \quad
 T = \begin{pmatrix}
 1 & 0 \\
 0 & -1
@@ -75,111 +72,124 @@ T = \begin{pmatrix}
 T = \begin{pmatrix}
 2 & 1 \\
 3 & 1
-\end{pmatrix}.
+\end{pmatrix}
 \]
-\end{example}
+#+END_env
 
+* Orientation of Surfaces
+** Orientation of Surfaces
 ** Orientation of the tangent plane
-*** Tangent Plane Orientations
-**** Text
-      :PROPERTIES:
-      :BEAMER_col: 0.5
-      :END:
 
-Local parametrisation: \(\varphi : U \to S\).
+Orientations inducted by a local parametrisation: \(\varphi : U \to S\).
 \[
 \left(\frac{\partial \varphi}{\partial u}, \frac{\partial \varphi}{\partial v}\right), \quad \left(\frac{\partial \varphi}{\partial v}, \frac{\partial \varphi}{\partial u}\right)
 \]
-**** Picture
-      :PROPERTIES:
-      :BEAMER_col: 0.5
-      :END:
+
+** Orientation of the tangent plane                                :noexport:
 
 #+BEGIN_center
 #+ATTR_LATEX: :width .9\textwidth :height .4\textheight
 [[file:img/oriented_tangent_plane.png]]
 #+END_center
 
-\pause
-*** Definition
-The orientation induced by \(\varphi\) is /compatible/ with the orientation induced by \(\psi\) if \(\det d(\psi \circ \phi^{-1}) > 0\).
-\pause
+** Surface Orientation 
+
+#+BEGIN_env defn
 A regular surface, \(S\) is /orientable/ if there is a cover \(\varphi_{\alpha} : U_{\alpha} \to S\) such that \(\det(\tau_{\alpha\beta}) > 0\) for all \(\alpha, \beta\).
+#+END_env
+
+That is, the orientation induced by \(\varphi_{\alpha}\) is the same as the orientation induced by \(\varphi_{\beta}\).
 
 ** Examples
 
 - The sphere is orientable
-- The \mobius{} strip is /not/ orientable
+- The Möbius strip is /not/ orientable
 - Graphs, are orientable
 - Inverse images of regular point are orientable: here \(F: \RR^3 \to \RR\), \(S = F^{-1}(0)\) where \(dF_x\) has maximal rank (i.e. rank \(1\)) for all \(p \in \RR^3\) such that \(F(p) = 0\).
 
-** Orientation of surfaces
+** Orientation and Normal
 
-#+BEGIN_theorem
-A surface \(S\) is orientable if and only if there is a differentiable field, \(N\) of unit normal vectors. That is, if and only there exists a differentiable map \(N : S \to \RR^3\) such that \(\abs{N(x)} = 1\) for all \(x \in S\) and such that \(N(x) \perp X\) for all $X \in T_x S$.
-#+END_theorem
+#+BEGIN_env thm
+A surface \(S\) is orientable if and only if there is a differentiable field, \(N\) of unit normal vectors.
 
-\pause
+That is, if and only there exists a differentiable map \(N : S \to \RR^3\) such that \(\abs{N(x)} = 1\) for all \(x \in S\) and such that \(N(x) \perp X\) for all $X \in T_x S$.
+#+END_env
+
+** Two Orientations - Two Unit Normal Fields
 
 *Remember there are precisely two orientations!*
 
-\pause
-
 There are two possible unit normal fields, \(N\) and \(-N\). Choosing an orientation is equivalent to choosing a normal field.
 
-\pause
+** Orientation and Normal Proof
 
-- The proof of the theorem follows from the following lemma:
+Follows from
 
-#+BEGIN_lemma
-Let \(\varphi (u, v) : U \subseteq \RR^2 \to S\) and \(\psi (s, t) : V \subseteq \RR^2 \to S\) be local parametrisations. Then
+#+BEGIN_env lem
+For local parametrisations
+\begin{equation*}
+\begin{split}
+\varphi (u, v) &: U \subseteq \RR^2 \to S \\
+\psi (s, t) &: V \subseteq \RR^2 \to S
+\end{split}
+\end{equation*}
+we have
 \[
 \partial_u \varphi \times \partial_v \varphi = \left[\det d(\psi^{-1} \circ \varphi)\right] \partial_s \psi \times \partial_t \psi.
 \]
-#+END_lemma
+#+END_env
 
 ** Gauss Map
 
 #+BEGIN_env defn
- An orientable surface \(S\) along with a choice of orientation is called an /oriented surface/.
+An orientable surface \(S\) along with a choice of orientation is called an /oriented surface/.
 #+END_env
-
-\pause
 
 #+BEGIN_env defn
 Let \(S\) be an oriented surface. The /Gauss Map/ is the unit normal map
 \[
-x \in S \mapsto N(x) \in \sphere^2 = \{X \in \RR^3 : \|X\| = 1\}.
+x \in S \mapsto N(x) \in \SS^2 = \{z \in \RR^3 : \|z\| = 1\}.
 \]
 #+END_env
 
-\pause
+** Gauss Map in Local Coordinates
 
 With respect to a local parametrisation
 \[
 N = \frac{\partial_u \varphi \times \partial_v \varphi}{\abs{\partial_u \varphi \times \partial_v \varphi}}.
 \]
 
-** Examples
+** Unit Sphere
 
-*** Sphere:
-
+#+BEGIN_env eg
 \[
-S = \{x^2 + y^2 + z^2 = 1\}, \quad N(p) = p
+S = \{x^2 + y^2 + z^2 = 1\}
 \]
 
-\pause
-
-*** Graph:
 \[
-S = \{(x, y, f(x, y))\}, \quad N(x, y, f(x)) = \frac{1}{\sqrt{1 + f_x^2 + f_y^2}} (-f_x, -f_y, 1).
+N(p) = p
 \]
+#+END_env
 
-\pause
+** Graph
 
-*** Inverse image of regular point
+#+BEGIN_env eg
+\[
+S = \lbrace (x, y, f(x, y)) \rbrace
+\]
+\[
+N(x, y, f(x)) = \frac{1}{\sqrt{1 + f_x^2 + f_y^2}} (-f_x, -f_y, 1).
+\]
+#+END_env
+
+** Inverse Image of a Regular Point
+
+#+BEGIN_env eg
 
 \[
-S = \{F^{-1}(c)\}, \quad N(p) = \frac{\nabla F(p)}{|\nabla F(p)|}.
+S = \lbrace F^{-1}(c) \rbrace
 \]
-
+\[
+N(p) = \frac{\nabla F(p)}{|\nabla F(p)|}.
+\]
+#+END_env
