@@ -19,38 +19,34 @@
   short_title: Surfaces
   link: "/notes/surfaces"
 - num: "05"
-  title: Geometry and Curvature of Surfaces
+  title: Geometry of Surfaces
   short_title: Surface Geometry
   link: "/notes/surface_geometry"
 - num: "06"
+  title: Orientation and Connection
+  short_title: Orientation and Curvature
+  link: "/notes/surface_orientation_connection"
+- num: "07"
+  title: Curvature of Surfaces
+  short_title: Surface Curvature
+  link: "/notes/surface_curvature"
+- num: "08"
   title: Manifolds
   short_title: Manifolds
-  link: "/manifolds"
-- num: "07"
-  title: Smooth Maps
-  short_title: Smooth Maps
-  link: "/smooth_maps"
-- num: "07"
-  title: Vector Fields
-  short_title: Vector Fields
-  link: "/vector_fields"
+  link: "/notes/manifolds"
 - num: "09"
-  title: Tensor Bundles
-  short_title: Tensor Bundles
-  link: "/tensor_bundles"
+  title: Smooth Maps and Vector Fields
+  short_title: Smooth Fields
+  link: "/notes/smooth_fields"
 - num: "10"
   title: Riemannian Metrics and Connections
   short_title: Metrics and Connctions
-  link: "/metrics_connections"
+  link: "/notes/metrics_connections"
 - num: "11"
-  title: Distance Structure and Exponential Map
-  short_title: Distance
-  link: "/distance_exponential"
-- num: "12"
   title: Intrinsic and Extrinsic Curvature
   short_title: Curvature
-  link: "/curvature"
-- num: "13"
+  link: "/notes/curvature"
+- num: "12"
   title: Global Topics
   short_title: Global Topics
   link: "/global_topics"
