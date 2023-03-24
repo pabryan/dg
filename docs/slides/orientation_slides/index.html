@@ -1,0 +1,235 @@
+---
+layout: org-slides
+---
+
+<section class="outline-2" id="outline-container-orgd83e8fd">
+<h2 id="orgd83e8fd">Orientation</h2>
+<div class="outline-text-2" id="text-orgd83e8fd">
+</div>
+<section class="outline-3" id="outline-container-orgd2a38d7">
+<h3 id="orgd2a38d7">Orientation</h3>
+</section>
+<section class="outline-3" id="outline-container-org43cbd52">
+<h3 id="org43cbd52">Orientation of Vector Spaces</h3>
+<div class="outline-text-3" id="text-org43cbd52">
+<div class="env" id="org73d7076">
+<p>
+An orientation on an \(n\)-dimensional vector space \(V\) is an equivalence class of <i>ordered</i> bases \(\mathcal{E} = (e_1, \dots, e_n)\) where \(\mathcal{E} \sim \mathcal{F}\) if the change of basis matrix \(A_{\mathcal{E}\mathcal{F}}\) has positive determinant.
+</p>
+</div>
+<p>
+Since \(\det \left(A_{\mathcal{E}\mathcal{F}} A_{\mathcal{F}\mathcal{G}}\right) = \det \left(A_{\mathcal{E}\mathcal{F}}\right) \det\left(A_{\mathcal{F}\mathcal{G}}\right)\), we do indeed have an equivalence relation, and there are <i>precisely two equivalence classes</i>.
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org402afea">
+<h3 id="org402afea">Orientation Examples</h3>
+<div class="outline-text-3" id="text-org402afea">
+<div class="env" id="org061d60d">
+<p>
+Compute the change of basis and orientation from \(\mathcal{E} = (e_1, e_2)\) to \((e_1, e_1 + e_2), \quad (e_1, -e_2), \quad (e_2, e_1).\)
+</p>
+</div>
+<div class="env" id="org06c8481">
+<p>
+Right hand orientation: \((e_1, e_2, e_3), (e_1, e_3, -e_2), \dots\)
+</p>
+<p>
+Left hand orientation: \((e_2, e_1, e_3), (e_1, -e_2, e_3), \dots\)
+</p>
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgf7ece64">
+<h3 id="orgf7ece64">Orientation Preserving Maps</h3>
+<div class="outline-text-3" id="text-orgf7ece64">
+<div class="env" id="org198fde9">
+<p>
+An <i>invertible</i> linear map \(T : V \to V\) is orientation preserving if \(T(\mathcal{O}) = \mathcal{O}\) for both orientations \(\mathcal{O}\). That is, if
+\[
+\det \begin{pmatrix}
+T(e_1), \cdots, T(e_n)
+\end{pmatrix}
+= \det \begin{pmatrix}
+e_1, \cdots, e_n
+\end{pmatrix}
+\]
+or equivalently if \(\det T &gt; 0\).
+</p>
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org8bd2cf7">
+<h3 id="org8bd2cf7">Orientation Preserving Examples</h3>
+<div class="outline-text-3" id="text-org8bd2cf7">
+<p>
+#+BEGIN<sub>env</sub> eg
+\[
+T = \begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; 1
+\end{pmatrix}, \quad
+T = \begin{pmatrix}
+1 &amp; 1 \\
+1 &amp; 0
+\end{pmatrix}, \quad
+T = \begin{pmatrix}
+2 &amp; 1 \\
+3 &amp; 5
+\end{pmatrix}
+\]
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org5ba0ccd">
+<h3 id="org5ba0ccd">Orientation Reversing Examples</h3>
+<div class="outline-text-3" id="text-org5ba0ccd">
+<p>
+\[
+T = \begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; -1
+\end{pmatrix}, \quad
+T = \begin{pmatrix}
+0 &amp; 1 \\
+1 &amp; 0
+\end{pmatrix}, \quad
+T = \begin{pmatrix}
+2 &amp; 1 \\
+3 &amp; 1
+\end{pmatrix}.
+\]
+#+END<sub>env</sub>
+</p>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org701161a">
+<h2 id="org701161a">Orientation of Surfaces</h2>
+<div class="outline-text-2" id="text-org701161a">
+</div>
+<section class="outline-3" id="outline-container-org655083f">
+<h3 id="org655083f">Orientation of Surfaces</h3>
+</section>
+<section class="outline-3" id="outline-container-org9a181a8">
+<h3 id="org9a181a8">Orientation of the tangent plane</h3>
+<div class="outline-text-3" id="text-org9a181a8">
+<p>
+Local parametrisation: \(\varphi : U \to S\).
+\[
+\left(\frac{\partial \varphi}{\partial u}, \frac{\partial \varphi}{\partial v}\right), \quad \left(\frac{\partial \varphi}{\partial v}, \frac{\partial \varphi}{\partial u}\right)
+\]
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org522ef5c">
+<h3 id="org522ef5c">Surface Orientation</h3>
+<div class="outline-text-3" id="text-org522ef5c">
+<p>
+#+BEIGN<sub>env</sub> defn
+A regular surface, \(S\) is <i>orientable</i> if there is a cover \(\varphi_{\alpha} : U_{\alpha} \to S\) such that \(\det(\tau_{\alpha\beta}) &gt; 0\) for all \(\alpha, \beta\).
+#+END<sub>env</sub>
+</p>
+<p>
+That is, the orientation induced by \(\varphi_{\alpha}\) is the same as the orientation induced by \(\varphi_{\beta}\).
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org453628b">
+<h3 id="org453628b">Examples</h3>
+<div class="outline-text-3" id="text-org453628b">
+<ul class="org-ul">
+<li>The sphere is orientable</li>
+<li>The Möbius strip is <i>not</i> orientable</li>
+<li>Graphs, are orientable</li>
+<li>Inverse images of regular point are orientable: here \(F: \RR^3 \to \RR\), \(S = F^{-1}(0)\) where \(dF_x\) has maximal rank (i.e. rank \(1\)) for all \(p \in \RR^3\) such that \(F(p) = 0\).</li>
+</ul>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org0c89e0b">
+<h3 id="org0c89e0b">Orientation and Normal</h3>
+<div class="outline-text-3" id="text-org0c89e0b">
+<div class="theorem" id="orgbff0d2b">
+<p>
+A surface \(S\) is orientable if and only if there is a differentiable field, \(N\) of unit normal vectors. That is, if and only there exists a differentiable map \(N : S \to \RR^3\) such that \(\abs{N(x)} = 1\) for all \(x \in S\) and such that \(N(x) \perp X\) for all \(X \in T_x S\).
+</p>
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgb580d05">
+<h3 id="orgb580d05">Two Orientations - Two Unit Normal Fields</h3>
+<div class="outline-text-3" id="text-orgb580d05">
+<p>
+<b>Remember there are precisely two orientations!</b>
+</p>
+<p>
+There are two possible unit normal fields, \(N\) and \(-N\). Choosing an orientation is equivalent to choosing a normal field.
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org6bcd87b">
+<h3 id="org6bcd87b">Orientation and Normal Proof</h3>
+<div class="outline-text-3" id="text-org6bcd87b">
+<p>
+The proof of the theorem follows from the following lemma:
+</p>
+<p>
+#+BEGIN<sub>env</sub> lem
+Let \(\varphi (u, v) : U \subseteq \RR^2 \to S\) and \(\psi (s, t) : V \subseteq \RR^2 \to S\) be local parametrisations. Then
+\[
+\partial_u \varphi \times \partial_v \varphi = \left[\det d(\psi^{-1} \circ \varphi)\right] \partial_s \psi \times \partial_t \psi.
+\]
+#+END<sub>env</sub> lem
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgac4abf9">
+<h3 id="orgac4abf9">Gauss Map</h3>
+<div class="outline-text-3" id="text-orgac4abf9">
+<div class="env" id="orgd0a0db3">
+<p>
+An orientable surface \(S\) along with a choice of orientation is called an <i>oriented surface</i>.
+</p>
+</div>
+<div class="env" id="org1a6ac94">
+<p>
+Let \(S\) be an oriented surface. The <i>Gauss Map</i> is the unit normal map
+\[
+x \in S \mapsto N(x) \in \sphere^2 = \{X \in \RR^3 : \|X\| = 1\}.
+\]
+</p>
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org69fde3f">
+<h3 id="org69fde3f">Gauss Map in Local Coordinates</h3>
+<div class="outline-text-3" id="text-org69fde3f">
+<p>
+With respect to a local parametrisation
+\[
+N = \frac{\partial_u \varphi \times \partial_v \varphi}{\abs{\partial_u \varphi \times \partial_v \varphi}}.
+\]
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgff6fe23">
+<h3 id="orgff6fe23">Examples</h3>
+<div class="outline-text-3" id="text-orgff6fe23">
+<p>
+\[
+S = \{x^2 + y^2 + z^2 = 1\}, \quad N(p) = p
+\]
+</p>
+<p>
+\[
+S = \{(x, y, f(x, y))\}, \quad N(x, y, f(x)) = \frac{1}{\sqrt{1 + f_x^2 + f_y^2}} (-f_x, -f_y, 1).
+\]
+</p>
+<p>
+\[
+S = \{F^{-1}(c)\}, \quad N(p) = \frac{\nabla F(p)}{|\nabla F(p)|}.
+\]
+</p>
+</div>
+</section>
+</section>
