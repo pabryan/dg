@@ -1,0 +1,23 @@
+#+OPTIONS: toc:nil num:nil
+#+BEGIN_export html
+---
+title: Manifolds
+short_title: Manifolds
+---
+#+END_export
+
+#+LaTeX_class: article_no_macros
+#+LaTeX_Header: \usepackage{pabnotes}
+#+LaTeX_Header: \newcommand{\weeknum}{08}
+#+LaTeX_Header: \newcommand{\topic}{Manfiolds}
+
+#+BEGIN_export html
+Maths is coming.
+<!--
+<ul>
+<li><a href="{{ '/slides/surface_orientation' | relative_url }}" target="_blank">Orienation Slides</a></li>
+<li><a href="{{ '/slides/surface_connection' | relative_url }}" target="_blank">Connection Slides</a></li>
+<li><a href="{{ '/pdf/surface_geometry.pdf' | relative_url }}" target="_blank">Surfaces Geometry PDF Notes</a></li>
+</ul>
+-->
+#+END_export
