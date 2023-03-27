@@ -104,9 +104,11 @@ That is, the orientation induced by \(\varphi_{\alpha}\) is the same as the orie
 
 - The sphere is orientable
 - The Möbius strip is /not/ orientable
-- Graphs, are orientable
+- Graphs are orientable
 - Inverse images of regular point are orientable: here \(F: \RR^3 \to \RR\), \(S = F^{-1}(0)\) where \(dF_x\) has maximal rank (i.e. rank \(1\)) for all \(p \in \RR^3\) such that \(F(p) = 0\).
 
+* Orientation and Normal
+** Orientation and Normal
 ** Orientation and Normal
 
 #+BEGIN_env thm
@@ -159,6 +161,8 @@ With respect to a local parametrisation
 N = \frac{\partial_u \varphi \times \partial_v \varphi}{\abs{\partial_u \varphi \times \partial_v \varphi}}.
 \]
 
+* Examples
+** Examples
 ** Unit Sphere
 
 #+BEGIN_env eg
@@ -182,13 +186,13 @@ N(x, y, f(x)) = \frac{1}{\sqrt{1 + f_x^2 + f_y^2}} (-f_x, -f_y, 1).
 \]
 #+END_env
 
-** Inverse Image of a Regular Point
+** Inverse Image of a Regular Value
 
 #+BEGIN_env eg
-
 \[
 S = \lbrace F^{-1}(c) \rbrace
 \]
+where \(\operatorname{rank} dF = 1\) on \(S\)
 \[
 N(p) = \frac{\nabla F(p)}{|\nabla F(p)|}.
 \]
