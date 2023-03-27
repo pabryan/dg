@@ -197,3 +197,32 @@ where \(\operatorname{rank} dF = 1\) on \(S\)
 N(p) = \frac{\nabla F(p)}{|\nabla F(p)|}.
 \]
 #+END_env
+
+** Möbius Strip
+
+#+BEGIN_env eg
+\begin{align*}
+\varphi(u, v) &= \big(r(u,v) \sin u, r(u,v) \cos u, v \cos(u/2)\big) \\
+\psi(s, t) &= \varphi(s+\pi/2, t)
+\end{align*}
+\[
+r(u, v) = 2 - v\sin(u/2)
+\]
+\[
+(u, v), (s, t) \in (0, 2\pi) \times (-1, 1)
+\]
+#+END_env
+
+** Möbius Strip
+
+#+BEGIN_env eg
+Overlaps: \(V_1 \cap V_2\) where
+\begin{align*}
+V_1 &= \lbrace \varphi(u, v) : \pi/2 < u < 2\pi \rbrace \\
+V_2 &= \lbrace \varphi(u, v) : 0 < u < \pi/2 \rbrace
+\end{align*}
+\begin{align*}
+\tau|_{V_1} (u, v) &= (u - \pi/2, v), \quad \det > 0 \\
+\tau|_{V_2} (u, v) &= (3\pi/2 + u, -v) \quad \det < 0
+\end{align*}
+#+END_env
