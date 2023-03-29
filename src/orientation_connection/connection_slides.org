@@ -1,0 +1,256 @@
+#+TITLE: Connections
+#+OPTIONS: toc:nil num:nil
+
+* Vector Fields
+** Vector Fields
+** Vector Fields
+
+#+BEGIN_env defn
+A smooth /vector field/ is a smooth map \(X : S \to \RR^3\) such that \(X(p) \in T_p S\) for every \(p \in S\).
+
+A smooth /local/ vector field is a smooth vector field defined on an open set \(U \subseteq S\).
+#+END_env
+
+** Vector Fields on \(\SS^2\)
+
+#+BEGIN_env eg
+\[
+X(x, y, z) = (-y, x, 0)
+\]
+
+In general \(X : \SS^2 \to \RR^3\) such that \(X(p) \perp p\).
+#+END_env
+
+#+BEGIN_env thm :title "Hairy Ball Theorem"
+There are no non-vanishing vector fields on \(\SS^2\)
+#+END_env
+
+** Coordinate Local Vector Fields
+
+Let \(\varphi = \varphi(x_1, x_2) : U \to V \subseteq S\) be a local parametrisation.
+
+#+BEGIN_env lem
+For \(i = 1,2\), the maps
+\[
+e_i : p \in V \mapsto \partial_{x_i} \varphi (\varphi^{-1} (p))
+\]
+are smooth vector fields.
+#+END_env
+
+Proof is tautological: \(e_i \circ \varphi = \partial_{x_i} \varphi\) is smooth \(U \to \RR^3\)
+
+** Coordinate Local Basis
+
+For any \(X \in T_p S\) we have uniquely,
+\[
+X = X^1 e_1 + X^2 e_2
+\]
+where \(e_i = \partial_i \varphi\)
+
+In the notation \(\varphi(u, v)\) we write
+\[
+X = X^u e_u + X^v e_v
+\]
+
+* Vectors as Differential Operators
+** Vectors as Differential Operators
+** Notation
+
+For \(X \in T_p S\) and \(f : S \to \RR\) smooth:
+
+\[
+\partial_X f = X(f) = df(X) = d_X f = D_X f
+\]
+
+Recall the definition
+\[
+\partial_X f = \partial_t|_{t=0} f(\gamma(t))
+\]
+where \(\gamma(0) = p, \gamma'(0) = X\)
+
+** Coordinate Expression
+
+Uniquely write \(X = X^1 \partial_1 \varphi + X^2 \partial_2 \varphi\)
+
+\[
+\partial_X f = X^1 \partial_1 f + X^2 \partial_2 f
+\]
+
+** Chain Rule
+
+Let \(\tau : \RR^n \to \RR^m\), \(f : \RR^m \to \RR\) be smooth
+
+#+BEGIN_env lem :title "Chain Rule"
+\[
+D_{d\tau (U)} f = D_U (f \circ \tau)
+\]
+#+END_env
+
+#+BEGIN_env pf
+\begin{equation*}
+\begin{split}
+D_U (f \circ \tau) &= \partial_t|_{t=0} (f \circ \tau) \circ \gamma \\
+&= \partial_t|_{t=0} f \circ (\tau \circ \gamma) = D_{d\tau (U)} f
+\end{split}
+\end{equation*}
+#+END_env
+
+* Differentiating Vector Fields
+** Differentiating Vector Fields in Euclidean Space
+
+Let \(X = (X^1, \dots, X^n)\) denote a vector field on \(\RR^n\)
+
+(i.e. a smooth map \(\RR^n \to \RR^n\))
+
+#+BEGIN_env defn
+For \(X, Y\) vector fields,
+\begin{equation*}
+\begin{split}
+D_X Y &= \big(\partial_X Y^1, \dots, \partial_X Y^n\big) \\
+&= \left(\sum_{i=1}^n X^i \partial_i Y^1, \dots, \sum_{i=1}^n X^i \partial_i Y^n\right)
+\end{split}
+\end{equation*}
+#+END_env
+
+* Local Coordinate Differentiation Problem
+** Local Coordinate Differentiation Problem
+
+For local parametrisations \(\varphi, \psi\)
+
+\begin{align*}
+X &= d\varphi(U) = d\psi(W) \\
+Y &= d\varphi(V) = d\psi(Z)
+\end{align*}
+
+*Problem*: In general
+\[
+d\varphi (D_U V) \neq D\psi (D_W Z)
+\]
+
+** Local Coordinate Problem
+
+Why? We have
+\[
+W = d\tau(U), \quad Z = d\tau(V)
+\]
+
+We want
+\[
+d\tau(D_U V) = D_W Z = D_{d\tau(U)} (d\tau(V))
+\]
+But the right hand side has extra terms from differentiating \(d\tau\)
+
+** Local Coordinate Problem
+
+Write \(V = V^1 e_1 + V^2 e_2\)
+\begin{equation*}
+\begin{split}
+d\tau(D_U V) &= d\tau \big((D_U V^1) e_1 + (D_U V^2) e_2\big) \\
+&= (D_U V^1) d\tau (e_1) + (D_U V^2) d\tau(e_2)
+\end{split}
+\end{equation*}
+
+** Local Coordinate Problem
+
+\begin{equation*}
+\begin{split}
+D_{d\tau(U)} (d\tau(V)) &= D_{d\tau(U)} \big(V^1 d\tau(e_1) + V^2 d\tau(e_2)\big) \\
+&= (D_{d\tau(U)} V^1) d\tau(e_1) + (D_{d\tau(U)} V^2) d\tau(e_2) \\
+&\quad + V^1 D_{d\tau(U)} [d\tau(e_1)] + V^2 D_{d\tau(U)} [d\tau(e_2)] \\
+&= d\tau(D_U V) \\
+&\quad + V^1 D_{d\tau(U)} [d\tau(e_1)] + V^2 D_{d\tau(U)} [d\tau(e_2)]
+\end{split}
+\end{equation*}
+
+By the chain rule for \(D_{d\tau(U)} V^i = D_{d\tau(U)} V^i \circ \tau^{-1}\)
+
+* Geometric Problem With Differentiation
+** Geometric Problem With Differentiation
+** Geometric Problem
+
+Locally extend vector fields \(X, Y : S \to \RR^3\)
+
+\[
+\bar{X}, \bar{Y} : U \to \RR^3
+\]
+where \(U \subseteq \RR^3\) is an open set containing \(S\).
+
+Define for \(p \in S\)
+\[
+D^S_X Y (p) := D_{\bar{X}} \bar{Y} (p)
+\]
+
+** Geometric Problem
+
+What's the problem?
+
+In general \(D^S_X Y (p) \notin T_p S\)!
+
+** Geometric Problem
+
+#+BEGIN_eg
+Let \(S = \SS^2\)
+\[
+X(x, y, z) = Y(x, y, z) = (-y, x, 0)
+\]
+
+\begin{equation*}
+\begin{split}
+D_X Y &= (D_X (-y), D_X x, D_X 0) \\
+&= \big(-y\partial_x (-y) + x \partial_y (-y), -y\partial_x (x) + x \partial_y (x), 0\big) \\
+&= (-x, -y, 0)
+\end{split}
+\end{equation*}
+
+\[
+\ip{D_X Y}{N} = \ip{(-x, -y, 0)}{(x,y,z)} = -(x^2 + y^2) \neq 0
+\]
+#+END_eg
+
+* Covariant Derivative
+** Covariant Derivative
+
+Also known as the *Connection* or *Affine Connection*
+
+** Covariant Derivative
+
+#+BEGIN_env def
+The covariant derivative of vector fields on \(S\) is
+\[
+\nabla_X Y = \pi_N(D_X Y) = D_X Y - \ip{D_X Y}{N} N
+\]
+#+END_env
+
+** Example
+
+#+BEGIN_eg
+Let \(S = \SS^2\)
+\[
+X(x, y, z) = Y(x, y, z) = (-y, x, 0)
+\]
+
+\[
+D_X Y = -(x, y, 0), \quad \ip{D_X Y}{N} = -(x^2 + y^2)
+\]
+
+\begin{equation*}
+\begin{split}
+\nabla_X Y &= D_X Y - \ip{D_X Y}{N} N \\
+&= -(x, y, 0) + (x^2 + y^2)(x, y, z) \\
+&= \big(-x z^2, -y z^2, z(1-z^2)\big)
+\end{split}
+\end{equation*}
+
+\[
+\ip{\nabla_X Y}{N} = 0
+\]
+#+END_eg
+
+** Properties
+
+- Invariant under \(N \mapsto -N\)
+- \(\nabla_{fX + gY} Z = f\nabla_X Z + g \nabla_X Z\)
+- \(\nabla_X (Y + Z) = \nabla_X Y + \nabla_X Z\)
+- \(\nabla_X (fZ) = f\nabla_X Z + (\partial_X f) Z\)
+
+Last item is the "Leibniz Product Rule"
