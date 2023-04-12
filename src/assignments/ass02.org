@@ -1,0 +1,72 @@
+#+OPTIONS: toc:nil num:nil
+
+#+LaTeX_header: \newcommand{\asstitle}{Assignment 02}
+#+LaTeX_header: \input{ass_settings}
+#+LaTeX_header: \setboolean{showsoln}{false}
+
+1. A subset, \(M \subseteq \bbR^n\) is a /submanifold/ of dimension \(k < n\) if there exists a cover by smooth, regular, local paramaterisations \(\varphi_{\alpha} : U_{\alpha} \to V_{\alpha}\). That is, \(U_{\alpha} \subseteq \RR^k\) is open, \(V_{\alpha} = M \cap W_{\alpha}\) with \(W_{\alpha} \subseteq \bbR^n\) open, and such that
+
+   - \(M = \union_{\alpha} V_{\alpha}\),
+   - \(\varphi_{\alpha}\) is a homeomorhpism for each \(\alpha\),
+   - \(d\varphi_{\alpha}\) is injective for each \(\alpha\).
+
+   Thus submanifolds are a direct generalisation of regular surfaces.
+
+   1. Using the inverse function thoerem (or any equalivalent variant such as the implicit function theorem, immersion and submersions thoerems), prove that submanifolds of \(\bbR^n\) are locally graphs.
+
+   2. Let \(F : \bbR^n \to \RR^{n-k}\) be a smooth function, and let \(y \in \RR^{n-k}\) be a regular value; that is for every \(x \in F^{-1}(y)\), \(dF_x\) has rank \(n-k\).
+
+      1. Show that \(M = F^{-1}(y)\) is a submanifold of dimension \(k\).
+      2. Show that \(T_x M = \ker dF_x\).
+      3. Show that in the case \(k = n-1\) (i.e. \(F : \bbR^n \to \bbR\)), the gradient \(\nabla F\) is non-vanishing and normal to \(M = F^{-1}(y)\), hence there exists a smooth, unit normal field to \(M\) and thus \(M\) is orientable.
+
+2. Let \(f : (a, b) \to \bbR\) be a smooth, positive function and let \(S\) be the surface obtained by revolving the graph of \(f\) about the \(z\)-axis. Consider the local parametrisations
+   \[
+   \varphi_i (r, \theta) = \big(f(r) \cos \theta, f(r) \sin \theta, r\big)
+   \]
+   for \(i = 1, 2\) defined on \(U_1 = (a, b) \times (0, 2\pi)\) and \(U_2 = (a, b) \times (\pi, 3\pi)\) respectively. Let \(V_i = \varphi_i (U_i)\).
+
+   1. Show that \(V_1, V_2\) are open subsets of \(S\) by exhibiting open sets \(W_1, W_2 \subseteq \bbR^3\) such that \(V_i = W_i \cap S\).
+
+   2. Determine the two overlaps \(\varphi_i^{-1} (V_j)\) for \(i \neq j\).
+
+   3. Compute the change of parameters \(\tau_{12}\) verifying that \(\det \tau_{12} > 0\) and hence that \(S\) is orientable.
+
+   4. Compute the coordinate tangent vectors \(e_r, e_{\theta}\) (note this is the same expression in either parametrisation).
+
+   5. Compute the unit normal \(N_i\) in each parametrisation and show that \(N_1 = N_2\) on the overlap \(V_1 \cap V_2\), and hence again showing that \(S\) is orientable.
+
+   6. Compute the metric \(g\) with respect to the basis \(e_r, e_{\theta}\) and show that the element of surface area is
+      \[
+      dA = f \sqrt{1 + (f')^2} dr d\theta.
+      \]
+
+   7. Compute the area of the sphere by parametristing it as a surface of revolution and using the previous parts.
+
+3. Consider polar coordinates for \(\bbR^2\) given by
+   \[
+   (x, y) = \varphi(r, \theta) = (r\cos\theta, r \sin\theta)
+   \]
+   for \(r \in (0, \infty)\) and \(\theta \in (0, 2\pi)\).
+
+   Write \(e_r = (1, 0), e_{\theta} = (0, 1)\) for the standard basis in \((r, \theta)\) space and \(e_1 = (1, 0), e_2 = (0, 1)\) for the standard basis in \((x, y)\) space. Let \(R = d\varphi(e_r) = \partial_r \varphi\) and \(T = d\varphi(e_{\theta}) = \partial_{\theta} \varphi\) denote the polar coordinate tangent vectors.
+
+   Let \(D\) denote the Euclidean directional derivative
+   \[
+   D_X Y = D_X Y^1 e_1 +  D_X Y^2 e_2
+   \]
+   for vector fields \(X = X^1 e_1 +  X^2 e_2\) and \(Y = Y^1 e_1 + Y^2 e_2\), and where \(D_X Y^j = X^1 \partial_1 Y^j + X^2 \partial_2 Y^j\).
+
+   1. Write an expression for \(R, T\) in terms of the basis \(e_1, e_2\); the coefficients should be functions of \(r, \theta\).
+
+   2. Show that
+      \[
+      D_R R = 0, \quad D_T T = -r R, \quad D_T R = D_R T = \frac{1}{r} T.
+      \]
+
+      You may find it convenient to compute by choosing an appropriate curve \(\gamma\) in each case and using the chain rule.
+
+   3. Conclude that for tangent vectors \(U, V\) in \((r, \theta)\) space, in general
+      \[
+      D_{d\varphi(U)} d\varphi(V) \neq d\varphi(D_U V).
+      \]
