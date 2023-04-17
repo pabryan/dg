@@ -2,13 +2,95 @@
 
 #+LaTeX_header: \newcommand{\asstitle}{Assignment 01}
 #+LaTeX_header: \input{ass_settings}
-#+LaTeX_header: \setboolean{showsoln}{false}
+#+LaTeX_header: \setboolean{showsoln}{true}
 
 1. *Change of Parameters*
 
    1. Let \(\varphi : (a, b) \to (c, d)\) be a diffeomorphism. Show that \(\varphi\) induces a bijection between the set of smooth maps \(C^{\infty}((a, b) \to \RR)\) and the set of smooth maps \(C^{\infty}((c, d) \to \RR)\).
 
+      #+BEGIN_soln
+      Define
+      \[
+      \Phi : C^{\infty}((c, d) \to \RR) \to C^{\infty}((a, b) \to \RR)
+      \]
+      by
+      \[
+      \Phi(f) = f \circ \varphi.
+      \]
+      By the chain rule \(\Phi(f)\) is smooth, hence \(\Phi\) is well defined. Then \(\Phi\) is a bijection with inverse,
+      \[
+      \Phi^{-1} (g) = g \circ \varphi^{-1}
+      \]
+      since
+      \[
+      \Phi \circ \Phi^{-1} (f) = \Phi(f \circ \varphi^{-1}) = (f \circ \varphi^{-1}) \circ \varphi = f
+      \]
+      and likewise \(\Phi^{-1} \circ \Phi (g) = g\).
+      #+END_soln
+
    2. Let \((a, b)\) be an open interval (where we allow \(a = -\infty\) and/or \(b=+\infty)\). By exhibiting an explicit diffeomorphism \(\varphi\), show that \((a, b)\) is diffeomorphic to \(\RR\). Conclude that any two intervals are diffeomorphic.
+
+      #+BEGIN_soln
+      Notice that being diffeomorphic is transitive; that is, if \(I_1 \simeq I_2\) and \(I_2 \simeq I_3\), then \(I_1 \simeq I_3\) where \(I_j\) are intervals \(\simeq\) denotes diffeomorphic (in fact, being diffeomorphic is an equivalence relation on open sets).
+      #+END_soln
+
+      #+BEGIN_soln
+      Here we show
+
+      1. that all bounded intervals are diffeomorphic to each other,
+      2. that \((-\pi/2, \pi/2)\) is diffeomorphic to \(\bbR\),
+      3. that \((-\infty, b)\) and \((a, \infty)\) are both diffeomorphic to \((0, \infty)\),
+      4. and that \((0, \infty)\) is diffeomorphic to \(\bbR\).
+
+      Thus by transitivity we conclude that all intervals are diffeomorphic. Other variants are possible. For example, we could show that any interval is diffeomorphic to \(\bbR\), or we could show that any interval is diffeomorphic to \((0, 1)\) and then apply transitivity in each case. We could also use different functions below to exhibit the appropriate diffeomorphisms - they are not unique!
+      #+END_soln
+
+      #+BEGIN_soln
+      1. First consider the case \(-\infty < a < b < \infty\). We give a diffeomorphism \((a, b) \to (0, 1)\) by
+         \[
+         \varphi : x \in (a, b) \mapsto \tfrac{x - a}{b-a}
+         \]
+         with inverse
+         \[
+         \varphi^{-1} : x \in (0, 1) \mapsto (b-a) x + a
+         \]
+         Thus any bounded open interval \((a, b)\) is diffeomorphic to \((0, 1)\) and hence by transitivity, any bounded interval is diffeomorphic to any other bounded interval.
+
+      2. Next, we show \((-\pi/2, \pi/2)\) is diffeomorphic to \(\bbR\) by defining
+         \[
+         \varphi : x \in (-\pi/2, \pi/2) \mapsto \tan(x) \in \bbR
+         \]
+         with inverse
+         \[
+         \varphi^{-1} : x \in \bbR \mapsto \arctan(x) \in (-\pi/2, \pi/2).
+         \]
+
+      3. For \((a, \infty)\), we take
+	 \[
+	 \varphi : x \in (a, \infty) \mapsto x-a \in (0, \infty)
+	 \]
+	 with inverse
+	 \[
+	 \varphi^{-1} : x \in (0, \infty) \mapsto x + a \in (a, \infty).
+	 \]
+	 For \((-\infty, b)\) we take
+	 \[
+	 \varphi : x \in (-\infty, b) \mapsto b-x \in (0, \infty)
+	 \]
+	 with inverse
+	 \[
+	 \varphi^{-1} : x \in (0, \infty) \mapsto -x + b \in (-\infty, b).
+	 \]
+
+      4. For \(x \in (0, \infty)\) we take
+	 \[
+	 \varphi : x \in (0, \infty) \mapsto \ln (x) \in \bbR
+	 \]
+	 with inverse
+	 \[
+	 \varphi^{-1} : x \in \bbR \mapsto e^x \in (0, \infty).
+	 \]
+      #+END_soln
 
 2. *Graphs of functions*
 
@@ -20,11 +102,48 @@
 
    1. Determine a /regular/ parametrisation \(\gamma : (a, b) \to \RR^n\) for $\operatorname{G} (f)$.
 
+      #+BEGIN_soln
+      Let
+      \[
+      \gamma(t) = (t, f_1(t), \dots, f_{n-1}(t))
+      \]
+      which is smooth and satisfies
+      \[
+      \gamma' = (1, f_1', \dots, f_{n-1}') \neq 0
+      \]
+      for all \(t \in (a, b)\) hence is regular.
+      #+END_soln
+
    2. Let \(\gamma : (a, b) \to \RR^n\) be a smooth, regular parametrised curve. Show that $\gamma$ is locally the graph of a smooth function \(f\). /Hint/: Use the inverse function theorem for functions \((a, b) \to \RR\).
 
       That is, for every \(t_0 \in (a, b)\) there is a \(\delta > 0\) such that the image of \(\gamma\) restricted to \((t_0 - \delta, t_0 + \delta)\) is the graph of a smooth function \(f\) (not necessarily with $x$ in the first index).
 
+      #+BEGIN_soln
+      Since \(\gamma = (\gamma_1, \dots, \gamma_n)\) is regular, for each \(t_0 \in (a, b)\) there is an \(i\) such that \(\gamma_i'(t_0) \neq 0\). By the inverse function theorem there exists a \(\delta > 0\) such that \(\gamma_i\) is smoothly invertible on \((t_0 - \delta, t_0 + \delta)\). Letting \(x = \gamma_i(t)\) on this interval we have
+      \begin{equation*}
+      \begin{split}
+      \gamma(t) &= \gamma(\gamma_i^{-1}(x)) = (\gamma_1 \circ \gamma_i^{-1} (x), \dots, \gamma_i \circ \gamma_i^{-1} (x), \dots, \gamma_n \circ \gamma_i^{-1}(x)) \\
+      &= (f_1(x), \dots, f_{i-1}(x), x, f_{i+1} (x), \dots f_n(x))
+      \end{split}
+      \end{equation*}
+      is the graph of \(f = (f_1, \dots, f_{i-1}, f_{i+1}, \dots, f_n)\) with \(f_j = \gamma_j \circ \gamma_i^{-1}\).
+      #+END_soln
+
    3. Show that \(C = \lbrace(x, \abs{x})\rbrace \subseteq \RR^2\) is not a regular curve at \((0, 0)\). /Hint/: if there was a regular parametrisation \(\gamma\) then the previous part would imply that \(C\) was the graph of a smooth function on an open interval containing \((0, 0)\). Argue that we cannot have \(x = f(y)\) (draw the picture!) hence \(y = f(x)\). Show necessarily that \(f(x) = \abs{x}\) contradicting that \(f\) is smooth.
+
+      #+BEGIN_soln
+      In order to obtain a contradiction, suppose that \(C\) is a regular curve. Then by the previous part, \(C\) is locally a graph. In particular, \(C\) may be written as the graph of a function \(y = f(x)\) or \(x = f(y)\) in an open neighbourhood of \((0, 0)\). We show this is impossible.
+
+      1. If \(C\) was the graph \(x = f(y)\) then we could parametrise \(C\) near \((0, 0)\) by \(\gamma(t) = (f(t), t)\) for \(t \in (-\delta, \delta)\) with \(\delta > 0\). But then for \(t \in (-\delta, 0)\) we have \((f(t), t) \in C\) which implies there is a \((x, y) \in C\) with \(y < 0\) which is false.
+
+	 Alternatively, one can observe that for each \(t \in (-\delta, \delta)\) there would be a unique \((x, y) \in C\) with \(y = t\), namely \((x, y) = (f(t), t)\). But if \((f(t), t) \in C\) then so is \((-f(t), t)\) violating uniqueness.
+
+      2. If \(C\) was the graph \(y = f(x)\) with \(f\) smooth, and \(x \in (-\delta, \delta)\) then we would have
+	 \[
+	 (x, y) = (x, f(x)) = (x, \abs{x})
+	 \]
+	 hence \(f(x) = \abs{x}\) which is not smooth at \(x = 0\).
+      #+END_soln
 
 3. *Polar Coordinates*
 
@@ -38,12 +157,82 @@
       ds = \sqrt{\rho^2 + (\rho')^2} dt.
       \]
 
+      #+BEGIN_soln
+      By definition, \(ds = \abs{\gamma'} dt\). We have
+      \[
+      \gamma' = \rho' (\cos t, \sin t) + \rho (-\sin t, \cos t)
+      \]
+      Since \((\cos t, \sin t), (-\sin t, \cos t)\) are orthonormal we have
+      \[
+      \abs{\gamma'}^2 = \abs{\rho' (\cos t, \sin t)}^2 + \abs{\rho (-\sin t, \cos t)}^2 = (\rho')^2 + \rho^2.
+      \]
+      #+END_soln
+
    2. Show that the curvature is
       \[
       \kappa(t) = \frac{2(\rho')^2 -\rho\rho'' + \rho^2}{[\rho^2 + (\rho')^2]^{3/2}}.
       \]
 
-   3. Use the previous formula to calculate the curvature of the polar curve corresponding to \(\rho = (1 - \cos\theta\) for \(\theta \in (0, 2\pi)\) and show that \(\kappa\) is not defined for \(\theta = 0, 2\pi\). Verify that in fact \(\gamma\) is not regular for \(\theta = 0, 2\pi\).
+      #+BEGIN_soln
+      Letting \(v = \abs{\gamma'}\), we may compute the curvature via
+      \begin{equation*}
+      \begin{split}
+      \kappa &= \ip{\partial_s T}{N} = \ip{\frac{1}{v} \partial_t \left(\frac{\gamma'}{v}\right)}{\frac{1}{v} R_{\pi/2} (\gamma')} \\
+      &= \frac{1}{v^3} \ip{\gamma''}{R_{\pi/2} (\gamma')}
+      \end{split}
+      \end{equation*}
+      since \(\gamma' \perp R_{\pi/2} (\gamma')\). Using \(v = \sqrt{(\rho')^2 + \rho^2}\) from the first part, it suffices to show that
+      \[
+      \ip{\gamma''}{R_{\pi/2} (\gamma')} = 2(\rho')^2 - \rho\rho'' + \rho^2.
+      \]
+
+      We have
+      \[
+      \gamma' = \rho' (\cos t, \sin t) + \rho (-\sin t, \cos t).
+      \]
+      From \(R_{\pi/2} (x, y) = (-y, x)\) we get
+      \[
+      R_{\pi/2} (\gamma') = \rho'(-\sin t, \cos t) + \rho(-\cos t, -\sin t).
+      \]
+      Differentiating \(\gamma'\) gives
+      \[
+      \gamma'' = (\rho'' - \rho) (\cos t, \sin t) + 2 \rho' (-\sin t, \cos t).
+      \]
+      Thus again using that \((\cos t, \sin t), (-\sin t, \cos t)\) are orthonormal we obtain
+      \begin{equation*}
+      \begin{split}
+      \ip{\gamma''}{R_{\pi/2} (\gamma')} &= \Big\langle (\rho'' - \rho) (\cos t, \sin t) + 2 \rho' (-\sin t, \cos t), \\
+      &\quad \quad \rho'(-\sin t, \cos t) + \rho(-\cos t, -\sin t)\Big\rangle \\
+      &= (\rho '' - \rho) (-\rho) + 2 (\rho')^2 \\
+      &= 2(\rho')^2 - \rho\rho'' + \rho^2.
+      \end{split}
+      \end{equation*}
+      #+END_soln
+
+   3. Use the previous formula to calculate the curvature of the polar curve corresponding to \(\rho = 1 - \cos\theta\) for \(\theta \in (0, 2\pi)\) and show that \(\kappa\) is not defined for \(\theta = 0, 2\pi\). Verify that in fact \(\gamma\) is not regular for \(\theta = 0, 2\pi\).
+
+      #+BEGIN_soln
+      We have
+      \[
+      \rho = 1 - \cos \theta, \quad \rho' = \sin \theta, \quad \rho '' = \cos \theta.
+      \]
+      Then
+      \[
+      (\rho^2 + (\rho')^2)^{3/2} = \left(1 - 2\cos\theta + \cos^2 \theta + \sin^2 \theta\right)^{3/2} = [2(1-\cos\theta)]^{3/2}
+      \]
+      and
+      \begin{equation*}
+      \begin{split}
+      2(\rho')^2 - \rho\rho'' + \rho^2 &= 2\sin^2\theta - (1-\cos\theta)\cos\theta + (1-\cos\theta)^2 \\
+      &= 2\sin^2\theta - \cos\theta + \cos^2\theta + 1 - 2\cos\theta + \cos^2\theta \\
+      &= 3 - 3 \cos\theta
+      \end{split}
+      \end{equation*}
+      Thus from the previous part,
+      \[
+      \kappa = \frac{3(1 - \cos\theta)}{[2(1-\cos\theta)]^{3/2}} = \frac{3}{2^{3/2}} \frac{1}{\sqrt{1-\cos\theta}}.
+      \]
+      #+END_soln
    
 4. *High Dimension Frenet-Serret*
 
