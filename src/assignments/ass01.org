@@ -313,7 +313,7 @@
    \partial_s N_i = -\kappa_{i-1} N_{i-1} + \kappa_{i+1} N_{i+1}, \quad i = 0, \dots, n-1.
    \end{equation}
 
-   We proceed motivated by the previous discussion of the \(n=3\) case. We inductively construct orthonormal \(N_1, \dots, N_{n-2}\) so that the high-dimension Frenet-Serret equations hold.
+   We proceed motivated by the previous discussion of the \(n=3\) case. We inductively construct orthonormal \(N_1, \dots, N_{n-2}\) so that the high-dimension Frenet-Serret equations hold. Then to finish we complete \(T, N_1, \dots, N_{n-2}\) to an orthonormal basis \(T, N_1, \dots, N_{n-2}, N_{n-1}\) and show that \(N_{n-1}\) necessarily satisfies the Frenet-Serret equation.
    #+END_soln
 
    #+BEGIN_soln
@@ -417,6 +417,49 @@
 
       /Hint/: Use the [[https://en.wikipedia.org/wiki/Picard%E2%80%93Lindel%C3%B6f_theorem][Picard-Lindelöf theorem]].
 
+      #+BEGIN_soln
+      I should have written \(\kappa : [0, L] \to \bbR\) is a smooth function! There is a complication applying Picard-Lindelöf for example if \(\lim_{s\to 0} \kappa(s)\) is unbounded.  If we changed the initial condition at \(s = 0\) to an initial condition at \(s_0 \in (0, L)\), then we can in fact uniquely solve the system on \((0, L)\). Dealing with such issues is outside the scope of this course, so let us assume \(\kappa\) is smooth on \([0, L]\) hence bounded. Sorry for the poor phrasing of the question.
+
+      Write \(T = (T^1, T^2)\), \(N = (N^1, N^2)\) and let
+      \[
+      V = (T^1, T^2, N^1, N^2).
+      \]
+      Define \(F : (0, L) \times \RR^4 \to \RR^4\) is by
+      \[
+      F(s, V^1, \dots, V^4) = (\kappa(s) V^3, \kappa(s) V^4, -\kappa(s) V^1, -\kappa(s) V^2).
+      \]
+
+      Then we seek to solve
+      \[
+      V'(s) = F(s, V(s))
+      \]
+      subject to the initial conditions
+      \[
+      V(0) = (T_0^1, T_0^2, N_0^3, N_0^4).
+      \]
+
+      The Picard-Lindelöf theorem gives a solution on the entire interval \([0, L]\) in the case that \(F\) is continuous in \(s\) and uniformly Lipschitz in \(V\). Thus we just need to verify uniformly Lipschitz in \(V\). Consider any \(V, W \in \RR^4\) and any \(s \in [0, L]\). Then by the fundamental theorem of calculus,
+      \begin{equation*}
+      \begin{split}
+      \abs{F(s, V) - F(s, W)} &\leq \int_0^1 \abs{\partial_t F(s, tV + (1-t)W} dt \\
+      &= \int_0^1 \abs{dF (V - W)} dt.
+      \end{split}
+      \end{equation*}
+      Here \(F\) linear in \(V\) hence so too is \(dF\). In fact \(F\) is \(\kappa(s)\) times a permutation matrix; the latter of which has norm \(1\) so that \(\|dF\| = \abs{\kappa}\). Explicitly,
+      \begin{equation*}
+      \begin{split}
+      \abs{dF (V - W)} &= \big\|\big(\kappa(s)(V^3 - W^3), \kappa(s) (V^4 - W^4), \\
+      &\quad -\kappa(s)(V^1 - W^1), -\kappa(s) (V^2 - W^2)\big) \big\| \\
+      & \leq \abs{\kappa(s)} \|V - W\|.
+      \end{split}
+      \end{equation*}
+      Thus
+      \[
+      \abs{F(s, V) - F(s, W)} \leq \int_0^1 \abs{\kappa(s)} \abs{V - W} dt = \abs{\kappa(s)} \abs{V-W}
+      \]
+      so that \(F\) is uniformly Lipschitz with Lipschitz constant \(\max_{s\in [0, L]} \abs{\kappa(s)}\) as required.
+      #+END_soln
+
    2. Let \(T\) be as in the previous part. Show that
       \[
       \gamma(s) = p + \int_0^s T(t) dt
@@ -428,6 +471,23 @@
       \gamma(0) &= p \\
       \end{cases}
       \end{equation*}
+
+      #+BEGIN_soln
+      The given function satisfies the initial condition:
+      \[
+      \gamma(0) = p + \int_0^0 T(t) dt = p.
+      \]
+      It is a solution by the fundamental theorem of calculus:
+      \[
+      \gamma'(s) = \partial_s \left(p + \int_0^s T(t) dt\right) = T(s)
+      \]
+
+      Conversely, suppose that \(\sigma\) is also a solution. Then by the fundamental theorem of calculus,
+      \[
+      \sigma(s) - p = \int_0^s \sigma'(t) dt = \int_0^s T(t) dt = \gamma(s) - p
+      \]
+      and hence \(\sigma = \gamma\) and solutions are unique.
+      #+END_soln
 
    3. Let \(A : \RR^2 \to \RR^2\) be an orientation preserving rigid motion:
       \[
@@ -445,4 +505,55 @@
       \end{equation*}
       where \(N = R_{\pi/2} T\) for both curves. You may use the fact that \(\det A > 0\) implies \(A \circ R_{\pi/2} = R_{\pi/2} \circ A\).
 
+      #+BEGIN_soln
+      Small typo in the question. It should have been \(\det M > 0\).
+
+      We have that
+      \[
+      (A\gamma)' = \partial_t (M \gamma(t) + b) = M \gamma'(t).
+      \]
+      Since \(M\) is an orthogonal matrix,
+      \[
+      \abs{(A\gamma')} = \abs{M \gamma'} = \sqrt{\ip{M \gamma'}{M\gamma'}} = \sqrt{\ip{\gamma'}{\gamma'}} = \abs{\gamma'}.
+      \]
+
+      Thus
+      \[
+      T_{A\gamma} = \frac{(A \gamma)'}{\abs{(A\gamma)'}} = \frac{M \gamma'}{\abs{\gamma'}} = M \frac{\gamma'}{\abs{\gamma'}} = M T_{\gamma}.
+      \]
+      For the normal,
+      \[
+      N_{A\gamma} = R_{\pi/2} T_{A\gamma} = R_{\pi/2} MT_{\gamma} = M R_{\pi/2} T_{\gamma} = M N_{\gamma}.
+      \]
+      Here we used that \(\det M > 0\) implies \(R_{\pi/2} M = M R_{\pi/2}\). If instead \(M\) was an orthogonal matrix with \(\det M < 0\) we would have obtained \(N_{A\gamma} = -M N_{\gamma}\).
+
+      Finally, since \(\partial_s = \frac{1}{v_{A\gamma}} \partial_t\) and \(v_{A\gamma} = \abs{(M\gamma')} = \abs{\gamma'} = v_{\gamma}\), we have that \(\partial_s\) is the same for \(A\gamma\) and for \(\gamma\). Equivalently, if \(\gamma\) is parametrised by arc-length, then \(v_{A\gamma} = v_{\gamma} = 1\) and so \(A\gamma\) is also paramettrised by arc length. Then we have
+      \begin{equation*}
+      \begin{split}
+      \kappa_{A\gamma} &= \ip{\partial_s T_{A\gamma}}{N_{A\gamma}} \\
+      &= \ip{\partial_s M T_{\gamma}}{M N_{\gamma}} \\
+      &= \ip{M \partial_s T_{\gamma}}{M N_{\gamma}} \\
+      &= \ip{\partial_s T_{\gamma}}{N_{\gamma}} \\
+      &= \kappa_{\gamma}.
+      \end{split}
+      \end{equation*}
+      Notice here that \(\partial_s\) in the first two lines pertains to \(A\gamma\) and in the third and forth lines it pertains to \(\gamma\), and going from the second to third line used the fact that \(\partial_s\) is the same in each case.
+      #+END_soln
+
    4. Let \(\gamma, \sigma\) be regular, smooth parametrised curves such that \(\kappa_{\gamma} = \kappa_{\sigma}\). Let \(A\) be the rigid motion taking \(\sigma(0)\) to \(\gamma(0)\) and \(T_{\sigma}(0)\) to \(T_{\gamma}(0)\). Using the previous parts, show that \(A \sigma (s) = \gamma(s)\) for every \(s\).
+
+      #+BEGIN_soln
+      By assumption and the previous part, we have
+      \[
+      \kappa_{A\sigma} = \kappa_{\sigma} = \kappa_{\gamma}.
+      \]
+      By the definition of \(A\) we have
+      \[
+      A\sigma(0) = \gamma(0).
+      \]
+      From the previous part and the definition of \(A\) (which was intended to mean that \(T_{\gamma}(0) = M T_{\sigma}(0)\)) we have
+      \[
+      T_{A\sigma}(0) = M T_{\sigma}(0) = T_{\gamma}(0).
+      \]
+      Thus \(A\sigma\) and \(\gamma\) satisfy the same equations from parts a and b, hence by uniqueness are equal.
+      #+END_soln
