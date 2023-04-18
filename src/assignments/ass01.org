@@ -2,13 +2,95 @@
 
 #+LaTeX_header: \newcommand{\asstitle}{Assignment 01}
 #+LaTeX_header: \input{ass_settings}
-#+LaTeX_header: \setboolean{showsoln}{false}
+#+LaTeX_header: \setboolean{showsoln}{true}
 
 1. *Change of Parameters*
 
    1. Let \(\varphi : (a, b) \to (c, d)\) be a diffeomorphism. Show that \(\varphi\) induces a bijection between the set of smooth maps \(C^{\infty}((a, b) \to \RR)\) and the set of smooth maps \(C^{\infty}((c, d) \to \RR)\).
 
+      #+BEGIN_soln
+      Define
+      \[
+      \Phi : C^{\infty}((c, d) \to \RR) \to C^{\infty}((a, b) \to \RR)
+      \]
+      by
+      \[
+      \Phi(f) = f \circ \varphi.
+      \]
+      By the chain rule \(\Phi(f)\) is smooth, hence \(\Phi\) is well defined. Then \(\Phi\) is a bijection with inverse,
+      \[
+      \Phi^{-1} (g) = g \circ \varphi^{-1}
+      \]
+      since
+      \[
+      \Phi \circ \Phi^{-1} (f) = \Phi(f \circ \varphi^{-1}) = (f \circ \varphi^{-1}) \circ \varphi = f
+      \]
+      and likewise \(\Phi^{-1} \circ \Phi (g) = g\).
+      #+END_soln
+
    2. Let \((a, b)\) be an open interval (where we allow \(a = -\infty\) and/or \(b=+\infty)\). By exhibiting an explicit diffeomorphism \(\varphi\), show that \((a, b)\) is diffeomorphic to \(\RR\). Conclude that any two intervals are diffeomorphic.
+
+      #+BEGIN_soln
+      Notice that being diffeomorphic is transitive; that is, if \(I_1 \simeq I_2\) and \(I_2 \simeq I_3\), then \(I_1 \simeq I_3\) where \(I_j\) are intervals \(\simeq\) denotes diffeomorphic (in fact, being diffeomorphic is an equivalence relation on open sets).
+      #+END_soln
+
+      #+BEGIN_soln
+      Here we show
+
+      1. that all bounded intervals are diffeomorphic to each other,
+      2. that \((-\pi/2, \pi/2)\) is diffeomorphic to \(\bbR\),
+      3. that \((-\infty, b)\) and \((a, \infty)\) are both diffeomorphic to \((0, \infty)\),
+      4. and that \((0, \infty)\) is diffeomorphic to \(\bbR\).
+
+      Thus by transitivity we conclude that all intervals are diffeomorphic. Other variants are possible. For example, we could show that any interval is diffeomorphic to \(\bbR\), or we could show that any interval is diffeomorphic to \((0, 1)\) and then apply transitivity in each case. We could also use different functions below to exhibit the appropriate diffeomorphisms - they are not unique!
+      #+END_soln
+
+      #+BEGIN_soln
+      1. First consider the case \(-\infty < a < b < \infty\). We give a diffeomorphism \((a, b) \to (0, 1)\) by
+         \[
+         \varphi : x \in (a, b) \mapsto \tfrac{x - a}{b-a}
+         \]
+         with inverse
+         \[
+         \varphi^{-1} : x \in (0, 1) \mapsto (b-a) x + a
+         \]
+         Thus any bounded open interval \((a, b)\) is diffeomorphic to \((0, 1)\) and hence by transitivity, any bounded interval is diffeomorphic to any other bounded interval.
+
+      2. Next, we show \((-\pi/2, \pi/2)\) is diffeomorphic to \(\bbR\) by defining
+         \[
+         \varphi : x \in (-\pi/2, \pi/2) \mapsto \tan(x) \in \bbR
+         \]
+         with inverse
+         \[
+         \varphi^{-1} : x \in \bbR \mapsto \arctan(x) \in (-\pi/2, \pi/2).
+         \]
+
+      3. For \((a, \infty)\), we take
+	 \[
+	 \varphi : x \in (a, \infty) \mapsto x-a \in (0, \infty)
+	 \]
+	 with inverse
+	 \[
+	 \varphi^{-1} : x \in (0, \infty) \mapsto x + a \in (a, \infty).
+	 \]
+	 For \((-\infty, b)\) we take
+	 \[
+	 \varphi : x \in (-\infty, b) \mapsto b-x \in (0, \infty)
+	 \]
+	 with inverse
+	 \[
+	 \varphi^{-1} : x \in (0, \infty) \mapsto -x + b \in (-\infty, b).
+	 \]
+
+      4. For \(x \in (0, \infty)\) we take
+	 \[
+	 \varphi : x \in (0, \infty) \mapsto \ln (x) \in \bbR
+	 \]
+	 with inverse
+	 \[
+	 \varphi^{-1} : x \in \bbR \mapsto e^x \in (0, \infty).
+	 \]
+      #+END_soln
 
 2. *Graphs of functions*
 
@@ -20,11 +102,48 @@
 
    1. Determine a /regular/ parametrisation \(\gamma : (a, b) \to \RR^n\) for $\operatorname{G} (f)$.
 
+      #+BEGIN_soln
+      Let
+      \[
+      \gamma(t) = (t, f_1(t), \dots, f_{n-1}(t))
+      \]
+      which is smooth and satisfies
+      \[
+      \gamma' = (1, f_1', \dots, f_{n-1}') \neq 0
+      \]
+      for all \(t \in (a, b)\) hence is regular.
+      #+END_soln
+
    2. Let \(\gamma : (a, b) \to \RR^n\) be a smooth, regular parametrised curve. Show that $\gamma$ is locally the graph of a smooth function \(f\). /Hint/: Use the inverse function theorem for functions \((a, b) \to \RR\).
 
       That is, for every \(t_0 \in (a, b)\) there is a \(\delta > 0\) such that the image of \(\gamma\) restricted to \((t_0 - \delta, t_0 + \delta)\) is the graph of a smooth function \(f\) (not necessarily with $x$ in the first index).
 
+      #+BEGIN_soln
+      Since \(\gamma = (\gamma_1, \dots, \gamma_n)\) is regular, for each \(t_0 \in (a, b)\) there is an \(i\) such that \(\gamma_i'(t_0) \neq 0\). By the inverse function theorem there exists a \(\delta > 0\) such that \(\gamma_i\) is smoothly invertible on \((t_0 - \delta, t_0 + \delta)\). Letting \(x = \gamma_i(t)\) on this interval we have
+      \begin{equation*}
+      \begin{split}
+      \gamma(t) &= \gamma(\gamma_i^{-1}(x)) = (\gamma_1 \circ \gamma_i^{-1} (x), \dots, \gamma_i \circ \gamma_i^{-1} (x), \dots, \gamma_n \circ \gamma_i^{-1}(x)) \\
+      &= (f_1(x), \dots, f_{i-1}(x), x, f_{i+1} (x), \dots f_n(x))
+      \end{split}
+      \end{equation*}
+      is the graph of \(f = (f_1, \dots, f_{i-1}, f_{i+1}, \dots, f_n)\) with \(f_j = \gamma_j \circ \gamma_i^{-1}\).
+      #+END_soln
+
    3. Show that \(C = \lbrace(x, \abs{x})\rbrace \subseteq \RR^2\) is not a regular curve at \((0, 0)\). /Hint/: if there was a regular parametrisation \(\gamma\) then the previous part would imply that \(C\) was the graph of a smooth function on an open interval containing \((0, 0)\). Argue that we cannot have \(x = f(y)\) (draw the picture!) hence \(y = f(x)\). Show necessarily that \(f(x) = \abs{x}\) contradicting that \(f\) is smooth.
+
+      #+BEGIN_soln
+      In order to obtain a contradiction, suppose that \(C\) is a regular curve. Then by the previous part, \(C\) is locally a graph. In particular, \(C\) may be written as the graph of a function \(y = f(x)\) or \(x = f(y)\) in an open neighbourhood of \((0, 0)\). We show this is impossible.
+
+      1. If \(C\) was the graph \(x = f(y)\) then we could parametrise \(C\) near \((0, 0)\) by \(\gamma(t) = (f(t), t)\) for \(t \in (-\delta, \delta)\) with \(\delta > 0\). But then for \(t \in (-\delta, 0)\) we have \((f(t), t) \in C\) which implies there is a \((x, y) \in C\) with \(y < 0\) which is false.
+
+	 Alternatively, one can observe that for each \(t \in (-\delta, \delta)\) there would be a unique \((x, y) \in C\) with \(y = t\), namely \((x, y) = (f(t), t)\). But if \((f(t), t) \in C\) then so is \((-f(t), t)\) violating uniqueness.
+
+      2. If \(C\) was the graph \(y = f(x)\) with \(f\) smooth, and \(x \in (-\delta, \delta)\) then we would have
+	 \[
+	 (x, y) = (x, f(x)) = (x, \abs{x})
+	 \]
+	 hence \(f(x) = \abs{x}\) which is not smooth at \(x = 0\).
+      #+END_soln
 
 3. *Polar Coordinates*
 
@@ -38,12 +157,82 @@
       ds = \sqrt{\rho^2 + (\rho')^2} dt.
       \]
 
+      #+BEGIN_soln
+      By definition, \(ds = \abs{\gamma'} dt\). We have
+      \[
+      \gamma' = \rho' (\cos t, \sin t) + \rho (-\sin t, \cos t)
+      \]
+      Since \((\cos t, \sin t), (-\sin t, \cos t)\) are orthonormal we have
+      \[
+      \abs{\gamma'}^2 = \abs{\rho' (\cos t, \sin t)}^2 + \abs{\rho (-\sin t, \cos t)}^2 = (\rho')^2 + \rho^2.
+      \]
+      #+END_soln
+
    2. Show that the curvature is
       \[
       \kappa(t) = \frac{2(\rho')^2 -\rho\rho'' + \rho^2}{[\rho^2 + (\rho')^2]^{3/2}}.
       \]
 
-   3. Use the previous formula to calculate the curvature of the polar curve corresponding to \(\rho = (1 - \cos\theta\) for \(\theta \in (0, 2\pi)\) and show that \(\kappa\) is not defined for \(\theta = 0, 2\pi\). Verify that in fact \(\gamma\) is not regular for \(\theta = 0, 2\pi\).
+      #+BEGIN_soln
+      Letting \(v = \abs{\gamma'}\), we may compute the curvature via
+      \begin{equation*}
+      \begin{split}
+      \kappa &= \ip{\partial_s T}{N} = \ip{\frac{1}{v} \partial_t \left(\frac{\gamma'}{v}\right)}{\frac{1}{v} R_{\pi/2} (\gamma')} \\
+      &= \frac{1}{v^3} \ip{\gamma''}{R_{\pi/2} (\gamma')}
+      \end{split}
+      \end{equation*}
+      since \(\gamma' \perp R_{\pi/2} (\gamma')\). Using \(v = \sqrt{(\rho')^2 + \rho^2}\) from the first part, it suffices to show that
+      \[
+      \ip{\gamma''}{R_{\pi/2} (\gamma')} = 2(\rho')^2 - \rho\rho'' + \rho^2.
+      \]
+
+      We have
+      \[
+      \gamma' = \rho' (\cos t, \sin t) + \rho (-\sin t, \cos t).
+      \]
+      From \(R_{\pi/2} (x, y) = (-y, x)\) we get
+      \[
+      R_{\pi/2} (\gamma') = \rho'(-\sin t, \cos t) + \rho(-\cos t, -\sin t).
+      \]
+      Differentiating \(\gamma'\) gives
+      \[
+      \gamma'' = (\rho'' - \rho) (\cos t, \sin t) + 2 \rho' (-\sin t, \cos t).
+      \]
+      Thus again using that \((\cos t, \sin t), (-\sin t, \cos t)\) are orthonormal we obtain
+      \begin{equation*}
+      \begin{split}
+      \ip{\gamma''}{R_{\pi/2} (\gamma')} &= \Big\langle (\rho'' - \rho) (\cos t, \sin t) + 2 \rho' (-\sin t, \cos t), \\
+      &\quad \quad \rho'(-\sin t, \cos t) + \rho(-\cos t, -\sin t)\Big\rangle \\
+      &= (\rho '' - \rho) (-\rho) + 2 (\rho')^2 \\
+      &= 2(\rho')^2 - \rho\rho'' + \rho^2.
+      \end{split}
+      \end{equation*}
+      #+END_soln
+
+   3. Use the previous formula to calculate the curvature of the polar curve corresponding to \(\rho = 1 - \cos\theta\) for \(\theta \in (0, 2\pi)\) and show that \(\kappa\) is not defined for \(\theta = 0, 2\pi\). Verify that in fact \(\gamma\) is not regular for \(\theta = 0, 2\pi\).
+
+      #+BEGIN_soln
+      We have
+      \[
+      \rho = 1 - \cos \theta, \quad \rho' = \sin \theta, \quad \rho '' = \cos \theta.
+      \]
+      Then
+      \[
+      (\rho^2 + (\rho')^2)^{3/2} = \left(1 - 2\cos\theta + \cos^2 \theta + \sin^2 \theta\right)^{3/2} = [2(1-\cos\theta)]^{3/2}
+      \]
+      and
+      \begin{equation*}
+      \begin{split}
+      2(\rho')^2 - \rho\rho'' + \rho^2 &= 2\sin^2\theta - (1-\cos\theta)\cos\theta + (1-\cos\theta)^2 \\
+      &= 2\sin^2\theta - \cos\theta + \cos^2\theta + 1 - 2\cos\theta + \cos^2\theta \\
+      &= 3 - 3 \cos\theta
+      \end{split}
+      \end{equation*}
+      Thus from the previous part,
+      \[
+      \kappa = \frac{3(1 - \cos\theta)}{[2(1-\cos\theta)]^{3/2}} = \frac{3}{2^{3/2}} \frac{1}{\sqrt{1-\cos\theta}}.
+      \]
+      #+END_soln
    
 4. *High Dimension Frenet-Serret*
 
@@ -64,6 +253,150 @@
    \end{equation*}
 
    /Hint/: Consider the case of \(n=3\) first to see how the condition \(\kappa \neq 0\) is equivalent to the linear independence of \(\lbrace\gamma', \gamma''\rbrace\), which then allows us to complete \(\lbrace T, N \rbrace\) to a basis by introducing \(B \perp T, N\). Then consider the case \(n=4\). In the general case, use induction applying Gram-Schmidt and the hypotheses.
+
+   #+BEGIN_soln
+   Let us first consider the \(3\)d case. In an arc-length parametrisation, we have \(v = \abs{\gamma'} = 1\) and \(T = \gamma'\) is a unit vector. In the lectures we saw that \(\partial_s T \perp T\). By the linear Independence assumption, \(\partial_s T = \gamma'' \neq 0 \). Then we define
+   \[
+   N_1 = \frac{\gamma''}{\abs{\gamma''}}, \quad \kappa = \ip{\partial_s T}{N_1}
+   \]
+   so that
+   \begin{equation}
+   \label{3dFS_dsT}
+   \partial_s T = \kappa N_1.
+   \end{equation}
+
+   Now we choose a unit vector \(N_2 \perp T, N_1\). There are two possible choices and by convention we typically choose \(N_2 = T \times N_1\) so that \(\{T, N_1, N_2\}\) is oriented by the right hand rule, but we could just as easily choose the other \(N_2\).
+
+   Since \(N_1\) is a unit vectors we have \(\partial_s N_1 \perp N_1\). Then expanding \(\partial_s N_1\) with respect to the orthonormal basis \(\{T, N_1, N_2\}\), the \(N_1\) component vanishes and hence
+   \[
+   \partial_s N_1 = \ip{\partial_s N_1}{T} T + \ip{\partial_s N_1}{N_2} N_2.
+   \]
+   Differentiating \(\ip{N_1}{T} = 0\) yields
+   \[
+   0 = \ip{\partial_s N_1}{T} + \ip{N_1}{\partial_s T} = \ip{\partial_s N_1}{T} + \kappa
+   \]
+   since \(\partial_s T = \kappa N_1\). Thus
+   \[
+   \ip{\partial_s N_1}{T} = - \kappa.
+   \]
+   Defining \(\kappa_1 = \ip{\partial_s N_1}{N_2}\) thus brings us to
+   \begin{equation}
+   \label{3dFS_dsN1}
+   \partial_s N_1 = -\kappa T + \kappa_1 N_2.
+   \end{equation}
+
+   To finish, as with \(N_1\), since \(N_2\) is unit length we have
+   \[
+   \partial_s N_2 = \ip{\partial_s N_2}{T} T + \ip{\partial_s N_2}{N_1} N_1.
+   \]
+   Differentiating \(\ip{N_2}{T} = 0\) gives
+   \[
+   0 = \ip{\partial_s N_2}{T} + \ip{N_2}{\partial_s T} = \ip{\partial_s N_2}{T}
+   \]
+   since \(\partial_s T = \kappa N_1 \perp N_2\) and hence \(\partial_s N_2\) has no \(T\) component. Differentiating \(\ip{N_2}{N_1} = 0\) gives
+   \[
+   0  = \ip{\partial_s N_2}{N_1} + \ip{N_2}{\partial_s N_1} = \ip{\partial_s N_2}{N_1} + \kappa_1
+   \]
+   since \(\partial_s N_1 = -\kappa T + \kappa_1 N_2\). Thus
+   \begin{equation}
+   \label{3dFS_dsN2}
+   \partial_s N_2 = \kappa_1 N_1
+   \end{equation}
+
+   Equations \eqref{3dFS_dsT}, \eqref{3dFS_dsN1}, and \eqref{3dFS_dsN2} are the required Frenet-Serret equations.
+   #+END_soln
+
+   #+BEGIN_soln
+   To ease the notation going forward, let \(N_0 = T\) and \(\kappa_0 = \kappa\). It will also be convenient to define \(N_{n+1} = N_{-1} = 0\) and \(\kappa_{n+1} = \kappa_{i-1} = 0\). Using this notation the Frenet-Serret equations become
+   \begin{equation}
+   \label{FS}
+   \partial_s N_i = -\kappa_{i-1} N_{i-1} + \kappa_{i+1} N_{i+1}, \quad i = 0, \dots, n-1.
+   \end{equation}
+
+   We proceed motivated by the previous discussion of the \(n=3\) case. We inductively construct orthonormal \(N_1, \dots, N_{n-2}\) so that the high-dimension Frenet-Serret equations hold.
+   #+END_soln
+
+   #+BEGIN_soln
+   For the base case, we let \(T = \gamma'\), \(N_1 = \tfrac{\gamma''}{\abs{\gamma''}}\), \(\kappa = \ip{\gamma''}{N_1} = \abs{\gamma''}\). Note that \(\gamma', \gamma''\) are linearly independent by assumption; in particular \(\gamma'' \neq 0\). Thus we establish the base case
+   \[
+   \partial_s T = \kappa N_1.
+   \]
+   Note also that we have \(\linspan \{T\} = \linspan \{\gamma'\}\) and \(\linspan \{T, N_1\} = \linspan \{\gamma', \gamma''\}\). We will use this as part of our induction.
+   #+END_soln
+
+   #+BEGIN_soln
+   Our inductive hypothesis is that for \(k < n-2\), we have constructed orthonormal \(N_1, \dots, N_{k}\) satisfying the Frenet-Serret equations for \(i = 0, \dots, k-1\) in such a way that
+   \begin{equation}
+   \label{FS_induction_span}
+   \linspan \{\gamma', \dots, \gamma^{(i+1)}\} = \linspan \{T, N_1, \dots, N_i\}
+   \end{equation}
+   for each \(i = 0, \dots, k\).
+
+   We may uniquely write \(N_k = \sum_{i=1}^{k+1} f_i \gamma^{(i)}\) for smooth functions \(f_i\). Since \(\linspan \{\gamma', \dots, \gamma^{(k)}\} = \linspan \{T, N_1, \dots, N_{k-1}\}\) and \(N_k\) is not in this common span, we must have \(f_{k+1} \neq 0\). Differentiating gives
+   \[
+   \partial_s N_k = \sum_{i=1}^{k+1} f_i' \gamma^{(i)} + f_i \gamma^{(i+1)}.
+   \]
+   Then since \(f_{k+2} \neq 0\), \(\partial_s N_k\) has non-zero \(\gamma^{(k+2)}\) component. Therefore \(\partial_s N_k \in \linspan \{\gamma', \dots, \gamma^{(k+2)}\}\) and \(\partial_s N_k \notin \linspan \{\gamma', \dots, \gamma^{(k+1)}\}\). By Gram-Schmidt, there exists a unit vector \(N_{k+1}\) orthogonal to \(T, N_1, \dots, N_k\) and such that
+   \[
+   \linspan \{\gamma', \dots, \gamma^{(k+2)}\} = \linspan \{T, N_1, \dots, N_{k+1}\}.
+   \]
+   Let
+   \[
+   \kappa_{k+1} = \ip{\partial_s N_k}{N_{k+2}} = \ip{f_{k+1} \gamma^{(k+2)}}{N_{k+1}} \neq 0.
+   \]
+
+   To finish the induction we need to show that
+   \begin{equation}
+   \label{FS_k1}
+   \partial_s N_k = -\kappa_{k-1} N_{k-1} + \kappa_{k+1} N_{k+1}.
+   \end{equation}
+
+   Write
+   \[
+   \partial_s N_k = \sum_{i=0}^{k+1} \ip{\partial_s N_k}{N_i} N_i.
+   \]
+   Since \(N_k\) is a unit length vector we have \(\ip{\partial_s N_k}{N_k} = 0\). By definition, \(\ip{\partial_s N_k}{N_{k+1}} = \kappa_{k+1}\). Then we need to show that \(\ip{\partial_s N_k}{N_i} = 0\) for \(i = 0, \dots, k-2\) and that \(\ip{\partial_s N_k}{N_{k-1}} = -\kappa_{k-1}\). Differentiating \(\ip{N_k}{N_i} = 0\) for \(i = 0, \dots, k-1\) gives,
+   \begin{equation*}
+   \begin{split}
+   0 &= \ip{\partial_s N_k}{N_i} + \ip{N_k}{\partial_s N_i} \\
+   &= \ip{\partial_s N_k}{N_i} + \ip{N_k}{-\kappa_{i-1} N_{i-1} + \kappa_{i+1} N_{i+1}}  \\
+   &= \ip{\partial_s N_k}{N_i} + \kappa_{i+1} \ip{N_k}{N_{i+1}}
+   \end{split}
+   \end{equation*}
+   since \(N_{i-1} \perp N_k\) for \(i = 0, \dots, k-1\). Thus for \(i = 0, \dots, k-1\)
+   \[
+   \ip{\partial_s N_k}{N_i} = -\kappa_{i+1} \ip{N_k}{N_{i+1}}
+   \]
+   For \(i = 0, \dots, k-2\), \(\ip{N_{i+1}}{N_k} = 0\) hence \(\ip{N_i}{\partial_s N_k} = 0\). For \(i=k-1\) we get
+   \[
+   \ip{N_{k-1}}{\partial_s N_k} = -\kappa_k.
+   \]
+   Thus we finally obtain
+   \[
+   \partial_s N_k = -\kappa_{k-1} N_{k-1} + \kappa_{k+1} N_{k+1}
+   \]
+   as required.
+   #+END_soln
+
+   #+BEGIN_soln
+   One final step remains. Let \(N_{n-1}\) be a unit vector orthogonal to \(\{T, N_1, \dots, N_{n-2}\}\). We typically choose \(N_{n-1}\) so that \(\{T, N_1, \dots, N_{n-1}\}\) has positive orientation (i.e. the same as \(\{e_1, \dots, e_n\}\) though this is just a convention and doesn't change the outcome. We need to show that
+   \[
+   \partial_s N_{n-1} = -\kappa_{n-2} N_{n-2}.
+   \]
+
+   As usual, \(\partial_s N_{n-1} \perp N_{n-1}\). For \(i = 0, \dots, n-3\), differentiate \(0 = \ip{N_{n-1}}{N_i}\) to obtain
+   \[
+   0 = \ip{\partial_s N_{n-1}}{N_i} + \ip{N_{n-1}}{-\kappa_{i-1} N_{i-1} + \kappa_{i+1} N_{i+1}} = \ip{\partial_s N_{n-1}}{N_i}
+   \]
+   since \(N_{n-1} \perp N_{i-1}, N_{i+1}\) for \(i = 0, \dots, n-3\). For \(i=n-2\) we get
+   \[
+   0 = \ip{\partial_s N_{n-1}}{N_{n-2}} + \ip{N_{n-1}}{\kappa_{n-2} N_{n-1}}
+   \]
+   implying that
+   \[
+   \ip{\partial_s N_{n-1}}{N_{n-2}} = -\kappa_{n-2}.
+   \]
+   #+END_soln
 
 5. *Curvature as a Total Invariant*
 
