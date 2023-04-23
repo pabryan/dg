@@ -23,13 +23,13 @@
   short_title: Surface Geometry
   link: "/notes/surface_geometry"
 - num: "06"
-  title: Orientation and Connection
-  short_title: Orientation and Curvature
-  link: "/notes/surface_orientation_connection"
+  title: Orientation and Vector Fields
+  short_title: Orientation and Vector Fields
+  link: "/notes/vector_fields_orientation"
 - num: "07"
-  title: Curvature of Surfaces
-  short_title: Surface Curvature
-  link: "/notes/surface_curvature"
+  title: Cancelled
+  short_title: Cancelled
+  link: "/notes/cancelled"
 - num: "08"
   title: Manifolds
   short_title: Manifolds

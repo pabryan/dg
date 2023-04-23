@@ -1,0 +1,251 @@
+---
+layout: org-slides
+---
+
+<section class="outline-2" id="outline-container-org36c3622">
+<h2 id="org36c3622">Vector Fields</h2>
+<div class="outline-text-2" id="text-org36c3622">
+</div>
+<section class="outline-3" id="outline-container-orgf712481">
+<h3 id="orgf712481">Vector Fields</h3>
+</section>
+<section class="outline-3" id="outline-container-org04f5ec6">
+<h3 id="org04f5ec6">Vector Fields</h3>
+<div class="outline-text-3" id="text-org04f5ec6">
+<div class="env" id="org8f51bed">
+<p>
+A smooth <i>vector field</i> is a smooth map \(X : S \to \RR^3\) such that \(X(p) \in T_p S\) for every \(p \in S\).
+</p>
+<p>
+A smooth <i>local</i> vector field is a smooth vector field defined on an open set \(U \subseteq S\).
+</p>
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org93fef41">
+<h3 id="org93fef41">Vector Fields on \(\SS^2\)</h3>
+<div class="outline-text-3" id="text-org93fef41">
+<div class="env" id="orgd732aea">
+<p>
+\[
+X(x, y, z) = (-y, x, 0)
+\]
+</p>
+<p>
+In general \(X : \SS^2 \to \RR^3\) such that \(X(p) \perp p\).
+</p>
+</div>
+<div class="env" id="org0c4e315">
+<p>
+There are no non-vanishing vector fields on \(\SS^2\)
+</p>
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgae3120f">
+<h3 id="orgae3120f">Coordinate Local Vector Fields</h3>
+<div class="outline-text-3" id="text-orgae3120f">
+<p>
+Let \(\varphi = \varphi(x_1, x_2) : U \to V \subseteq S\) be a local parametrisation.
+</p>
+<div class="env" id="orgd6ab641">
+<p>
+For \(i = 1,2\), the maps
+\[
+e_i : p \in V \mapsto \partial_{x_i} \varphi (\varphi^{-1} (p))
+\]
+are smooth vector fields.
+</p>
+</div>
+<p>
+Proof is tautological: \(e_i \circ \varphi = \partial_{x_i} \varphi\) is smooth \(U \to \RR^3\)
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org129c124">
+<h3 id="org129c124">Coordinate Local Basis</h3>
+<div class="outline-text-3" id="text-org129c124">
+<p>
+For any \(X \in T_p S\) we have uniquely,
+\[
+X = X^1 e_1 + X^2 e_2
+\]
+where \(e_i = \partial_i \varphi\)
+</p>
+<p>
+In the notation \(\varphi(u, v)\) we write
+\[
+X = X^u e_u + X^v e_v
+\]
+</p>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-orga86988d">
+<h2 id="orga86988d">Vectors as Differential Operators</h2>
+<div class="outline-text-2" id="text-orga86988d">
+</div>
+<section class="outline-3" id="outline-container-orgadb8414">
+<h3 id="orgadb8414">Vectors as Differential Operators</h3>
+</section>
+<section class="outline-3" id="outline-container-orgb574327">
+<h3 id="orgb574327">Notation</h3>
+<div class="outline-text-3" id="text-orgb574327">
+<p>
+For \(X \in T_p S\) and \(f : S \to \RR\) smooth:
+</p>
+<p>
+\[
+\partial_X f = X(f) = df(X) = d_X f = D_X f
+\]
+</p>
+<p>
+Recall the definition
+\[
+\partial_X f = \partial_t|_{t=0} f(\gamma(t))
+\]
+where \(\gamma(0) = p, \gamma'(0) = X\)
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org07867ee">
+<h3 id="org07867ee">Coordinate Expression</h3>
+<div class="outline-text-3" id="text-org07867ee">
+<p>
+Uniquely write \(X = X^1 \partial_1 \varphi + X^2 \partial_2 \varphi\)
+</p>
+<p>
+\[
+\partial_X f = X^1 \partial_1 f + X^2 \partial_2 f
+\]
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org280dc3f">
+<h3 id="org280dc3f">Chain Rule</h3>
+<div class="outline-text-3" id="text-org280dc3f">
+<p>
+Let \(\tau : \RR^n \to \RR^m\), \(f : \RR^m \to \RR\) be smooth
+</p>
+<div class="env" id="org77f109b">
+<p>
+\[
+D_{d\tau (U)} f = D_U (f \circ \tau)
+\]
+</p>
+</div>
+<div class="env" id="org28f8214">
+\begin{equation*}
+\begin{split}
+D_U (f \circ \tau) &amp;= \partial_t|_{t=0} (f \circ \tau) \circ \gamma \\
+&amp;= \partial_t|_{t=0} f \circ (\tau \circ \gamma) = D_{d\tau (U)} f
+\end{split}
+\end{equation*}
+
+</div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org60f07da">
+<h2 id="org60f07da">Differentiating Vector Fields</h2>
+<div class="outline-text-2" id="text-org60f07da">
+</div>
+<section class="outline-3" id="outline-container-org75be870">
+<h3 id="org75be870">Differentiating Vector Fields in Euclidean Space</h3>
+<div class="outline-text-3" id="text-org75be870">
+<p>
+Let \(X = (X^1, \dots, X^n)\) denote a vector field on \(\RR^n\)
+</p>
+<p>
+(i.e. a smooth map \(\RR^n \to \RR^n\))
+</p>
+<div class="env" id="org43072fb">
+<p>
+For \(X, Y\) vector fields,
+</p>
+\begin{equation*}
+\begin{split}
+D_X Y &amp;= \big(\partial_X Y^1, \dots, \partial_X Y^n\big) \\
+&amp;= \left(\sum_{i=1}^n X^i \partial_i Y^1, \dots, \sum_{i=1}^n X^i \partial_i Y^n\right)
+\end{split}
+\end{equation*}
+
+</div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-orgee376bb">
+<h2 id="orgee376bb">Local Coordinate Differentiation Problem</h2>
+<div class="outline-text-2" id="text-orgee376bb">
+</div>
+<section class="outline-3" id="outline-container-orgf7e6224">
+<h3 id="orgf7e6224">Local Coordinate Differentiation Problem</h3>
+<div class="outline-text-3" id="text-orgf7e6224">
+<p>
+For local parametrisations \(\varphi, \psi\)
+</p>
+
+\begin{align*}
+X &amp;= d\varphi(U) = d\psi(W) \\
+Y &amp;= d\varphi(V) = d\psi(Z)
+\end{align*}
+
+<p>
+<b>Problem</b>: In general
+\[
+d\varphi (D_U V) \neq D\psi (D_W Z)
+\]
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org5e93978">
+<h3 id="org5e93978">Local Coordinate Problem</h3>
+<div class="outline-text-3" id="text-org5e93978">
+<p>
+Why? We have
+\[
+W = d\tau(U), \quad Z = d\tau(V)
+\]
+</p>
+<p>
+We want
+\[
+d\tau(D_U V) = D_W Z = D_{d\tau(U)} (d\tau(V))
+\]
+But the right hand side has extra terms from differentiating \(d\tau\)
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgbf0e304">
+<h3 id="orgbf0e304">Local Coordinate Problem</h3>
+<div class="outline-text-3" id="text-orgbf0e304">
+<p>
+Write \(V = V^1 e_1 + V^2 e_2\)
+</p>
+\begin{equation*}
+\begin{split}
+d\tau(D_U V) &amp;= d\tau \big((D_U V^1) e_1 + (D_U V^2) e_2\big) \\
+&amp;= (D_U V^1) d\tau (e_1) + (D_U V^2) d\tau(e_2)
+\end{split}
+\end{equation*}
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgcc8641c">
+<h3 id="orgcc8641c">Local Coordinate Problem</h3>
+<div class="outline-text-3" id="text-orgcc8641c">
+\begin{equation*}
+\begin{split}
+D_{d\tau(U)} (d\tau(V)) &amp;= D_{d\tau(U)} \big(V^1 d\tau(e_1) + V^2 d\tau(e_2)\big) \\
+&amp;= (D_{d\tau(U)} V^1) d\tau(e_1) + (D_{d\tau(U)} V^2) d\tau(e_2) \\
+&amp;\quad + V^1 D_{d\tau(U)} [d\tau(e_1)] + V^2 D_{d\tau(U)} [d\tau(e_2)] \\
+&amp;= d\tau(D_U V) \\
+&amp;\quad + V^1 D_{d\tau(U)} [d\tau(e_1)] + V^2 D_{d\tau(U)} [d\tau(e_2)]
+\end{split}
+\end{equation*}
+
+<p>
+By the chain rule for \(D_{d\tau(U)} V^i = D_{d\tau(U)} V^i \circ \tau^{-1}\)
+</p>
+</div>
+</section>
+</section>
