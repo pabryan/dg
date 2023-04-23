@@ -1,4 +1,4 @@
-#+TITLE: Connections
+#+TITLE: Vector Fields
 #+OPTIONS: toc:nil num:nil
 
 * Vector Fields
@@ -95,6 +95,7 @@ D_U (f \circ \tau) &= \partial_t|_{t=0} (f \circ \tau) \circ \gamma \\
 \end{equation*}
 #+END_env
 
+
 * Differentiating Vector Fields
 ** Differentiating Vector Fields in Euclidean Space
 
@@ -111,7 +112,6 @@ D_X Y &= \big(\partial_X Y^1, \dots, \partial_X Y^n\big) \\
 \end{split}
 \end{equation*}
 #+END_env
-
 * Local Coordinate Differentiation Problem
 ** Local Coordinate Differentiation Problem
 
@@ -163,94 +163,3 @@ D_{d\tau(U)} (d\tau(V)) &= D_{d\tau(U)} \big(V^1 d\tau(e_1) + V^2 d\tau(e_2)\big
 \end{equation*}
 
 By the chain rule for \(D_{d\tau(U)} V^i = D_{d\tau(U)} V^i \circ \tau^{-1}\)
-
-* Geometric Problem With Differentiation
-** Geometric Problem With Differentiation
-** Geometric Problem
-
-Locally extend vector fields \(X, Y : S \to \RR^3\)
-
-\[
-\bar{X}, \bar{Y} : U \to \RR^3
-\]
-where \(U \subseteq \RR^3\) is an open set containing \(S\).
-
-Define for \(p \in S\)
-\[
-D^S_X Y (p) := D_{\bar{X}} \bar{Y} (p)
-\]
-
-** Geometric Problem
-
-What's the problem?
-
-In general \(D^S_X Y (p) \notin T_p S\)!
-
-** Geometric Problem
-
-#+BEGIN_eg
-Let \(S = \SS^2\)
-\[
-X(x, y, z) = Y(x, y, z) = (-y, x, 0)
-\]
-
-\begin{equation*}
-\begin{split}
-D_X Y &= (D_X (-y), D_X x, D_X 0) \\
-&= \big(-y\partial_x (-y) + x \partial_y (-y), -y\partial_x (x) + x \partial_y (x), 0\big) \\
-&= (-x, -y, 0)
-\end{split}
-\end{equation*}
-
-\[
-\ip{D_X Y}{N} = \ip{(-x, -y, 0)}{(x,y,z)} = -(x^2 + y^2) \neq 0
-\]
-#+END_eg
-
-* Covariant Derivative
-** Covariant Derivative
-
-Also known as the *Connection* or *Affine Connection*
-
-** Covariant Derivative
-
-#+BEGIN_env def
-The covariant derivative of vector fields on \(S\) is
-\[
-\nabla_X Y = \pi_N(D_X Y) = D_X Y - \ip{D_X Y}{N} N
-\]
-#+END_env
-
-** Example
-
-#+BEGIN_eg
-Let \(S = \SS^2\)
-\[
-X(x, y, z) = Y(x, y, z) = (-y, x, 0)
-\]
-
-\[
-D_X Y = -(x, y, 0), \quad \ip{D_X Y}{N} = -(x^2 + y^2)
-\]
-
-\begin{equation*}
-\begin{split}
-\nabla_X Y &= D_X Y - \ip{D_X Y}{N} N \\
-&= -(x, y, 0) + (x^2 + y^2)(x, y, z) \\
-&= \big(-x z^2, -y z^2, z(1-z^2)\big)
-\end{split}
-\end{equation*}
-
-\[
-\ip{\nabla_X Y}{N} = 0
-\]
-#+END_eg
-
-** Properties
-
-- Invariant under \(N \mapsto -N\)
-- \(\nabla_{fX + gY} Z = f\nabla_X Z + g \nabla_X Z\)
-- \(\nabla_X (Y + Z) = \nabla_X Y + \nabla_X Z\)
-- \(\nabla_X (fZ) = f\nabla_X Z + (\partial_X f) Z\)
-
-Last item is the "Leibniz Product Rule"

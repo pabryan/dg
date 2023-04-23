@@ -1,0 +1,19 @@
+#+OPTIONS: toc:nil num:nil
+#+BEGIN_export html
+---
+title: Orientation and Vector Fields
+short_title: Orientation and Vector Fields
+---
+#+END_export
+
+#+LaTeX_class: article_no_macros
+#+LaTeX_Header: \usepackage{pabnotes}
+#+LaTeX_Header: \newcommand{\weeknum}{06}
+#+LaTeX_Header: \newcommand{\topic}{Orientation and Vector Fields}
+
+#+BEGIN_export html
+<ul>
+<li><a href="{{ '/slides/surface_orientation' | relative_url }}" target="_blank">Orienation Slides</a></li>
+<li><a href="{{ '/slides/vector_fields' | relative_url }}" target="_blank">Vector Fields</a></li>
+</ul>
+#+END_export

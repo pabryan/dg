@@ -1,0 +1,16 @@
+#+OPTIONS: toc:nil num:nil
+#+BEGIN_export html
+---
+title: Cancelled
+short_title: Cancelled
+---
+#+END_export
+
+#+LaTeX_class: article_no_macros
+#+LaTeX_Header: \usepackage{pabnotes}
+#+LaTeX_Header: \newcommand{\weeknum}{07}
+#+LaTeX_Header: \newcommand{\topic}{Cancelled}
+
+#+BEGIN_export html
+This week was cancelled due to illness.
+#+END_export
