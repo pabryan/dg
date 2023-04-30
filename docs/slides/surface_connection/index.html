@@ -2,283 +2,36 @@
 layout: org-slides
 ---
 
-<section class="outline-2" id="outline-container-org61dda6a">
-<h2 id="org61dda6a">Vector Fields</h2>
-<div class="outline-text-2" id="text-org61dda6a">
+<section class="outline-2" id="outline-container-org82e6ea4">
+<h2 id="org82e6ea4">Geometric Problem With Differentiation</h2>
+<div class="outline-text-2" id="text-org82e6ea4">
 </div>
-<section class="outline-3" id="outline-container-orga7fc6b0">
-<h3 id="orga7fc6b0">Vector Fields</h3>
+<section class="outline-3" id="outline-container-org4f3bf43">
+<h3 id="org4f3bf43">Geometric Problem With Differentiation</h3>
 </section>
-<section class="outline-3" id="outline-container-org920027d">
-<h3 id="org920027d">Vector Fields</h3>
-<div class="outline-text-3" id="text-org920027d">
-<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
-<p>
-A smooth <i>vector field</i> is a smooth map \(X : S \to \RR^3\) such that \(X(p) \in T_p S\) for every \(p \in S\).
-</p>
-<p>
-A smooth <i>local</i> vector field is a smooth vector field defined on an open set \(U \subseteq S\).
-</p>
-</div></div>
-</div>
-</section>
-<section class="outline-3" id="outline-container-org652d678">
-<h3 id="org652d678">Vector Fields on \(\SS^2\)</h3>
-<div class="outline-text-3" id="text-org652d678">
-<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
-<p>
-\[
-X(x, y, z) = (-y, x, 0)
-\]
-</p>
-<p>
-In general \(X : \SS^2 \to \RR^3\) such that \(X(p) \perp p\).
-</p>
-</div></div>
-<div class="thm card"><div class="card-header"><h5 class="card-title"> : Hairy Ball Theorem</h5></div><div class="card-body">
-<p>
-There are no non-vanishing vector fields on \(\SS^2\)
-</p>
-</div></div>
-</div>
-</section>
-<section class="outline-3" id="outline-container-orgc612cb6">
-<h3 id="orgc612cb6">Coordinate Local Vector Fields</h3>
-<div class="outline-text-3" id="text-orgc612cb6">
-<p>
-Let \(\varphi = \varphi(x_1, x_2) : U \to V \subseteq S\) be a local parametrisation.
-</p>
-<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
-<p>
-For \(i = 1,2\), the maps
-\[
-e_i : p \in V \mapsto \partial_{x_i} \varphi (\varphi^{-1} (p))
-\]
-are smooth vector fields.
-</p>
-</div></div>
-<p>
-Proof is tautological: \(e_i \circ \varphi = \partial_{x_i} \varphi\) is smooth \(U \to \RR^3\)
-</p>
-</div>
-</section>
-<section class="outline-3" id="outline-container-orga349756">
-<h3 id="orga349756">Coordinate Local Basis</h3>
-<div class="outline-text-3" id="text-orga349756">
-<p>
-For any \(X \in T_p S\) we have uniquely,
-\[
-X = X^1 e_1 + X^2 e_2
-\]
-where \(e_i = \partial_i \varphi\)
-</p>
-<p>
-In the notation \(\varphi(u, v)\) we write
-\[
-X = X^u e_u + X^v e_v
-\]
-</p>
-</div>
-</section>
-</section>
-<section class="outline-2" id="outline-container-orge85db09">
-<h2 id="orge85db09">Vectors as Differential Operators</h2>
-<div class="outline-text-2" id="text-orge85db09">
-</div>
-<section class="outline-3" id="outline-container-org5d7466c">
-<h3 id="org5d7466c">Vectors as Differential Operators</h3>
-</section>
-<section class="outline-3" id="outline-container-org19148bf">
-<h3 id="org19148bf">Notation</h3>
-<div class="outline-text-3" id="text-org19148bf">
-<p>
-For \(X \in T_p S\) and \(f : S \to \RR\) smooth:
-</p>
-<p>
-\[
-\partial_X f = X(f) = df(X) = d_X f = D_X f
-\]
-</p>
-<p>
-Recall the definition
-\[
-\partial_X f = \partial_t|_{t=0} f(\gamma(t))
-\]
-where \(\gamma(0) = p, \gamma'(0) = X\)
-</p>
-</div>
-</section>
-<section class="outline-3" id="outline-container-org5604d1a">
-<h3 id="org5604d1a">Coordinate Expression</h3>
-<div class="outline-text-3" id="text-org5604d1a">
-<p>
-Uniquely write \(X = X^1 \partial_1 \varphi + X^2 \partial_2 \varphi\)
-</p>
-<p>
-\[
-\partial_X f = X^1 \partial_1 f + X^2 \partial_2 f
-\]
-</p>
-</div>
-</section>
-<section class="outline-3" id="outline-container-org4a7ad70">
-<h3 id="org4a7ad70">Chain Rule</h3>
-<div class="outline-text-3" id="text-org4a7ad70">
-<p>
-Let \(\tau : \RR^n \to \RR^m\), \(f : \RR^m \to \RR\) be smooth
-</p>
-<div class="lem card"><div class="card-header"><h5 class="card-title"> : Chain Rule</h5></div><div class="card-body">
-<p>
-\[
-D_{d\tau (U)} f = D_U (f \circ \tau)
-\]
-</p>
-</div></div>
-<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
-\begin{equation*}
-\begin{split}
-D_U (f \circ \tau) &amp;= \partial_t|_{t=0} (f \circ \tau) \circ \gamma \\
-&amp;= \partial_t|_{t=0} f \circ (\tau \circ \gamma) = D_{d\tau (U)} f
-\end{split}
-\end{equation*}
-
-</div></div>
-</div>
-</section>
-</section>
-<section class="outline-2" id="outline-container-orgaf2dd79">
-<h2 id="orgaf2dd79">Differentiating Vector Fields</h2>
-<div class="outline-text-2" id="text-orgaf2dd79">
-</div>
-<section class="outline-3" id="outline-container-orgfe74776">
-<h3 id="orgfe74776">Differentiating Vector Fields in Euclidean Space</h3>
-<div class="outline-text-3" id="text-orgfe74776">
-<p>
-Let \(X = (X^1, \dots, X^n)\) denote a vector field on \(\RR^n\)
-</p>
-<p>
-(i.e. a smooth map \(\RR^n \to \RR^n\))
-</p>
-<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
-<p>
-For \(X, Y\) vector fields,
-</p>
-\begin{equation*}
-\begin{split}
-D_X Y &amp;= \big(\partial_X Y^1, \dots, \partial_X Y^n\big) \\
-&amp;= \left(\sum_{i=1}^n X^i \partial_i Y^1, \dots, \sum_{i=1}^n X^i \partial_i Y^n\right)
-\end{split}
-\end{equation*}
-
-</div></div>
-</div>
-</section>
-</section>
-<section class="outline-2" id="outline-container-org5d8f762">
-<h2 id="org5d8f762">Local Coordinate Differentiation Problem</h2>
-<div class="outline-text-2" id="text-org5d8f762">
-</div>
-<section class="outline-3" id="outline-container-org789bd2e">
-<h3 id="org789bd2e">Local Coordinate Differentiation Problem</h3>
-<div class="outline-text-3" id="text-org789bd2e">
-<p>
-For local parametrisations \(\varphi, \psi\)
-</p>
-
-\begin{align*}
-X &amp;= d\varphi(U) = d\psi(W) \\
-Y &amp;= d\varphi(V) = d\psi(Z)
-\end{align*}
-
-<p>
-<b>Problem</b>: In general
-\[
-d\varphi (D_U V) \neq D\psi (D_W Z)
-\]
-</p>
-</div>
-</section>
-<section class="outline-3" id="outline-container-org4006ed9">
-<h3 id="org4006ed9">Local Coordinate Problem</h3>
-<div class="outline-text-3" id="text-org4006ed9">
-<p>
-Why? We have
-\[
-W = d\tau(U), \quad Z = d\tau(V)
-\]
-</p>
-<p>
-We want
-\[
-d\tau(D_U V) = D_W Z = D_{d\tau(U)} (d\tau(V))
-\]
-But the right hand side has extra terms from differentiating \(d\tau\)
-</p>
-</div>
-</section>
-<section class="outline-3" id="outline-container-org860d9a3">
-<h3 id="org860d9a3">Local Coordinate Problem</h3>
-<div class="outline-text-3" id="text-org860d9a3">
-<p>
-Write \(V = V^1 e_1 + V^2 e_2\)
-</p>
-\begin{equation*}
-\begin{split}
-d\tau(D_U V) &amp;= d\tau \big((D_U V^1) e_1 + (D_U V^2) e_2\big) \\
-&amp;= (D_U V^1) d\tau (e_1) + (D_U V^2) d\tau(e_2)
-\end{split}
-\end{equation*}
-</div>
-</section>
-<section class="outline-3" id="outline-container-org0fb59ee">
-<h3 id="org0fb59ee">Local Coordinate Problem</h3>
-<div class="outline-text-3" id="text-org0fb59ee">
-\begin{equation*}
-\begin{split}
-D_{d\tau(U)} (d\tau(V)) &amp;= D_{d\tau(U)} \big(V^1 d\tau(e_1) + V^2 d\tau(e_2)\big) \\
-&amp;= (D_{d\tau(U)} V^1) d\tau(e_1) + (D_{d\tau(U)} V^2) d\tau(e_2) \\
-&amp;\quad + V^1 D_{d\tau(U)} [d\tau(e_1)] + V^2 D_{d\tau(U)} [d\tau(e_2)] \\
-&amp;= d\tau(D_U V) \\
-&amp;\quad + V^1 D_{d\tau(U)} [d\tau(e_1)] + V^2 D_{d\tau(U)} [d\tau(e_2)]
-\end{split}
-\end{equation*}
-
-<p>
-By the chain rule for \(D_{d\tau(U)} V^i = D_{d\tau(U)} V^i \circ \tau^{-1}\)
-</p>
-</div>
-</section>
-</section>
-<section class="outline-2" id="outline-container-org521cab4">
-<h2 id="org521cab4">Geometric Problem With Differentiation</h2>
-<div class="outline-text-2" id="text-org521cab4">
-</div>
-<section class="outline-3" id="outline-container-org674ec0a">
-<h3 id="org674ec0a">Geometric Problem With Differentiation</h3>
-</section>
-<section class="outline-3" id="outline-container-org6112346">
-<h3 id="org6112346">Geometric Problem</h3>
-<div class="outline-text-3" id="text-org6112346">
+<section class="outline-3" id="outline-container-org0317696">
+<h3 id="org0317696">Geometric Problem</h3>
+<div class="outline-text-3" id="text-org0317696">
 <p>
 Locally extend vector fields \(X, Y : S \to \RR^3\)
 </p>
 <p>
 \[
-\bar{X}, \bar{Y} : U \to \RR^3
+\overline{X}, \overline{Y} : U \to \RR^3
 \]
 where \(U \subseteq \RR^3\) is an open set containing \(S\).
 </p>
 <p>
 Define for \(p \in S\)
 \[
-D^S_X Y (p) := D_{\bar{X}} \bar{Y} (p)
+D^S_X Y (p) := D_{\overline{X}} \overline{Y} (p)
 \]
 </p>
 </div>
 </section>
-<section class="outline-3" id="outline-container-org4b13d8a">
-<h3 id="org4b13d8a">Geometric Problem</h3>
-<div class="outline-text-3" id="text-org4b13d8a">
+<section class="outline-3" id="outline-container-org8cf1fcd">
+<h3 id="org8cf1fcd">Geometric Problem</h3>
+<div class="outline-text-3" id="text-org8cf1fcd">
 <p>
 What's the problem?
 </p>
@@ -287,10 +40,10 @@ In general \(D^S_X Y (p) \notin T_p S\)!
 </p>
 </div>
 </section>
-<section class="outline-3" id="outline-container-org9d364b4">
-<h3 id="org9d364b4">Geometric Problem</h3>
-<div class="outline-text-3" id="text-org9d364b4">
-<div class="eg" id="orgd771a03">
+<section class="outline-3" id="outline-container-orgfea5384">
+<h3 id="orgfea5384">Geometric Problem</h3>
+<div class="outline-text-3" id="text-orgfea5384">
+<div class="eg" id="org92d94d6">
 <p>
 Let \(S = \SS^2\)
 \[
@@ -315,35 +68,35 @@ D_X Y &amp;= (D_X (-y), D_X x, D_X 0) \\
 </div>
 </section>
 </section>
-<section class="outline-2" id="outline-container-orgf7d6f03">
-<h2 id="orgf7d6f03">Covariant Derivative</h2>
-<div class="outline-text-2" id="text-orgf7d6f03">
+<section class="outline-2" id="outline-container-orgc7d224a">
+<h2 id="orgc7d224a">Covariant Derivative</h2>
+<div class="outline-text-2" id="text-orgc7d224a">
 </div>
-<section class="outline-3" id="outline-container-org0e5c9ed">
-<h3 id="org0e5c9ed">Covariant Derivative</h3>
-<div class="outline-text-3" id="text-org0e5c9ed">
+<section class="outline-3" id="outline-container-org46c2fa6">
+<h3 id="org46c2fa6">Covariant Derivative</h3>
+<div class="outline-text-3" id="text-org46c2fa6">
 <p>
 Also known as the <b>Connection</b> or <b>Affine Connection</b>
 </p>
 </div>
 </section>
-<section class="outline-3" id="outline-container-orgfed8457">
-<h3 id="orgfed8457">Covariant Derivative</h3>
-<div class="outline-text-3" id="text-orgfed8457">
-<div class="def card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<section class="outline-3" id="outline-container-org988bc55">
+<h3 id="org988bc55">Covariant Derivative</h3>
+<div class="outline-text-3" id="text-org988bc55">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
 <p>
-The covariant derivative of vector fields on \(S\) is
+The covariant derivative of vector fields on \(S\) is the projection onto the tangent space of \(D_X Y\):
 \[
-\nabla_X Y = \pi_N(D_X Y) = D_X Y - \ip{D_X Y}{N} N
+\nabla_X Y = \pi_T(D_X Y) = D_X Y - \ip{D_X Y}{N} N
 \]
 </p>
 </div></div>
 </div>
 </section>
-<section class="outline-3" id="outline-container-orgf1c01be">
-<h3 id="orgf1c01be">Example</h3>
-<div class="outline-text-3" id="text-orgf1c01be">
-<div class="eg" id="orgb38fd95">
+<section class="outline-3" id="outline-container-orgf3321ad">
+<h3 id="orgf3321ad">Example</h3>
+<div class="outline-text-3" id="text-orgf3321ad">
+<div class="eg" id="org7fd484f">
 <p>
 Let \(S = \SS^2\)
 \[
@@ -372,18 +125,279 @@ D_X Y = -(x, y, 0), \quad \ip{D_X Y}{N} = -(x^2 + y^2)
 </div>
 </div>
 </section>
-<section class="outline-3" id="outline-container-org5b5a4b2">
-<h3 id="org5b5a4b2">Properties</h3>
-<div class="outline-text-3" id="text-org5b5a4b2">
+<section class="outline-3" id="outline-container-org45d09d6">
+<h3 id="org45d09d6">Properties</h3>
+<div class="outline-text-3" id="text-org45d09d6">
 <ul class="org-ul">
 <li>Invariant under \(N \mapsto -N\)</li>
 <li>\(\nabla_{fX + gY} Z = f\nabla_X Z + g \nabla_X Z\)</li>
 <li>\(\nabla_X (Y + Z) = \nabla_X Y + \nabla_X Z\)</li>
 <li>\(\nabla_X (fZ) = f\nabla_X Z + (\partial_X f) Z\)</li>
 </ul>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org56f7b48">
+<h2 id="org56f7b48">Covariant Derivative is Well Defined</h2>
+<div class="outline-text-2" id="text-org56f7b48">
+</div>
+<section class="outline-3" id="outline-container-org5d10392">
+<h3 id="org5d10392">Covariant Derivative is Well Defined</h3>
+</section>
+<section class="outline-3" id="outline-container-orgf2058b1">
+<h3 id="orgf2058b1">Well Defined</h3>
+<div class="outline-text-3" id="text-orgf2058b1">
 <p>
-Last item is the "Leibniz Product Rule"
+Let \(X, Y\) be vector fields on \(S\).
 </p>
+<p>
+Let \(\overline{X}, \overline{Y}\) and \(\widetilde{X}, \widetilde{Y}\) be extensions of \(X, Y\).
+</p>
+<p>
+We need to know that at \(p \in S\)
+\[
+\pi_T(D_{\overline{X}} \overline{Y}) = \pi_T(D_{\widetilde{X}} \widetilde{Y})
+\]
+</p>
+<p>
+In fact we can show that
+\[
+D_{\overline{X}} \overline{Y} = D_{\widetilde{X}} \widetilde{Y}
+\]
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgbd4b085">
+<h3 id="orgbd4b085">Pointwise Dependence on First Argument</h3>
+<div class="outline-text-3" id="text-orgbd4b085">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(\overline{X}, \widetilde{X}\) be vector fields on \(\RR^n\) with \(\overline{X}(p) = \widetilde{X}(p)\). Then for any vector field \(Y\) we have
+\[
+D_{\overline{X}} Y (p) = D_{\widetilde{X}} Y (p)
+\]
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+D_{\overline{X}} Y (p) = dY_p (\overline{X}(p)) = dY_p (\widetilde{X}(p)) = D_{\widetilde{X}} Y (p)
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgdf8aee5">
+<h3 id="orgdf8aee5">Integral Curves</h3>
+<div class="outline-text-3" id="text-orgdf8aee5">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(X\) be a vector field on \(\RR^n\). Then for any \(p \in \RR^n\) there exists a smooth curve \(\gamma_X : (-\epsilon, \epsilon) \to \RR^n\) such that \(\gamma_X(0) = p\) and for all \(t \in (-\epsilon, \epsilon)\),
+\[
+\gamma_X'(t) = X(\gamma_X(t)).
+\]
+Such a curve is called an <i>integral curve</i> of \(X\) through \(p\)
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Apply Picard-Lindelöf.
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgcb3f270">
+<h3 id="orgcb3f270">Integral Curves on \(S\)</h3>
+<div class="outline-text-3" id="text-orgcb3f270">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(X\) be a vector field on \(S\). Then \(\gamma_X(t) \in S\).
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+In a local parametrisation: \(d\varphi_u U(u) = X(\varphi(u))\), \(\gamma_X(t) = \varphi(\gamma_U(t))\) since
+\[
+d\varphi_{\gamma(t)} (\gamma_U'(t)) = X(\varphi(\gamma(t)))
+\]
+and uniqueness in Picard-Lindelöf.
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org35b0af0">
+<h3 id="org35b0af0">Curvewise Dependence on Second Argument</h3>
+<div class="outline-text-3" id="text-org35b0af0">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(X, Y\) be vector fields on \(\RR^n\) and let \(p \in \RR^n\). Then \(D_X Y (p)\) only depends on \(Y\) restricted to any integral curve of \(\gamma_X\) through \(p\).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org6f2e142">
+<h3 id="org6f2e142">Curvewise Dependence on Second Argument</h3>
+<div class="outline-text-3" id="text-org6f2e142">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Suppose \(\overline{Y}, \widetilde{Y}\) are vector fields such that
+\[
+\overline{Y}(\gamma_X(t)) = \widetilde{Y}(\gamma_X(t))
+\]
+Then by the chain rule,
+\[
+D_X \overline{Y} (p) = \partial_t|_{t=0} \overline{Y}(\gamma_X(t)) = \partial_t|_{t=0} \widetilde{Y}(\gamma_X(t)) = D_X \widetilde{Y} (p)
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org2e25155">
+<h3 id="org2e25155">Well Defined</h3>
+<div class="outline-text-3" id="text-org2e25155">
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(X, Y\) be vector fields on \(S\). Then \(\nabla_X Y\) is well defined independent of the extensions of \(X, Y\).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgc7c79d5">
+<h3 id="orgc7c79d5">Well Defined</h3>
+<div class="outline-text-3" id="text-orgc7c79d5">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\(X\) independence: \(\bar{X}(p) = X(p)\).
+</p>
+<p>
+For the \(Y\) independence \(\gamma_X(t) \in S\).
+</p>
+<p>
+Then \(\overline{Y}(\gamma_U(t)) = Y(\gamma_U(t))\) since \(\overline{Y}|_S = Y\).
+</p>
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org8d0f29f">
+<h2 id="org8d0f29f">Lie Bracket</h2>
+<div class="outline-text-2" id="text-org8d0f29f">
+</div>
+<section class="outline-3" id="outline-container-org8c26dcf">
+<h3 id="org8c26dcf">Lie Bracket</h3>
+</section>
+<section class="outline-3" id="outline-container-orga206281">
+<h3 id="orga206281">Lie Bracket</h3>
+<div class="outline-text-3" id="text-orga206281">
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Given two vector fields \(X, Y\) there is a unique vector field \(Z\) such that for all smooth functions \(f\),
+\[
+\partial_Z f := \partial_X \partial_Y f - \partial_Y \partial_X f
+\]
+We write \([X, Y]\) for \(Z\), called the <i>commutator</i> or <i>Lie Bracket</i> of \(X\) and \(Y\).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org8e47d86">
+<h3 id="org8e47d86">Lie Bracket</h3>
+<div class="outline-text-3" id="text-org8e47d86">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{equation*}
+\begin{split}
+\partial_X \partial_Y f &amp;= \partial_X (Y^j \partial_j f) \\
+&amp;= X^i \partial_i (Y^j \partial_j f) \\
+&amp;= X^i \partial_i Y^j \partial_j f + X^i Y^j \partial^2_{ij} f \\
+\partial_Y \partial_X f &amp;= Y^i \partial_i X^j \partial_j f + Y^i X^j \partial^2_{ij} f
+\end{split}
+\end{equation*}
+
+<p>
+\[
+Z^j = X^i \partial_i Y^j - Y^i \partial_i X^j
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgc3cc2e4">
+<h3 id="orgc3cc2e4">Lie Bracket</h3>
+<div class="outline-text-3" id="text-orgc3cc2e4">
+<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+X = (x, 0), \quad Y = (y^2, xy), \quad [X, Y] = (-y^2, xy)
+\]
+</p>
+<p>
+\[
+X = (x, 0), \quad Y = (xy, y^2), \quad [X, Y] = (0, 0)
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgb58d664">
+<h3 id="orgb58d664">Naturality of Lie Bracket</h3>
+<div class="outline-text-3" id="text-orgb58d664">
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+d\varphi([X, Y]) = [d\varphi(X), d\varphi(Y)]
+\]
+</p>
+</div></div>
+<div class="cor card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+[\bar{X}, \bar{Y}]|_S = [X, Y]
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgec0e326">
+<h3 id="orgec0e326">Naturality of Lie Bracket</h3>
+<div class="outline-text-3" id="text-orgec0e326">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Chain rule \(\partial_{d\varphi X} f (\varphi(x)) = \partial_X (f \circ \varphi) (x)\)
+</p>
+
+\begin{equation*}
+\begin{split}
+\partial_{(d\varphi [X, Y])} f (\varphi(x)) = \partial_{[X, Y]} (f \circ \tau) (x) \\
+&amp;= \partial_X [\partial_Y (f\circ \tau)] (x) - \partial_Y (\partial_X (f\circ \tau)) (x) \\
+&amp;= \partial_X [\partial_{d\varphi Y} f (\tau(x))] - \partial_Y [\partial_{d\varphi X} f (\tau(x))] \\
+&amp;= \partial_{d\varphi X} [\partial_{d\varphi Y} f] (x) - \partial_{d\varphi Y} [\partial_{d\varphi X} f] (x) \\
+&amp;= \partial_{[d\varphi X, d\varphi Y]} f (x).
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org857d450">
+<h3 id="org857d450">Torsion</h3>
+<div class="outline-text-3" id="text-org857d450">
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+\nabla_X Y - \nabla_Y X = [X, Y]
+\]
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{equation*}
+\begin{split}
+\nabla_X Y - \nabla_Y X &amp;= \pi_T(D_{d\varphi X} d\varphi Y - D_{d\varphi X} d\varphi Y) \\
+&amp;= \pi_T(d\varphi([X, Y])) \\
+&amp;= [X, Y]
+\end{split}
+\end{equation*}
+
+</div></div>
 </div>
 </section>
 </section>

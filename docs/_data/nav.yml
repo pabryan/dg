@@ -31,13 +31,13 @@
   short_title: Cancelled
   link: "/notes/cancelled"
 - num: "08"
-  title: Manifolds
-  short_title: Manifolds
-  link: "/notes/manifolds"
+  title: Connections on Surfaces
+  short_title: Surface Connections
+  link: "/notes/surface_connection"
 - num: "09"
-  title: Smooth Maps and Vector Fields
-  short_title: Smooth Fields
-  link: "/notes/smooth_fields"
+  title: Second Derivatives and Curvature
+  short_title: Curvature
+  link: "/notes/surface_curvature"
 - num: "10"
   title: Riemannian Metrics and Connections
   short_title: Metrics and Connctions
