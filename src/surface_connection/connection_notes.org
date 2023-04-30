@@ -1,0 +1,18 @@
+#+OPTIONS: toc:nil num:nil
+#+BEGIN_export html
+---
+title: Connections on Surface
+short_title: Surface Connections
+---
+#+END_export
+
+#+LaTeX_class: article_no_macros
+#+LaTeX_Header: \usepackage{pabnotes}
+#+LaTeX_Header: \newcommand{\weeknum}{06}
+#+LaTeX_Header: \newcommand{\topic}{Connections on Surfaces}
+
+#+BEGIN_export html
+<ul>
+<li><a href="{{ '/slides/surface_connection' | relative_url }}" target="_blank">Surface Connections Slides</a></li>
+</ul>
+#+END_export

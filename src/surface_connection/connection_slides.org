@@ -1,0 +1,276 @@
+#+TITLE: Connections
+#+OPTIONS: toc:nil num:nil
+
+* Geometric Problem With Differentiation
+** Geometric Problem With Differentiation
+** Geometric Problem
+
+Locally extend vector fields \(X, Y : S \to \RR^3\)
+
+\[
+\overline{X}, \overline{Y} : U \to \RR^3
+\]
+where \(U \subseteq \RR^3\) is an open set containing \(S\).
+
+Define for \(p \in S\)
+\[
+D^S_X Y (p) := D_{\overline{X}} \overline{Y} (p)
+\]
+
+** Geometric Problem
+
+What's the problem?
+
+In general \(D^S_X Y (p) \notin T_p S\)!
+
+** Geometric Problem
+
+#+BEGIN_eg
+Let \(S = \SS^2\)
+\[
+X(x, y, z) = Y(x, y, z) = (-y, x, 0)
+\]
+
+\begin{equation*}
+\begin{split}
+D_X Y &= (D_X (-y), D_X x, D_X 0) \\
+&= \big(-y\partial_x (-y) + x \partial_y (-y), -y\partial_x (x) + x \partial_y (x), 0\big) \\
+&= (-x, -y, 0)
+\end{split}
+\end{equation*}
+
+\[
+\ip{D_X Y}{N} = \ip{(-x, -y, 0)}{(x,y,z)} = -(x^2 + y^2) \neq 0
+\]
+#+END_eg
+
+* Covariant Derivative
+** Covariant Derivative
+
+Also known as the *Connection* or *Affine Connection*
+
+** Covariant Derivative
+
+#+BEGIN_env defn
+The covariant derivative of vector fields on \(S\) is the projection onto the tangent space of \(D_X Y\):
+\[
+\nabla_X Y = \pi_T(D_X Y) = D_X Y - \ip{D_X Y}{N} N
+\]
+#+END_env
+
+** Example
+
+#+BEGIN_eg
+Let \(S = \SS^2\)
+\[
+X(x, y, z) = Y(x, y, z) = (-y, x, 0)
+\]
+
+\[
+D_X Y = -(x, y, 0), \quad \ip{D_X Y}{N} = -(x^2 + y^2)
+\]
+
+\begin{equation*}
+\begin{split}
+\nabla_X Y &= D_X Y - \ip{D_X Y}{N} N \\
+&= -(x, y, 0) + (x^2 + y^2)(x, y, z) \\
+&= \big(-x z^2, -y z^2, z(1-z^2)\big)
+\end{split}
+\end{equation*}
+
+\[
+\ip{\nabla_X Y}{N} = 0
+\]
+#+END_eg
+
+** Properties
+
+- Invariant under \(N \mapsto -N\)
+- \(\nabla_{fX + gY} Z = f\nabla_X Z + g \nabla_X Z\)
+- \(\nabla_X (Y + Z) = \nabla_X Y + \nabla_X Z\)
+- \(\nabla_X (fZ) = f\nabla_X Z + (\partial_X f) Z\)
+
+* Covariant Derivative is Well Defined
+** Covariant Derivative is Well Defined
+** Well Defined
+
+Let \(X, Y\) be vector fields on \(S\).
+
+Let \(\overline{X}, \overline{Y}\) and \(\widetilde{X}, \widetilde{Y}\) be extensions of \(X, Y\).
+
+We need to know that at \(p \in S\)
+\[
+\pi_T(D_{\overline{X}} \overline{Y}) = \pi_T(D_{\widetilde{X}} \widetilde{Y})
+\]
+
+In fact we can show that
+\[
+D_{\overline{X}} \overline{Y} = D_{\widetilde{X}} \widetilde{Y}
+\]
+
+** Pointwise Dependence on First Argument
+
+#+BEGIN_env lem
+Let \(\overline{X}, \widetilde{X}\) be vector fields on \(\RR^n\) with \(\overline{X}(p) = \widetilde{X}(p)\). Then for any vector field \(Y\) we have
+\[
+D_{\overline{X}} Y (p) = D_{\widetilde{X}} Y (p)
+\]
+#+END_env
+
+#+BEGIN_env pf
+\[
+D_{\overline{X}} Y (p) = dY_p (\overline{X}(p)) = dY_p (\widetilde{X}(p)) = D_{\widetilde{X}} Y (p)
+\]
+#+END_env
+
+** Integral Curves
+
+#+BEGIN_env lem
+Let \(X\) be a vector field on \(\RR^n\). Then for any \(p \in \RR^n\) there exists a smooth curve \(\gamma_X : (-\epsilon, \epsilon) \to \RR^n\) such that \(\gamma_X(0) = p\) and for all \(t \in (-\epsilon, \epsilon)\),
+\[
+\gamma_X'(t) = X(\gamma_X(t)).
+\]
+Such a curve is called an /integral curve/ of \(X\) through \(p\)
+#+END_env
+
+#+BEGIN_env pf
+Apply Picard-Lindelöf.
+#+END_env
+
+** Integral Curves on \(S\)
+
+#+BEGIN_env lem
+Let \(X\) be a vector field on \(S\). Then \(\gamma_X(t) \in S\).
+#+END_env
+
+#+BEGIN_env pf
+In a local parametrisation: \(d\varphi_u U(u) = X(\varphi(u))\), \(\gamma_X(t) = \varphi(\gamma_U(t))\) since
+\[
+d\varphi_{\gamma(t)} (\gamma_U'(t)) = X(\varphi(\gamma(t)))
+\]
+and uniqueness in Picard-Lindelöf.
+#+END_env
+
+** Curvewise Dependence on Second Argument
+
+#+BEGIN_env lem
+Let \(X, Y\) be vector fields on \(\RR^n\) and let \(p \in \RR^n\). Then \(D_X Y (p)\) only depends on \(Y\) restricted to any integral curve of \(\gamma_X\) through \(p\).
+#+END_env
+
+** Curvewise Dependence on Second Argument
+
+#+BEGIN_env pf
+Suppose \(\overline{Y}, \widetilde{Y}\) are vector fields such that
+\[
+\overline{Y}(\gamma_X(t)) = \widetilde{Y}(\gamma_X(t))
+\]
+Then by the chain rule,
+\[
+D_X \overline{Y} (p) = \partial_t|_{t=0} \overline{Y}(\gamma_X(t)) = \partial_t|_{t=0} \widetilde{Y}(\gamma_X(t)) = D_X \widetilde{Y} (p)
+\]
+#+END_env
+
+** Well Defined
+
+#+BEGIN_env thm
+Let \(X, Y\) be vector fields on \(S\). Then \(\nabla_X Y\) is well defined independent of the extensions of \(X, Y\).
+#+END_env
+
+** Well Defined
+
+#+BEGIN_env pf
+\(X\) independence: \(\bar{X}(p) = X(p)\).
+
+For the \(Y\) independence \(\gamma_X(t) \in S\).
+
+Then \(\overline{Y}(\gamma_U(t)) = Y(\gamma_U(t))\) since \(\overline{Y}|_S = Y\).
+#+END_env
+
+* Lie Bracket
+** Lie Bracket
+** Lie Bracket
+
+#+BEGIN_env thm
+Given two vector fields \(X, Y\) there is a unique vector field \(Z\) such that for all smooth functions \(f\),
+\[
+\partial_Z f := \partial_X \partial_Y f - \partial_Y \partial_X f
+\]
+We write \([X, Y]\) for \(Z\), called the /commutator/ or /Lie Bracket/ of \(X\) and \(Y\).
+#+END_env
+
+** Lie Bracket
+
+#+BEGIN_env pf
+\begin{equation*}
+\begin{split}
+\partial_X \partial_Y f &= \partial_X (Y^j \partial_j f) \\
+&= X^i \partial_i (Y^j \partial_j f) \\
+&= X^i \partial_i Y^j \partial_j f + X^i Y^j \partial^2_{ij} f \\
+\partial_Y \partial_X f &= Y^i \partial_i X^j \partial_j f + Y^i X^j \partial^2_{ij} f
+\end{split}
+\end{equation*}
+
+\[
+Z^j = X^i \partial_i Y^j - Y^i \partial_i X^j
+\]
+#+END_env
+
+** Lie Bracket
+
+#+BEGIN_env eg
+\[
+X = (x, 0), \quad Y = (y^2, xy), \quad [X, Y] = (-y^2, xy)
+\]
+
+\[
+X = (x, 0), \quad Y = (xy, y^2), \quad [X, Y] = (0, 0)
+\]
+#+END_env
+
+** Naturality of Lie Bracket
+
+#+BEGIN_env thm
+\[
+d\varphi([X, Y]) = [d\varphi(X), d\varphi(Y)]
+\]
+#+END_env
+
+#+BEGIN_env cor
+\[
+[\bar{X}, \bar{Y}]|_S = [X, Y]
+\]
+#+END_env
+
+** Naturality of Lie Bracket
+
+#+BEGIN_env pf
+Chain rule \(\partial_{d\varphi X} f (\varphi(x)) = \partial_X (f \circ \varphi) (x)\)
+
+\begin{equation*}
+\begin{split}
+\partial_{(d\varphi [X, Y])} f (\varphi(x)) = \partial_{[X, Y]} (f \circ \tau) (x) \\
+&= \partial_X [\partial_Y (f\circ \tau)] (x) - \partial_Y (\partial_X (f\circ \tau)) (x) \\
+&= \partial_X [\partial_{d\varphi Y} f (\tau(x))] - \partial_Y [\partial_{d\varphi X} f (\tau(x))] \\
+&= \partial_{d\varphi X} [\partial_{d\varphi Y} f] (x) - \partial_{d\varphi Y} [\partial_{d\varphi X} f] (x) \\
+&= \partial_{[d\varphi X, d\varphi Y]} f (x).
+\end{split}
+\end{equation*}
+#+END_env
+
+** Torsion
+
+#+BEGIN_env thm
+\[
+\nabla_X Y - \nabla_Y X = [X, Y]
+\]
+#+END_env
+
+#+BEGIN_env pf
+\begin{equation*}
+\begin{split}
+\nabla_X Y - \nabla_Y X &= \pi_T(D_{d\varphi X} d\varphi Y - D_{d\varphi X} d\varphi Y) \\
+&= \pi_T(d\varphi([X, Y])) \\
+&= [X, Y]
+\end{split}
+\end{equation*}
+#+END_env
