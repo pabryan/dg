@@ -49,6 +49,14 @@
     content: "Theorem"
 }
 
+.cor .card-header {
+    background-color: #800000;
+}
+
+.cor h5.card-title::before {
+    content: "Corollary"
+}
+
 .pf .card-header {
     background-color: #800000;
 }
