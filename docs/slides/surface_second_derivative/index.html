@@ -1,0 +1,368 @@
+---
+layout: org-slides
+---
+
+<section class="outline-2" id="outline-container-orgf7d65b7">
+<h2 id="orgf7d65b7">Notation</h2>
+<div class="outline-text-2" id="text-orgf7d65b7">
+</div>
+<section class="outline-3" id="outline-container-org09db8f4">
+<h3 id="org09db8f4">Notation</h3>
+</section>
+<section class="outline-3" id="outline-container-orgfc2f8c0">
+<h3 id="orgfc2f8c0">Einstein Summation Convention</h3>
+<div class="outline-text-3" id="text-orgfc2f8c0">
+<p>
+Simplify expressions \(X = \sum_i X^i e_i\), \(\partial_X f = \sum_i X^i \partial_i f\), etc.
+</p>
+<p>
+Whenever an index is repeated above <b>and</b> below there is an implied sum:
+</p>
+<p>
+\(X^i e_i\) means \(\sum_i X^i e_i\)
+</p>
+<p>
+\(Y^j \partial_j X^i e_i\) means \(\sum_j \sum_i Y^j \partial_j X^i e_i\)
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org47b6bcc">
+<h3 id="org47b6bcc">Vector Fields</h3>
+<div class="outline-text-3" id="text-org47b6bcc">
+<p>
+Denote the set of smooth vector fields on \(S\) by \(\Gamma(TS)\)
+</p>
+<p>
+Other common notation: \(\mathfrak{X}(S)\)
+</p>
+<p>
+We also often write \(\partial_i\) for \(e_i\) since \(D_{e_i} = \partial_i\)
+</p>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org240074e">
+<h2 id="org240074e">Lie Bracket</h2>
+<div class="outline-text-2" id="text-org240074e">
+</div>
+<section class="outline-3" id="outline-container-org9355e00">
+<h3 id="org9355e00">Lie Bracket</h3>
+</section>
+<section class="outline-3" id="outline-container-org313b2f6">
+<h3 id="org313b2f6">Lie Bracket</h3>
+<div class="outline-text-3" id="text-org313b2f6">
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Given two vector fields \(X, Y \in \Gamma(TS)\) there is a unique vector field \(Z\) such that for all smooth functions \(f\),
+\[
+\partial_Z f := \partial_X \partial_Y f - \partial_Y \partial_X f
+\]
+We write \([X, Y]\) for \(Z\), called the <i>commutator</i> or <i>Lie Bracket</i> of \(X\) and \(Y\).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org55a22b7">
+<h3 id="org55a22b7">Lie Bracket</h3>
+<div class="outline-text-3" id="text-org55a22b7">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{equation*}
+\begin{split}
+\partial_X \partial_Y f &amp;= \partial_X (Y^j \partial_j f) \\
+&amp;= X^i \partial_i (Y^j \partial_j f) \\
+&amp;= X^i \partial_i Y^j \partial_j f + X^i Y^j \partial^2_{ij} f \\
+\partial_Y \partial_X f &amp;= Y^i \partial_i X^j \partial_j f + Y^i X^j \partial^2_{ij} f
+\end{split}
+\end{equation*}
+
+<p>
+\[
+Z^j = X^i \partial_i Y^j - Y^i \partial_i X^j
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgfbf8a57">
+<h3 id="orgfbf8a57">Lie Bracket</h3>
+<div class="outline-text-3" id="text-orgfbf8a57">
+<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+X = (x, 0), \quad Y = (y^2, xy), \quad [X, Y] = (-y^2, xy)
+\]
+</p>
+<p>
+\[
+X = (x, 0), \quad Y = (xy, y^2), \quad [X, Y] = (0, 0)
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orga047ff1">
+<h3 id="orga047ff1">Naturality of Lie Bracket</h3>
+<div class="outline-text-3" id="text-orga047ff1">
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+d\varphi([X, Y]) = [d\varphi(X), d\varphi(Y)]
+\]
+</p>
+</div></div>
+<div class="cor card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+[\bar{X}, \bar{Y}]|_S = [X, Y]
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgb3dde63">
+<h3 id="orgb3dde63">Naturality of Lie Bracket</h3>
+<div class="outline-text-3" id="text-orgb3dde63">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Chain rule \(\partial_{d\varphi X} f (\varphi(x)) = \partial_X (f \circ \varphi) (x)\)
+</p>
+
+\begin{equation*}
+\begin{split}
+\partial_{(d\varphi [X, Y])} f (\varphi(x)) &amp;= \partial_{[X, Y]} (f \circ \tau) (x) \\
+&amp;= \partial_X [\partial_Y (f\circ \tau)] (x) - \partial_Y (\partial_X (f\circ \tau)) (x) \\
+&amp;= \partial_X [\partial_{d\varphi Y} f (\tau(x))] - \partial_Y [\partial_{d\varphi X} f (\tau(x))] \\
+&amp;= \partial_{d\varphi X} [\partial_{d\varphi Y} f] (x) - \partial_{d\varphi Y} [\partial_{d\varphi X} f] (x) \\
+&amp;= \partial_{[d\varphi X, d\varphi Y]} f (x).
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org5dad0fa">
+<h3 id="org5dad0fa">Torsion</h3>
+<div class="outline-text-3" id="text-org5dad0fa">
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+\nabla_X Y - \nabla_Y X = [X, Y]
+\]
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{equation*}
+\begin{split}
+\nabla_X Y - \nabla_Y X &amp;= \pi_T(D_{d\varphi X} d\varphi Y - D_{d\varphi X} d\varphi Y) \\
+&amp;= \pi_T(d\varphi([X, Y])) \\
+&amp;= [X, Y]
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org40bdaf9">
+<h2 id="org40bdaf9">Differentiating Linear Maps</h2>
+<div class="outline-text-2" id="text-org40bdaf9">
+</div>
+<section class="outline-3" id="outline-container-org9ad9e68">
+<h3 id="org9ad9e68">Differentiating Linear Maps</h3>
+</section>
+<section class="outline-3" id="outline-container-org8e953d5">
+<h3 id="org8e953d5">Differentiating Linear Maps</h3>
+<div class="outline-text-3" id="text-org8e953d5">
+<p>
+Let \(T : \Gamma(TS) \to \Gamma(TS)\) be smooth family of linear maps \(TS \to TS\).
+</p>
+<p>
+Then \(T(Y)\) is a vector field hence
+\[
+\nabla_X [T(Y)]
+\]
+is defined.
+</p>
+<p>
+But it will include derivatives of \(Y\)!
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org50a90dd">
+<h3 id="org50a90dd">Differentiating Linear Maps</h3>
+<div class="outline-text-3" id="text-org50a90dd">
+<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+M(x) = \begin{pmatrix}
+xy &amp;&amp; \cos(x) \\
+0 &amp;&amp; x^2 - y
+\end{pmatrix}
+\]
+</p>
+<p>
+\[
+D_{\partial_x} M = \begin{pmatrix}
+y &amp;&amp; -\sin(x) \\
+0 &amp;&amp; 2x
+\end{pmatrix}
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgd0155f2">
+<h3 id="orgd0155f2">Differentiating Linear Maps</h3>
+<div class="outline-text-3" id="text-orgd0155f2">
+<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{equation*}
+\begin{split}
+D_{\partial_x}\left[M(x) (x e_1) \right] &amp;= \partial_x \left[\begin{pmatrix}
+xy &amp;&amp; \cos(x) \\
+0 &amp;&amp; x^2 - y
+\end{pmatrix}
+\begin{pmatrix}
+x \\
+0
+\end{pmatrix}
+\right] \\
+&amp;= \partial_x \begin{pmatrix}
+x^2y \\
+0
+\end{pmatrix}
+= \begin{pmatrix}
+2xy \\
+0
+\end{pmatrix}
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org532509a">
+<h3 id="org532509a">Differentiating Linear Maps</h3>
+<div class="outline-text-3" id="text-org532509a">
+<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+D_{\partial_x}[M(x) (xe_1)] = [D_{\partial_x} M(x)] (xe_1) + M(x) [D_{\partial_x} (x e_1)]
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org1bf4715">
+<h3 id="org1bf4715">Differentiating Linear Maps</h3>
+<div class="outline-text-3" id="text-org1bf4715">
+<p>
+Define \(\nabla_X T\) by:
+\[
+[\nabla_X T] (Y) = \nabla_X[T(Y)] - T(\nabla_X Y).
+\]
+</p>
+<p>
+Product Rule:
+\[
+\nabla_X [T(Y)] = [\nabla_X T] (Y) + T(\nabla_X Y)
+\]
+</p>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org7727a24">
+<h2 id="org7727a24">Second Derivatives</h2>
+<div class="outline-text-2" id="text-org7727a24">
+</div>
+<section class="outline-3" id="outline-container-org7018b71">
+<h3 id="org7018b71">Second Derivatives</h3>
+</section>
+<section class="outline-3" id="outline-container-org53bfdcf">
+<h3 id="org53bfdcf">Connection</h3>
+<div class="outline-text-3" id="text-org53bfdcf">
+<p>
+For a vector field \(Z \in \Gamma(TS)\) define the \(C^{\infty}(S \to \RR)\)-linear map
+\[
+\nabla Z : Y \in \Gamma(TS) \mapsto \nabla_Y Z \in \Gamma(TS)
+\]
+</p>
+<p>
+This is analogous to the differential \(df\)
+</p>
+<p>
+The second derivative of \(Z\) should be…?
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org9a1a14d">
+<h3 id="org9a1a14d">Second Covariant Derivative</h3>
+<div class="outline-text-3" id="text-org9a1a14d">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(X\) be a vector field. The second covariant derivative of \(X\) is defined to be the covariant derivative of \(T = \nabla X\)
+</p>
+\begin{equation*}
+\begin{split}
+[\nabla_Y (\nabla X)] (Z) &amp;= \nabla_Y[\nabla X (Z)] - \nabla X [\nabla_Y Z] \\
+&amp;= \nabla_Y(\nabla_Z X) - \nabla_{\nabla_Y Z} X.
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgbe7eac3">
+<h3 id="orgbe7eac3">Second Covariant Derivative</h3>
+<div class="outline-text-3" id="text-orgbe7eac3">
+<p>
+We also write
+\[
+\nabla^2 X (Y, Z) = (\nabla_Y (\nabla X)) (Z)
+\]
+or
+\[
+\nabla^2_{Y, Z} X = (\nabla_Y (\nabla X)) (Z)
+\]
+</p>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-orgcbaeb1f">
+<h2 id="orgcbaeb1f">Higher Derivatives</h2>
+<div class="outline-text-2" id="text-orgcbaeb1f">
+</div>
+<section class="outline-3" id="outline-container-orgf205501">
+<h3 id="orgf205501">Higher Derivatives</h3>
+</section>
+<section class="outline-3" id="outline-container-org9dd9468">
+<h3 id="org9dd9468">Third Derivatives</h3>
+<div class="outline-text-3" id="text-org9dd9468">
+<p>
+\[
+\nabla^2 X (Y, Z) = \nabla_Y[\nabla_Z X] - \nabla_{\nabla_Y Z} X
+\]
+</p>
+
+\begin{equation*}
+\begin{split}
+\nabla^3 X (W, Y, Z) &amp;= \nabla_W[\nabla^2 X (Y, Z)] \\
+&amp;\quad - \nabla^2 X(\nabla_W Y, Z) - \nabla^2 X (Y, \nabla_W Z)
+\end{split}
+\end{equation*}
+</div>
+</section>
+<section class="outline-3" id="outline-container-org85fbd14">
+<h3 id="org85fbd14">Higher Derivatives</h3>
+<div class="outline-text-3" id="text-org85fbd14">
+<p>
+Inductively
+</p>
+\begin{equation*}
+\begin{split}
+\nabla^{(k)} X (Y_1, \dots, Y_k) &amp;= \nabla_{Y_1} [\nabla^{(k-1)} X (Y_2, \dots, Y_n)] \\
+&amp;\quad - \sum_{i=1}^{k-1} \nabla^{(k-1)} X (Y_1, \dots \nabla_{Y_1} Y_i, \dots, Y_k). 
+\end{split}
+\end{equation*}
+</div>
+</section>
+</section>

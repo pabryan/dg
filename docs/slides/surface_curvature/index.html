@@ -1,0 +1,291 @@
+---
+layout: org-slides
+---
+
+<section class="outline-2" id="outline-container-org65ae05e">
+<h2 id="org65ae05e">Einstein Summation Convention</h2>
+<div class="outline-text-2" id="text-org65ae05e">
+</div>
+<section class="outline-3" id="outline-container-org87cda2b">
+<h3 id="org87cda2b">Einstein Summation Convention</h3>
+</section>
+<section class="outline-3" id="outline-container-org4a9112b">
+<h3 id="org4a9112b">Einstein Summation Convention</h3>
+<div class="outline-text-3" id="text-org4a9112b">
+<p>
+Simplify expressions \(X = \sum_i X^i e_i\), \(\partial_X f = \sum_i X^i \partial_i f\), etc.
+</p>
+<p>
+Whenever an index is repeated above <b>and</b> below there is an implied sum:
+</p>
+<p>
+\(X^i e_i\) means \(\sum_i X^i e_i\)
+</p>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org474df19">
+<h2 id="org474df19">Commuting Vector Fields</h2>
+<div class="outline-text-2" id="text-org474df19">
+</div>
+<section class="outline-3" id="outline-container-org07fad94">
+<h3 id="org07fad94">Commuting Vector Fields</h3>
+</section>
+<section class="outline-3" id="outline-container-orgb513eec">
+<h3 id="orgb513eec">Lie Bracket</h3>
+<div class="outline-text-3" id="text-orgb513eec">
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Given two vector fields \(X, Y\) there is a unique vector field \(Z\) such that for all smooth functions \(f\),
+\[
+\partial_Z f := \partial_X \partial_Y f - \partial_Y \partial_X f
+\]
+We write \([X, Y]\) for \(Z\), called the <i>commutator</i> or <i>Lie Bracket</i> of \(X\) and \(Y\).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org7fa6bf7">
+<h3 id="org7fa6bf7">Lie Bracket</h3>
+<div class="outline-text-3" id="text-org7fa6bf7">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{equation*}
+\begin{split}
+\partial_X \partial_Y f &amp;= \partial_X (Y^j \partial_j f) \\
+&amp;= X^i \partial_i (Y^j \partial_j f) \\
+&amp;= X^i \partial_i Y^j \partial_j f + X^i Y^j \partial^2_{ij} f \\
+\partial_Y \partial_X f &amp;= Y^i \partial_i X^j \partial_j f + Y^i X^j \partial^2_{ij} f
+\end{split}
+\end{equation*}
+
+<p>
+\[
+Z^j = X^i \partial_i Y^j - Y^i \partial_i X^j
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org4169502">
+<h3 id="org4169502">Lie Bracket</h3>
+<div class="outline-text-3" id="text-org4169502">
+<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+X = (x, 0), \quad Y = (y^2, xy), \quad [X, Y] = (-y^2, xy)
+\]
+</p>
+<p>
+\[
+X = (x, 0), \quad Y = (xy, y^2), \quad [X, Y] = (0, 0)
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org97d73e3">
+<h3 id="org97d73e3">Naturality of Lie Bracket</h3>
+<div class="outline-text-3" id="text-org97d73e3">
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+d\tau([X, Y]) = [d\tau(X), d\tau(Y)]
+\]
+</p>
+</div></div>
+<div class="cor card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+[\bar{X}, \bar{Y}]|_S = [X, Y]
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org0ce28f5">
+<h3 id="org0ce28f5">Naturality of Lie Bracket</h3>
+<div class="outline-text-3" id="text-org0ce28f5">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(Z = [X, Y]\). Then
+</p>
+\begin{equation*}
+\begin{split}
+\partial_{d\tau(Z)} f &amp;= d\tau_j^k Z^j \partial_k f \\
+&amp;= d\tau_j^k (X^i \partial_i Y^j - Y^i \partial_i X^j) \partial_k f
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org4ab2c92">
+<h2 id="org4ab2c92">Second Fundamental Form</h2>
+<div class="outline-text-2" id="text-org4ab2c92">
+</div>
+<section class="outline-3" id="outline-container-org6b9f131">
+<h3 id="org6b9f131">Second Fundamental Form</h3>
+<div class="outline-text-3" id="text-org6b9f131">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(S\) be a regular surface with metric \(g\),  connection \(\nabla\). The <i>second fundamental form</i> is the field of bilinear forms,
+\[
+A(X, Y) = \ip{D_{\bar{X}} \bar{Y}}{N}
+\]
+where \(X, Y\) are tangent vector fields and \(\bar{X}, \bar{Y}\) are any smooth local extensions of \(X, Y\).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orga4fd30f">
+<h3 id="orga4fd30f">Gauss Equation</h3>
+<div class="outline-text-3" id="text-orga4fd30f">
+<p>
+We will write \(D_X Y\) instead of \(D_{\bar{X} \bar{Y}\) with the understanding that \(D_X Y\) is well defined independently of the extensions \(\bar{X}, \bar{Y}\).
+</p>
+<p>
+\[
+D_X Y = \nabla_X Y + A(X, Y) N
+\]
+</p>
+<p>
+Follows from \(T\RR^3 \simeq TS \oplus NS\)
+</p>
+\begin{align*}
+\nabla_X Y &amp;= \pi_{TS} (D_X Y) \\
+\pi_N (D_X Y) &amp;= A(X, Y) N
+\end{align*}
+</div>
+</section>
+<section class="outline-3" id="outline-container-org3b6284f">
+<h3 id="org3b6284f">Example: Sphere</h3>
+<div class="outline-text-3" id="text-org3b6284f">
+<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+For the sphere,
+\[
+A = g.
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgaa69da2">
+<h3 id="orgaa69da2">Example: Graph</h3>
+<div class="outline-text-3" id="text-orgaa69da2">
+<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+For \(S = \graph(f)\)
+\[
+A = .
+\]
+</p>
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-orge414201">
+<h2 id="orge414201">Symmetry and Weingarten Shape Operator</h2>
+<div class="outline-text-2" id="text-orge414201">
+</div>
+<section class="outline-3" id="outline-container-org1ea4f21">
+<h3 id="org1ea4f21">Symmetry and Weingarten Shape Operator</h3>
+</section>
+<section class="outline-3" id="outline-container-org716ac1b">
+<h3 id="org716ac1b">Symmetry</h3>
+<div class="outline-text-3" id="text-org716ac1b">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+A(X, Y) = A(Y, X)
+\]
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Follows from \([\bar{X}, \bar{Y}] = [X, Y]\) is tangent.
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgb944b7a">
+<h3 id="orgb944b7a">Weingarten Shape Operator</h3>
+<div class="outline-text-3" id="text-orgb944b7a">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+\mathcal{W}(X) = -D_{\bar{X}} N
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org978a8a9">
+<h3 id="org978a8a9">Weingarten and SFF</h3>
+<div class="outline-text-3" id="text-org978a8a9">
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+A(X, Y) = g(\mathcal{W}(X), Y) = g(X, \mathcal{Y}(X))
+\]
+</p>
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-orgbaa2794">
+<h2 id="orgbaa2794">Principal Curvatures</h2>
+<div class="outline-text-2" id="text-orgbaa2794">
+</div>
+<section class="outline-3" id="outline-container-orgd7c5461">
+<h3 id="orgd7c5461">Principal Curvatures</h3>
+<div class="outline-text-3" id="text-orgd7c5461">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The <i>principal curvatures</i> \(S\) are the eigenvalues \(\kappa_1, \kappa_2\) of \(\mathcal{W}\). By convention we order them as \(\kappa_1 \leq \kappa_2\).
+</p>
+</div></div>
+<p>
+Note that \(\mathcal{W}\) is self-adjoint, hence is diagonalizable.
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org10dd07f">
+<h3 id="org10dd07f">Gauss and Mean Curvatures</h3>
+<div class="outline-text-3" id="text-org10dd07f">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The <i>Mean Curvature</i> is
+\[
+H = \kappa_1 + \kappa_2 = 2 \Tr(\mathcal{W})
+\]
+and the <i>Gauss Curvature</i> is
+\[
+K = \kappa_1 \kappa_2 = \det \mathcal{W}.
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org0e8973c">
+<h3 id="org0e8973c">Examples</h3>
+<div class="outline-text-3" id="text-org0e8973c">
+<div class="eg card"><div class="card-header"><h5 class="card-title"> : Plane</h5></div><div class="card-body">
+<p>
+\(\kappa_1 = \kappa_2 = 0 \Rightarrow H = K = 0\)
+</p>
+</div></div>
+<div class="eg card"><div class="card-header"><h5 class="card-title"> : Sphere</h5></div><div class="card-body">
+<p>
+\(\kappa_1 = \kappa_2 = 1 \Rightarrow H = K = 1\)
+</p>
+</div></div>
+<div class="eg card"><div class="card-header"><h5 class="card-title"> : Cylinder</h5></div><div class="card-body">
+<p>
+\(\kappa_1 = 0, \kappa_2 = 1 \Rightarrow H = 1, \quad K = 0\)
+</p>
+</div></div>
+</div>
+</section>
+</section>
