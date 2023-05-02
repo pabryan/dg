@@ -1,0 +1,281 @@
+#+TITLE: Second Derivatives
+#+OPTIONS: toc:nil num:nil
+
+* Notation
+** Notation
+** Einstein Summation Convention
+
+Simplify expressions \(X = \sum_i X^i e_i\), \(\partial_X f = \sum_i X^i \partial_i f\), etc.
+
+Whenever an index is repeated above *and* below there is an implied sum:
+
+\(X^i e_i\) means \(\sum_i X^i e_i\)
+
+\(Y^j \partial_j X^i e_i\) means \(\sum_j \sum_i Y^j \partial_j X^i e_i\)
+
+** Vector Fields
+
+Denote the set of smooth vector fields on \(S\) by \(\Gamma(TS)\)
+
+Other common notation: \(\mathfrak{X}(S)\)
+
+We also often write \(\partial_i\) for \(e_i\) since \(D_{e_i} = \partial_i\)
+
+* Lie Bracket
+** Lie Bracket
+** Lie Bracket
+
+#+BEGIN_env thm
+Given two vector fields \(X, Y \in \Gamma(TS)\) there is a unique vector field \(Z\) such that for all smooth functions \(f\),
+\[
+\partial_Z f := \partial_X \partial_Y f - \partial_Y \partial_X f
+\]
+We write \([X, Y]\) for \(Z\), called the /commutator/ or /Lie Bracket/ of \(X\) and \(Y\).
+#+END_env
+
+** Lie Bracket
+
+#+BEGIN_env pf
+\begin{equation*}
+\begin{split}
+\partial_X \partial_Y f &= \partial_X (Y^j \partial_j f) \\
+&= X^i \partial_i (Y^j \partial_j f) \\
+&= X^i \partial_i Y^j \partial_j f + X^i Y^j \partial^2_{ij} f \\
+\partial_Y \partial_X f &= Y^i \partial_i X^j \partial_j f + Y^i X^j \partial^2_{ij} f
+\end{split}
+\end{equation*}
+
+\[
+Z^j = X^i \partial_i Y^j - Y^i \partial_i X^j
+\]
+#+END_env
+
+** Lie Bracket
+
+#+BEGIN_env eg
+\[
+X = (x, 0), \quad Y = (y^2, xy), \quad [X, Y] = (-y^2, xy)
+\]
+
+\[
+X = (x, 0), \quad Y = (xy, y^2), \quad [X, Y] = (0, 0)
+\]
+#+END_env
+
+** Naturality of Lie Bracket
+
+#+BEGIN_env thm
+\[
+d\varphi([X, Y]) = [d\varphi(X), d\varphi(Y)]
+\]
+#+END_env
+
+#+BEGIN_env cor
+\[
+[\bar{X}, \bar{Y}]|_S = [X, Y]
+\]
+#+END_env
+
+** Naturality of Lie Bracket
+
+#+BEGIN_env pf
+Chain rule \(\partial_{d\varphi X} f (\varphi(x)) = \partial_X (f \circ \varphi) (x)\)
+
+\begin{equation*}
+\begin{split}
+\partial_{(d\varphi [X, Y])} f (\varphi(x)) &= \partial_{[X, Y]} (f \circ \tau) (x) \\
+&= \partial_X [\partial_Y (f\circ \tau)] (x) - \partial_Y (\partial_X (f\circ \tau)) (x) \\
+&= \partial_X [\partial_{d\varphi Y} f (\tau(x))] - \partial_Y [\partial_{d\varphi X} f (\tau(x))] \\
+&= \partial_{d\varphi X} [\partial_{d\varphi Y} f] (x) - \partial_{d\varphi Y} [\partial_{d\varphi X} f] (x) \\
+&= \partial_{[d\varphi X, d\varphi Y]} f (x).
+\end{split}
+\end{equation*}
+#+END_env
+
+** Torsion
+
+#+BEGIN_env thm
+\[
+\nabla_X Y - \nabla_Y X = [X, Y]
+\]
+#+END_env
+
+#+BEGIN_env pf
+\begin{equation*}
+\begin{split}
+\nabla_X Y - \nabla_Y X &= \pi_T(D_{d\varphi X} d\varphi Y - D_{d\varphi X} d\varphi Y) \\
+&= \pi_T(d\varphi([X, Y])) \\
+&= [X, Y]
+\end{split}
+\end{equation*}
+#+END_env
+
+* Differentiating Linear Maps
+** Differentiating Linear Maps
+** Differentiating Linear Maps
+
+Let \(T : \Gamma(TS) \to \Gamma(TS)\) be smooth family of linear maps \(TS \to TS\).
+
+Then \(T(Y)\) is a vector field hence
+\[
+\nabla_X [T(Y)]
+\]
+is defined.
+
+But it will include derivatives of \(Y\)!
+
+** Differentiating Linear Maps
+
+#+BEGIN_env eg
+\[
+M(x) = \begin{pmatrix}
+xy && \cos(x) \\
+0 && x^2 - y
+\end{pmatrix}
+\]
+
+\[
+D_{\partial_x} M = \begin{pmatrix}
+y && -\sin(x) \\
+0 && 2x
+\end{pmatrix}
+\]
+#+END_env
+
+** Differentiating Linear Maps
+
+#+BEGIN_env eg
+\begin{equation*}
+\begin{split}
+D_{\partial_x}\left[M(x) (x e_1) \right] &= \partial_x \left[\begin{pmatrix}
+xy && \cos(x) \\
+0 && x^2 - y
+\end{pmatrix}
+\begin{pmatrix}
+x \\
+0
+\end{pmatrix}
+\right] \\
+&= \partial_x \begin{pmatrix}
+x^2y \\
+0
+\end{pmatrix}
+= \begin{pmatrix}
+2xy \\
+0
+\end{pmatrix}
+\end{split}
+\end{equation*}
+#+END_env
+
+** Differentiating Linear Maps
+
+#+BEGIN_env eg
+\[
+D_{\partial_x}[M(x) (xe_1)] = [D_{\partial_x} M(x)] (xe_1) + M(x) [D_{\partial_x} (x e_1)]
+\]
+#+END_env
+
+** Differentiating Linear Maps
+
+Define \(\nabla_X T\) by:
+\[
+[\nabla_X T] (Y) = \nabla_X[T(Y)] - T(\nabla_X Y).
+\]
+
+Product Rule:
+\[
+\nabla_X [T(Y)] = [\nabla_X T] (Y) + T(\nabla_X Y)
+\]
+
+* Second Derivatives
+** Second Derivatives
+** Connection
+
+For a vector field \(Z \in \Gamma(TS)\) define the \(C^{\infty}(S \to \RR)\)-linear map
+\[
+\nabla Z : Y \in \Gamma(TS) \mapsto \nabla_Y Z \in \Gamma(TS)
+\]
+
+This is analogous to the differential \(df\)
+
+The second derivative of \(Z\) should be...?
+
+** Second Covariant Derivative
+
+#+BEGIN_env defn
+Let \(Z \in \Gamma(TS)\) be a vector field. The second covariant derivative of \(Z\) is defined to be the covariant derivative of \(T = \nabla Z\)
+\begin{equation*}
+\begin{split}
+[\nabla_X (\nabla Z)] (Y) &= \nabla_X[\nabla Z (Y)] - \nabla Z [\nabla_X Y] \\
+&= \nabla_X(\nabla_Y Z) - \nabla_{\nabla_X Y} Z.
+\end{split}
+\end{equation*}
+#+END_env
+
+** Second Covariant Derivative
+
+We also write \(\nabla^2 Z (X, Y)\) or \(\nabla^2_{X, Y} Z\) for \((\nabla_X (\nabla Z)) (Y)\)
+
+Sometimes people also write
+\[
+\nabla_X \nabla_Y Z
+\]
+but we won't since this could be confused with \(\nabla_X (\nabla_Y Z) \neq \nabla^2 Z (X, Y)\).
+
+** Example
+
+#+BEGIN_env eg
+In spherical polar coords \(r, \theta\) with coordinate fields \(R, T\):
+\[
+D_R R = 0, \quad D_T T = -r R, \quad D_T R = D_R T = \frac{1}{r} T.
+\]
+
+\begin{equation*}
+\begin{split}
+D^2 T (R, T) &= D_R (D_T T) - D_{D_R T} T \\
+&= D_R (-r R) - D_{r^{-1} T} T \\
+&= -r D_R R - (D_R r) R - r^{-1} D_T T \\
+&= - (D_R r) R + R \\
+&= 0
+\end{split}
+\end{equation*}
+#+END_env
+
+** Second Commutator
+
+\begin{equation*}
+\begin{split}
+\nabla^2 Z (X, Y) - \nabla^2 Z(Y, X) &= \left[\nabla_X (\nabla_Y Z) - \nabla_{\nabla_X Y} Z\right] \\
+&\quad - \left[\nabla_Y (\nabla_X Z) - \nabla_{\nabla_Y Z} Z\right] \\
+&= \nabla_X (\nabla_Y Z) - \nabla_Y (\nabla_X Z) - \nabla_{\nabla_X Y - \nabla_Y X} Z \\
+&= \nabla_X (\nabla_Y Z) - \nabla_Y (\nabla_X Z) - \nabla_{[X, Y]} Z.
+\end{split}
+\end{equation*}
+
+Even if \([X, Y] = 0\) we may still have \(\nabla^2 Z (X, Y) - \nabla^2 Z(Y, X) \neq 0\). More later!
+
+* Higher Derivatives
+** Higher Derivatives
+** Third Derivatives
+
+\[
+\nabla^2 X (Y, Z) = \nabla_Y[\nabla_Z X] - \nabla_{\nabla_Y Z} X
+\]
+
+\begin{equation*}
+\begin{split}
+\nabla^3 X (W, Y, Z) &= \nabla_W[\nabla^2 X (Y, Z)] \\
+&\quad - \nabla^2 X(\nabla_W Y, Z) - \nabla^2 X (Y, \nabla_W Z)
+\end{split}
+\end{equation*}
+
+** Higher Derivatives
+
+Inductively
+\begin{equation*}
+\begin{split}
+\nabla^{(k)} X (Y_1, \dots, Y_k) &= \nabla_{Y_1} [\nabla^{(k-1)} X (Y_2, \dots, Y_n)] \\
+&\quad - \sum_{i=1}^{k-1} \nabla^{(k-1)} X (Y_2, \dots \nabla_{Y_1} Y_i, \dots, Y_k). 
+\end{split}
+\end{equation*}

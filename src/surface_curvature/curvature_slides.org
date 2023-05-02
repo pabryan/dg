@@ -1,0 +1,210 @@
+#+TITLE: Curvature of Surfaces
+#+OPTIONS: toc:nil num:nil
+
+* Einstein Summation Convention
+** Einstein Summation Convention
+** Einstein Summation Convention
+
+Simplify expressions \(X = \sum_i X^i e_i\), \(\partial_X f = \sum_i X^i \partial_i f\), etc.
+
+Whenever an index is repeated above *and* below there is an implied sum:
+
+\(X^i e_i\) means \(\sum_i X^i e_i\)
+
+* Lie Bracket
+** Lie Bracket
+** Lie Bracket
+
+#+BEGIN_env thm
+Given two vector fields \(X, Y\) there is a unique vector field \(Z\) such that for all smooth functions \(f\),
+\[
+\partial_Z f := \partial_X \partial_Y f - \partial_Y \partial_X f
+\]
+We write \([X, Y]\) for \(Z\), called the /commutator/ or /Lie Bracket/ of \(X\) and \(Y\).
+#+END_env
+
+** Lie Bracket
+
+#+BEGIN_env pf
+\begin{equation*}
+\begin{split}
+\partial_X \partial_Y f &= \partial_X (Y^j \partial_j f) \\
+&= X^i \partial_i (Y^j \partial_j f) \\
+&= X^i \partial_i Y^j \partial_j f + X^i Y^j \partial^2_{ij} f \\
+\partial_Y \partial_X f &= Y^i \partial_i X^j \partial_j f + Y^i X^j \partial^2_{ij} f
+\end{split}
+\end{equation*}
+
+\[
+Z^j = X^i \partial_i Y^j - Y^i \partial_i X^j
+\]
+#+END_env
+
+** Lie Bracket
+
+#+BEGIN_env eg
+\[
+X = (x, 0), \quad Y = (y^2, xy), \quad [X, Y] = (-y^2, xy)
+\]
+
+\[
+X = (x, 0), \quad Y = (xy, y^2), \quad [X, Y] = (0, 0)
+\]
+#+END_env
+
+** Naturality of Lie Bracket
+
+#+BEGIN_env thm
+\[
+d\varphi([X, Y]) = [d\varphi(X), d\varphi(Y)]
+\]
+#+END_env
+
+#+BEGIN_env cor
+\[
+[\bar{X}, \bar{Y}]|_S = [X, Y]
+\]
+#+END_env
+
+** Naturality of Lie Bracket
+
+#+BEGIN_env pf
+Chain rule \(\partial_{d\varphi X} f (\varphi(x)) = \partial_X (f \circ \varphi) (x)\)
+
+\begin{equation*}
+\begin{split}
+\partial_{(d\varphi [X, Y])} f (\varphi(x)) = \partial_{[X, Y]} (f \circ \tau) (x) \\
+&= \partial_X [\partial_Y (f\circ \tau)] (x) - \partial_Y (\partial_X (f\circ \tau)) (x) \\
+&= \partial_X [\partial_{d\varphi Y} f (\tau(x))] - \partial_Y [\partial_{d\varphi X} f (\tau(x))] \\
+&= \partial_{d\varphi X} [\partial_{d\varphi Y} f] (x) - \partial_{d\varphi Y} [\partial_{d\varphi X} f] (x) \\
+&= \partial_{[d\varphi X, d\varphi Y]} f (x).
+\end{split}
+\end{equation*}
+#+END_env
+
+** Torsion
+
+#+BEGIN_env thm
+\[
+\nabla_X Y - \nabla_Y X = [X, Y]
+\]
+#+END_env
+
+#+BEGIN_env pf
+\begin{equation*}
+\begin{split}
+\nabla_X Y - \nabla_Y X &= \pi_T(D_{d\varphi X} d\varphi Y - D_{d\varphi X} d\varphi Y) \\
+&= \pi_T(d\varphi([X, Y])) \\
+&= [X, Y]
+\end{split}
+\end{equation*}
+#+END_env
+* Second Fundamental Form
+** Second Fundamental Form
+
+#+BEGIN_env defn
+Let \(S\) be a regular surface with metric \(g\),  connection \(\nabla\). The /second fundamental form/ is the field of bilinear forms,
+\[
+A(X, Y) = \ip{D_{\bar{X}} \bar{Y}}{N}
+\]
+where \(X, Y\) are tangent vector fields and \(\bar{X}, \bar{Y}\) are any smooth local extensions of \(X, Y\).
+#+END_env
+
+** Gauss Equation
+
+We will write \(D_X Y\) instead of \(D_{\bar{X} \bar{Y}\) with the understanding that \(D_X Y\) is well defined independently of the extensions \(\bar{X}, \bar{Y}\).
+
+\[
+D_X Y = \nabla_X Y + A(X, Y) N
+\]
+
+Follows from \(T\RR^3 \simeq TS \oplus NS\)
+\begin{align*}
+\nabla_X Y &= \pi_{TS} (D_X Y) \\
+\pi_N (D_X Y) &= A(X, Y) N
+\end{align*}
+
+** Example: Sphere
+
+#+BEGIN_env eg
+For the sphere,
+\[
+A = g.
+\]
+#+END_env
+
+** Example: Graph
+
+#+BEGIN_env eg
+For \(S = \graph(f)\)
+\[
+A = .
+\]
+#+END_env
+
+* Symmetry and Weingarten Shape Operator
+** Symmetry and Weingarten Shape Operator
+** Symmetry
+
+#+BEGIN_env lem
+\[
+A(X, Y) = A(Y, X)
+\]
+#+END_env
+
+#+BEGIN_env pf
+Follows from \([\bar{X}, \bar{Y}] = [X, Y]\) is tangent.
+#+END_env
+
+** Weingarten Shape Operator
+
+#+BEGIN_env defn
+\[
+\mathcal{W}(X) = -D_{\bar{X}} N
+\]
+#+END_env
+
+** Weingarten and SFF
+
+#+BEGIN_env thm
+\[
+A(X, Y) = g(\mathcal{W}(X), Y) = g(X, \mathcal{Y}(X))
+\]
+#+END_env
+
+* Principal Curvatures
+** Principal Curvatures
+
+#+BEGIN_env defn
+The /principal curvatures/ \(S\) are the eigenvalues \(\kappa_1, \kappa_2\) of \(\mathcal{W}\). By convention we order them as \(\kappa_1 \leq \kappa_2\).
+#+END_env
+
+Note that \(\mathcal{W}\) is self-adjoint, hence is diagonalizable.
+
+** Gauss and Mean Curvatures
+
+#+BEGIN_env defn
+The /Mean Curvature/ is
+\[
+H = \kappa_1 + \kappa_2 = 2 \Tr(\mathcal{W})
+\]
+and the /Gauss Curvature/ is
+\[
+K = \kappa_1 \kappa_2 = \det \mathcal{W}.
+\]
+#+END_env
+
+** Examples
+
+#+BEGIN_env eg :title "Plane"
+\(\kappa_1 = \kappa_2 = 0 \Rightarrow H = K = 0\)
+#+END_env
+
+#+BEGIN_env eg :title "Sphere"
+\(\kappa_1 = \kappa_2 = 1 \Rightarrow H = K = 1\)
+#+END_env
+
+#+BEGIN_env eg :title "Cylinder"
+\(\kappa_1 = 0, \kappa_2 = 1 \Rightarrow H = 1, \quad K = 0\)
+#+END_env
+
