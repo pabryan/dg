@@ -1,210 +1,406 @@
 #+TITLE: Curvature of Surfaces
 #+OPTIONS: toc:nil num:nil
 
-* Einstein Summation Convention
-** Einstein Summation Convention
-** Einstein Summation Convention
+* Second Derivatives
+** Second Derivatives
+** Connection
 
-Simplify expressions \(X = \sum_i X^i e_i\), \(\partial_X f = \sum_i X^i \partial_i f\), etc.
-
-Whenever an index is repeated above *and* below there is an implied sum:
-
-\(X^i e_i\) means \(\sum_i X^i e_i\)
-
-* Lie Bracket
-** Lie Bracket
-** Lie Bracket
-
-#+BEGIN_env thm
-Given two vector fields \(X, Y\) there is a unique vector field \(Z\) such that for all smooth functions \(f\),
+For a vector field \(Z \in \Gamma(TS)\) define the \(C^{\infty}(S \to \RR)\)-linear map
 \[
-\partial_Z f := \partial_X \partial_Y f - \partial_Y \partial_X f
-\]
-We write \([X, Y]\) for \(Z\), called the /commutator/ or /Lie Bracket/ of \(X\) and \(Y\).
-#+END_env
-
-** Lie Bracket
-
-#+BEGIN_env pf
-\begin{equation*}
-\begin{split}
-\partial_X \partial_Y f &= \partial_X (Y^j \partial_j f) \\
-&= X^i \partial_i (Y^j \partial_j f) \\
-&= X^i \partial_i Y^j \partial_j f + X^i Y^j \partial^2_{ij} f \\
-\partial_Y \partial_X f &= Y^i \partial_i X^j \partial_j f + Y^i X^j \partial^2_{ij} f
-\end{split}
-\end{equation*}
-
-\[
-Z^j = X^i \partial_i Y^j - Y^i \partial_i X^j
-\]
-#+END_env
-
-** Lie Bracket
-
-#+BEGIN_env eg
-\[
-X = (x, 0), \quad Y = (y^2, xy), \quad [X, Y] = (-y^2, xy)
+\nabla Z : Y \in \Gamma(TS) \mapsto \nabla_Y Z \in \Gamma(TS)
 \]
 
-\[
-X = (x, 0), \quad Y = (xy, y^2), \quad [X, Y] = (0, 0)
-\]
-#+END_env
+This is analogous to the differential \(df\)
 
-** Naturality of Lie Bracket
+The second derivative of \(Z\) should be...?
 
-#+BEGIN_env thm
-\[
-d\varphi([X, Y]) = [d\varphi(X), d\varphi(Y)]
-\]
-#+END_env
-
-#+BEGIN_env cor
-\[
-[\bar{X}, \bar{Y}]|_S = [X, Y]
-\]
-#+END_env
-
-** Naturality of Lie Bracket
-
-#+BEGIN_env pf
-Chain rule \(\partial_{d\varphi X} f (\varphi(x)) = \partial_X (f \circ \varphi) (x)\)
-
-\begin{equation*}
-\begin{split}
-\partial_{(d\varphi [X, Y])} f (\varphi(x)) = \partial_{[X, Y]} (f \circ \tau) (x) \\
-&= \partial_X [\partial_Y (f\circ \tau)] (x) - \partial_Y (\partial_X (f\circ \tau)) (x) \\
-&= \partial_X [\partial_{d\varphi Y} f (\tau(x))] - \partial_Y [\partial_{d\varphi X} f (\tau(x))] \\
-&= \partial_{d\varphi X} [\partial_{d\varphi Y} f] (x) - \partial_{d\varphi Y} [\partial_{d\varphi X} f] (x) \\
-&= \partial_{[d\varphi X, d\varphi Y]} f (x).
-\end{split}
-\end{equation*}
-#+END_env
-
-** Torsion
-
-#+BEGIN_env thm
-\[
-\nabla_X Y - \nabla_Y X = [X, Y]
-\]
-#+END_env
-
-#+BEGIN_env pf
-\begin{equation*}
-\begin{split}
-\nabla_X Y - \nabla_Y X &= \pi_T(D_{d\varphi X} d\varphi Y - D_{d\varphi X} d\varphi Y) \\
-&= \pi_T(d\varphi([X, Y])) \\
-&= [X, Y]
-\end{split}
-\end{equation*}
-#+END_env
-* Second Fundamental Form
-** Second Fundamental Form
+** Second Covariant Derivative
 
 #+BEGIN_env defn
-Let \(S\) be a regular surface with metric \(g\),  connection \(\nabla\). The /second fundamental form/ is the field of bilinear forms,
-\[
-A(X, Y) = \ip{D_{\bar{X}} \bar{Y}}{N}
-\]
-where \(X, Y\) are tangent vector fields and \(\bar{X}, \bar{Y}\) are any smooth local extensions of \(X, Y\).
+Let \(Z \in \Gamma(TS)\) be a vector field. The second covariant derivative of \(Z\) is defined to be the covariant derivative of \(T = \nabla Z\)
+\begin{equation*}
+\begin{split}
+[\nabla_X (\nabla Z)] (Y) &= \nabla_X[\nabla Z (Y)] - \nabla Z [\nabla_X Y] \\
+&= \nabla_X(\nabla_Y Z) - \nabla_{\nabla_X Y} Z.
+\end{split}
+\end{equation*}
 #+END_env
 
-** Gauss Equation
+** Second Covariant Derivative
 
-We will write \(D_X Y\) instead of \(D_{\bar{X} \bar{Y}\) with the understanding that \(D_X Y\) is well defined independently of the extensions \(\bar{X}, \bar{Y}\).
+We also write \(\nabla^2 Z (X, Y)\) or \(\nabla^2_{X, Y} Z\) for \((\nabla_X (\nabla Z)) (Y)\)
 
+Sometimes people also write
 \[
-D_X Y = \nabla_X Y + A(X, Y) N
+\nabla_X \nabla_Y Z
+\]
+but we won't since this could be confused with \(\nabla_X (\nabla_Y Z) \neq \nabla^2 Z (X, Y)\).
+
+** Example
+
+#+BEGIN_env eg
+Polar coords \(r, \theta\) with coordinate fields \(R, T\):
+\[
+D_R R = 0, \quad D_T T = -r R, \quad D_T R = D_R T = \frac{1}{r} T.
 \]
 
-Follows from \(T\RR^3 \simeq TS \oplus NS\)
+\begin{equation*}
+\begin{split}
+D^2 T (R, T) &= D_R (D_T T) - D_{D_R T} T \\
+&= D_R (-r R) - D_{r^{-1} T} T \\
+&= -r D_R R - (D_R r) R - r^{-1} D_T T \\
+&= - (D_R r) R + R \\
+&= 0
+\end{split}
+\end{equation*}
+#+END_env
+
+* Curvature Tensor
+** Curvature Tensor
+** Second Commutator
+
+\begin{equation*}
+\begin{split}
+\nabla^2 Z (X, Y) - &\nabla^2 Z(Y, X) = \left[\nabla_X (\nabla_Y Z) - \nabla_{\nabla_X Y} Z\right] \\
+&\quad - \left[\nabla_Y (\nabla_X Z) - \nabla_{\nabla_Y Z} Z\right] \\
+&= \nabla_X (\nabla_Y Z) - \nabla_Y (\nabla_X Z) - \nabla_{\nabla_X Y - \nabla_Y X} Z \\
+&= \nabla_X (\nabla_Y Z) - \nabla_Y (\nabla_X Z) - \nabla_{[X, Y]} Z.
+\end{split}
+\end{equation*}
+
+Even if \([X, Y] = 0\) we may still have \(\nabla^2 Z (X, Y) - \nabla^2 Z(Y, X) \neq 0\).
+
+** The Curvature Tensor
+
+#+BEGIN_env defn
+The /curvature tensor/ is the commutator of second derivatives,
+\begin{equation*}
+\begin{split}
+\Rm(X, Y) Z &= \nabla^2 Z (X, Y) - \nabla^2 Z (Y, X) \\
+&= \nabla_X (\nabla_Y Z) - \nabla_Y(\nabla_X Z) - \nabla_{[X, Y]} Z.
+\end{split}
+\end{equation*}
+#+END_env
+
+The \([X, Y]\) term acounts for \(\nabla_X Y, \nabla_Y X\) in the second derivatives. It also compensates non-commuting \(X, Y\) .
+
+** Curvature Tensor is Pointwise
+
+#+BEGIN_env thm
+For \(p \in S\), \([\Rm(X, Y) Z](p)\) only depends on \(X(p), Y(p), Z(p)\).
+#+END_env
+
+Note that \(\Rm(X, Y) Z\) involves derivatives \(\nabla X(p), \nabla Y(p), \nabla Z(p), \nabla^2 Z(p)\).
+
+All these cancel out!
+
+** Curvature Tensor is Pointwise
+
+#+BEGIN_env pf
 \begin{align*}
-\nabla_X Y &= \pi_{TS} (D_X Y) \\
-\pi_N (D_X Y) &= A(X, Y) N
+\nabla_X (\nabla_Y Z) &= X^i \partial_i Y^j \nabla_j Z + X^i Y^j \nabla_i(\nabla_j Z) \\
+-\nabla_Y (\nabla_X Z) &= -Y^i \partial_i X^j \nabla_j Z + Y^i X^j \nabla_i(\nabla_j Z) \\
+-\nabla_{[X, Y]} Z &= -X^i \partial_i Y^j \nabla_j Z + Y^i \partial_i X^j \nabla_j Z
 \end{align*}
 
-** Example: Sphere
-
-#+BEGIN_env eg
-For the sphere,
 \[
-A = g.
+\Rm(X, Y) Z = X^i Y^j[\nabla_i (\nabla_j Z) - \nabla_j (\nabla_i Z)]
 \]
 #+END_env
 
-** Example: Graph
-
-#+BEGIN_env eg
-For \(S = \graph(f)\)
-\[
-A = .
-\]
-#+END_env
-
-* Symmetry and Weingarten Shape Operator
-** Symmetry and Weingarten Shape Operator
-** Symmetry
-
-#+BEGIN_env lem
-\[
-A(X, Y) = A(Y, X)
-\]
-#+END_env
+** Curvature Tensor is Pointwise
 
 #+BEGIN_env pf
-Follows from \([\bar{X}, \bar{Y}] = [X, Y]\) is tangent.
+\[
+\Rm(X, Y) Z = X^i Y^j[\nabla_i (\nabla_j Z) - \nabla_j (\nabla_i Z)]
+\]
+
+\begin{equation*}
+\begin{split}
+\nabla_i (\nabla_j Z) &= \partial_i \partial_j Z^k \partial_k + \partial_j Z^k \nabla_i \partial_k + \partial_i Z^k \nabla_j \partial_k \\
+&\quad + Z^k \nabla_i(\nabla_j \partial_k) \\
+&= A_{ij} + Z^k \nabla_i(\nabla_j \partial_k)
+\end{split}
+\end{equation*}
+
+Here \(A_{ij} = A_{ji}\).
 #+END_env
 
-** Weingarten Shape Operator
+** Curvature Tensor is Pointwise
 
-#+BEGIN_env defn
+#+BEGIN_env pf
+\begin{equation*}
+\begin{split}
+\nabla_i (\nabla_j Z) - \nabla_j (\nabla_i Z) &= A_{ij} - A_{ji} \\
+&\quad + Z^k [\nabla_i (\nabla_j \partial_k) - \nabla_j (\nabla_i \partial_k)] \\
+&= Z^k \Rm(T_i, T_j) \partial_k
+\end{split}
+\end{equation*}
+
 \[
-\mathcal{W}(X) = -D_{\bar{X}} N
+[\Rm(X, Y) Z](p) = X^i(p) Y^i(p) Z^k(p) [\Rm(T_i, T_j) \partial_k] (p).
 \]
 #+END_env
 
-** Weingarten and SFF
+** Curvature Tensor Notation
+
+\[
+\Rm(X, Y) Z = X^i Y^j Z^k R_{ijk}^{\ell} \partial_{\ell}
+\]
+\[
+R_{ijk}^{\ell} \partial_{\ell} = \Rm(\partial_i, \partial_j) \partial_k
+\]
+
+\(R_{ijk}^{\ell}\) is the \(\partial_{\ell}\) component of \(\Rm(\partial_i, \partial_j) \partial_j\)
+
+Common alternate notation: \(R_{ijk}^{\ell} \partial_{\ell} = \Rm(\partial_j, \partial_i) \partial_k\)
+
+* Euclidean Curvature Tensor
+
+** Euclidean Curvature Tensor
+
+#+BEGIN_env eg
+In \(\RR^2\) with the Euclidean covariant derivative \(D\):
+\[
+\Rm (X, Y) Z = 0
+\]
+since \(D_i \partial_j = 0\) for every \(i,j\).
+#+END_env
+
+* Spherical Curvature Tensor
+** Spherical Curvature Tensor
+
+#+BEGIN_env eg
+\(F(\theta, \varphi) = (\sin\varphi \cos\theta, \sin\varphi \sin\theta, \cos\varphi)\)
+
+\(T = dF(\partial_{\theta}) \quad P = dF(\partial_{\varphi})\)
+
+\(\Rm(T, P) T = -\sin^2\varphi P\)
+
+\(\Rm\left(\frac{T}{\abs{T}}, \frac{P}{\abs{P}}\right) \frac{T}{\abs{T}} = -P\)
+
+\(g\left(\Rm\left(\frac{T}{\abs{T}}, \frac{P}{\abs{P}}\right) \frac{T}{\abs{T}}, \frac{P}{|P|}\right) = -1\)
+#+END_env
+
+** Spherical Curvature Tensor
+
+#+BEGIN_env ex
+\begin{align*}
+\nabla_T T &= -\sin\varphi\cos\varphi P \\
+\nabla_P P &= 0 \\
+\nabla_T P = \nabla_P T &= \cot\varphi T \\
+[T, P] &= 0
+\end{align*}
+
+Thus
+\[
+\Rm(T, P) T = \nabla_T (\nabla_P T) - \nabla_P (\nabla_T T)
+\]
+#+END_env
+
+** Spherical Curvature Tensor
+
+#+BEGIN_env eg
+\begin{equation*}
+\begin{split}
+\nabla_T (\nabla_P T) &= \nabla_T (\cot \varphi T) \\
+&= \cot\varphi \nabla_T T = -\cos^2 \varphi P \\
+\nabla_P (\nabla_T T) &= \nabla_P (-\sin\varphi\cos\varphi P) \\
+&= - \partial_P(\sin\varphi\cos\varphi P) P \\
+&= -(\cos^2\varphi - \sin^2\varphi) P
+\end{split}
+\end{equation*}
+
+\[
+\Rm(T, P) T = -\sin^2 \varphi P
+\]
+#+END_env
+
+* Import                                                           :noexport:
+** Symmetries of the Curvature Tensor
 
 #+BEGIN_env thm
-\[
-A(X, Y) = g(\mathcal{W}(X), Y) = g(X, \mathcal{Y}(X))
-\]
+1. \(\Rm(X, Y) Z = - \Rm(Y, X) Z\),
+2. \(g(\Rm(X, Y) Z, W) = - g(\Rm(X, Y) W, Z)\),
+3. \(\Rm(X, Y) Z + \Rm(Y, Z) X + \Rm(Z, X) Y = 0\) (/Bianchi Identity/),
 #+END_env
 
-* Principal Curvatures
-** Principal Curvatures
+\pause
 
-#+BEGIN_env defn
-The /principal curvatures/ \(S\) are the eigenvalues \(\kappa_1, \kappa_2\) of \(\mathcal{W}\). By convention we order them as \(\kappa_1 \leq \kappa_2\).
-#+END_env
+#+BEGIN_proof
+1. Anti-symmetry in the first two slots:
+   #+BEGIN_export latex
+   \[
+   \begin{split}
+   \Rm(X, Y) Z &= \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X, Y]} Z \\
+   &= -\nabla_Y \nabla_Y Z + \nabla_Y \nabla_X Z - \nabla_{-[Y, X]} Z \\
+   &= - \Rm(Y, X) Z.
+   \end{split}
+   \]
+   #+END_export
+#+END_proof
 
-Note that \(\mathcal{W}\) is self-adjoint, hence is diagonalizable.
+** Symmetries of the Curvature Tensor
 
-** Gauss and Mean Curvatures
+#+BEGIN_proof
+1. [@2] Anti-symmetry in the last two slots. This is a little more involved:
+   We use metric compatability.
+   \begin{align*}
+   g(\nabla_X \nabla_Y Z, W) &= \nabla_X g(\nabla_Y Z, W) - g(\nabla_Y Z, \nabla_X W) \\
+   &= \nabla_X \nabla_Y g(Z, W) - \nabla_X g(Z, \nabla_Y W) \\
+   &\quad - \nabla_Y g(Z, \nabla_X W) + g(Z, \nabla_Y \nabla_X W).
+   \end{align*}
+   \pause
+   Similarly,
+   \begin{align*}
+   g(\nabla_Y \nabla_X Z, W) &= \nabla_Y g(\nabla_X Z, W) - g(\nabla_X Z, \nabla_Y W) \\
+   &= \nabla_Y \nabla_X g(Z, W) - \nabla_Y g(Z, \nabla_X W) \\
+   &\quad -\nabla_X g(Z, \nabla_Y W) + g(Z, \nabla_X \nabla_Y W).
+   \end{align*}
 
-#+BEGIN_env defn
-The /Mean Curvature/ is
-\[
-H = \kappa_1 + \kappa_2 = 2 \Tr(\mathcal{W})
-\]
-and the /Gauss Curvature/ is
-\[
-K = \kappa_1 \kappa_2 = \det \mathcal{W}.
-\]
-#+END_env
+#+END_proof
 
-** Examples
+** Symmetries of the Curvature Tensor
 
-#+BEGIN_env eg :title "Plane"
-\(\kappa_1 = \kappa_2 = 0 \Rightarrow H = K = 0\)
-#+END_env
+#+BEGIN_proof
 
-#+BEGIN_env eg :title "Sphere"
-\(\kappa_1 = \kappa_2 = 1 \Rightarrow H = K = 1\)
-#+END_env
+1. [@2]
+   Thus,
+   #+BEGIN_export latex
+   \[
+   \begin{split}
+   g(\nabla_X \nabla_Y Z - \nabla_Y \nabla_X, W) &= (\nabla_X \nabla_Y - \nabla_Y \nabla_X) g(Z, W) \\
+   &\quad - g(Z, \nabla_X \nabla_Y W - \nabla_Y \nabla_X W)
+   \end{split}
+   \]
+   #+END_export
+   \pause
 
-#+BEGIN_env eg :title "Cylinder"
-\(\kappa_1 = 0, \kappa_2 = 1 \Rightarrow H = 1, \quad K = 0\)
-#+END_env
+   Subtracting,
+   \[
+   g(\nabla_{[X, Y]} Z, W) = \nabla_{[X, Y]} g(Z, W) - g(Z, \nabla_{[X, Y]} W)
+   \]
+   we obtain, \pause
+   \begin{align*}
+   g(\Rm(X, Y) Z, W) &= g(\nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X, Y]} Z, W) \\
+   &= (\nabla_X \nabla_Y - \nabla_Y \nabla_X - \nabla_{[X, Y]}) g(Z, W) \\
+   &\quad - g(Z, \nabla_X \nabla_Y W - \nabla_Y \nabla_X W - \nabla_{[X, Y]} W) \\
+   &= \Rm(X, Y) [g(Z, W)] - g(\Rm(X, Y) W, Z).
+   \end{align*}
+#+END_proof
+
+** Symmetries of the Curvature Tensor
+
+#+BEGIN_proof
+1. [@2] So far we have
+   \[
+   g(\Rm(X, Y) Z, W) = R(X, Y) [g(Z, W)] - g(\Rm(X, Y) W, Z)
+   \]
+   where for the smooth function \(f = g(Z, W)\) we have
+   #+BEGIN_export latex
+   \[
+   \begin{split}
+   \Rm(X, Y) f &= \nabla_X \nabla_Y f - \nabla_Y \nabla_X f - \nabla_{[X, Y]} f \\
+   &= X(Y(f)) - Y(X(f)) - [X, Y] (f) \\
+   &= [X,Y] (f) - [X, Y] (f) = 0.
+   \end{split}
+   \]
+   #+END_export
+   \pause
+
+   Thus we have
+   \[
+   g(\Rm(X, Y) Z, W) = - g(\Rm(X, Y) W, Z)
+   \]
+#+END_proof
+
+** Symmetries of the Curvature Tensor
+
+#+BEGIN_proof
+1. [@3]
+
+   \begin{align*}
+   \Rm(X, Y) Z &= \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X, Y]} Z \\
+   \Rm(Y, Z) X &= \nabla_Y \nabla_Z X  - \nabla_Z \nabla_Y X - \nabla_{[Y, Z]} X \\
+   \Rm(Z, X) Y &= \nabla_Z \nabla_X Y - \nabla_X \nabla_Z Y - \nabla_{[Z, X]} Y 
+   \end{align*}
+
+   \pause
+   Then we use the symmetry \(\nabla_Y Z - \nabla_Z Y = [Y, Z]\):
+   \[
+   \nabla_X (\nabla_Y Z) = \nabla_X(\nabla_Z Y + [Y, Z]) = \nabla_X \nabla_Z Y + \nabla_X [Y, Z].
+   \]
+   \pause
+   Notice that the second term in the last of the three lines above contains a term \(-\nabla_X \nabla_Z Y\) which cancels with the \(\nabla_X \nabla_Z Y\) term here.
+#+END_proof
+
+** Symmetries of the Curvature Tensor
+
+#+BEGIN_proof
+1. [@3] Using the same cancelling for the other terms results in
+   #+BEGIN_export latex
+   \[
+   \begin{split}
+   \Rm(X, Y) Z &+ \Rm(Y, Z) X + \Rm(Z, X) Y \\
+   &= \nabla_X [Y, Z] + \nabla_Y [Z, X] + \nabla_Z [X, Y] \\
+   &\quad - \nabla_{[Y, Z]} X - \nabla_{[Z, X]} Y - \nabla_{[X, Y]} Z \\
+   &= [X, [Y, Z]] + [Y, [Z, X]] + [Z, [X, Y]].
+   \end{split}
+   \]
+   #+END_export
+   again by using symmetry to get the last line.
+#+END_proof
+
+** Symmetries of the Curvature Tensor
+
+#+BEGIN_proof
+1. [@3] To proof is completed by showing the /Jacobi Identity/:
+   \[
+   [X, [Y, Z]] + [Y, [Z, X]] + [Z, [X, Y]] = 0.
+   \]
+   \pause
+
+   This is little tedious but is easily computed directly
+   #+BEGIN_export latex
+   \[
+   \begin{split}
+   [X, [Y, Z]] (f) &= X([Y, Z] f) - [Y, Z](X f) \\
+   &= XYZf - XZYf - YZXf + ZYXf \\
+   [Y, [Z, X]] (f) &= YZXf - YXZ f - ZXYf + XZYf \\
+   [Z, [X, Y]] (f) &= ZXYf - ZYXf - XYZf + YXZf.
+   \end{split}
+   \]
+   #+END_export
+   \pause
+
+   Summing the three lines everything cancels.
+#+END_proof
+
+** Multi-linearity of the Curvature Tensor
+
+- The curvature tensor is a /multi-linear/ map. That is, for each fixed \(Y, Z, W\), the map \(X \mapsto g(\Rm(X, Y) Z, W)\) is linear. \pause The same goes for the other three slots. \pause
+- Thus for example, writing \(X = X^u \partial_u + X^v \partial_v\),
+  #+BEGIN_export latex
+  \[
+  \begin{split}
+  &g(\Rm(X^u\partial_u + X^v\partial_v, Y)Z, W) \\
+  &\quad = X^u g(\Rm(\partial_u, Y)Z, W) + X^v g(\Rm(\partial_v, Y)Z, W).
+  \end{split}
+  \]
+  #+END_export
+  \pause
+- *Note*: The last two terms in the map \(X \mapsto \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X, Y]} Z\) are not linear because of the Leibniz rule. \pause But the extra terms all cancel:
+  \[
+  \nabla_{fX} \nabla_Y Z = f \nabla_X \nabla_Y Z
+  \]
+  \pause
+  #+BEGIN_export latex
+  \[
+  \begin{split}
+  \nabla_Y \nabla_{fX} Z - \nabla_{[Y, fX]} Z &= f \nabla_Y \nabla_X Z + Y(f) \nabla_X Z \\
+  &\quad - f\nabla_{[Y, X]} Z - Y(f) \nabla_X Z \\
+  &= f(\nabla_Y \nabla_X Z - \nabla_{[Y, X]} Z).
+  \end{split}
+  \]
+  #+END_export
 
