@@ -39,9 +39,9 @@
   short_title: Curvature
   link: "/notes/surface_curvature"
 - num: "10"
-  title: Riemannian Metrics and Connections
-  short_title: Metrics and Connctions
-  link: "/notes/metrics_connections"
+  title: Curvature Tensor
+  short_title: Curvature Tensor
+  link: "/notes/curvature_tensor"
 - num: "11"
   title: Intrinsic and Extrinsic Curvature
   short_title: Curvature

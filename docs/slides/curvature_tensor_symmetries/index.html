@@ -1,0 +1,310 @@
+---
+layout: org-slides
+---
+
+<section class="outline-2" id="outline-container-org4cee746">
+<h2 id="org4cee746">Symmetries</h2>
+<div class="outline-text-2" id="text-org4cee746">
+</div>
+<section class="outline-3" id="outline-container-orgdfa0764">
+<h3 id="orgdfa0764">Symmetries of the Curvature Tensor</h3>
+</section>
+<section class="outline-3" id="outline-container-org6ccc48f">
+<h3 id="org6ccc48f">Symmetries</h3>
+<div class="outline-text-3" id="text-org6ccc48f">
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<ol class="org-ol">
+<li>First Skew Symmetry
+\(\Rm(X, Y) Z = - \Rm(Y, X) Z\)</li>
+<li>Second Skew Symmetry
+\(g(\Rm(X, Y) Z, W) = - g(\Rm(X, Y) W, Z)\)</li>
+<li>Bianchi Identity
+\(\Rm(X, Y) Z + \Rm(Y, Z) X + \Rm(Z, X) Y = 0\)</li>
+<li>Interchange Symmetry
+\(g(\Rm(X, Y) Z, W) = g(\Rm(Z, W) X, Y)\)</li>
+</ol>
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-orgd4e1d1f">
+<h2 id="orgd4e1d1f">1. First Skew Symmetry</h2>
+<div class="outline-text-2" id="text-orgd4e1d1f">
+</div>
+<section class="outline-3" id="outline-container-orgea92fe2">
+<h3 id="orgea92fe2">1. First Skew Symmetry</h3>
+<div class="outline-text-3" id="text-orgea92fe2">
+<p>
+\[
+\Rm(X, Y) Z = - \Rm(Y, X) Z
+\]
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org7ff3bac">
+<h3 id="org7ff3bac">1. First Skew Symmetry</h3>
+<div class="outline-text-3" id="text-org7ff3bac">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+
+\begin{equation*}
+\begin{split}
+\Rm(X, Y) Z &amp;= \nabla_X (\nabla_Y Z) - \nabla_Y (\nabla_X Z) - \nabla_{[X, Y]} Z \\
+&amp;= -\nabla_Y (\nabla_X Z) + \nabla_X (\nabla_Y Z) - \nabla_{-[Y, X]} Z \\
+&amp;= - \Rm(Y, X) Z.
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org8e79a76">
+<h2 id="org8e79a76">2. Second Skew Symmetry</h2>
+<div class="outline-text-2" id="text-org8e79a76">
+</div>
+<section class="outline-3" id="outline-container-org3f276b8">
+<h3 id="org3f276b8">2. Second Skew Symmetry</h3>
+<div class="outline-text-3" id="text-org3f276b8">
+<p>
+\[
+g(\Rm(X, Y) Z, W) = - g(\Rm(X, Y) W, Z)
+\]
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org7794cbb">
+<h3 id="org7794cbb">Metric Compatability</h3>
+<div class="outline-text-3" id="text-org7794cbb">
+<div class="ex card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+\partial_X [g(Y, Z)] = g(\nabla_X Y, Z) + g(Y, \nabla_X Z)
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orga661bbb">
+<h3 id="orga661bbb">2. Second Skew Symmetry</h3>
+<div class="outline-text-3" id="text-orga661bbb">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{align*}
+g(\nabla_X \nabla_Y Z, W) &amp;= {\color{royalblue}{\partial_X [g(\nabla_Y Z, W)]}} - {\color{orange}{g(\nabla_Y Z, \nabla_X W)}} \\
+&amp;\\
+&amp;= \color{royalblue}{\partial_X (\partial_Y [g(Z, W)]) - \partial_X [g(Z, \nabla_Y W)]} \\
+&amp;\quad \color{orange}{-\partial_Y [g(Z, \nabla_X W)] + g(Z, \nabla_Y (\nabla_X W))}
+\end{align*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgbd65736">
+<h3 id="orgbd65736">2. Second Skew Symmetry</h3>
+<div class="outline-text-3" id="text-orgbd65736">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{align*}
+g(\nabla_X \nabla_Y Z, W) &amp;= {\color{royalblue}{\partial_X (\partial_Y [g(Z, W)])}} - \color{red}{\partial_X [g(Z, \nabla_Y W)]} \\
+&amp;\quad -{\color{red}{\partial_Y [g(Z, \nabla_X W)]}} + \color{orange}{g(Z, \nabla_Y (\nabla_X W))} \\
+-g(\nabla_Y \nabla_X Z, W) &amp;= -{\color{royalblue}{\partial_Y (\partial_X [g(Z, W)])}} + \color{red}{\partial_Y [g(Z, \nabla_X W)]} \\
+&amp;\quad + {\color{red}{\partial_X [g(Z, \nabla_Y W)]}} - \color{orange}{g(Z, \nabla_X (\nabla_Y W))}
+\end{align*}
+
+\begin{align*}
+g(\nabla_Y \nabla_X Z, &amp;W) - g(\nabla_Y \nabla_X Z, W) \\
+&amp;= {\color{royalblue}{(\partial_X \partial_Y - \partial_Y \partial_X ) [g(Z, W)])}} \\
+&amp;\quad + {\color{orange}{g(Z, \nabla_Y (\nabla_X W) - \nabla_X (\nabla_Y W))}}
+\end{align*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org88a953d">
+<h3 id="org88a953d">2. Second Skew Symmetry</h3>
+<div class="outline-text-3" id="text-org88a953d">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{align*}
+g(\nabla_X \nabla_Y &amp;Z - \nabla_Y \nabla_X Z, W) \\
+&amp;= (\partial_X \partial_Y - \partial_Y \partial_X ) [g(Z, W)]) \\
+&amp;\quad + g(Z, \nabla_Y (\nabla_X W) - \nabla_X (\nabla_Y W))
+\end{align*}
+
+\begin{align*}
+g(-\nabla_{[X, Y]} Z, W) = -\partial_{[X,Y]} [g(Z, W)] + g(Z, \nabla_{[X, Y]} W)
+\end{align*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org9ad95c2">
+<h3 id="org9ad95c2">2. Second Skew Symmetry</h3>
+<div class="outline-text-3" id="text-org9ad95c2">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{align*}
+g(\Rm(X, Y) &amp;Z, W) \\
+&amp;= g(\nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X, Y]} Z, W) \\
+&amp;= -g(Z, \nabla_X \nabla_Y W - \nabla_Y \nabla_X W - \nabla_{[X, Y]} W) \\
+&amp;\quad + (\partial_X \partial_Y - \partial_Y \partial_X - \partial_{[X, Y]}) [g(Z, W)] \\
+&amp;= - g(\Rm(X, Y) W, Z) \\
+&amp;\quad + \Rm(X, Y) [g(Z, W)]
+\end{align*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org422bd26">
+<h3 id="org422bd26">2. Second Skew Symmetry</h3>
+<div class="outline-text-3" id="text-org422bd26">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+For the smooth function \(f = g(Z, W)\) we have
+</p>
+\begin{equation*}
+\begin{split}
+\Rm(X, Y) f &amp;= \partial_X \partial_Y f - \partial_Y \partial_X f - \partial_{[X, Y]} f \\
+&amp;= \partial_{[X,Y]} f - \partial_{[X, Y]} f = 0.
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org49b1655">
+<h2 id="org49b1655">3. Bianchi Identity</h2>
+<div class="outline-text-2" id="text-org49b1655">
+</div>
+<section class="outline-3" id="outline-container-org46637ed">
+<h3 id="org46637ed">3. Bianchi Identity</h3>
+<div class="outline-text-3" id="text-org46637ed">
+<p>
+\[
+\Rm(X, Y) Z + \Rm(Y, Z) X + \Rm(Z, X) Y = 0
+\]
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org7e5c231">
+<h3 id="org7e5c231">3. Bianchi</h3>
+<div class="outline-text-3" id="text-org7e5c231">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{align*}
+\Rm(X, Y) Z &amp;= \nabla_X (\nabla_Y Z) - \nabla_Y (\nabla_X Z) - \nabla_{[X, Y]} Z \\
+\Rm(Y, Z) X &amp;= \nabla_Y (\nabla_Z X) - \nabla_Z (\nabla_Y X) - \nabla_{[Y, Z]} X \\
+\Rm(Z, X) Y &amp;= \nabla_Z (\nabla_X Y) - \nabla_X (\nabla_Z Y) - \nabla_{[Z, X]} Y 
+\end{align*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org1364cf1">
+<h3 id="org1364cf1">3. Bianchi</h3>
+<div class="outline-text-3" id="text-org1364cf1">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Using \(\nabla_X Y - \nabla_Y X = [X, Y]\)
+</p>
+\begin{multline*}
+\left[{\color{royalblue}{\nabla_X (\nabla_Y Z)}} - {\color{orange}{\nabla_Y (\nabla_X Z)}}\right] + \left[{\color{orange}{\nabla_Y (\nabla_Z X)}}  - {\color{green}{\nabla_Z (\nabla_Y X)}}\right] \\
++ \left[{\color{green}{\nabla_Z (\nabla_X Y)}} - {\color{royalblue}{\nabla_X (\nabla_Z Y)}}\right]\\
+= {\color{royalblue}{\nabla_X[Y, Z]}} + {\color{orange}{\nabla_Y[Z, X]}} + {\color{green}{\nabla_Z [X, Y]}}
+\end{multline*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org72fd5ca">
+<h3 id="org72fd5ca">3. Bianchi</h3>
+<div class="outline-text-3" id="text-org72fd5ca">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{equation*}
+\begin{split}
+\Rm(X, Y) Z &amp;+ \Rm(Y, Z) X + \Rm(Z, X) Y \\
+&amp;= {\color{royalblue}{\nabla_X [Y, Z]}} + {\color{orange}{\nabla_Y [Z, X]}} + {\color{green}{\nabla_Z [X, Y]}} \\
+&amp;\quad - {\color{royalblue}{\nabla_{[Y, Z]} X}} - {\color{orange}{\nabla_{[Z, X]} Y}} - {\color{green}{\nabla_{[X, Y]} Z}} \\
+&amp;= {\color{royalblue}{[X, [Y, Z]]}} + {\color{orange}{[Y, [Z, X]]}} + {\color{green}{[Z, [X, Y]]}}
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org0b6ca05">
+<h3 id="org0b6ca05">3. Bianchi</h3>
+<div class="outline-text-3" id="text-org0b6ca05">
+<div class="ex card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Prove the <i>Jacobi</i> Identity
+\[
+[X, [Y, Z]] + [Y, [Z, X]] + [Z, [X, Y]] = 0.
+\]
+</p>
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org7a8c0ad">
+<h2 id="org7a8c0ad">4. Interchange Symmetry</h2>
+<div class="outline-text-2" id="text-org7a8c0ad">
+</div>
+<section class="outline-3" id="outline-container-org52769e7">
+<h3 id="org52769e7">4. Interchange Symmetry</h3>
+<div class="outline-text-3" id="text-org52769e7">
+<p>
+\[
+g(\Rm(X, Y) Z, W) = g(\Rm(Z, W) X, Y)
+\]
+</p>
+<div class="ex card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Using the first three symmetries, prove the interchange symmetry.
+</p>
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org26b4e7c">
+<h2 id="org26b4e7c">Degrees of Freedom</h2>
+<div class="outline-text-2" id="text-org26b4e7c">
+</div>
+<section class="outline-3" id="outline-container-org42ad36b">
+<h3 id="org42ad36b">Degrees of Freedom</h3>
+</section>
+<section class="outline-3" id="outline-container-orgb3f564c">
+<h3 id="orgb3f564c">Multi-linear map</h3>
+<div class="outline-text-3" id="text-orgb3f564c">
+<p>
+For an \(n\)-dimensional sub-manifold \(M\) and \(p \in M\)
+</p>
+
+\begin{equation*}
+\begin{split}
+\Rm_p : &amp; \quad T_p M \times T_p M \times T_p M \times T_p M  \to \RR \\
+&amp; \quad \RR^n \times \RR^n \times \RR^n \times \RR^n \to \RR
+\end{split}
+\end{equation*}
+
+<p>
+\(\Rm_{ijk\ell} = g(\Rm(\partial_i, \partial_j) \partial_k, \partial_{\ell})\) has \(n^4\) components
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org691fecb">
+<h3 id="org691fecb">Symmetries and Independent Components</h3>
+<div class="outline-text-3" id="text-org691fecb">
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The curvature tensor has \(\tfrac{n^2(n^2 - 1)}{12}\) independent components.
+</p>
+</div></div>
+<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{align*}
+n &amp;= 1: 0 \text{ independent out of } 1 \\
+n &amp;= 2: 1 \text{ independent out of } 16 \\
+n &amp;= 3: 6 \text{ independent out of } 81 \\
+n &amp;= 4: 20 \text{ independent out of } 256
+\end{align*}
+
+</div></div>
+</div>
+</section>
+</section>
