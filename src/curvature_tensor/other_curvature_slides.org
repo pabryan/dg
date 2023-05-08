@@ -1,0 +1,31 @@
+#+TITLE: Sectional, Ricci, Scalar Curvature
+#+OPTIONS: toc:nil num:nil
+
+* Import                                                           :noexport:
+** Multi-linearity of the Curvature Tensor
+
+- The curvature tensor is a /multi-linear/ map. That is, for each fixed \(Y, Z, W\), the map \(X \mapsto g(\Rm(X, Y) Z, W)\) is linear. \pause The same goes for the other three slots. \pause
+- Thus for example, writing \(X = X^u \partial_u + X^v \partial_v\),
+  #+BEGIN_export latex
+  \[
+  \begin{split}
+  &g(\Rm(X^u\partial_u + X^v\partial_v, Y)Z, W) \\
+  &\quad = X^u g(\Rm(\partial_u, Y)Z, W) + X^v g(\Rm(\partial_v, Y)Z, W).
+  \end{split}
+  \]
+  #+END_export
+  \pause
+- *Note*: The last two terms in the map \(X \mapsto \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X, Y]} Z\) are not linear because of the Leibniz rule. \pause But the extra terms all cancel:
+  \[
+  \nabla_{fX} \nabla_Y Z = f \nabla_X \nabla_Y Z
+  \]
+  \pause
+  #+BEGIN_export latex
+  \[
+  \begin{split}
+  \nabla_Y \nabla_{fX} Z - \nabla_{[Y, fX]} Z &= f \nabla_Y \nabla_X Z + Y(f) \nabla_X Z \\
+  &\quad - f\nabla_{[Y, X]} Z - Y(f) \nabla_X Z \\
+  &= f(\nabla_Y \nabla_X Z - \nabla_{[Y, X]} Z).
+  \end{split}
+  \]
+  #+END_export

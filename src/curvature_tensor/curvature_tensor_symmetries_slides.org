@@ -1,0 +1,211 @@
+#+TITLE: Curvature Tensor Symmetries
+#+OPTIONS: toc:nil num:nil
+
+* Symmetries
+** Symmetries of the Curvature Tensor
+** Symmetries
+
+#+BEGIN_env thm
+1. First Skew Symmetry
+   \(\Rm(X, Y) Z = - \Rm(Y, X) Z\)
+2. Second Skew Symmetry
+   \(g(\Rm(X, Y) Z, W) = - g(\Rm(X, Y) W, Z)\)
+3. Bianchi Identity
+   \(\Rm(X, Y) Z + \Rm(Y, Z) X + \Rm(Z, X) Y = 0\)
+4. Interchange Symmetry
+   \(g(\Rm(X, Y) Z, W) = g(\Rm(Z, W) X, Y)\)
+#+END_env
+
+* 1. First Skew Symmetry
+** 1. First Skew Symmetry
+
+\[
+\Rm(X, Y) Z = - \Rm(Y, X) Z
+\]
+
+** 1. First Skew Symmetry
+
+#+BEGIN_env pf
+
+\begin{equation*}
+\begin{split}
+\Rm(X, Y) Z &= \nabla_X (\nabla_Y Z) - \nabla_Y (\nabla_X Z) - \nabla_{[X, Y]} Z \\
+&= -\nabla_Y (\nabla_X Z) + \nabla_X (\nabla_Y Z) - \nabla_{-[Y, X]} Z \\
+&= - \Rm(Y, X) Z.
+\end{split}
+\end{equation*}
+#+END_env
+
+* 2. Second Skew Symmetry
+** 2. Second Skew Symmetry
+
+\[
+g(\Rm(X, Y) Z, W) = - g(\Rm(X, Y) W, Z)
+\]
+
+** Metric Compatability
+
+#+BEGIN_env ex
+\[
+\partial_X [g(Y, Z)] = g(\nabla_X Y, Z) + g(Y, \nabla_X Z)
+\]
+#+END_env
+
+** 2. Second Skew Symmetry
+
+#+BEGIN_env pf
+\begin{align*}
+g(\nabla_X \nabla_Y Z, W) &= {\color{royalblue}{\partial_X [g(\nabla_Y Z, W)]}} - {\color{orange}{g(\nabla_Y Z, \nabla_X W)}} \\
+&\\
+&= \color{royalblue}{\partial_X (\partial_Y [g(Z, W)]) - \partial_X [g(Z, \nabla_Y W)]} \\
+&\quad \color{orange}{-\partial_Y [g(Z, \nabla_X W)] + g(Z, \nabla_Y (\nabla_X W))}
+\end{align*}
+#+END_env
+
+** 2. Second Skew Symmetry
+
+#+BEGIN_env pf
+\begin{align*}
+g(\nabla_X \nabla_Y Z, W) &= {\color{royalblue}{\partial_X (\partial_Y [g(Z, W)])}} - \color{red}{\partial_X [g(Z, \nabla_Y W)]} \\
+&\quad -{\color{red}{\partial_Y [g(Z, \nabla_X W)]}} + \color{orange}{g(Z, \nabla_Y (\nabla_X W))} \\
+-g(\nabla_Y \nabla_X Z, W) &= -{\color{royalblue}{\partial_Y (\partial_X [g(Z, W)])}} + \color{red}{\partial_Y [g(Z, \nabla_X W)]} \\
+&\quad + {\color{red}{\partial_X [g(Z, \nabla_Y W)]}} - \color{orange}{g(Z, \nabla_X (\nabla_Y W))}
+\end{align*}
+
+\begin{align*}
+g(\nabla_Y \nabla_X Z, &W) - g(\nabla_Y \nabla_X Z, W) \\
+&= {\color{royalblue}{(\partial_X \partial_Y - \partial_Y \partial_X ) [g(Z, W)])}} \\
+&\quad + {\color{orange}{g(Z, \nabla_Y (\nabla_X W) - \nabla_X (\nabla_Y W))}}
+\end{align*}
+#+END_env
+
+** 2. Second Skew Symmetry
+
+#+BEGIN_env pf
+\begin{align*}
+g(\nabla_X \nabla_Y &Z - \nabla_Y \nabla_X Z, W) \\
+&= (\partial_X \partial_Y - \partial_Y \partial_X ) [g(Z, W)]) \\
+&\quad + g(Z, \nabla_Y (\nabla_X W) - \nabla_X (\nabla_Y W))
+\end{align*}
+
+\begin{align*}
+g(-\nabla_{[X, Y]} Z, W) = -\partial_{[X,Y]} [g(Z, W)] + g(Z, \nabla_{[X, Y]} W)
+\end{align*}
+#+END_env
+
+** 2. Second Skew Symmetry
+
+#+BEGIN_env pf
+\begin{align*}
+g(\Rm(X, Y) &Z, W) \\
+&= g(\nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X, Y]} Z, W) \\
+&= -g(Z, \nabla_X \nabla_Y W - \nabla_Y \nabla_X W - \nabla_{[X, Y]} W) \\
+&\quad + (\partial_X \partial_Y - \partial_Y \partial_X - \partial_{[X, Y]}) [g(Z, W)] \\
+&= - g(\Rm(X, Y) W, Z) \\
+&\quad + \Rm(X, Y) [g(Z, W)]
+\end{align*}
+#+END_env
+
+** 2. Second Skew Symmetry
+
+#+BEGIN_env pf
+For the smooth function \(f = g(Z, W)\) we have
+\begin{equation*}
+\begin{split}
+\Rm(X, Y) f &= \partial_X \partial_Y f - \partial_Y \partial_X f - \partial_{[X, Y]} f \\
+&= \partial_{[X,Y]} f - \partial_{[X, Y]} f = 0.
+\end{split}
+\end{equation*}
+#+END_env
+
+* 3. Bianchi Identity
+** 3. Bianchi Identity
+
+\[
+\Rm(X, Y) Z + \Rm(Y, Z) X + \Rm(Z, X) Y = 0
+\]
+
+** 3. Bianchi
+
+#+BEGIN_env pf
+\begin{align*}
+\Rm(X, Y) Z &= \nabla_X (\nabla_Y Z) - \nabla_Y (\nabla_X Z) - \nabla_{[X, Y]} Z \\
+\Rm(Y, Z) X &= \nabla_Y (\nabla_Z X) - \nabla_Z (\nabla_Y X) - \nabla_{[Y, Z]} X \\
+\Rm(Z, X) Y &= \nabla_Z (\nabla_X Y) - \nabla_X (\nabla_Z Y) - \nabla_{[Z, X]} Y 
+\end{align*}
+#+END_env
+
+** 3. Bianchi
+
+#+BEGIN_env pf
+Using \(\nabla_X Y - \nabla_Y X = [X, Y]\)
+\begin{multline*}
+\left[{\color{royalblue}{\nabla_X (\nabla_Y Z)}} - {\color{orange}{\nabla_Y (\nabla_X Z)}}\right] + \left[{\color{orange}{\nabla_Y (\nabla_Z X)}}  - {\color{green}{\nabla_Z (\nabla_Y X)}}\right] \\
++ \left[{\color{green}{\nabla_Z (\nabla_X Y)}} - {\color{royalblue}{\nabla_X (\nabla_Z Y)}}\right]\\
+= {\color{royalblue}{\nabla_X[Y, Z]}} + {\color{orange}{\nabla_Y[Z, X]}} + {\color{green}{\nabla_Z [X, Y]}}
+\end{multline*}
+#+END_env
+
+** 3. Bianchi
+
+#+BEGIN_env pf
+\begin{equation*}
+\begin{split}
+\Rm(X, Y) Z &+ \Rm(Y, Z) X + \Rm(Z, X) Y \\
+&= {\color{royalblue}{\nabla_X [Y, Z]}} + {\color{orange}{\nabla_Y [Z, X]}} + {\color{green}{\nabla_Z [X, Y]}} \\
+&\quad - {\color{royalblue}{\nabla_{[Y, Z]} X}} - {\color{orange}{\nabla_{[Z, X]} Y}} - {\color{green}{\nabla_{[X, Y]} Z}} \\
+&= {\color{royalblue}{[X, [Y, Z]]}} + {\color{orange}{[Y, [Z, X]]}} + {\color{green}{[Z, [X, Y]]}}
+\end{split}
+\end{equation*}
+#+END_env
+
+** 3. Bianchi
+
+
+#+BEGIN_env ex
+Prove the /Jacobi/ Identity
+\[
+[X, [Y, Z]] + [Y, [Z, X]] + [Z, [X, Y]] = 0.
+\]
+#+END_env
+
+* 4. Interchange Symmetry
+** 4. Interchange Symmetry
+
+\[
+g(\Rm(X, Y) Z, W) = g(\Rm(Z, W) X, Y)
+\]
+
+#+BEGIN_env ex
+Using the first three symmetries, prove the interchange symmetry.
+#+END_env
+
+* Degrees of Freedom
+** Degrees of Freedom
+** Multi-linear map
+
+For an \(n\)-dimensional sub-manifold \(M\) and \(p \in M\)
+
+\begin{equation*}
+\begin{split}
+\Rm_p : & \quad T_p M \times T_p M \times T_p M \times T_p M  \to \RR \\
+& \quad \RR^n \times \RR^n \times \RR^n \times \RR^n \to \RR
+\end{split}
+\end{equation*}
+
+\(\Rm_{ijk\ell} = g(\Rm(\partial_i, \partial_j) \partial_k, \partial_{\ell})\) has \(n^4\) components
+
+** Symmetries and Independent Components
+
+#+BEGIN_env thm
+The curvature tensor has \(\tfrac{n^2(n^2 - 1)}{12}\) independent components.
+#+END_env
+
+#+BEGIN_env eg
+\begin{align*}
+n &= 1: 0 \text{ independent out of } 1 \\
+n &= 2: 1 \text{ independent out of } 16 \\
+n &= 3: 6 \text{ independent out of } 81 \\
+n &= 4: 20 \text{ independent out of } 256
+\end{align*}
+#+END_env

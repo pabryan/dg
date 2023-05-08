@@ -1,0 +1,19 @@
+#+OPTIONS: toc:nil num:nil
+#+BEGIN_export html
+---
+title: Curvature Tensor
+short_title: Curvature Tensor
+---
+#+END_export
+
+#+LaTeX_class: article_no_macros
+#+LaTeX_Header: \usepackage{pabnotes}
+#+LaTeX_Header: \newcommand{\weeknum}{10}
+#+LaTeX_Header: \newcommand{\topic}{Curvature Tensor}
+
+#+BEGIN_export html
+<ul>
+<li><a href="{{ '/slides/curvature_tensor_symmetries' | relative_url }}" target="_blank">Curvature Tensor Symmetries</a></li>
+<li><a href="{{ '/slides/other_curvture' | relative_url }}" target="_blank">Sectional, Ricci, Scalar Curvature</a></li>
+</ul>
+#+END_export
