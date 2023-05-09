@@ -195,17 +195,35 @@ For an \(n\)-dimensional sub-manifold \(M\) and \(p \in M\)
 
 \(\Rm_{ijk\ell} = g(\Rm(\partial_i, \partial_j) \partial_k, \partial_{\ell})\) has \(n^4\) components
 
-** Symmetries and Independent Components
+** Independent Components
 
 #+BEGIN_env thm
 The curvature tensor has \(\tfrac{n^2(n^2 - 1)}{12}\) independent components.
 #+END_env
+
+** Independent Components
+
+#+BEGIN_env pf
+1st skew: \(m = \tfrac{n(n-1)}{2}\) for 1st pair (\((1,2)\)-slot)
+
+2nd skew: \(m = \tfrac{n(n-1)}{2}\) for 2nd pair (\((3,4)\)-slot)
+
+Interchange: \(\tfrac{m(m+1)}{2} = \tfrac{n^4 -2n^3 + 3n^2 - 2n}{8}\) pairs
+
+Bianchi: \(\binom{n}{4} = \tfrac{n^4 - 6 n^3 + 11n^2 - 6n}{24}\) cycles
+
+\(\tfrac{n^4 -2n^3 + 3n^2 - 2n}{8} - \tfrac{n^4 - 6 n^3 + 11n^2 - 6n}{24} = \tfrac{n^2(n^2 - 1)}{12}\)
+#+END_env
+
+** Independent Components
 
 #+BEGIN_env eg
 \begin{align*}
 n &= 1: 0 \text{ independent out of } 1 \\
 n &= 2: 1 \text{ independent out of } 16 \\
 n &= 3: 6 \text{ independent out of } 81 \\
-n &= 4: 20 \text{ independent out of } 256
+n &= 4: 20 \text{ independent out of } 256 \\
+n &= 5: 50 \text{ independent out of } 625 \\
+n &= 6: 105 \text{ independent out of } 1296 \\
 \end{align*}
 #+END_env
