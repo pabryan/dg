@@ -1,0 +1,362 @@
+---
+layout: org-slides
+---
+
+<section class="outline-2" id="outline-container-org0f50f9f">
+<h2 id="org0f50f9f">Second Fundamental Form</h2>
+<div class="outline-text-2" id="text-org0f50f9f">
+</div>
+<section class="outline-3" id="outline-container-org0801127">
+<h3 id="org0801127">Second Fundamental Form</h3>
+</section>
+<section class="outline-3" id="outline-container-org1b5dd46">
+<h3 id="org1b5dd46">Second Fundamental Form</h3>
+<div class="outline-text-3" id="text-org1b5dd46">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(M\) be a regular hyper-surface (\(n\) dimensional submanifold of \(\RR^{n+1}\)) with normal \(N\). The <i>second fundamental form</i> is the field of bilinear forms,
+\[
+A(X, Y) = \ip{D_{\bar{X}} \bar{Y}}{N}
+\]
+where \(X, Y\) are tangent vector fields and \(\bar{X}, \bar{Y}\) are any smooth local extensions of \(X, Y\).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org8bae1f8">
+<h3 id="org8bae1f8">Gauss Equation</h3>
+<div class="outline-text-3" id="text-org8bae1f8">
+<p>
+For convenience, write \(D_X Y\) for \(D_{\bar{X}} \bar{Y}\).
+</p>
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+D_X Y = \nabla_X Y + A(X, Y) N
+\]
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Follows from \(T\RR^{n+1} \simeq TM \oplus NM\)
+</p>
+\begin{align*}
+\nabla_X Y &amp;= \pi_{TM} (D_X Y) \\
+\pi_N (D_X Y) &amp;= A(X, Y) N
+\end{align*}
+
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-orgbce9652">
+<h2 id="orgbce9652">Weingarten Shape Operator</h2>
+<div class="outline-text-2" id="text-orgbce9652">
+</div>
+<section class="outline-3" id="outline-container-orga9b32dd">
+<h3 id="orga9b32dd">Weingarten Shape Operator</h3>
+</section>
+<section class="outline-3" id="outline-container-org41694f1">
+<h3 id="org41694f1">Weingarten Shape Operator</h3>
+<div class="outline-text-3" id="text-org41694f1">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Weingarten Shape Operator \(W = -DN\)
+</p>
+</div></div>
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+W : TM \to TM
+\]
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+0 = \partial_X \ip{N}{N} = 2\ip{D_X N}{N} = - 2\ip{-W(X)}{N}
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org387dc84">
+<h3 id="org387dc84">Weingarten and Second Fundamental Form</h3>
+<div class="outline-text-3" id="text-org387dc84">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\(A(X, Y) = g(W(X), Y)\)
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{equation*}
+\begin{split}
+A(X, Y) &amp;= \ip{D_X Y}{N} = \partial_X \ip{Y}{N} - \ip{Y}{D_X N} \\
+&amp;= \ip{Y}{W(X)}
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgeb7c4b5">
+<h3 id="orgeb7c4b5">Symmetry</h3>
+<div class="outline-text-3" id="text-orgeb7c4b5">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+A(X, Y) = A(Y, X)
+\]
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{equation*}
+\begin{split}
+A(X, Y) &amp;= \ip{N}{D_X Y} \\
+&amp;= \ip{N}{D_Y X - [X, Y]} \\
+&amp;= \ip{N}{D_Y X} \\
+&amp;= A(Y, X)
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org8c5fdad">
+<h2 id="org8c5fdad">Computing the Second Fundamental Form</h2>
+<div class="outline-text-2" id="text-org8c5fdad">
+</div>
+<section class="outline-3" id="outline-container-org8703750">
+<h3 id="org8703750">Computing the Second Fundamental Form</h3>
+</section>
+<section class="outline-3" id="outline-container-org6e19718">
+<h3 id="org6e19718">Sphere</h3>
+<div class="outline-text-3" id="text-org6e19718">
+<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+On the sphere, \(A = g\) since
+</p>
+<p>
+\[
+N(p) = -p
+\]
+\[
+W = -dN = \Id
+\]
+\[
+A(X, Y) = g(W(X), Y) = g(\Id(X), Y) = g(X, Y).
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgc4b7936">
+<h3 id="orgc4b7936">Local Coordinates</h3>
+<div class="outline-text-3" id="text-orgc4b7936">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(\varphi : \RR^n \to M\) be a local parametrisation. Then
+\[
+A_{ij} = A(\partial_i, \partial_j) = \ip{\partial_{ij}^2 \varphi}{N}
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgb6391fb">
+<h3 id="orgb6391fb">Local Coordinates</h3>
+<div class="outline-text-3" id="text-orgb6391fb">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Recall \(\partial_i = d\varphi(e_i) = \partial_i \varphi\)
+\[
+D_{\partial_i} \partial_j = \partial_{ij}^2 \varphi
+\]
+\[
+A_{ij} = \ip{D_{\partial_i} \partial_j}{N} = \ip{\partial_{ij}^2 \varphi}{N}
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgefaba2f">
+<h3 id="orgefaba2f">Graphs</h3>
+<div class="outline-text-3" id="text-orgefaba2f">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+For \(M = \graph(f) = \Big\{\big(x^1, \dots, x^n, f(x^1, \dots, x^n)\big)\Big\}\)
+\[
+A_{ij} = \frac{\partial_{ij}^2 f}{\sqrt{1 + \abs{\nabla f}^2}}
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgc9e565d">
+<h3 id="orgc9e565d">Graphs</h3>
+<div class="outline-text-3" id="text-orgc9e565d">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+\varphi(x^1, \dots, x^n) = \big(x^1, \dots, x^n, f(x^1, \dots, x^n)\big)
+\]
+\[
+\partial_i = e_i + \partial_i f e_{n+1}
+\]
+\[
+N = \frac{1}{\sqrt{1 + \abs{\nabla f}^2}}\Big(-\sum_j \partial_j f e_j + e_{n+1}\Big)
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org49b3113">
+<h3 id="org49b3113">Graphs</h3>
+<div class="outline-text-3" id="text-org49b3113">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{align*}
+N &amp;= \frac{1}{\sqrt{1 + \abs{\nabla f}^2}}\Big(-\sum_j \partial_j f e_j + e_{n+1}\Big) \\
+\partial_{ij}^2 \varphi &amp;= \partial_i(e_j + \partial_j f e_{n+1}) = \partial_{ij}^2 f e_{n+1}
+\end{align*}
+
+\begin{equation*}
+\begin{split}
+A_{ij} &amp;= \ip{\partial_{ij}^2 \varphi}{N} = \ip{\partial_{ij}^2 f e_{n+1}}{N} \\
+&amp;= \frac{\partial_{ij}^2 f}{\sqrt{1 + \abs{\nabla f}^2}}
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org5534460">
+<h2 id="org5534460">Extrinsic and Intrinsic Curvatures</h2>
+<div class="outline-text-2" id="text-org5534460">
+</div>
+<section class="outline-3" id="outline-container-org2b38b59">
+<h3 id="org2b38b59">Extrinsic and Intrinsic Curvatures</h3>
+</section>
+<section class="outline-3" id="outline-container-org6debf3b">
+<h3 id="org6debf3b">Extrinsic and Intrinsic Curvatures</h3>
+<div class="outline-text-3" id="text-org6debf3b">
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(M^n \subseteq \RR^{n+1}\) be a hypersurface. Then
+\[
+\Rm(X, Y) Z = A(Y, Z) W(X) - A(X, Z) W(Y)
+\]
+\[
+\Rm(X, Y, Z, W) = A(Y, Z) A(X, W) - A(X, Z) A(Y, W)
+\]
+\[
+\nabla_X A (Y, Z) = \nabla_Y A(X, Z)
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgb686e22">
+<h3 id="orgb686e22">Extrinsic and Intrinsic Curvatures</h3>
+<div class="outline-text-3" id="text-orgb686e22">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{equation*}
+\begin{split}
+0 &amp;= \Rm^{\RR^{n+1}} (X, Y) Z \\
+&amp;= D_X (D_Y Z) - D_Y (D_X Z) - D_{[X, Y]} Z
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org4c52bec">
+<h3 id="org4c52bec">Extrinsic and Intrinsic Curvatures</h3>
+<div class="outline-text-3" id="text-org4c52bec">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+D_Y Z = \nabla_Y Z + A(Y, Z) N
+\]
+</p>
+
+\begin{equation*}
+\begin{split}
+D_X (D_Y Z) &amp;= D_X \big[\nabla_Y Z + A(Y, Z) N\big] \\
+&amp;= D_X (\nabla_Y Z) + D_X[A(Y, Z)] N + A(Y, Z) D_X N \\
+&amp;= \nabla_X (\nabla_Y Z) + A(X, \nabla_Y Z) N \\
+&amp;\quad + D_X[A(Y, Z)] N - A(Y, Z) W(X)
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org2db5551">
+<h3 id="org2db5551">Extrinsic and Intrinsic Curvatures</h3>
+<div class="outline-text-3" id="text-org2db5551">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{align*}
+D_X (D_Y Z) &amp;= \big[\nabla_X (\nabla_Y Z) - A(Y, Z) W(X)\big] \\
+&amp;\quad + \big[A(X, \nabla_Y Z) + D_X[A(Y, Z)]\big] N \\
+-D_Y (D_X Z) &amp;= -\big[\nabla_Y (\nabla_X Z) - A(X, Z) W(Y)\big] \\
+&amp;\quad - \big[A(Y, \nabla_X Z) + D_Y[A(X, Z)]\big] N \\
+-D_{[X, Y]} Z &amp;= -\nabla_{[X, Y]} Z \\
+&amp;\quad - A([X, Y], Z) N
+\end{align*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org5a2713d">
+<h3 id="org5a2713d">Extrinsic and Intrinsic Curvatures</h3>
+<div class="outline-text-3" id="text-org5a2713d">
+<div class="pf card"><div class="card-header"><h5 class="card-title"> : Tangential part</h5></div><div class="card-body">
+<p>
+\[
+0 = \Rm(X, Y) Z - \big[A(Y, Z) W(X) - A(X, Z) W(Y)\big]
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org75f8740">
+<h3 id="org75f8740">Extrinsic and Intrinsic Curvatures</h3>
+<div class="outline-text-3" id="text-org75f8740">
+<div class="pf card"><div class="card-header"><h5 class="card-title"> : Normal part</h5></div><div class="card-body">
+\begin{equation*}
+\begin{split}
+0 &amp;= \Big[A(X, \nabla_Y Z) + D_X[A(Y, Z)]\Big] \\
+&amp;\quad - \Big[A(Y, \nabla_X Z) + D_Y[A(X, Z)]\Big] \\
+&amp;\quad - A([X, Y], Z) \\
+&amp;= D_X[A(Y, Z)] - A(Y, \nabla_X Z) \\
+&amp;\quad - \Big[D_Y[A(Y, Z)] - A(Y, \nabla_X Z)\Big] \\
+&amp;\quad - A([X, Y], Z)
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org95dfa78">
+<h3 id="org95dfa78">Extrinsic and Intrinsic Curvatures</h3>
+<div class="outline-text-3" id="text-org95dfa78">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{equation*}
+\begin{split}
+0 &amp;= D_X[A(Y, Z)] - A(Y, \nabla_X Z) \\
+&amp;\quad - \Big[D_Y[A(Y, Z)] - A(Y, \nabla_X Z)\Big] \\
+&amp;\quad - A([X, Y], Z) \\
+&amp;= D_X[A(Y, Z)] - A(Y, \nabla_X Z) - A(\nabla_X Y, Z) \\
+&amp;\quad - \Big[D_Y[A(Y, Z)] - A(Y, \nabla_X Z) - A(\nabla_Y X, Z) \Big] \\
+&amp;\quad + A(\nabla_X Y, Z) - A(\nabla_Y X, Z) - A([X, Y], Z) \\
+&amp;= \nabla_X A (Y, Z) - \nabla_Y A(X, Z)
+\end{split}
+\end{equation*}
+
+
+</div></div>
+</div>
+</section>
+</section>

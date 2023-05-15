@@ -43,9 +43,9 @@
   short_title: Curvature Tensor
   link: "/notes/curvature_tensor"
 - num: "11"
-  title: Intrinsic and Extrinsic Curvature
-  short_title: Curvature
-  link: "/notes/curvature"
+  title: Extrinsic Curvature
+  short_title: Extrinsic Curvature
+  link: "/notes/extrinsic_curvature"
 - num: "12"
   title: Global Topics
   short_title: Global Topics
