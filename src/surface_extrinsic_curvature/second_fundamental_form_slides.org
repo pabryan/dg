@@ -1,0 +1,262 @@
+#+TITLE: Extrinsic Curvature of Surfaces
+#+OPTIONS: toc:nil num:nil
+
+* Second Fundamental Form
+** Second Fundamental Form
+** Second Fundamental Form
+
+#+BEGIN_env defn
+Let \(M\) be a regular hyper-surface (\(n\) dimensional submanifold of \(\RR^{n+1}\)) with normal \(N\). The /second fundamental form/ is the field of bilinear forms,
+\[
+A(X, Y) = \ip{D_{\bar{X}} \bar{Y}}{N}
+\]
+where \(X, Y\) are tangent vector fields and \(\bar{X}, \bar{Y}\) are any smooth local extensions of \(X, Y\).
+#+END_env
+
+** Gauss Equation
+
+For convenience, write \(D_X Y\) for \(D_{\bar{X}} \bar{Y}\).
+
+#+BEGIN_env lem
+\[
+D_X Y = \nabla_X Y + A(X, Y) N
+\]
+#+END_env
+
+#+BEGIN_env pf
+Follows from \(T\RR^{n+1} \simeq TM \oplus NM\)
+\begin{align*}
+\nabla_X Y &= \pi_{TM} (D_X Y) \\
+\pi_N (D_X Y) &= A(X, Y) N
+\end{align*}
+#+END_env
+
+* Weingarten Shape Operator
+** Weingarten Shape Operator
+** Weingarten Shape Operator
+
+#+BEGIN_env defn
+Weingarten Shape Operator \(W = -DN\)
+#+END_env
+
+#+BEGIN_env lem
+\[
+W : TM \to TM
+\]
+#+END_env
+
+#+BEGIN_env pf
+\[
+0 = \partial_X \ip{N}{N} = 2\ip{D_X N}{N} = - 2\ip{-W(X)}{N}
+\]
+#+END_env
+
+** Weingarten and Second Fundamental Form
+
+#+BEGIN_env lem
+\(A(X, Y) = g(W(X), Y)\)
+#+END_env
+
+#+BEGIN_env pf
+\begin{equation*}
+\begin{split}
+A(X, Y) &= \ip{D_X Y}{N} = \partial_X \ip{Y}{N} - \ip{Y}{D_X N} \\
+&= \ip{Y}{W(X)}
+\end{split}
+\end{equation*}
+#+END_env
+
+** Symmetry
+
+#+BEGIN_env lem
+\[
+A(X, Y) = A(Y, X)
+\]
+#+END_env
+
+#+BEGIN_env pf
+\begin{equation*}
+\begin{split}
+A(X, Y) &= \ip{N}{D_X Y} \\
+&= \ip{N}{D_Y X - [X, Y]} \\
+&= \ip{N}{D_Y X} \\
+&= A(Y, X)
+\end{split}
+\end{equation*}
+#+END_env
+
+* Computing the Second Fundamental Form
+** Computing the Second Fundamental Form
+** Sphere
+
+#+BEGIN_env eg
+On the sphere, \(A = g\) since
+
+\[
+N(p) = -p
+\]
+\[
+W = -dN = \Id
+\]
+\[
+A(X, Y) = g(W(X), Y) = g(\Id(X), Y) = g(X, Y).
+\]
+#+END_env
+
+** Local Coordinates
+
+#+BEGIN_env lem
+Let \(\varphi : \RR^n \to M\) be a local parametrisation. Then
+\[
+A_{ij} = A(\partial_i, \partial_j) = \ip{\partial_{ij}^2 \varphi}{N}
+\]
+#+END_env
+
+** Local Coordinates
+
+#+BEGIN_env pf
+Recall \(\partial_i = d\varphi(e_i) = \partial_i \varphi\)
+\[
+D_{\partial_i} \partial_j = \partial_{ij}^2 \varphi
+\]
+\[
+A_{ij} = \ip{D_{\partial_i} \partial_j}{N} = \ip{\partial_{ij}^2 \varphi}{N}
+\]
+#+END_env
+
+** Graphs
+
+#+BEGIN_env lem
+For \(M = \graph(f) = \Big\{\big(x^1, \dots, x^n, f(x^1, \dots, x^n)\big)\Big\}\)
+\[
+A_{ij} = \frac{\partial_{ij}^2 f}{\sqrt{1 + \abs{\nabla f}^2}}
+\]
+#+END_env
+
+** Graphs
+
+#+BEGIN_env pf
+\[
+\varphi(x^1, \dots, x^n) = \big(x^1, \dots, x^n, f(x^1, \dots, x^n)\big)
+\]
+\[
+\partial_i = e_i + \partial_i f e_{n+1}
+\]
+\[
+N = \frac{1}{\sqrt{1 + \abs{\nabla f}^2}}\Big(-\sum_j \partial_j f e_j + e_{n+1}\Big)
+\]
+#+END_env
+
+** Graphs
+
+#+BEGIN_env pf
+\begin{align*}
+N &= \frac{1}{\sqrt{1 + \abs{\nabla f}^2}}\Big(-\sum_j \partial_j f e_j + e_{n+1}\Big) \\
+\partial_{ij}^2 \varphi &= \partial_i(e_j + \partial_j f e_{n+1}) = \partial_{ij}^2 f e_{n+1}
+\end{align*}
+
+\begin{equation*}
+\begin{split}
+A_{ij} &= \ip{\partial_{ij}^2 \varphi}{N} = \ip{\partial_{ij}^2 f e_{n+1}}{N} \\
+&= \frac{\partial_{ij}^2 f}{\sqrt{1 + \abs{\nabla f}^2}}
+\end{split}
+\end{equation*}
+#+END_env
+
+* Extrinsic and Intrinsic Curvatures
+** Extrinsic and Intrinsic Curvatures
+** Extrinsic and Intrinsic Curvatures
+
+#+BEGIN_env thm
+Let \(M^n \subseteq \RR^{n+1}\) be a hypersurface. Then
+\[
+\Rm(X, Y) Z = A(Y, Z) W(X) - A(X, Z) W(Y)
+\]
+\[
+\Rm(X, Y, Z, W) = A(Y, Z) A(X, W) - A(X, Z) A(Y, W)
+\]
+\[
+\nabla_X A (Y, Z) = \nabla_Y A(X, Z)
+\]
+#+END_env
+
+** Extrinsic and Intrinsic Curvatures
+
+#+BEGIN_env pf
+\begin{equation*}
+\begin{split}
+0 &= \Rm^{\RR^{n+1}} (X, Y) Z \\
+&= D_X (D_Y Z) - D_Y (D_X Z) - D_{[X, Y]} Z
+\end{split}
+\end{equation*}
+#+END_env
+
+** Extrinsic and Intrinsic Curvatures
+
+#+BEGIN_env pf
+\[
+D_Y Z = \nabla_Y Z + A(Y, Z) N
+\]
+
+\begin{equation*}
+\begin{split}
+D_X (D_Y Z) &= D_X \big[\nabla_Y Z + A(Y, Z) N\big] \\
+&= D_X (\nabla_Y Z) + D_X[A(Y, Z)] N + A(Y, Z) D_X N \\
+&= \nabla_X (\nabla_Y Z) + A(X, \nabla_Y Z) N \\
+&\quad + D_X[A(Y, Z)] N - A(Y, Z) W(X)
+\end{split}
+\end{equation*}
+#+END_env
+
+** Extrinsic and Intrinsic Curvatures
+
+#+BEGIN_env pf
+\begin{align*}
+D_X (D_Y Z) &= \big[\nabla_X (\nabla_Y Z) - A(Y, Z) W(X)\big] \\
+&\quad + \big[A(X, \nabla_Y Z) + D_X[A(Y, Z)]\big] N \\
+-D_Y (D_X Z) &= -\big[\nabla_Y (\nabla_X Z) - A(X, Z) W(Y)\big] \\
+&\quad - \big[A(Y, \nabla_X Z) + D_Y[A(X, Z)]\big] N \\
+-D_{[X, Y]} Z &= -\nabla_{[X, Y]} Z \\
+&\quad - A([X, Y], Z) N
+\end{align*}
+#+END_env
+
+** Extrinsic and Intrinsic Curvatures
+
+#+BEGIN_env pf :title "Tangential part"
+\[
+0 = \Rm(X, Y) Z - \big[A(Y, Z) W(X) - A(X, Z) W(Y)\big]
+\]
+#+END_env
+
+** Extrinsic and Intrinsic Curvatures
+
+#+BEGIN_env pf :title "Normal part"
+\begin{equation*}
+\begin{split}
+0 &= \Big[A(X, \nabla_Y Z) + D_X[A(Y, Z)]\Big] \\
+&\quad - \Big[A(Y, \nabla_X Z) + D_Y[A(X, Z)]\Big] \\
+&\quad - A([X, Y], Z) \\
+&= D_X[A(Y, Z)] - A(Y, \nabla_X Z) \\
+&\quad - \Big[D_Y[A(Y, Z)] - A(Y, \nabla_X Z)\Big] \\
+&\quad - A([X, Y], Z)
+\end{split}
+\end{equation*}
+#+END_env
+
+** Extrinsic and Intrinsic Curvatures
+
+#+BEGIN_env pf
+\begin{equation*}
+\begin{split}
+0 &= D_X[A(Y, Z)] - A(Y, \nabla_X Z) \\
+&\quad - \Big[D_Y[A(Y, Z)] - A(Y, \nabla_X Z)\Big] \\
+&\quad - A([X, Y], Z) \\
+&= D_X[A(Y, Z)] - A(Y, \nabla_X Z) - A(\nabla_X Y, Z) \\
+&\quad - \Big[D_Y[A(Y, Z)] - A(Y, \nabla_X Z) - A(\nabla_Y X, Z) \Big] \\
+&\quad + A(\nabla_X Y, Z) - A(\nabla_Y X, Z) - A([X, Y], Z) \\
+&= \nabla_X A (Y, Z) - \nabla_Y A(X, Z)
+\end{split}
+\end{equation*}
+
+#+END_env

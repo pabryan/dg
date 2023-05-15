@@ -1,0 +1,18 @@
+#+OPTIONS: toc:nil num:nil
+#+BEGIN_export html
+---
+title: Extrinsic Curvature
+short_title: Extrinsic Curvature
+---
+#+END_export
+
+#+LaTeX_class: article_no_macros
+#+LaTeX_Header: \usepackage{pabnotes}
+#+LaTeX_Header: \newcommand{\weeknum}{11}
+#+LaTeX_Header: \newcommand{\topic}{Extrinsic Curvature}
+
+#+BEGIN_export html
+<ul>
+<li><a href="{{ '/slides/second_fundamental_form' | relative_url }}" target="_blank">Second Fundamental Form</a></li>
+</ul>
+#+END_export
