@@ -1,0 +1,346 @@
+---
+layout: org-slides
+---
+
+<section class="outline-2" id="outline-container-orgdfd1df3">
+<h2 id="orgdfd1df3">Geodesic and Normal Curvature</h2>
+<div class="outline-text-2" id="text-orgdfd1df3">
+</div>
+<section class="outline-3" id="outline-container-orgfec3e5d">
+<h3 id="orgfec3e5d">Geodesic and Normal Curvature</h3>
+</section>
+<section class="outline-3" id="outline-container-orge1d9204">
+<h3 id="orge1d9204">Normal Curvature</h3>
+<div class="outline-text-3" id="text-orge1d9204">
+<p>
+Let \(M^n \subseteq \RR^{n+1}\) be an oriented submanifold with normal \(N\)
+</p>
+<p>
+Let \(\gamma : I \to M\) parametrsied by arclength, \(p = \gamma(0)\), \(V = \gamma'(0) \in T_p M\)
+</p>
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The <i>normal curvature</i> of \(\gamma\) is
+\[
+\kappa_N = \ip{\gamma''}{N}
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org5ce741d">
+<h3 id="org5ce741d">Geodesic Curvature</h3>
+<div class="outline-text-3" id="text-org5ce741d">
+<p>
+Let \(S\) be an oriented surface
+</p>
+<p>
+Let \(n\) be such that \((\gamma', n)\) are positively oriented, orthonormal tangent vector fields along \(\gamma\)
+</p>
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The <i>geodesic curvature</i> of \(\gamma\) is
+\[
+\kappa = \ip{\gamma''}{n}
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org14706b4">
+<h3 id="org14706b4">Decomposition For Surfaces</h3>
+<div class="outline-text-3" id="text-org14706b4">
+<p>
+Let \(\gamma : \to S \subseteq \RR^3\) be parametrised by arclength. Then
+</p>
+<p>
+\[
+\gamma'' = \kappa n + \kappa_N N
+\]
+</p>
+<p>
+\[
+\kappa_{\RR^3}^2 = \kappa^2 + \kappa_N^2
+\]
+</p>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-orgca282af">
+<h2 id="orgca282af">Cylinder Examples</h2>
+<div class="outline-text-2" id="text-orgca282af">
+</div>
+<section class="outline-3" id="outline-container-org41ce56a">
+<h3 id="org41ce56a">Cylinder Examples</h3>
+<div class="outline-text-3" id="text-org41ce56a">
+<p>
+\(S = \{x^2 + y^2 = 1, -1 &lt; z &lt; 1\}\)
+</p>
+<p>
+\(N(x, y, z) = (x, y, 0)\)
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgfec04eb">
+<h3 id="orgfec04eb">Cylinder Example</h3>
+<div class="outline-text-3" id="text-orgfec04eb">
+<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{align*}
+\gamma(t) &amp;= (\cos t, \sin t, z_0) \\
+\gamma'(t) &amp;= (-\sin t, \cos t, 0) \\
+\gamma''(t) &amp;= (-\cos t, - \sin, 0) \\
+N(\gamma(t)) &amp;= (\cos t, \sin t, 0) \\
+n(\gamma(t)) &amp;= (0, 0, 1) \\
+\kappa_{\RR^3} &amp;= \kappa_{N} = 1, \kappa = 0.
+\end{align*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org161eb70">
+<h3 id="org161eb70">Cylinder Example</h3>
+<div class="outline-text-3" id="text-org161eb70">
+<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{align*}
+\gamma(t) &amp;= (1, 0, t) \\
+\gamma'(t) &amp;= (0, 0, 1) \\
+\gamma''(t) &amp;= (0, 0, 0) \\
+N(\gamma(t)) &amp;= (1, 0, 0) \\
+n(\gamma(t)) &amp;= (0, -1, 0) \\
+\kappa_{\RR^3} &amp;= \kappa_{N} = \kappa = 0.
+\end{align*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org2ef555b">
+<h3 id="org2ef555b">Cylinder Example</h3>
+<div class="outline-text-3" id="text-org2ef555b">
+<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{align*}
+\gamma(t) &amp;= (\cos t, \sin t, t) \\
+\gamma'(t) &amp;= (-\sin t, \cos t, 1) \\
+\gamma''(t) &amp;= (-\cos t, - \sin, 0) \\
+N(\gamma(t)) &amp;= (\cos t, \sin t, 0) \\
+n(\gamma(t)) &amp;= \frac{1}{\sqrt{2}} (\sin t, -\cos t, 1) \\
+\kappa_{\RR^3} &amp;=  \kappa_{N} = 1, \kappa = 0.
+\end{align*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org990dc99">
+<h3 id="org990dc99">Cylinder Example</h3>
+<div class="outline-text-3" id="text-org990dc99">
+<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{align*}
+\gamma(t) &amp;= (\cos(\cos t), \sin(\cos t), \sin t) \\
+\gamma'(t) &amp;= (\sin(\sin t) \cos t, -\cos(\cos t) \sin t, \cos t) \\
+\gamma''(t) &amp;= (-\cos (\cos t) \sin^2 t, - \sin(\cos t) \sin^2 t, -\sin t) \\
+N(\gamma(t)) &amp;= (\cos(\cos t), \sin(\cos t), 0) \\
+n(\gamma(t)) &amp;= ? \\
+\kappa_{\RR^3} &amp;=  \kappa_{N} = ?, \kappa = 1! (\text{How?})
+\end{align*}
+
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org77ec3a7">
+<h2 id="org77ec3a7">Curvature and the Second Fundamental Form</h2>
+<div class="outline-text-2" id="text-org77ec3a7">
+</div>
+<section class="outline-3" id="outline-container-orgff98a93">
+<h3 id="orgff98a93">Curvature and the Second Fundamental Form</h3>
+</section>
+<section class="outline-3" id="outline-container-orgfbae352">
+<h3 id="orgfbae352">Dependence of normal curvature on direction</h3>
+<div class="outline-text-3" id="text-orgfbae352">
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(\gamma, \sigma : I \to M\) with \(\gamma(0) = \sigma(0)\) and \(\gamma'(0) = \sigma'(0)\). Then
+\[
+\kappa_N(\gamma) (0) = \kappa_N(\sigma) (0)
+\]
+</p>
+<p>
+Thus \(\kappa_N\) only depends only on \(V = \gamma'(0) = \sigma'(0)\in T_p M\)
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgbd36b01">
+<h3 id="orgbd36b01">Remarks</h3>
+<div class="outline-text-3" id="text-orgbd36b01">
+<p>
+Both \(\kappa_{\RR^{n+1}}\) and \(\kappa\) (for surfaces) also depend on \(\gamma''(0)\) (resp. \(\sigma''(0)\)) and so <i>will in general differ</i> for \(\gamma\) and \(\sigma\) when \(\gamma''(0) \ne \sigma''(0)\).
+</p>
+<p>
+Thus \(\kappa_N\) measures the curvature of \(M\) itself in the direction \(V\) independently of the choice of curve \(\gamma, \sigma\).
+</p>
+<p>
+Whereas \(\kappa\) measures the "left-over" curvature of \(\gamma\) after removing the curvature of \(S\) itself.
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org5286f3a">
+<h3 id="org5286f3a">Proof of Theorem</h3>
+<div class="outline-text-3" id="text-org5286f3a">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+\kappa_N = \ip{\gamma''}{N}
+\]
+</p>
+<p>
+\[
+0 = \partial_s \ip{\gamma'}{N} = \ip{\gamma''}{N} + \ip{\gamma'}{dN(\gamma')}.
+\]
+</p>
+
+\begin{equation*}
+\begin{split}
+\kappa_N &amp;= \ip{\gamma''}{N} = - \ip{\gamma'}{dN(\gamma')} \\
+&amp;= g(\gamma', W(\gamma')) = A(\gamma', \gamma')
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-orgf7475da">
+<h2 id="orgf7475da">Principal Curvatures</h2>
+<div class="outline-text-2" id="text-orgf7475da">
+</div>
+<section class="outline-3" id="outline-container-org392f0be">
+<h3 id="org392f0be">Principal Curvatures</h3>
+<div class="outline-text-3" id="text-org392f0be">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The <i>principal curvatures</i> \(S\) are the eigenvalues \(\kappa_1, ..., \kappa_n\) of \(W\). By convention we order them as \(\kappa_1 \leq \dots \leq \kappa_n\).
+</p>
+</div></div>
+<p>
+Note that \(W\) is self-adjoint, hence is diagonalizable.
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org8278853">
+<h3 id="org8278853">Principal Directions</h3>
+<div class="outline-text-3" id="text-org8278853">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The eigenvectors of \(W\) are called <i>principal directions</i>. There exists an orthonormal basis \(e_i\) of principal directions.
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgc9f3263">
+<h3 id="orgc9f3263">Gauss and Mean Curvatures</h3>
+<div class="outline-text-3" id="text-orgc9f3263">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The <i>Mean Curvature</i> is
+\[
+H = \sum_{i=1}^n \kappa_i = \Tr(W)
+\]
+and the <i>Gauss Curvature</i> is
+\[
+K = \kappa_1 \dots \kappa_n = \det W
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgda7a80d">
+<h3 id="orgda7a80d">Examples</h3>
+<div class="outline-text-3" id="text-orgda7a80d">
+<div class="eg card"><div class="card-header"><h5 class="card-title"> : Plane</h5></div><div class="card-body">
+<p>
+\(\kappa_1 = \kappa_2 = 0 \Rightarrow H = K = 0\)
+</p>
+<p>
+All \(V\) are principal directions.
+</p>
+</div></div>
+<div class="eg card"><div class="card-header"><h5 class="card-title"> : Sphere</h5></div><div class="card-body">
+<p>
+\(\kappa_1 = \kappa_2 = 1 \Rightarrow H = K = 1\)
+</p>
+<p>
+All \(V\) are principal directions.
+</p>
+</div></div>
+<div class="eg card"><div class="card-header"><h5 class="card-title"> : Cylinder</h5></div><div class="card-body">
+<p>
+\(\kappa_1 = 0, \kappa_2 = 1 \Rightarrow H = 1, \quad K = 0\)
+</p>
+<p>
+\((0, 0, 1)\) and \((-y, x, 0)\) are principal.
+</p>
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-orgab98a74">
+<h2 id="orgab98a74">Ricci Curvature</h2>
+<div class="outline-text-2" id="text-orgab98a74">
+</div>
+<section class="outline-3" id="outline-container-orgbe5fb76">
+<h3 id="orgbe5fb76">Ricci Curvature</h3>
+</section>
+<section class="outline-3" id="outline-container-org0de930a">
+<h3 id="org0de930a">Ricci Curvature and Gauss Equation</h3>
+<div class="outline-text-3" id="text-org0de930a">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+\Ric(X, Y) = A(X, Y) H - A(W(X), Y)
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org57c8c10">
+<h3 id="org57c8c10">Ricci Curvature and Gauss Equation</h3>
+<div class="outline-text-3" id="text-org57c8c10">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+\Rm(Z, X) Y = A(X, Y) W(Z) - A(Z, Y) W(X)
+\]
+</p>
+<p>
+\[
+\Ric(X, Y) = \Tr \Rm(\cdot, X) Y = A(X, Y) H - A(W(X), Y)
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orge822f7c">
+<h3 id="orge822f7c">Closed, Convex Hypersurface</h3>
+<div class="outline-text-3" id="text-orge822f7c">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+For \(n \geq 2\), a closed, convex hypersurface \(M^n\) is a smooth hypersurface with \(A \geq 0\).
+</p>
+</div></div>
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\(\Ric \geq 0\).
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{equation*}
+\begin{split}
+\Ric(e_i, e_i) &amp;= A(e_i, e_i) H - A(W(e_i), e_i) = \kappa_i H - \kappa_i^2 \\
+&amp;= \kappa_i \sum_{j\neq i} \kappa_j \geq 0
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+</section>
