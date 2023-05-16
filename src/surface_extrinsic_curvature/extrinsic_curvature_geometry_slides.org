@@ -202,7 +202,6 @@ All \(V\) are principal directions.
 \((0, 0, 1)\) and \((-y, x, 0)\) are principal.
 #+END_env
 
-
 * Ricci Curvature
 ** Ricci Curvature
 ** Ricci Curvature and Gauss Equation
