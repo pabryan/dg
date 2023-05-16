@@ -1,0 +1,245 @@
+#+TITLE: Geometric Interpretation of Extrinsic Curvature
+#+OPTIONS: toc:nil num:nil
+
+* Geodesic and Normal Curvature
+** Geodesic and Normal Curvature
+** Normal Curvature
+
+Let \(M^n \subseteq \RR^{n+1}\) be an oriented submanifold with normal \(N\)
+
+Let \(\gamma : I \to M\) parametrsied by arclength, \(p = \gamma(0)\), \(V = \gamma'(0) \in T_p M\)
+
+#+BEGIN_env defn
+The /normal curvature/ of \(\gamma\) is
+\[
+\kappa_N = \ip{\gamma''}{N}
+\]
+#+END_env
+
+** Geodesic Curvature
+
+Let \(S\) be an oriented surface
+
+Let \(n\) be such that \((\gamma', n)\) are positively oriented, orthonormal tangent vector fields along \(\gamma\)
+
+#+BEGIN_env defn
+The /geodesic curvature/ of \(\gamma\) is
+\[
+\kappa = \ip{\gamma''}{n}
+\]
+#+END_env
+
+** Decomposition For Surfaces
+
+Let \(\gamma : \to S \subseteq \RR^3\) be parametrised by arclength. Then
+
+\[
+\gamma'' = \kappa n + \kappa_N N
+\]
+
+\[
+\kappa_{\RR^3}^2 = \kappa^2 + \kappa_N^2
+\]
+
+* Cylinder Examples
+** Cylinder Examples
+
+\(S = \{x^2 + y^2 = 1, -1 < z < 1\}\)
+
+\(N(x, y, z) = (x, y, 0)\)
+
+** Cylinder Example
+
+#+BEGIN_env eg
+\begin{align*}
+\gamma(t) &= (\cos t, \sin t, z_0) \\
+\gamma'(t) &= (-\sin t, \cos t, 0) \\
+\gamma''(t) &= (-\cos t, - \sin, 0) \\
+N(\gamma(t)) &= (\cos t, \sin t, 0) \\
+n(\gamma(t)) &= (0, 0, 1) \\
+\kappa_{\RR^3} &= \kappa_{N} = 1, \kappa = 0.
+\end{align*}
+#+END_env
+
+** Cylinder Example
+
+#+BEGIN_env eg
+\begin{align*}
+\gamma(t) &= (1, 0, t) \\
+\gamma'(t) &= (0, 0, 1) \\
+\gamma''(t) &= (0, 0, 0) \\
+N(\gamma(t)) &= (1, 0, 0) \\
+n(\gamma(t)) &= (0, -1, 0) \\
+\kappa_{\RR^3} &= \kappa_{N} = \kappa = 0.
+\end{align*}
+#+END_env
+
+** Cylinder Example
+
+#+BEGIN_env eg
+\begin{align*}
+\gamma(t) &= (\cos t, \sin t, t) \\
+\gamma'(t) &= (-\sin t, \cos t, 1) \\
+\gamma''(t) &= (-\cos t, - \sin, 0) \\
+N(\gamma(t)) &= (\cos t, \sin t, 0) \\
+n(\gamma(t)) &= \frac{1}{\sqrt{2}} (\sin t, -\cos t, 1) \\
+\kappa_{\RR^3} &=  \kappa_{N} = 1, \kappa = 0.
+\end{align*}
+#+END_env
+
+** Cylinder Example
+
+#+BEGIN_env eg
+\begin{align*}
+\gamma(t) &= (\cos(\cos t), \sin(\cos t), \sin t) \\
+\gamma'(t) &= (\sin(\sin t) \cos t, -\cos(\cos t) \sin t, \cos t) \\
+\gamma''(t) &= (-\cos (\cos t) \sin^2 t, - \sin(\cos t) \sin^2 t, -\sin t) \\
+N(\gamma(t)) &= (\cos(\cos t), \sin(\cos t), 0) \\
+n(\gamma(t)) &= ? \\
+\kappa_{\RR^3} &=  \kappa_{N} = ?, \kappa = 1! (\text{How?})
+\end{align*}
+#+END_env
+
+** Cylinder Example                                                :noexport:
+
+\begin{equation*}
+\begin{split}
+\kappa_{\RR^3} &= \frac{1}{{\left({\left| \cos\left(\cos\left(t\right)\right) \sin\left(t\right) \right|}^{2} + {\left| \sin\left(t\right) \sin\left(\cos\left(t\right)\right) \right|}^{2} + {\left| \cos\left(t\right) \right|}^{2}\right)}^{\frac{3}{2}}} \times \\
+& \quad \sqrt{} \left| -{\left(\cos\left(\cos\left(t\right)\right) \sin\left(t\right)^{2} - \cos\left(t\right) \sin\left(\cos\left(t\right)\right)\right)} \cos\left(\cos\left(t\right)\right) \sin\left(t\right) \right. \\
+&\quad {\left. - {\left(\sin\left(t\right)^{2} \sin\left(\cos\left(t\right)\right) + \cos\left(t\right) \cos\left(\cos\left(t\right)\right)\right)} \sin\left(t\right) \sin\left(\cos\left(t\right)\right) \right|}^{2} \\
+&\quad + \left| \cos\left(\cos\left(t\right)\right) \sin\left(t\right)^{2}\right. \\
+&\quad {\left. + {\left(\sin\left(t\right)^{2} \sin\left(\cos\left(t\right)\right) + \cos\left(t\right) \cos\left(\cos\left(t\right)\right)\right)} \cos\left(t\right) \right|}^{2} \\
+&\quad + \left| \sin\left(t\right)^{2} \sin\left(\cos\left(t\right)\right) \right. \\
+&\quad {\left.- {\left(\cos\left(\cos\left(t\right)\right) \sin\left(t\right)^{2} - \cos\left(t\right) \sin\left(\cos\left(t\right)\right)\right)} \cos\left(t\right) \right|}^{2}
+\end{split}
+\end{equation*}
+
+* Curvature and the Second Fundamental Form
+** Curvature and the Second Fundamental Form
+** Dependence of normal curvature on direction
+
+#+BEGIN_env thm
+Let \(\gamma, \sigma : I \to M\) with \(\gamma(0) = \sigma(0)\) and \(\gamma'(0) = \sigma'(0)\). Then
+\[
+\kappa_N(\gamma) (0) = \kappa_N(\sigma) (0)
+\]
+
+Thus \(\kappa_N\) only depends only on \(V = \gamma'(0) = \sigma'(0)\in T_p M\)
+#+END_env
+
+** Remarks
+
+Both \(\kappa_{\RR^{n+1}}\) and \(\kappa\) (for surfaces) also depend on \(\gamma''(0)\) (resp. \(\sigma''(0)\)) and so /will in general differ/ for \(\gamma\) and \(\sigma\) when \(\gamma''(0) \ne \sigma''(0)\).
+
+Thus \(\kappa_N\) measures the curvature of \(M\) itself in the direction \(V\) independently of the choice of curve \(\gamma, \sigma\).
+
+Whereas \(\kappa\) measures the "left-over" curvature of \(\gamma\) after removing the curvature of \(S\) itself.
+
+** Proof of Theorem
+
+#+BEGIN_env pf
+\[
+\kappa_N = \ip{\gamma''}{N}
+\]
+
+\[
+0 = \partial_s \ip{\gamma'}{N} = \ip{\gamma''}{N} + \ip{\gamma'}{dN(\gamma')}.
+\]
+
+\begin{equation*}
+\begin{split}
+\kappa_N &= \ip{\gamma''}{N} = - \ip{\gamma'}{dN(\gamma')} \\
+&= g(\gamma', W(\gamma')) = A(\gamma', \gamma')
+\end{split}
+\end{equation*}
+#+END_env
+
+* Principal Curvatures
+** Principal Curvatures
+
+#+BEGIN_env defn
+The /principal curvatures/ \(S\) are the eigenvalues \(\kappa_1, ..., \kappa_n\) of \(W\). By convention we order them as \(\kappa_1 \leq \dots \leq \kappa_n\).
+#+END_env
+
+Note that \(W\) is self-adjoint, hence is diagonalizable.
+
+** Principal Directions
+
+#+BEGIN_env defn
+The eigenvectors of \(W\) are called /principal directions/. There exists an orthonormal basis \(e_i\) of principal directions.
+#+END_env
+
+** Gauss and Mean Curvatures
+
+#+BEGIN_env defn
+The /Mean Curvature/ is
+\[
+H = \sum_{i=1}^n \kappa_i = \Tr(W)
+\]
+and the /Gauss Curvature/ is
+\[
+K = \kappa_1 \dots \kappa_n = \det W
+\]
+#+END_env
+
+** Examples
+
+#+BEGIN_env eg :title "Plane"
+\(\kappa_1 = \kappa_2 = 0 \Rightarrow H = K = 0\)
+
+All \(V\) are principal directions.
+#+END_env
+
+#+BEGIN_env eg :title "Sphere"
+\(\kappa_1 = \kappa_2 = 1 \Rightarrow H = K = 1\)
+
+All \(V\) are principal directions.
+#+END_env
+
+#+BEGIN_env eg :title "Cylinder"
+\(\kappa_1 = 0, \kappa_2 = 1 \Rightarrow H = 1, \quad K = 0\)
+
+\((0, 0, 1)\) and \((-y, x, 0)\) are principal.
+#+END_env
+
+
+* Ricci Curvature
+** Ricci Curvature
+** Ricci Curvature and Gauss Equation
+
+#+BEGIN_env lem
+\[
+\Ric(X, Y) = A(X, Y) H - A(W(X), Y)
+\]
+#+END_env
+
+** Ricci Curvature and Gauss Equation
+
+#+BEGIN_env pf
+\[
+\Rm(Z, X) Y = A(X, Y) W(Z) - A(Z, Y) W(X)
+\]
+
+\[
+\Ric(X, Y) = \Tr \Rm(\cdot, X) Y = A(X, Y) H - A(W(X), Y)
+\]
+#+END_env
+
+** Closed, Convex Hypersurface
+
+#+BEGIN_env defn
+For \(n \geq 2\), a closed, convex hypersurface \(M^n\) is a smooth hypersurface with \(A \geq 0\).
+#+END_env
+
+#+BEGIN_env lem
+\(\Ric \geq 0\).
+#+END_env
+
+#+BEGIN_env pf
+\begin{equation*}
+\begin{split}
+\Ric(e_i, e_i) &= A(e_i, e_i) H - A(W(e_i), e_i) = \kappa_i H - \kappa_i^2 \\
+&= \kappa_i \sum_{j\neq i} \kappa_j \geq 0
+\end{split}
+\end{equation*}
+#+END_env
