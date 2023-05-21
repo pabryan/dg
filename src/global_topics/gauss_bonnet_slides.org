@@ -1,0 +1,862 @@
+#+TITLE: Gauss-Bonnet
+#+OPTIONS: toc:nil num:nil
+
+* Local Gauss-Bonnet
+** Local Gauss-Bonnet
+** Euclid's Axioms for Geometry:
+
+The development of Riemannian geometry began with investigations into whether non-Euclidean geometries exist. \pause Euclidean axioms: \pause
+
+1. Through any two points lies a line, \pause
+2. Any (finite) line may be extended indefinitely and uniquely a a straight line \pause
+3. Through any point and given any positive number, there exists a circle centred on the point with radius the given number \pause
+4. Through any point on a line, there is a unique perpendicular line. \pause
+
+*** Euclid's First Four Axioms
+
+**** Axiom 1
+      :PROPERTIES:
+      :BEAMER_col: 0.25
+      :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .3\textheight
+[[file:img/euclid1.png]]
+#+END_center
+
+**** Axiom 2
+      :PROPERTIES:
+      :BEAMER_col: 0.25
+      :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .3\textheight
+[[file:img/euclid2.png]]
+#+END_center
+
+**** Axiom 3
+      :PROPERTIES:
+      :BEAMER_col: 0.25
+      :END:
+#+BEGIN_center
+# #+ATTR_LATEX: :width .4\textwidth :height .5\textheight
+[[file:img/euclid3.png]]
+#+END_center
+
+**** Axiom 4
+      :PROPERTIES:
+      :BEAMER_col: 0.25
+      :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .3\textheight
+[[file:img/euclid4.png]]
+#+END_center
+
+** Parallel Postulate
+
+The first four axioms (or postulates) are relatively self evident and non-controversial. \pause
+
+Of a rather different nature is the famous /fifth postulate/: \pause
+
+5. [@5] Given any line and point not on the line, there /exists a unique/ line through the point not intersecting the original line.
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .6\textwidth :height .4\textheight
+[[file:img/euclid5.png]]
+#+END_center
+
+** Parallel Postulate and Triangles
+
+The fifth postulate is equivalent to:
+
+- Sum of the interior angles of a triangle: \(\theta_1 + \theta_2 + \theta_3 = \pi\). \pause
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .8\textheight
+[[file:img/euclidean_triangle.png]]
+#+END_center
+
+** Triangles in non-Euclidean Geometry
+
+- Sphere \(K > 0\): \(\theta_1 + \theta_2 + \theta_3 > \pi\)
+- Euclidean Space \(K = 0\): \(\theta_1 + \theta_2 + \theta_3 = \pi\)
+- Pseudosphere \(K < 0\): \(\theta_1 + \theta_2 + \theta_3 < \pi\)
+
+*** Constant Curvature Geometries
+
+**** Sphere
+      :PROPERTIES:
+      :BEAMER_col: 0.3
+      :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/sphere_triangle.png]]
+#+END_center
+
+**** Euclidean Space
+      :PROPERTIES:
+      :BEAMER_col: 0.3
+      :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/euclidean_triangle.png]]
+#+END_center
+
+**** Pseudosphere
+      :PROPERTIES:
+      :BEAMER_col: 0.3
+      :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/pseudosphere_triangle.png]]
+#+END_center
+
+** Piecewise Regular Curves
+
+#+BEGIN_definition
+A /piecewise/ regular curve \(\gamma : [a, b] \to S\) is a /continuous/ curve such that there exists a partition
+\[
+a = t_0 < t_1 < \cdots < t_{k-1} < t_k = b
+\]
+with \(\gamma\) is regular on \([t_i, t_{i+1}]\). The points \(\gamma(t_i)\) are called the vertices.
+#+END_definition
+\pause
+
+/Regular/ means differentiable and \(\gamma' \ne 0\) with left and right continuous limits: \(\lim_{t\to^+ t_i} \gamma'(t)\) and \(\lim_{t\to^- t_i} \gamma'(t)\) are defined and non-zero.
+
+\pause
+
+We write
+\[
+\gamma'_-(t_i) = \lim_{t\to^- t_i} \gamma'(t), \quad \gamma'_+(t_i) = \lim_{t\to^+ t_i} \gamma'(t).
+\]
+
+** Simple Closed Curves
+
+#+BEGIN_definition
+A /closed curve/ is a continuous curve \(\gamma : [a, b] \to S\) with \(\gamma(a) = \gamma(b)\). A /simple curve/ is a curve with no self intersections: \(\gamma(t) = \gamma(r) \Rightarrow t = r\).
+#+END_definition
+\pause
+
+We consider piecewise regular, simple, closed curves.
+
+** Turning Tangents and Total Curvature of Plane Curves
+
+Our first /Global/ result for curves. Generalising this result will lead us to the Gauss-Bonnet theorem. \pause
+
+#+BEGIN_theorem
+[Turning Tangents]
+Let \(\gamma : [0, L] \to \RR^2\) closed plane curve parametrised by arc-length. Then
+\[
+I := \frac{1}{2\pi} \int_0^L \kappa(s) ds \in \ZZ.
+\]
+\pause
+The integer, \(I\) is called the /winding number/. In particular, if \(\gamma\) is a simple, closed curve then
+\[
+\int_0^L \kappa(s) ds = \pm 2\pi.
+\]
+#+END_theorem
+\pause
+
+The sign \(\pm\) is just the orientation.
+
+** Turning Tangents and Total Curvature of Plane Curves
+
+#+BEGIN_proof
+\let\qed\relax
+- The function
+  \[
+  \theta(s) = \int_0^s \kappa(\tilde{s}) d\tilde{s}
+  \]
+  satisfies
+  \[
+  \partial_s \theta = \kappa.
+  \]
+  \pause
+- Since \(\partial_s \theta = \kappa\) we have
+  \[
+  \theta(L) - \theta(0) = \int_0^L \kappa(s) ds.
+  \]
+#+END_proof
+
+** Turning Tangents and Total Curvature of Plane Curves
+
+#+BEGIN_proof
+\let\qed\relax
+- On the other hand, since \(T(s) = \gamma'(s)\) is unit length,
+  \[
+  T(s) = (\cos(\varphi(s)), \sin(\varphi(s)))
+  \]
+  for a differentiable (by the implicit function theorem) function \(\varphi: [0, L] \to \RR\). \pause
+- But \(T(L) = T(0)\) and hence
+  \[
+  \varphi(L) = \varphi(0) + 2\pi I
+  \]
+  for an integer \(I\). \pause
+- We also have
+  \[
+  \kappa = \ip{\partial_s T}{N} = \ip{\partial_s \varphi(-\sin\varphi, \cos\varphi)}{(-\sin\varphi, \cos\varphi)} = \partial_s \varphi.
+  \]
+#+END_proof
+
+** Turning Tangents and Total Curvature of Plane Curves
+
+#+BEGIN_proof
+- We have
+  \[
+  \partial_s \varphi = \partial_s \theta \Rightarrow \varphi(s) = \theta(s) + C
+  \]
+  for some constant \(C\). \pause
+
+- Therefore,
+  \[
+  \varphi(L) - \varphi(0) = (\theta(L) + C) - (\theta(0) + C) = \theta(L) - \theta(0)
+  \]
+  \pause
+- Putting it all together, we have
+  \[
+  2\pi I = \varphi(L) - \varphi(0) = \theta(L) - \theta(0) = \int_0^L \kappa ds.
+  \]
+  \pause
+-  Note \(\theta\) is just the angle of \(T\) with a fixed vector (such as the x-axis).
+#+END_proof
+
+** Angle in General
+
+Define the angle \(\theta_i\) between \(\gamma'_-(t_i)\) and \(\gamma'_+(t_1)\) as follows:
+1. \[
+   \abs{\theta} = \abs{\arccos g(T_i^-, T_i^+)} \in (0, \pi).
+   \]
+   where \(T = \gamma'/\abs{\gamma'}\) is the unit tangent. \pause
+2. We take \(\theta \in (-\pi, \pi)\) by choosing the sign so that \(\theta > 0\) whenever
+   \[
+   \{T_i^-, T_i^+\}
+   \]
+   is positively oriented and \(\theta < 0\) otherwise.
+3. The case of a /cusp/ is when \(\theta = \pi\) in which case it's possibly to choose the sign so that \(\theta\) varies continuously.
+
+** Gauss-Bonnet Theorem (Local)
+
+#+BEGIN_theorem
+Let \(D \subseteq S\) be homeomorphic to a disc with boundary a piecewise regular, simple, closed curve, \(\gamma\). Then
+\[
+\int_D K dA + \int_{\gamma} \kappa ds = 2\pi - \sum_{i=1}^k \theta_i.
+\]
+#+END_theorem
+\pause
+
+- Since \(\gamma\) is only piecewise regular, the curvature is not defined at the vertices \(t_i\) so we make the definition,
+  \[
+  \int_{\gamma} \kappa ds = \sum_{i=1}^k \int_{t_{i-1}}^{t_i} \kappa ds.
+  \]
+
+** Proof in the Plane
+
+- In the plane \(K \equiv 0\) so Gauss-Bonnet becomes
+  \[
+  \int_{\gamma} \kappa ds = 2\pi - \sum_{i=1}^k \theta_i.
+  \]
+  \pause
+- For \(\gamma\) regular (no vertices) Turning Tangents gives
+  \[
+  \int_{\gamma} \kappa ds = 2\pi.
+  \]
+  \pause
+- For piecewise regular, break up the integral at the vertices:
+  #+BEGIN_export latex
+  \[
+  \begin{split}
+  \int_{\gamma} \kappa ds &= \sum \int_{t_{i-1}}^{t_i} \kappa ds = \sum \int_{t_{i-1}}^{t_i} \partial_s \theta ds = \sum \theta^-(t_i) - \theta^+(t_{i-1}) \\
+  &= \theta(t_k)^- - \theta(t_0)^+ + \sum \theta^-(t_i) - \theta^+(t_i) \\
+  &= 2\pi - \sum \theta_i.
+  \end{split}
+  \]
+  #+END_export
+
+** Proof of Gauss-Bonnet
+
+#+BEGIN_proof
+\let\qed\relax
+[sketch in the case \(D\) is contained in a local parametrisation]
+
+- On a surface, we may change coordinates so that
+  \[
+  g = \begin{pmatrix}
+  g_{uu} & 0 \\
+  0 & g_{vv}
+  \end{pmatrix}.
+  \]
+  \pause
+- The geodesic curvature of \(\gamma(s) = (u(s), v(s))\) may be expressed as
+  \[
+  \kappa = \frac{1}{2\sqrt{g_{uu}g_{vv}}} \left(\partial_v g_{vv} \partial_s v - \partial_u g_{uu} \partial_s u\right) + \partial_s \theta.
+  \]
+  \pause
+  *Note*: In the plane, \(g_{uu} = g_{vv} = 1\) and so the first term vanishes recovering the plane case.
+#+END_proof
+
+** Proof of Gauss-Bonnet
+
+#+BEGIN_proof
+\let\qed\relax
+- Integrating the geodesic curvature,
+  #+BEGIN_export latex
+  \[
+  \begin{split}
+  \int_{t_{i-1}}^{t_i} \kappa ds &= \int_{t_{i-1}}^{t_i} \frac{1}{2\sqrt{g_{uu}g_{vv}}} \left(\partial_v g_{vv} \partial_s v - \partial_u g_{uu} \partial_s u \right) ds + \int_{t_{i-1}}^{t_i} \partial_s \theta ds \\
+  &= \int_{t_{i-1}}^{t_i} \left(\frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_v g_{vv}\right) \partial_s v - \left(\frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_u g_{uu}\right) \partial_s u ds \\
+  &\quad + \theta(t_i) - \theta(t_{i-1})
+  \end{split}
+  \]
+  #+END_export
+#+END_proof
+
+** Proof of Gauss-Bonnet
+
+#+BEGIN_proof
+\let\qed\relax
+Apply the Gauss-Green Theorem:
+\[
+\int_{\gamma} P \partial_u s + Q \partial_v s ds = \int_D \partial_u Q - \partial_v P dA
+\]
+\pause
+to
+#+BEGIN_export latex
+\[
+\begin{split}
+\int_{\gamma} \kappa ds &= \sum \int_{t_{i-1}}^{t_i} \kappa ds \\
+&= \int_{t_{i-1}}^{t_i} \left(\frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_v g_{vv}\right) \partial_s v - \left(\frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_u g_{uu}\right) \partial_s u ds \\
+&\quad + \sum \theta(t_i) - \theta(t_{i-1})
+\end{split}
+\]
+#+END_export
+#+END_proof
+
+** Proof of Gauss-Bonnet
+
+#+BEGIN_proof
+\let\qed\relax
+By Gauss-Green with
+\[
+P = - \frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_u g_{uu}, \quad Q = \frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_v g_{vv}
+\]
+\pause we get
+
+#+BEGIN_export latex
+\[
+\begin{split}
+\int_{\gamma} \kappa ds &= \int_D \partial_u \left(\frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_v g_{vv}\right) + \partial_v \left(\frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_u g_{uu}\right) dA \\
+&\quad  + \sum \theta(t_i) - \theta(t_{i-1})
+\end{split}
+\]
+#+END_export
+#+END_proof
+
+** Proof of Gauss-Bonnet
+
+#+BEGIN_proof
+In our coordinate system with (\(g_{uv} = g_{vu} = 0\)) the integrand just so happens to be the Gauss curvature:
+\[
+K = \partial_u \left(\frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_v g_{vv}\right) + \partial_v \left(\frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_u g_{uu}\right)
+\]
+\pause
+
+Thus
+\[
+\int_{\gamma} \kappa ds = \int_D K + \sum \theta(t_i) - \theta(t_{i-1}) = \int_D K + 2\pi - \sum \theta_i
+\]
+as required. \pause
+#+END_proof
+
+** Remarks
+
+- The desired coordinate system (\(g_{uv} = 0\)) is called orthogonal and exists on surfaces locally \pause
+- We used a form of the Turning Tangents theorem without proof. \pause
+- The formula for \(\kappa\) can be obtained by a similar manner to the plane case \(\partial_s \theta = \kappa\) but taking into account the changing metric. \pause
+- The formula for \(K\) can be obtained from expressing \(\Rm\) in terms of \(g\) and using the Gauss equation. \pause
+- The entire proof may be re-written (in a coordinate free way) using the language of /differential forms/ where the Gauss-Green theorem appears as Stokes' theorem for differential forms.
+
+** Triangles Again
+
+#+BEGIN_definition
+A /geodesic triangle/ is a piecewise regular, simple closed curve with precisely three vertices that is the boundary of a region \(D\) homeomorphic to a disc and such that each regular arc is a geodesic.
+#+END_definition
+\pause
+
+Let \(\varphi_i = \pi - \theta_i \in (0, 2\pi)\) be the /interior angles/. \pause Then
+\[
+2\pi - (\theta_1 + \theta_2 + \theta_3) = 2\pi - (\pi - \varphi_1 + \pi - \varphi_2 + \pi - \varphi_3) = \varphi_1 + \varphi_2 + \varphi_3 - \pi.
+\]
+\pause
+
+By Gauss-Bonnet
+\[
+\int_D K dA = 2\pi - (\theta_1 + \theta_2 + \theta_3) = \varphi_1 + \varphi_2 + \varphi_3 - \pi.
+\]
+
+** Triangles in Constant Curvature
+
+#+BEGIN_eg
+- Sphere \(K \equiv 1\): \(0 < \operatorname{Area} (D) = \int_D K dA = \varphi_1 + \varphi_2 + \varphi_3 - \pi.\) \pause
+- Plane \(K \equiv 0\): \(0 = \int_D K dA = \varphi_1 + \varphi_2 + \varphi_3 - \pi.\) \pause
+- Pseudosphere \(K \equiv -1\): \(0 > -\operatorname{Area} (D) = \int_D K dA = \varphi_1 + \varphi_2 + \varphi_3 - \pi.\) \pause
+#+END_eg
+
+- On the sphere and pseudosphere, the angles determine the area of the triangle!
+- On the plane, congruent triangles have the same angles but not generally the same area.
+
+** Triangles in non-Euclidean Geometry
+
+- Sphere \(K > 0\): \(\varphi_1 + \varphi_2 + \varphi_3 = \operatorname{Area}(D) +  \pi > \pi\)
+- Euclidean Space \(K = 0\): \(\varphi_1 + \varphi_2 + \varphi_3 = \pi\)
+- Pseudosphere \(K < 0\): \(\varphi_1 + \varphi_2 + \varphi_3 = -\operatorname{Area}(D) + \pi < \pi\)
+
+*** Constant Curvature Geometries
+
+**** Sphere
+      :PROPERTIES:
+      :BEAMER_col: 0.3
+      :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/sphere_triangle.png]]
+#+END_center
+
+**** Euclidean Space
+      :PROPERTIES:
+      :BEAMER_col: 0.3
+      :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/euclidean_triangle.png]]
+#+END_center
+
+**** Pseudosphere
+      :PROPERTIES:
+      :BEAMER_col: 0.3
+      :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/pseudosphere_triangle.png]]
+#+END_center
+
+** Regular Tilings
+
+#+BEGIN_definition
+A /regular \(n\)-gon/ of \(S\) is a piecewise regular, simple, closed curved with \(n\) vertices, bounding a disc whose arcs are all geodesics of the same length meeting at the same angle \(\theta\).
+#+END_definition
+
+\pause
+
+Let \(P_i\) denote a regular \(n\)-gon including the boundary curve and the interior.
+
+\pause
+
+#+BEGIN_definition
+A /regular tiling/ of \(S\) is a set of regular \(n\)-gons \(P_i\) all of the same area such that
+1. \(S = \union_i P_i\)
+2. For \(i \ne j\), \(P_i \intersect P_j\) is either empty, a vertex, or an entire arc.
+#+END_definition
+
+** Planar Regular Tilings
+
+- In the plane, the interior angle of a regular \(n\)-gon is
+  \[
+  \theta = \pi - 2\pi/n.
+  \]
+  \pause
+- Let \(k\) be the number of \(n\)-gons meeting at a vertex so that adding \(k\) copies of \(\theta\) gives \(2\pi\):
+  \[
+  2\pi = k \theta = k(\pi - 2\pi/n) = \frac{kn - 2k}{n} \pi
+  \]
+  \pause
+- Therefore
+  \[
+  2n = kn - 2k
+  \]
+  \pause
+- That is
+  \[
+  0 = kn - 2k - 2n = k(n-2) - 2(n-2) - 4 = (k-2)(n-2) - 4
+  \]
+
+** Planar Regular Tilings
+- The only solutions \((k, n)\) to
+  \[
+  (k-2)(n-2) = 4
+  \]
+  are
+  \[
+  (k, n) = (6, 3), (4, 4), (3, 6).
+  \]
+  \pause
+
+*** Picture
+     :PROPERTIES:
+     :BEAMER_col: 0.3
+     :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/1-uniform_n11.png]]
+#+END_center
+
+*** Picture
+     :PROPERTIES:
+     :BEAMER_col: 0.3
+     :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/1-uniform_n5.png]]
+#+END_center
+
+*** Picture
+     :PROPERTIES:
+     :BEAMER_col: 0.3
+     :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/1-uniform_n1.png]]
+#+END_center
+
+** Spherical Regular Tilings
+
+#+BEGIN_eg
+On the sphere:
+  \[
+  2\pi > \frac{kn - 2k}{n} \pi.
+  \]
+  Hence
+  \[
+  (k - 2)(n - 2) < 4
+  \]
+  \pause
+  Not many solutions...
+#+END_eg
+\pause
+
+- /Congruent/ but not regular polygons allows more possibilities:
+
+*** Picture
+     :PROPERTIES:
+     :BEAMER_col: 0.3
+     :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/sphere_tiling.png]]
+#+END_center
+
+** Hyperbolic Tiling
+
+The \poincare{} disc is the unit disc \(D = \{x^2 + y^2 < 1\}\) equipped with a metric \(g\) such that \(K \equiv -1\). \pause Gauss-Bonnet applies. \pause
+
+#+BEGIN_eg
+- Now we have
+  \[
+  (k - 2)(n - 2) > 4
+  \]
+  Infinitely many solutions! \pause
+#+END_eg
+
+*** Picture
+     :PROPERTIES:
+     :BEAMER_col: 0.3
+     :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width 1.2\textwidth :height .4\textheight
+[[file:img/tess_5_4.png]]
+#+END_center
+* Gauss-Bonnet Theorem (Global)
+** Triangulations
+
+#+BEGIN_definition
+A /triangulation/ of a regular surface \(S\) is a finite set of triangles, \(\{T_i\}_{i=1}^n\) such that
+1. \(S = \union_{i=1}^n T_i\), \pause
+2. Each intersection \(T_i \cap T_j\) is either empty, a common edge of \(T_i\) and \(T_j\) or a common vertex of \(T_i\) and \(T_j\).
+#+END_definition
+\pause
+
+A fundamental fact we use (without proof) is that there always exists triangulations of surfaces. \pause
+
+Let
+\begin{align*}
+F &= \text{number of triangles (faces)} \\
+E &= \text{number of edges} \\
+V &= \text{number of vertices}.
+\end{align*}
+
+** Euler Characteristic
+
+#+BEGIN_definition
+The Euler characteristic, \(\chi\) of \(\{T_i\}_{i=1}^n\) is defined be
+\[
+\chi = V - E + F.
+\]
+#+END_definition
+\pause
+
+#+BEGIN_theorem
+[without proof]
+The Euler characteristic is independent of the choice of triangulation. Thus we may define the Euler characteristic of a surface, \(\chi(S)\) to be equal to the (common) Euler characteristic of any triangulation.
+#+END_theorem
+\pause
+
+The Euler characteristic is a /complete topological invariant/ for compact surfaces \(S_1, S_2\):
+#+BEGIN_theorem
+[without proof]
+If \(\varphi : S_1 \to S_1\) is a homeomorphism, then \(\chi(S_1) = \chi(S_1)\). Conversely, if \(\chi(S_1) = \chi(S_2)\), then there exists a homeomorphism \(S_1 \to S_2\).
+#+END_theorem
+
+** Examples
+- disc
+- square
+- annulis
+** Examples
+- sphere
+- torus
+- \(g\) handles
+** Classification of Closed Surfaces (compact, no boundary)
+
+#+BEGIN_definition
+A genus \(g \in \NN = \{0, 1, 2, \dots\}\) surface \(S_g\) is homeomorphic to a sphere with \(g\) handles attached.
+#+END_definition
+\pause
+
+For every \(g \in \NN\), there exists such a surface.
+\pause
+
+#+BEGIN_theorem
+[without proof]
+1. \(\chi(S_g) = 2(1-g)\) \pause
+2. Every compact surface has \(\chi(S) \in \{-2, 0, -2, -4, \dots, -2k, \dots\}\). \pause
+Therefore every compact surface is homeomorphic to \(S_g\) for some \(g\).
+#+END_theorem
+\pause
+
+The proof follows by first showing that \(\chi(\sphere^2) = 2\), and then \(\chi(S + \text{handle}) = \chi(S) - 2\).
+
+** Classification of Closed Surfaces
+
+- Some pictures of genus \(g\) surfaces.
+
+** Global Gauss-Bonnet
+
+Let \(R \subseteq S\) be a /regular region/. That is, \(R\) is a region bounded by finitely many piecewise regular, simple, closed curves \(\{C_i\}_{i=1}^k\).
+
+#+BEGIN_theorem
+[Global Gauss-Bonnet]
+\[
+\int_R K dA + \sum_{i=1}^k \left(\int_{C_i} \kappa ds + \sum_{j=1}^{N_i} \theta_{ij}\right) = 2\pi\chi(R).
+\]
+#+END_theorem
+\pause
+
+- We define
+  \[
+  \int_R K dA = \sum_n \int_{T_n} K du dv
+  \]
+  where \(\{T_n\}\) is a triangulation of \(R\) with each triangle contained in a local parametrisation. \pause
+- For each \(i\), \(\{\theta_{ij}\}_{j=1}^{N_i}\) denotes the exterior angles of \(C_i\) at the vertices.
+** Global Gauss-Bonnet Corollaries
+
+#+BEGIN_corollary
+Let \(S\) be a compact, orientable, regular surface. Then
+\[
+\int_S K dA = 2\pi\chi(S).
+\]
+#+END_corollary
+\pause
+
+- This is quite an amazing result! Compare all the possible /topological/ sphere with widely varying geometry. No matter what, the Gauss curvature distributes itself in such a way that the total Gauss curvature \(K\) (i.e. \(\int_S K dA\)) is the same.
+
+** Global Gauss-Bonnet Corollaries
+
+- The standard torus and coffee cup are homeomorphic hence have the same total Gauss curvature. \pause
+- A \(g\) holed torus and the sphere with \(g\) handles attached are homeomorphic, hence have the same total Gauss curvature. \pause
+- The Gauss-Bonnet theorem holds also for compact two-dimensional Riemannian manifolds without boundary (closed Riemannian surface). In each homeomorphism class (all surfaces with the same Euler characterstic), there exists a unique (up to scale) closed Riemannian surface, \(M\) with constant Gauss curvature given by
+  \[
+  K \equiv \frac{2\pi\chi(M)}{\operatorname{Area}(M)}.
+  \]
+
+** Global Gauss-Bonnet Corollaries
+
+#+BEGIN_corollary
+Any compact, regular surface, \(S\) with \(K > 0\) is homeomorphic to the sphere.
+#+END_corollary
+\pause
+
+#+BEGIN_proof
+Gauss-Bonnet implies
+\[
+\chi(S) = \int K dA > 0
+\]
+and hence \(\chi(S) = 2\), hence \(S\) is homeomorphic to the sphere since \(\chi\) is a complete invariant.
+#+END_proof
+
+** Global Gauss-Bonnet Corollaries
+
+- In fact, every compact, regular surface \(S\) has an elliptic point (a point where \(K > 0\)).\pause
+- This follows in a similar manner to the proof of the surjectivity of the Gauss map, but rather than taking a plane and moving it until it touches \(S\), one takes a sphere containing \(S\) and shrinks it until it touches \(S\). The second derivative test applied to the same function as in the Gauss map proof shows \(K > 0\).
+\pause
+
+#+BEGIN_corollary
+Every compact, regular surface with \(\chi \leq 0\) has points of positive /and/ negative Gauss curvature.
+#+END_corollary
+\pause
+
+#+BEGIN_theorem
+[A variant of Hilbert's Theorem]
+There are no compact, regular surfaces with /everywhere/ negative Gauss curvature.
+#+END_theorem
+
+** Proof of Global Gauss-Bonnet Theorem
+
+- Applying the local Gauss-Bonnet Theorem to each triangle \(T_n\) with boundary arcs \(\gamma_n^1, \gamma_n^2, \gamma_n^3\) in a triangulation,
+  \[
+  \int_{T_n} K dA + \sum_{m=1}^3 \left(\int_{\gamma_n^m} \kappa ds + \alpha_{nm}\right) = 2\pi.
+  \]
+  where \(\alpha_{j1}, \alpha_{j2}, \alpha_{j3}\) are the external angles of the   triangle \(T_j\). \pause
+
+- Summing over the number \(F\) of triangles, all /interior/ arcs appear exactly twice with opposite orientation hence cancel and all that is left are the boundary arcs \(C_i\) (see figure). Therefore,
+  \[
+  \int_R K dA + \sum_{i=1}^k \int_{C_i} \kappa ds + \sum_{n=1}^{F}\sum_{m=1}^3 \alpha_{nm} = 2\pi F.
+  \]
+
+** Proof of Global Gauss-Bonnet Theorem
+
+- We have
+  \[
+  \int_R K dA + \sum_{i=1}^k \int_{C_i} \kappa ds + \sum_{n=1}^{F}\sum_{m=1}^3 \alpha_{nm} = 2\pi F.
+  \]
+  \pause
+
+- Recall the theorem states that
+  \[
+  \int_R K dA + \sum_{i=1}^k \left(\int_{C_i} \kappa ds + \sum_{j=1}^{N_i} \theta_{ij}\right) = 2\pi\chi(R) = 2\pi(F - E + V).
+  \]
+  \pause
+
+- Thus to prove the theorem we need to prove that
+  \[
+  \sum_{n=1}^{F}\sum_{m=1}^3 \alpha_{nm} = \sum_{i=1}^k \sum_{j=1}^{N_i} \theta_{ij} + 2\pi(E - V)
+  \]
+
+** Proof of Global Gauss-Bonnet Theorem
+
+- Let \(\beta_{nm} = \pi - \alpha_{nm}\) be the /internal/ angles of the triangle \(T_n\). \pause
+
+- Recall the sum is over \(1 \leq n \leq F\) and \(1 \leq m \leq 3\). \pause
+
+- Then
+  \[
+  \sum \alpha_{nm} = \sum \pi - \beta_{nm} = 3\pi F - \sum \beta_{nm}.
+  \]
+  \pause
+
+- Thus we now want to show that
+  \[
+  3\pi F - \sum \beta_{nm} = \sum \theta_{ij} + 2\pi(E - V)
+  \]
+
+** Proof of Global Gauss-Bonnet Theorem
+
+- The idea is now to keep track of the edges that lie on a boundary curve \(C_i\) (/exterior edges/) and those that lie in the interior of \(R\) (/interior edges/). \pause
+- Thus we define
+  \begin{align*}
+  E_{\text{ext}} &= \text{number of exterior edges} \\
+  E_{\text{int}} &= \text{number of interior edges} \\
+  V_{\text{ext}} &= \text{number of exterior vertices} \\
+  V_{\text{int}} &= \text{number of interior vertices} \\
+  \end{align*}
+
+** Proof of Global Gauss-Bonnet Theorem
+
+- Because the \(C_i\) are simple, closed curves, we have \(V_{\text{ext}} = E_{\text{ext}}\). \pause
+- By induction on the number of triangles: \(3F = 2E_{\text{int}} + E_{\text{ext}}\). \pause
+
+- Thus we have
+  #+BEGIN_export latex
+  \[
+  \begin{split}
+  3\pi F - \sum \beta_{nm} &= 2\pi E_{\text{int}} + \pi E_{\text{ext}} - \sum \beta_{nm} + 2\pi E_{\text{ext}} - 2\pi V_{\text{ext}} \\
+  &= 2\pi E_{\text{int}} + 2\pi E_{\text{ext}} + \pi E_{\text{ext}} - 2\pi V_{\text{ext}} - \sum \beta_{nm} \\
+  &= 2\pi E - \pi V_{\text{ext}} - \sum \beta_{nm}.
+  \end{split}
+  \]
+  #+END_export
+  \pause
+
+- To finally finish we need to show that
+  #+BEGIN_export latex
+  \[
+  - \pi V_{\text{ext}} - \sum \beta_{nm} = -2\pi V + \sum \theta_{ij}.
+  \]
+  #+END_export
+
+** Proof of Global Gauss-Bonnet Theorem
+
+- Divide the \(\beta_{nm}\) into internal and external vertices
+  \[
+  \sum \beta_{mn} = \sum_a \beta_{\text{int}, a} + \sum_b \beta_{\text{ext}, b}
+  \]
+  \pause
+
+- For the internal vertices, the sum of the angles equals to \(2\pi\), hence
+  \[
+  \sum_a \beta_{\text{int}, a} = 2\pi V_{\text{int}}.
+  \]
+  \pause
+
+- For the external vertices, let \(V_{\text{ext},C}\) denote the number of vertices of the triangulation that are also vertices of a boundary arc \(C_i\). \pause
+- Let \(V_{\text{ext,T}}\) denote the number of external vertices of the triangulation that are not also vertices of any boundary arc \(C_i\). \pause
+- Thus
+  \[
+  V_{\text{ext}} = V_{\text{ext}, C} + V_{\text{ext}, T}.
+  \]
+** Proof of Global Gauss-Bonnet Theorem
+
+- Divide the external vertices of the triangulation into those from the arcs \(C_i\) and those from the triangulation alone so that
+  \[
+  \sum_b \beta_{\text{ext}, b} = \sum_c \beta_{\text{ext}, C, c} + \sum_d \beta_{\text{ext}, T, d}.
+  \]
+  \pause
+
+- For vertices \(\beta_{\text{ext}, T, d}\) of the triangulation but not of of an arc \(C_i\), each vertex is a regular point of the curve \(C_i\) so that the sum of the two angles equals \(\pi\). Thus
+  \[
+  \sum_d \beta_{\text{ext}, T, d} = \pi V_{\text{ext},T}.
+  \]
+  \pause
+
+- The remaining angles are /internal/ angles at vertices of some \(C_i\) so that
+  \[
+  \sum_c \beta_{\text{ext}, C, d} = \sum_{ij} \varphi_{ij} = \sum_{ij} \pi - \theta_{ij} = \pi V_{\text{ext}, C} - \sum_{ij} \theta_{ij}.
+  \]
+
+** Proof of Global Gauss-Bonnet Theorem
+
+- Thus we come to the end of the proof: we need to show
+  #+BEGIN_export latex
+  \[
+  - \pi V_{\text{ext}} - \sum \beta_{nm} = -2\pi V + \sum \theta_{ij}.
+  \]
+  #+END_export
+  \pause
+- Summing up all our group of angles (internal, external and part of a \(C_i\), external and not part of a \(C_i\)):
+  #+BEGIN_export latex
+  \[
+  \begin{split}
+  - \pi V_{\text{ext}} - \sum \beta_{nm} &= -\pi V_{\text{ext}} - 2\pi V_{\text{int}} - \pi V_{\text{ext},T} - \left(\pi V_{\text{ext}, C} - \sum_{ij} \theta_{ij}\right) \\
+  &= -\pi V_{\text{ext}} - \pi(V_{\text{ext},T} + \pi V_{\text{ext}, C}) - 2\pi V_{\text{int}} + \sum_{ij} \theta_{ij} \\
+  &= -2\pi V_{\text{ext}} - 2\pi V_{\text{int}} + \sum_{ij} \theta_{ij} \\
+  &= -2\pi V + \sum_{ij} \theta_{ij}.
+  \end{split}
+  \]
+  #+END_export
+** Notes                                                           :noexport:
+- Ref: 4.5
+- Euler characteristic etc.
+- Constant curvature spaces
+- Uniformisation Theorem

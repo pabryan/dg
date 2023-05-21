@@ -1,0 +1,264 @@
+#+TITLE: Global Topics for Hypersurfaces
+#+OPTIONS: toc:nil num:nil
+
+* Umbilicity Theorem
+** Umbilicity Theorem
+** Umbilic Points
+
+#+BEGIN_env defn
+A point \(p \in M\) is /umbilic/ if \(\kappa_1 = \dots = \kappa_n\). That is if \(W = \kappa \Id\).
+#+END_env
+
+#+BEGIN_env thm
+If every point of a connected hypersurface \(M\) is umbilic then either \(M\) lies in a hyperplane or a sphere.
+#+END_env
+
+** Umbilicity Theorem
+
+#+BEGIN_env lem
+If \(W = \kappa \Id\) for a smooth function \(\kappa M \to \RR\), then \(\kappa \equiv \text{ const}\).
+#+END_env
+
+#+BEGIN_env pf
+Let \(X\) be a smooth *local* vector field with \(\abs{X} = 1\).
+
+\(A(X, X) = g(\kappa X, X) = \kappa\)
+
+For any \(Y\)
+\[
+\partial_Y \kappa = \partial_Y [A(X, X)] = 
+\[
+\nabpartial_X [W (Y)] = \partial_X (\kappa Y)
+\]
+#+END_env
+
+* Hidden                                                           :noexport:
+
+** Proof of Umbilic Point Theorem: \(\kappa \equiv \text{constant}\).
+
+- With respect to a local parametrisation with \(\varphi_u = \partial_u \varphi, \varphi_v = \partial_v \varphi\):
+  \[
+  dN(\varphi_u) = \partial_u N, \quad dN(\varphi_v) = \partial_v N.
+  \]
+  \pause
+- Thus \(dN = \kappa \operatorname{Id}\) gives,
+  \[
+  \partial_u N = \kappa \varphi_u, \quad \partial_v N = \kappa \varphi_v.
+  \]
+  \pause
+- What's next? \pause Differentiate! \pause
+  \[
+  \partial_v \partial_u N = \kappa_v \varphi_u + \kappa \partial_v \partial_u \varphi
+  \]
+  and
+  \[
+  \partial_u \partial_v N = \kappa_u \varphi_v + \kappa \partial_u \partial_v \varphi
+  \]
+  \pause
+- Subtracting and use Claireaut's Theorem for mixed partial derivatives:
+  \[
+  \kappa_v \varphi_u = \kappa_u \varphi_v \Rightarrow \kappa_v = \kappa_u = 0 \Rightarrow \kappa \equiv \text{constant}
+  \]
+  since \(\varphi_u, \varphi_v\) are linearly independent.
+** Proof of Umbilic Point Theorem: Locally \(S \subseteq \RR^2\)
+
+- If we have
+  \[
+  dN \equiv 0.
+  \]
+  \pause
+- Therefore
+  \[
+  \partial_u \ip{\varphi}{N} \underset{\text{prod rule}}{=} \ip{\varphi_u}{N} + \ip{\varphi}{dN(\varphi_u)} \pause \underset{dN \equiv 0}{=} \ip{\varphi_u}{N} \pause \underset{\varphi_u \text{ tang}} = 0
+  \]
+  \pause
+  Likewise
+  \[
+  \partial_v \ip{\varphi}{N} = 0.
+  \]
+  \pause
+  Therefore \(\ip{\varphi}{N} = \text{constant}\) and the points \(\varphi(u, v)\) lie in a plane.
+
+** Proof of Umbilic Point Theorem: Locally \(S \subseteq \sphere^2\).
+
+- If we have
+  \[
+  dN = \kappa \operatorname{Id}, \quad \kappa \ne 0
+  \]
+  \pause
+- Therefore
+  \[
+  \partial_u \left(\varphi - \tfrac{1}{\kappa} N\right) \underset{\kappa \equiv \text{const}}{=} \varphi_u - \frac{1}{\kappa} dN(\varphi_u) \pause \underset{dN=\kappa\operatorname{Id}}{=} \varphi_u - \frac{1}{\kappa} \kappa \varphi_u = 0.
+  \]
+  \pause
+- Likewise
+  \[
+  \partial_v \left(\varphi - \tfrac{1}{\kappa} N\right) = 0.
+  \]
+  \pause
+- Therefore
+  \[
+  \varphi - \frac{1}{\kappa} N = y_0 \in \RR^3 \text{ is constant}.
+  \]
+  \pause
+- and hence
+  \[
+  \abs{\varphi(u, v) - y_0} = \frac{1}{\abs{\kappa}} \Rightarrow \varphi(u, v) \in \sphere^2(\frac{1}{\abs{\kappa}}, y_0).
+  \]
+
+** Proof of Umbilic Theorem: Global
+
+- The local theorem establishes, for each local parametrisation \(\varphi\):
+  #+BEGIN_export latex
+  \begin{align*}
+  \kappa_{\varphi} &\equiv \text{constant} \\
+  & \begin{cases}
+  N_{\varphi} \equiv \text{const}, \ip{\varphi}{N_{\varphi}} \equiv C_{\varphi}, & \kappa_{\varphi} = 0 \Rightarrow S_{\varphi} \subseteq \RR^2(N_{\varphi}, C_{\varphi}) \\
+  \varphi - \frac{1}{\kappa_{\varphi}} \equiv y_{\varphi}, & \kappa_{\varphi} \ne 0 \Rightarrow S_{\varphi} \subseteq \sphere^2(\tfrac{1}{\abs{\kappa_{\varphi}}}, y_{\varphi})
+  \end{cases}
+  \end{align*}
+  #+END_export
+  \pause
+- In any overlap of charts, \(U_{\alpha} \cap U_{\beta}\) all the constants must agree. \pause
+- \(S\) connected, means for any two points \(p, q \in S\) there is a continuous path \(\gamma : [0, 1] \to S\) such that \(\gamma(0) = p\), \(\gamma(1) = q\). \pause
+- Cover the image \(\gamma([0, 1])\) by local parametrisations \(\varphi_{\alpha}(U_{\alpha})\) which gives a cover of \([0, 1]\):
+  \[
+  \varphi_{\alpha}^{-1}(U_{\alpha})
+  \]
+  \pause
+- \([0, 1]\) is /compact/ so there is a finite cover \(\{\varphi_i\}_{i=1}^n\). with \(p \in \varphi_1(U_1)\), \(q \in \varphi_n(U_n)\), \(U_i \cap U_{i+1} \ne \emptyset\) \pause
+- Thus \(\kappa(p) = \kappa_{\varphi_1} = \kappa_{\varphi_2} = \cdots = \kappa_{\varphi_n} = \kappa(q)\). Similar for the other constants so the plane (or sphere) is globally defined. \(\qed\)
+
+* Gauss Theorem Egrigium                                           :noexport:
+** Gauss Theorem Egrigium
+** Gauss' Theorema Egregium (Remarkable Theorem)
+
+#+BEGIN_theorem
+The Gauss curvature is intrinsic. That is, if \((S_1, g_1)\) and \((S_2, g_2)\) are locally isometric, then \(K_1 = K_2\).
+#+END_theorem
+\pause
+
+#+BEGIN_proof
+For any \(X, Y\) linearly independent,
+\[
+K = \frac{\det A(X, Y)}{\det g(X, Y)} = -\frac{g(\Rm(X, Y)X, Y)}{\det g(X, Y)}.
+\]
+\pause
+
+That's it! The curvature tensor is intrinsic \(\Rm = \Rm(\nabla) = \Rm(\nabla(g))\).
+#+END_proof
+
+** Non-isometric Surfaces
+
+#+BEGIN_eg
+The surfaces
+- Sphere: \(K \equiv 1\)
+- Torus: \(K\) non-constant but changing sign
+- Cylinder: \(K \equiv 0\)
+- Paraboloid: \(K\) non-constant and positive
+are not locally isometric.\pause
+#+END_eg
+
+- Besides the cylinder, none of these surfaces can be flattened out (even locally!) without distorting the geometry - stretching, crumpling etc. \pause
+- In particular, all surfaces are locally diffeomorphic to the plane (via the local parametrisations) so they share the Calculus with the plane. \pause
+- But typically, they do not share the /Geometry/ with the plane. \pause
+
+/Even though plane calculus may be brought to bear on the study of surface geometry, the geometry itself is not plane geometry/.
+
+** Corrugation
+#+BEGIN_eg
+- Folding a sheet of (paper, metal, cardboard) along a line introduces curvature but does not change the geometry provided no stretching occurs. \pause
+- Thus one principal curvature is non-zero, but Gauss' theorem forces the other to vanish since \(0 \underset{\text{Gauss Theorem}}{=} K = \kappa_1 \kappa_2\). \pause
+- Introduces rigidity in one direction and flexibility in the other.
+#+END_eg
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .4\textwidth :height .5\textheight
+[[file:img/corrugation.png]]
+#+END_center
+
+** Map Making
+
+#+BEGIN_eg
+- No map exists preserving length, angle and area! \pause
+- Archimedes Cylinder to Sphere map preserves area: \((x, y, z) \in C \mapsto (\sqrt{1 - z^2} x, \sqrt{1 - z^2} y, z)\). \pause
+- The Mercator projection preserves angles. Good for navigation! \pause
+#+END_eg
+
+*** Pictures
+**** Archimedes
+      :PROPERTIES:
+      :beamer_col: 0.5
+      :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .3\textheight
+[[file:img/archimdes_tomb.png]]
+
+#+END_center
+
+**** Mercator
+      :PROPERTIES:
+      :beamer_col: 0.5
+      :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .3\textheight
+[[file:img/Mercator-proj.png]]
+#+END_center
+
+** Helicoid and Catenoid
+
+#+BEGIN_eg
+- Helicoid: \((v\cos(u), v\sin(u), u)\),
+- Catenoid: \((\sinh(v) \cos(u), \sinh(v) \sin(u), u)\). \pause
+The Helicoid and Catenoid are locally isometric with Gauss curvature
+\[
+K = -\frac{1}{(1 + u^2)^2}
+\]
+#+END_eg
+\pause
+
+*** Pictures
+**** Catenoid
+      :PROPERTIES:
+      :beamer_col: 0.5
+      :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/catenoid.png]]
+
+#+END_center
+
+**** Helicoid
+      :PROPERTIES:
+      :beamer_col: 0.5
+      :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/helicoid.jpg]]
+#+END_center
+
+** The Converse of Gauss' Theorem is false
+
+#+BEGIN_eg
+Here is an example of surfaces \(S_1, S_2\) for which \(K_1 = K_2\) but \(g_1 \ne g_2\). \pause
+
+- \(\varphi(u, v) = (u\cos(v), u\sin(v), \ln(u))\)
+- \(\psi(u, v) = (u\cos(v), u\sin(v), v)\) \pause
+
+*Exercise*:
+- Check that \(K_{\varphi}(u, v) = K_{\psi}(u, v)\) \\
+- Check that \(g_{\varphi} (u, v) \ne g_{\psi} (u, v)\).
+\pause
+
+- Thus we have surfaces with the equal Gauss curvature that are not isometric. \pause
+- Gauss Theorem: \(g_1 = g_2 \Rightarrow K_1 = K_2\). \pause
+- Converse is false: \(K_1 = K_2 \not\Rightarrow g_1 = g_2\).
+#+END_eg
+
+* Fundamental Theorem of Hypersurfaces                             :noexport:
+** Fundamental Theorem of Hypersurfaces
+** Fundamental Theorem of Hypersurfaces
+
+#+BEGIN_env thm
+Let yjo
+#+END_env

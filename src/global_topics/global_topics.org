@@ -1,0 +1,19 @@
+#+OPTIONS: toc:nil num:nil
+#+BEGIN_export html
+---
+title: Global Topics
+short_title: Global Topics
+---
+#+END_export
+
+#+LaTeX_class: article_no_macros
+#+LaTeX_Header: \usepackage{pabnotes}
+#+LaTeX_Header: \newcommand{\weeknum}{12}
+#+LaTeX_Header: \newcommand{\topic}{Global Topics}
+
+#+BEGIN_export html
+<ul>
+<li><a href="{{ '/slides/global_hypersurfaces' | relative_url }}" target="_blank">Global Topics for Hypersurfaces</a></li>
+<li><a href="{{ '/slides/global_positive_curvature' | relative_url }}" target="_blank">Positive Curvature</a></li>
+</ul>
+#+END_export
