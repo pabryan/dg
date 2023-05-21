@@ -14,6 +14,6 @@ short_title: Global Topics
 #+BEGIN_export html
 <ul>
 <li><a href="{{ '/slides/global_hypersurfaces' | relative_url }}" target="_blank">Global Topics for Hypersurfaces</a></li>
-<li><a href="{{ '/slides/global_positive_curvature' | relative_url }}" target="_blank">Positive Curvature</a></li>
+<li><a href="{{ '/slides/gauss_bonnet' | relative_url }}" target="_blank">Gauss Bonnet</a></li>
 </ul>
 #+END_export
