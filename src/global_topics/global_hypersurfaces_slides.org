@@ -20,16 +20,22 @@ Follows from \(\nabla_X A (Y, Z) = \nabla_Y A (X, Z)\) and \(\nabla g = 0\)
 \begin{split}
 D_X [W(Y)] &= -D_X [D_Y N] \\
 &= -D_Y [D_X N] - D_{[X, Y]} N \\
+&\quad - \Rm^{\RR^n}(X, Y) N \\
 &= D_Y[W(X)] + W([X, Y])
 \end{split}
 \end{equation*}
+#+END_env
 
+** Codazzi Equation for Weingarten
+
+#+BEGIN_env pf
 \begin{equation*}
 \begin{split}
 \nabla_X W(Y) &= \nabla_X [W(Y)] - W(\nabla_X Y) \\
 &= D_X [W(Y)] + A(X, W(Y))N - W(\nabla_X Y) \\
 &= D_Y [W(X)] + A(Y, W(X))N \\
 &\quad - W(\nabla_X Y - [X, Y]) \\
+&= D_Y [W(X)] + A(Y, W(X))N - W(\nabla_Y X) \\
 &= \nabla_Y W(X)
 \end{split}
 \end{equation*}
@@ -76,117 +82,85 @@ Then for all \(X, Y\)
 Hence \(d\kappa \equiv 0\)
 #+END_env
 
-* Hidden                                                           :noexport:
-** Umbilicity Theorem
+* Umbilicity Theorem: Plane
+** Umbilicity Theorem: Plane
+** Umbilicity Theorem: Plane
+
+#+BEGIN_env thm
+If \(W \equiv 0\) on a connected open set \(U \subseteq M\), then \(U\) lies in a hyperplane.
+#+END_env
+
+** Umbilicity Theorem: Plane
 
 #+BEGIN_env pf
-Let \(X\) be a smooth *local* vector field with \(\abs{X} = 1\).
+Let \(u_0, u \in U\) and \(\gamma(t) \in U\) with \(\gamma(0) = u_0\), \(\gamma(1) = u\)
 
-\(A(X, X) = g(\kappa X, X) = \kappa\)
-
-For any \(Y\)
 \[
-\partial_Y \kappa = \partial_Y [A(X, X)] =
+\partial_t [N(\gamma(t))] = dN(\gamma') = -W(\gamma') = 0
 \]
+
 \[
-\partial_X [W (Y)] = \partial_X (\kappa Y)
+N(\gamma(t)) \equiv N_0
 \]
 #+END_env
 
-** Proof of Umbilic Point Theorem: \(\kappa \equiv \text{constant}\).
+** Umbilicity Theorem: Plane
 
-- With respect to a local parametrisation with \(\varphi_u = \partial_u \varphi, \varphi_v = \partial_v \varphi\):
-  \[
-  dN(\varphi_u) = \partial_u N, \quad dN(\varphi_v) = \partial_v N.
-  \]
-  \pause
-- Thus \(dN = \kappa \operatorname{Id}\) gives,
-  \[
-  \partial_u N = \kappa \varphi_u, \quad \partial_v N = \kappa \varphi_v.
-  \]
-  \pause
-- What's next? \pause Differentiate! \pause
-  \[
-  \partial_v \partial_u N = \kappa_v \varphi_u + \kappa \partial_v \partial_u \varphi
-  \]
-  and
-  \[
-  \partial_u \partial_v N = \kappa_u \varphi_v + \kappa \partial_u \partial_v \varphi
-  \]
-  \pause
-- Subtracting and use Claireaut's Theorem for mixed partial derivatives:
-  \[
-  \kappa_v \varphi_u = \kappa_u \varphi_v \Rightarrow \kappa_v = \kappa_u = 0 \Rightarrow \kappa \equiv \text{constant}
-  \]
-  since \(\varphi_u, \varphi_v\) are linearly independent.
-** Proof of Umbilic Point Theorem: Locally \(S \subseteq \RR^2\)
+#+BEGIN_env pf
+\begin{equation*}
+\begin{cases}
+\ip{\gamma(0) - u_0}{N_0} &= \ip{u_0 - u_)}{N_0} = 0 \\
+\partial_t \ip{\gamma(t) - u_0}{N_0} &= \ip{\gamma'(t)}{N(\gamma(t))} = 0
+\end{cases}
+\end{equation*}
+\[
+\ip{\gamma(t) - u_0}{N_0} \equiv 0
+\]
 
-- If we have
-  \[
-  dN \equiv 0.
-  \]
-  \pause
-- Therefore
-  \[
-  \partial_u \ip{\varphi}{N} \underset{\text{prod rule}}{=} \ip{\varphi_u}{N} + \ip{\varphi}{dN(\varphi_u)} \pause \underset{dN \equiv 0}{=} \ip{\varphi_u}{N} \pause \underset{\varphi_u \text{ tang}} = 0
-  \]
-  \pause
-  Likewise
-  \[
-  \partial_v \ip{\varphi}{N} = 0.
-  \]
-  \pause
-  Therefore \(\ip{\varphi}{N} = \text{constant}\) and the points \(\varphi(u, v)\) lie in a plane.
+\[
+\ip{u - u_0}{N_0} = \ip{\gamma(1) - u_0}{N_0} = 0
+\]
 
-** Proof of Umbilic Point Theorem: Locally \(S \subseteq \sphere^2\).
+Every \(u \in U\) is in the plane through \(u_0\) perpendicular to \(N_0\)
+#+END_env
 
-- If we have
-  \[
-  dN = \kappa \operatorname{Id}, \quad \kappa \ne 0
-  \]
-  \pause
-- Therefore
-  \[
-  \partial_u \left(\varphi - \tfrac{1}{\kappa} N\right) \underset{\kappa \equiv \text{const}}{=} \varphi_u - \frac{1}{\kappa} dN(\varphi_u) \pause \underset{dN=\kappa\operatorname{Id}}{=} \varphi_u - \frac{1}{\kappa} \kappa \varphi_u = 0.
-  \]
-  \pause
-- Likewise
-  \[
-  \partial_v \left(\varphi - \tfrac{1}{\kappa} N\right) = 0.
-  \]
-  \pause
-- Therefore
-  \[
-  \varphi - \frac{1}{\kappa} N = y_0 \in \RR^3 \text{ is constant}.
-  \]
-  \pause
-- and hence
-  \[
-  \abs{\varphi(u, v) - y_0} = \frac{1}{\abs{\kappa}} \Rightarrow \varphi(u, v) \in \sphere^2(\frac{1}{\abs{\kappa}}, y_0).
-  \]
+* Umbilicity Theorem: Sphere
+** Umbilicity Theorem: Sphere
+** Umbilicity Theorem: Sphere
 
-** Proof of Umbilic Theorem: Global
+#+BEGIN_env thm
+If \(W \equiv \kappa \neq  0\) on a connected open set \(U \subseteq M\), then \(U\) lies in a sphere of radius \(1/\kappa\)
+#+END_env
 
-- The local theorem establishes, for each local parametrisation \(\varphi\):
-  #+BEGIN_export latex
-  \begin{align*}
-  \kappa_{\varphi} &\equiv \text{constant} \\
-  & \begin{cases}
-  N_{\varphi} \equiv \text{const}, \ip{\varphi}{N_{\varphi}} \equiv C_{\varphi}, & \kappa_{\varphi} = 0 \Rightarrow S_{\varphi} \subseteq \RR^2(N_{\varphi}, C_{\varphi}) \\
-  \varphi - \frac{1}{\kappa_{\varphi}} \equiv y_{\varphi}, & \kappa_{\varphi} \ne 0 \Rightarrow S_{\varphi} \subseteq \sphere^2(\tfrac{1}{\abs{\kappa_{\varphi}}}, y_{\varphi})
-  \end{cases}
-  \end{align*}
-  #+END_export
-  \pause
-- In any overlap of charts, \(U_{\alpha} \cap U_{\beta}\) all the constants must agree. \pause
-- \(S\) connected, means for any two points \(p, q \in S\) there is a continuous path \(\gamma : [0, 1] \to S\) such that \(\gamma(0) = p\), \(\gamma(1) = q\). \pause
-- Cover the image \(\gamma([0, 1])\) by local parametrisations \(\varphi_{\alpha}(U_{\alpha})\) which gives a cover of \([0, 1]\):
-  \[
-  \varphi_{\alpha}^{-1}(U_{\alpha})
-  \]
-  \pause
-- \([0, 1]\) is /compact/ so there is a finite cover \(\{\varphi_i\}_{i=1}^n\). with \(p \in \varphi_1(U_1)\), \(q \in \varphi_n(U_n)\), \(U_i \cap U_{i+1} \ne \emptyset\) \pause
-- Thus \(\kappa(p) = \kappa_{\varphi_1} = \kappa_{\varphi_2} = \cdots = \kappa_{\varphi_n} = \kappa(q)\). Similar for the other constants so the plane (or sphere) is globally defined. \(\qed\)
+Note if \(\kappa < 0\), changing \(N\) to \(-N\) gives \(\kappa > 0\)
+
+** Umbilicity Theorem: Sphere
+
+#+BEGIN_env pf
+Let \(u_0, u \in U\) and \(\gamma(t) \in U\) with \(\gamma(0) = u_0\), \(\gamma(1) = u_0\)
+
+\begin{equation*}
+\begin{split}
+\partial_t \left[\gamma(t) + \tfrac{1}{\kappa} N(\gamma(t))\right] &= \gamma' + \frac{1}{\kappa} dN(\gamma') \\
+&= \gamma' - \frac{1}{\kappa} W(\gamma') \\
+&= \gamma' - \frac{1}{\kappa} \kappa \gamma' \\
+&= 0
+\end{split}
+\end{equation*}
+#+END_env
+
+** Umbilicity Theorem: Sphere
+
+#+BEGIN_env pf
+\[
+\gamma(t) + \frac{1}{\kappa} N(\gamma(t)) \equiv p_0 = u_0 + \frac{1}{\kappa} N(u_0)
+\]
+
+\[
+\abs{\gamma(t) - p_0} = \abs{-\frac{1}{\kappa} N} = \abs{\frac{1}{\kappa}}
+\]
+Thus every \(u = \gamma(1) \in \SS^n_{1/\kappa} (p_0)\)
+#+END_env
 
 * Gauss Theorem Egrigium                                           :noexport:
 ** Gauss Theorem Egrigium
