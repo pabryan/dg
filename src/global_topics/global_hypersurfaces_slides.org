@@ -162,25 +162,27 @@ Let \(u_0, u \in U\) and \(\gamma(t) \in U\) with \(\gamma(0) = u_0\), \(\gamma(
 Thus every \(u = \gamma(1) \in \SS^n_{1/\kappa} (p_0)\)
 #+END_env
 
-* Gauss Theorem Egrigium                                           :noexport:
+* Gauss Theorem Egrigium
 ** Gauss Theorem Egrigium
-** Gauss' Theorema Egregium (Remarkable Theorem)
 
-#+BEGIN_theorem
-The Gauss curvature is intrinsic. That is, if \((S_1, g_1)\) and \((S_2, g_2)\) are locally isometric, then \(K_1 = K_2\).
-#+END_theorem
-\pause
+Remarkable Theorem
 
-#+BEGIN_proof
+** Gauss Theorema Egregium
+
+#+BEGIN_env thm
+The Gauss curvature of a surface is intrinsic. That is, if \((S_1, g_1)\) and \((S_2, g_2)\) are locally isometric, then \(K_1 = K_2\).
+#+END_env
+
+** Gauss Theorema Egregium
+
+#+BEGIN_env pf
 For any \(X, Y\) linearly independent,
 \[
-K = \frac{\det A(X, Y)}{\det g(X, Y)} = -\frac{g(\Rm(X, Y)X, Y)}{\det g(X, Y)}.
+K = \frac{\det A(X, Y)}{\det g(X, Y)} = -\frac{g(\Rm(X, Y)X, Y)}{\det g(X, Y)}
 \]
-\pause
+#+END_env
 
-That's it! The curvature tensor is intrinsic \(\Rm = \Rm(\nabla) = \Rm(\nabla(g))\).
-#+END_proof
-
+* Hidden                                                           :noexport:
 ** Non-isometric Surfaces
 
 #+BEGIN_eg
