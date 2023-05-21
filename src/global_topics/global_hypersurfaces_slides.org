@@ -1,23 +1,83 @@
 #+TITLE: Global Topics for Hypersurfaces
 #+OPTIONS: toc:nil num:nil
 
+* Codazzi Equation for Weingarten
+** Codazzi Equation for Weingarten
+** Codazzi Equation for Weingarten
+
+#+BEGIN_env lem
+\[
+\nabla_X W(Y) = \nabla_Y W (X)
+\]
+#+END_env
+
+Follows from \(\nabla_X A (Y, Z) = \nabla_Y A (X, Z)\) and \(\nabla g = 0\)
+
+** Codazzi Equation for Weingarten
+
+#+BEGIN_env pf
+\begin{equation*}
+\begin{split}
+D_X [W(Y)] &= -D_X [D_Y N] \\
+&= -D_Y [D_X N] - D_{[X, Y]} N \\
+&= D_Y[W(X)] + W([X, Y])
+\end{split}
+\end{equation*}
+
+\begin{equation*}
+\begin{split}
+\nabla_X W(Y) &= \nabla_X [W(Y)] - W(\nabla_X Y) \\
+&= D_X [W(Y)] + A(X, W(Y))N - W(\nabla_X Y) \\
+&= D_Y [W(X)] + A(Y, W(X))N \\
+&\quad - W(\nabla_X Y - [X, Y]) \\
+&= \nabla_Y W(X)
+\end{split}
+\end{equation*}
+#+END_env
+
 * Umbilicity Theorem
 ** Umbilicity Theorem
 ** Umbilic Points
 
 #+BEGIN_env defn
-A point \(p \in M\) is /umbilic/ if \(\kappa_1 = \dots = \kappa_n\). That is if \(W = \kappa \Id\).
+A point \(p \in M\) is /umbilic/ if \(\kappa_1 (p) = \dots = \kappa_n(p)\). That is if \(W_p = \kappa \Id\).
 #+END_env
+
+** Umbilicity Theorem
 
 #+BEGIN_env thm
 If every point of a connected hypersurface \(M\) is umbilic then either \(M\) lies in a hyperplane or a sphere.
 #+END_env
 
-** Umbilicity Theorem
+* Umbilicity Lemma
+** Umbilicity Lemma
+** Umbilicity Lemma
 
 #+BEGIN_env lem
-If \(W = \kappa \Id\) for a smooth function \(\kappa M \to \RR\), then \(\kappa \equiv \text{ const}\).
+If \(W = \kappa \Id\) for a smooth function \(\kappa : M \to \RR\), then \(\kappa \equiv \text{ const}\).
 #+END_env
+
+** Umbilicity Lemma
+
+#+BEGIN_env pf
+\begin{equation*}
+\begin{split}
+\nabla_X W(Y) &= \nabla_X [W(Y)] - W(\nabla_X Y) \\
+&= \nabla_X (\kappa Y) - \kappa \nabla_X Y \\
+&= (\partial_X \kappa) Y
+\end{split}
+\end{equation*}
+
+Then for all \(X, Y\)
+\[
+(\partial_X \kappa) Y = \nabla_X W(Y) = \nabla_Y W(X) = (\partial_Y \kappa) X
+\]
+
+Hence \(d\kappa \equiv 0\)
+#+END_env
+
+* Hidden                                                           :noexport:
+** Umbilicity Theorem
 
 #+BEGIN_env pf
 Let \(X\) be a smooth *local* vector field with \(\abs{X} = 1\).
@@ -26,13 +86,12 @@ Let \(X\) be a smooth *local* vector field with \(\abs{X} = 1\).
 
 For any \(Y\)
 \[
-\partial_Y \kappa = \partial_Y [A(X, X)] = 
+\partial_Y \kappa = \partial_Y [A(X, X)] =
+\]
 \[
-\nabpartial_X [W (Y)] = \partial_X (\kappa Y)
+\partial_X [W (Y)] = \partial_X (\kappa Y)
 \]
 #+END_env
-
-* Hidden                                                           :noexport:
 
 ** Proof of Umbilic Point Theorem: \(\kappa \equiv \text{constant}\).
 
