@@ -302,8 +302,11 @@ Note all surfaces are locally diffeomorphic via local parametrisations!
 ** Corrugation
 
 #+BEGIN_center
+#+ATTR_HTML: :style max-width:40%;
 [[file:img/corrugation.png]]
 #+END_center
+
+Source: [[https://theperfectslum.blogspot.com/2010/07/corrugated-steel.html][The Perfect Slum: Corrugated Steel]]
 
 ** Corrugation
 
@@ -322,11 +325,16 @@ Note all surfaces are locally diffeomorphic via local parametrisations!
 [[file:img/archimdes_tomb.png]]
 #+END_center
 
+Source: [[http://www.tananyag.almasi.hu/ojudit/Tudosok/Tudosok/archimedesz.htm][Tudósok arcképcsarnoka]]
+
 ** Map Making: Mercator
 
 #+BEGIN_center
+#+ATTR_HTML: :style max-width:40%;
 [[file:img/Mercator-proj.png]]
 #+END_center
+
+Source: [[https://en.wikipedia.org/wiki/File:Mercator-proj.png][Wikipedia]]
 
 ** Map Making
 
