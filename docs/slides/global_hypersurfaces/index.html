@@ -1,0 +1,582 @@
+---
+layout: org-slides
+---
+
+<section class="outline-2" id="outline-container-org96aabb5">
+<h2 id="org96aabb5">Codazzi Equation for Weingarten</h2>
+<div class="outline-text-2" id="text-org96aabb5">
+</div>
+<section class="outline-3" id="outline-container-org811bcb7">
+<h3 id="org811bcb7">Codazzi Equation for Weingarten</h3>
+</section>
+<section class="outline-3" id="outline-container-org1bb95a2">
+<h3 id="org1bb95a2">Codazzi Equation for Weingarten</h3>
+<div class="outline-text-3" id="text-org1bb95a2">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+\nabla_X W(Y) = \nabla_Y W (X)
+\]
+</p>
+</div></div>
+<p>
+Follows from \(\nabla_X A (Y, Z) = \nabla_Y A (X, Z)\) and \(\nabla g = 0\)
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org2740975">
+<h3 id="org2740975">Codazzi Equation for Weingarten</h3>
+<div class="outline-text-3" id="text-org2740975">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{equation*}
+\begin{split}
+D_X [W(Y)] &amp;= -D_X [D_Y N] \\
+&amp;= -D_Y [D_X N] - D_{[X, Y]} N \\
+&amp;\quad - \Rm^{\RR^n}(X, Y) N \\
+&amp;= D_Y[W(X)] + W([X, Y])
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgd447430">
+<h3 id="orgd447430">Codazzi Equation for Weingarten</h3>
+<div class="outline-text-3" id="text-orgd447430">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{equation*}
+\begin{split}
+\nabla_X W(Y) &amp;= \nabla_X [W(Y)] - W(\nabla_X Y) \\
+&amp;= D_X [W(Y)] + A(X, W(Y))N - W(\nabla_X Y) \\
+&amp;= D_Y [W(X)] + A(Y, W(X))N \\
+&amp;\quad - W(\nabla_X Y - [X, Y]) \\
+&amp;= D_Y [W(X)] + A(Y, W(X))N - W(\nabla_Y X) \\
+&amp;= \nabla_Y W(X)
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-orge1fbb95">
+<h2 id="orge1fbb95">Umbilicity Theorem</h2>
+<div class="outline-text-2" id="text-orge1fbb95">
+</div>
+<section class="outline-3" id="outline-container-orgbb7bd35">
+<h3 id="orgbb7bd35">Umbilicity Theorem</h3>
+</section>
+<section class="outline-3" id="outline-container-org34186d7">
+<h3 id="org34186d7">Umbilic Points</h3>
+<div class="outline-text-3" id="text-org34186d7">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A point \(p \in M\) is <i>umbilic</i> if \(\kappa_1 (p) = \dots = \kappa_n(p)\). That is if \(W_p = \kappa \Id\).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgbd1dc4c">
+<h3 id="orgbd1dc4c">Umbilicity Theorem</h3>
+<div class="outline-text-3" id="text-orgbd1dc4c">
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+If every point of a connected hypersurface \(M\) is umbilic then either \(M\) lies in a hyperplane or a sphere.
+</p>
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org9a3831b">
+<h2 id="org9a3831b">Umbilicity Lemma</h2>
+<div class="outline-text-2" id="text-org9a3831b">
+</div>
+<section class="outline-3" id="outline-container-orgc01f899">
+<h3 id="orgc01f899">Umbilicity Lemma</h3>
+</section>
+<section class="outline-3" id="outline-container-orgd743789">
+<h3 id="orgd743789">Umbilicity Lemma</h3>
+<div class="outline-text-3" id="text-orgd743789">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+If \(W = \kappa \Id\) for a smooth function \(\kappa : M \to \RR\), then \(\kappa \equiv \text{ const}\).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org3b65c82">
+<h3 id="org3b65c82">Umbilicity Lemma</h3>
+<div class="outline-text-3" id="text-org3b65c82">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{equation*}
+\begin{split}
+\nabla_X W(Y) &amp;= \nabla_X [W(Y)] - W(\nabla_X Y) \\
+&amp;= \nabla_X (\kappa Y) - \kappa \nabla_X Y \\
+&amp;= (\partial_X \kappa) Y
+\end{split}
+\end{equation*}
+
+<p>
+Then for all \(X, Y\)
+\[
+(\partial_X \kappa) Y = \nabla_X W(Y) = \nabla_Y W(X) = (\partial_Y \kappa) X
+\]
+</p>
+<p>
+Hence \(d\kappa \equiv 0\)
+</p>
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-orgd9e27c7">
+<h2 id="orgd9e27c7">Umbilicity Theorem: Plane</h2>
+<div class="outline-text-2" id="text-orgd9e27c7">
+</div>
+<section class="outline-3" id="outline-container-org5ad2dd5">
+<h3 id="org5ad2dd5">Umbilicity Theorem: Plane</h3>
+</section>
+<section class="outline-3" id="outline-container-org93afa4e">
+<h3 id="org93afa4e">Umbilicity Theorem: Plane</h3>
+<div class="outline-text-3" id="text-org93afa4e">
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+If \(W \equiv 0\) on a connected open set \(U \subseteq M\), then \(U\) lies in a hyperplane.
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org1939db6">
+<h3 id="org1939db6">Umbilicity Theorem: Plane</h3>
+<div class="outline-text-3" id="text-org1939db6">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(u_0, u \in U\) and \(\gamma(t) \in U\) with \(\gamma(0) = u_0\), \(\gamma(1) = u\)
+</p>
+<p>
+\[
+\partial_t [N(\gamma(t))] = dN(\gamma') = -W(\gamma') = 0
+\]
+</p>
+<p>
+\[
+N(\gamma(t)) \equiv N_0
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org3179548">
+<h3 id="org3179548">Umbilicity Theorem: Plane</h3>
+<div class="outline-text-3" id="text-org3179548">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{equation*}
+\begin{cases}
+\ip{\gamma(0) - u_0}{N_0} &amp;= \ip{u_0 - u_)}{N_0} = 0 \\
+\partial_t \ip{\gamma(t) - u_0}{N_0} &amp;= \ip{\gamma'(t)}{N(\gamma(t))} = 0
+\end{cases}
+\end{equation*}
+<p>
+\[
+\ip{\gamma(t) - u_0}{N_0} \equiv 0
+\]
+</p>
+<p>
+\[
+\ip{u - u_0}{N_0} = \ip{\gamma(1) - u_0}{N_0} = 0
+\]
+</p>
+<p>
+Every \(u \in U\) is in the plane through \(u_0\) perpendicular to \(N_0\)
+</p>
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org2087727">
+<h2 id="org2087727">Umbilicity Theorem: Sphere</h2>
+<div class="outline-text-2" id="text-org2087727">
+</div>
+<section class="outline-3" id="outline-container-org840c63a">
+<h3 id="org840c63a">Umbilicity Theorem: Sphere</h3>
+</section>
+<section class="outline-3" id="outline-container-orgbea0911">
+<h3 id="orgbea0911">Umbilicity Theorem: Sphere</h3>
+<div class="outline-text-3" id="text-orgbea0911">
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+If \(W \equiv \kappa \neq  0\) on a connected open set \(U \subseteq M\), then \(U\) lies in a sphere of radius \(1/\kappa\)
+</p>
+</div></div>
+<p>
+Note if \(\kappa &lt; 0\), changing \(N\) to \(-N\) gives \(\kappa &gt; 0\)
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orga020dc3">
+<h3 id="orga020dc3">Umbilicity Theorem: Sphere</h3>
+<div class="outline-text-3" id="text-orga020dc3">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(u_0, u \in U\) and \(\gamma(t) \in U\) with \(\gamma(0) = u_0\), \(\gamma(1) = u_0\)
+</p>
+
+\begin{equation*}
+\begin{split}
+\partial_t \left[\gamma(t) + \tfrac{1}{\kappa} N(\gamma(t))\right] &amp;= \gamma' + \frac{1}{\kappa} dN(\gamma') \\
+&amp;= \gamma' - \frac{1}{\kappa} W(\gamma') \\
+&amp;= \gamma' - \frac{1}{\kappa} \kappa \gamma' \\
+&amp;= 0
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org8906ddc">
+<h3 id="org8906ddc">Umbilicity Theorem: Sphere</h3>
+<div class="outline-text-3" id="text-org8906ddc">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+\gamma(t) + \frac{1}{\kappa} N(\gamma(t)) \equiv p_0 = u_0 + \frac{1}{\kappa} N(u_0)
+\]
+</p>
+<p>
+\[
+\abs{\gamma(t) - p_0} = \abs{-\frac{1}{\kappa} N} = \abs{\frac{1}{\kappa}}
+\]
+Thus every \(u = \gamma(1) \in \SS^n_{1/\kappa} (p_0)\)
+</p>
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-orgd538858">
+<h2 id="orgd538858">Isometries</h2>
+<div class="outline-text-2" id="text-orgd538858">
+</div>
+<section class="outline-3" id="outline-container-orgd0ad7ea">
+<h3 id="orgd0ad7ea">Isometries</h3>
+</section>
+<section class="outline-3" id="outline-container-org17ad149">
+<h3 id="org17ad149">Isometries</h3>
+<div class="outline-text-3" id="text-org17ad149">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A map \(\varphi : U_1 \subseteq (M_1, g_1) \to U_2 \subseteq (M_2, g_2)\) is a (local) <i>isometry</i> if
+\[
+g_2(d\varphi(X), d\varphi(Y)) = g_1(X, Y)
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org513cd3c">
+<h3 id="org513cd3c">Plane to Cylinder</h3>
+<div class="outline-text-3" id="text-org513cd3c">
+<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\[
+\varphi(u, v) = (\cos u, \sin u, v)
+\]
+is an isometry from the plane to the cylinder
+</p>
+<p>
+\[
+g_{\text{Cylinder}} = \Id
+\]
+in the basis \(\partial_u \varphi, \partial_v \varphi\)
+</p>
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-orgb41eee2">
+<h2 id="orgb41eee2">Intrinsic Geometry</h2>
+<div class="outline-text-2" id="text-orgb41eee2">
+</div>
+<section class="outline-3" id="outline-container-orgac0cf26">
+<h3 id="orgac0cf26">Intrinsic Geometry</h3>
+</section>
+<section class="outline-3" id="outline-container-orgd4dcaa2">
+<h3 id="orgd4dcaa2">Intrinsic Geometry</h3>
+<div class="outline-text-3" id="text-orgd4dcaa2">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A “quantity” is intrinsic if it is invariant under isometry (and hence depends only on the geometry determined by the metric \(g\))
+</p>
+</div></div>
+<p>
+Biliner form:
+\[
+B_{\varphi(p)} (d\varphi_p(X(p)), d\varphi_p(Y(p))) = B_p(X(p), Y(p))
+\]
+</p>
+<p>
+Linear map:
+\[
+T_{\varphi(p)} (d\varphi_p (X_p)) = d\varphi_p(T_p(X(p)))
+\]
+</p>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org0969c9b">
+<h2 id="org0969c9b">Connection and Riemann Curvature are Intrinsic</h2>
+<div class="outline-text-2" id="text-org0969c9b">
+</div>
+<section class="outline-3" id="outline-container-org755e49b">
+<h3 id="org755e49b">Connection and Riemann Curvature are Intrinsic</h3>
+</section>
+<section class="outline-3" id="outline-container-org1e1c27a">
+<h3 id="org1e1c27a">Levi-Civita Connection</h3>
+<div class="outline-text-3" id="text-org1e1c27a">
+<div class="ex card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Show that \(\nabla\) is uniquely determined by
+</p>
+\begin{align*}
+\nabla_X Y - \nabla_Y X = [X, Y], &amp; \text{torision free} \\
+\partial_X [g(Y, Z)] = g(\nabla_X Y, Z) + g(Y, \nabla_X Z), &amp; \text{metric compatible} \\
+\end{align*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgaa9b8f7">
+<h3 id="orgaa9b8f7">Levi-Civita Connection</h3>
+<div class="outline-text-3" id="text-orgaa9b8f7">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The Levi-Civita connection is the unique torsion free, metric compatible connection determined by the previous exercise. It’s determined uniquely by the Koszul formula
+</p>
+\begin{equation*}
+\begin{split}
+2 g(\nabla_X Y, Z) &amp;= \partial_X [g(Y, Z)] + \partial_Y [g(X, Z)] - \partial_Z [g(X, Y)] \\
+&amp;\quad + g([X, Y], Z) - g([Y, Z], X) + g([Z, X], Y)
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgbe6df68">
+<h3 id="orgbe6df68">Connection is Intrinsic</h3>
+<div class="outline-text-3" id="text-orgbe6df68">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(\varphi : U \to V\) be an isometry. Then
+\[
+d\varphi_p(\nabla_X Y (p)) = \nabla_{d\varphi_p(X)} d\varphi_p (Y)
+\]
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Follows from the Koszul formula, invariance of \(g\) under isometries, and the naturality of the Lie bracket and differentiation (chain rule).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org787f651">
+<h3 id="org787f651">Curvature Tensor is Intrinsic</h3>
+<div class="outline-text-3" id="text-org787f651">
+<div class="lem card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\(\Rm\) is intrinsic
+</p>
+</div></div>
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+\begin{equation*}
+\begin{split}
+d\varphi[\Rm(X, Y) Z] &amp;= d\varphi\big[\nabla_X (\nabla_Y Z) - \nabla_Y (\nabla_X Z) - \nabla_{[X, Y]} Z\big] \\
+&amp;= \nabla_{d\varphi X} (d\varphi(\nabla_Y Z)) - \nabla_{d\varphi X} (d\varphi(\nabla_Y Z)) \\
+&amp;\quad - \nabla_{d\varphi ([X, Y])} d\varphi Z \\
+&amp;= \nabla_{d\varphi X} (\nabla_{d\varphi Y} d\varphi Z) - \nabla_{d\varphi Y} (\nabla_{d\varphi Y} d\varphi Z) \\
+&amp;\quad - \nabla_{[d\varphi X, d\varphi Y]} d\varphi Z \\
+&amp;=\Rm(d\varphi(X), d\varphi(Y)) d\varphi(Z)
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org246bf52">
+<h2 id="org246bf52">Gauss Theorema Egregium</h2>
+<div class="outline-text-2" id="text-org246bf52">
+</div>
+<section class="outline-3" id="outline-container-org847f5b8">
+<h3 id="org847f5b8">Gauss Theorema Egregium</h3>
+<div class="outline-text-3" id="text-org847f5b8">
+<p>
+Remarkable Theorem
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org1cc1ead">
+<h3 id="org1cc1ead">Gauss Theorema Egregium</h3>
+<div class="outline-text-3" id="text-org1cc1ead">
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+The Gauss curvature of a surface is intrinsic. That is, if \((S_1, g_1)\) and \((S_2, g_2)\) are locally isometric, then \(K_1 = K_2\).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org9619150">
+<h3 id="org9619150">Gauss Theorema Egregium</h3>
+<div class="outline-text-3" id="text-org9619150">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Diagonalising \(W(e_i) = \kappa_i e_i\) and using the Gauss equation
+</p>
+\begin{equation*}
+\begin{split}
+\Rm(e_1, e_2, e_2, e_1) &amp;= A(e_2, e_2) A(e_1, e_1) - A(e_1, e_2)^2 \\
+&amp;= \kappa_1 \kappa_2 = K
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org8e0f43c">
+<h2 id="org8e0f43c">Remarks on Gauss Theorema Egregium</h2>
+<div class="outline-text-2" id="text-org8e0f43c">
+</div>
+<section class="outline-3" id="outline-container-org7f05487">
+<h3 id="org7f05487">Remarks on Gauss Theorema Egregium</h3>
+</section>
+<section class="outline-3" id="outline-container-org55ac4cd">
+<h3 id="org55ac4cd">Non-isometric Surfaces</h3>
+<div class="outline-text-3" id="text-org55ac4cd">
+<div class="eg" id="orge9bbf1b">
+<p>
+These surfaces are not locally isometric
+</p>
+<ul class="org-ul">
+<li>Sphere: \(K \equiv 1\)</li>
+<li>Torus: \(K\) non-constant but changing sign</li>
+<li>Cylinder: \(K \equiv 0\)</li>
+<li>Paraboloid: \(K\) non-constant and positive</li>
+</ul>
+<p>
+Note all surfaces are locally diffeomorphic via local parametrisations!
+</p>
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org99703be">
+<h3 id="org99703be">Corrugation</h3>
+<div class="outline-text-3" id="text-org99703be">
+<div class="org-center">
+<div class="figure" id="org854bf39">
+<p><img alt="corrugation.png" src="img/corrugation.png"/>
+</p>
+</div>
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org7e480b2">
+<h3 id="org7e480b2">Corrugation</h3>
+<div class="outline-text-3" id="text-org7e480b2">
+<div class="eg" id="orgbc81f58">
+<ul class="org-ul">
+<li>Folding a sheet of (paper, metal, cardboard) along a line introduces curvature but does not change the geometry provided no stretching occurs.</li>
+<li>Thus one principal curvature is non-zero, but Gauss’ theorem forces the other to vanish since
+\[
+  0 \underset{\text{Gauss Theorem}}{=} K = \kappa_1 \kappa_2
+  \]</li>
+<li>Introduces rigidity in one direction and flexibility in the other.</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org92fbd2e">
+<h3 id="org92fbd2e">Map Making: Archimedes</h3>
+<div class="outline-text-3" id="text-org92fbd2e">
+<div class="org-center">
+<div class="figure" id="orgf043739">
+<p><img alt="archimdes_tomb.png" src="img/archimdes_tomb.png"/>
+</p>
+</div>
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org426bd48">
+<h3 id="org426bd48">Map Making: Mercator</h3>
+<div class="outline-text-3" id="text-org426bd48">
+<div class="org-center">
+<div class="figure" id="orga2f1f68">
+<p><img alt="Mercator-proj.png" src="img/Mercator-proj.png"/>
+</p>
+</div>
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org0f42eb2">
+<h3 id="org0f42eb2">Map Making</h3>
+<div class="outline-text-3" id="text-org0f42eb2">
+<div class="eg" id="org0625e32">
+<ul class="org-ul">
+<li>No map exists preserving length, angle and area!</li>
+<li>Archimedes Cylinder to Sphere map preserves area: \((x, y, z) \in C \mapsto (\sqrt{1 - z^2} x, \sqrt{1 - z^2} y, z)\).</li>
+<li>The Mercator projection preserves angles. Good for navigation!</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orged06472">
+<h3 id="orged06472">Helicoid and Catenoid</h3>
+<div class="outline-text-3" id="text-orged06472">
+<div class="eg" id="org6ae357a">
+<ul class="org-ul">
+<li>Helicoid: \((v\cos(u), v\sin(u), u)\),</li>
+<li>Catenoid: \((\sinh(v) \cos(u), \sinh(v) \sin(u), u)\).</li>
+</ul>
+<p>
+The Helicoid and Catenoid are locally isometric with Gauss curvature
+\[
+K = -\frac{1}{(1 + u^2)^2}
+\]
+</p>
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org44f637f">
+<h3 id="org44f637f">Helicoid and Catenoid</h3>
+<div class="outline-text-3" id="text-org44f637f">
+<div class="figure" id="org0088fde">
+<p><img alt="helicatenoid.gif" src="img/helicatenoid.gif"/>
+</p>
+</div>
+<p>
+Source: <a href="https://en.wikipedia.org/wiki/File:Helicatenoid.gif">Wikipedia</a>
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org7cd819e">
+<h3 id="org7cd819e">The Converse of Gauss’ Theorem is false</h3>
+<div class="outline-text-3" id="text-org7cd819e">
+<div class="eg" id="org1221c8f">
+<p>
+Here is an example of surfaces \(S_1, S_2\) for which \(K_1 = K_2\) but \(g_1 \ne g_2\). 
+</p>
+<ul class="org-ul">
+<li>\(\varphi(u, v) = (u\cos(v), u\sin(v), \ln(u))\)</li>
+<li>\(\psi(u, v) = (u\cos(v), u\sin(v), v)\)</li>
+</ul>
+<p>
+<b>Exercise</b>:
+</p>
+<ul class="org-ul">
+<li>Check that \(K_{\varphi}(u, v) = K_{\psi}(u, v)\) <br/></li>
+<li>Check that \(g_{\varphi} (u, v) \ne g_{\psi} (u, v)\).</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
