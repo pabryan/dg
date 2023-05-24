@@ -1,0 +1,132 @@
+---
+layout: org-slides
+---
+
+<section class="outline-2" id="outline-container-orga2a2b55">
+<h2 id="orga2a2b55">Piecewise Regular Curves</h2>
+<div class="outline-text-2" id="text-orga2a2b55">
+</div>
+<section class="outline-3" id="outline-container-org6146246">
+<h3 id="org6146246">Piecewise Regular Curves</h3>
+</section>
+<section class="outline-3" id="outline-container-orgaf83deb">
+<h3 id="orgaf83deb">Piecewise Regular Curves</h3>
+<div class="outline-text-3" id="text-orgaf83deb">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A <i>piecewise</i> regular curve \(\gamma : [a, b] \to S\) is a <i>continuous</i> curve such that there exists a partition
+\[
+a = t_0 &lt; t_1 &lt; \cdots &lt; t_{k-1} &lt; t_k = b
+\]
+with \(\gamma\) is regular on \([t_i, t_{i+1}]\). The points \(\gamma(t_i)\) are called the vertices.
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgd662a6b">
+<h3 id="orgd662a6b">Piecewise Regular Curves</h3>
+<div class="outline-text-3" id="text-orgd662a6b">
+<p>
+<i>Regular</i> means differentiable and \(\gamma' \ne 0\) with left and right continuous limits: \(\lim_{t\to^+ t_i} \gamma'(t)\) and \(\lim_{t\to^- t_i} \gamma'(t)\) are defined and non-zero
+\[
+\gamma'_-(t_i) = \lim_{t\to t_i^-} \gamma'(t), \quad \gamma'_+(t_i) = \lim_{t\to t_i^+} \gamma'(t).
+\]
+</p>
+<p>
+\[
+T_{\pm} (t_i) = \lim_{t\to t_i^{\pm}} T(t)
+\]
+</p>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org6e67649">
+<h2 id="org6e67649">Local Gauss-Bonnet</h2>
+<div class="outline-text-2" id="text-org6e67649">
+</div>
+<section class="outline-3" id="outline-container-org2d3603d">
+<h3 id="org2d3603d">Local Gauss-Bonnet</h3>
+</section>
+<section class="outline-3" id="outline-container-org7d3a685">
+<h3 id="org7d3a685">Angle</h3>
+<div class="outline-text-3" id="text-org7d3a685">
+<p>
+Define the angle \(\theta_i\) between \(\gamma'_-(t_i)\) and \(\gamma'_+(t_1)\) as follows:
+</p>
+<ol class="org-ol">
+<li>\[
+   \abs{\theta} = \abs{\arccos g(T_i^-, T_i^+)} \in (0, \pi).
+   \]
+where \(T = \gamma'/\abs{\gamma'}\) is the unit tangent.</li>
+<li>We take \(\theta \in (-\pi, \pi)\) by choosing the sign so that \(\theta &gt; 0\) whenever
+\[
+   \{T_i^-, T_i^+\}
+   \]
+is positively oriented and \(\theta &lt; 0\) otherwise.</li>
+<li>The case of a <i>cusp</i> is when \(\theta = \pi\) in which case it's possibly to choose the sign so that \(\theta\) varies continuously.</li>
+</ol>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org0703dd1">
+<h3 id="org0703dd1">Gauss-Bonnet Theorem (Local)</h3>
+<div class="outline-text-3" id="text-org0703dd1">
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(D \subseteq S\) be homeomorphic to a disc with boundary a piecewise regular, simple, closed curve, \(\gamma\). Then
+\[
+\int_D K dA + \int_{\gamma} \kappa ds = 2\pi - \sum_{i=1}^k \theta_i.
+\]
+</p>
+</div></div>
+<p>
+\(\gamma\) is only piecewise regular \(\Rightarrow\) \(\kappa\) not defined at vertices
+\[
+\int_{\gamma} \kappa ds = \sum_{i=1}^k \int_{t_{i-1}}^{t_i} \kappa ds.
+\]
+</p>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-orge3c2569">
+<h2 id="orge3c2569">Local Gauss-Bonnet: Plane Case</h2>
+</section>
+<section class="outline-2" id="outline-container-org8ec55d4">
+<h2 id="org8ec55d4">Local Gauss-Bonnet: Plane Case</h2>
+<div class="outline-text-2" id="text-org8ec55d4">
+</div>
+<section class="outline-3" id="outline-container-orgb4e2cd8">
+<h3 id="orgb4e2cd8">Gauss-Bonnet: Regular Plane Case</h3>
+<div class="outline-text-3" id="text-orgb4e2cd8">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\(K \equiv 0\) so Gauss-Bonnet becomes
+\[
+\int_{\gamma} \kappa ds = 2\pi - \sum_{i=1}^k \theta_i.
+\]
+</p>
+<p>
+For \(\gamma\) regular (no vertices) Turning Tangents gives
+\[
+\int_{\gamma} \kappa ds = 2\pi.
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org2113849">
+<h3 id="org2113849">Gauss-Bonnet: Plane Case</h3>
+<div class="outline-text-3" id="text-org2113849">
+<p>
+For piecewise regular, break up the integral at the vertices:
+</p>
+
+\begin{equation*}
+\begin{split}
+\int_{\gamma} \kappa ds &amp;= \sum \int_{t_{i-1}}^{t_i} \kappa ds = \sum \int_{t_{i-1}}^{t_i} \partial_s \theta ds = \sum \theta^-(t_i) - \theta^+(t_{i-1}) \\
+&amp;= \theta(t_k)^- - \theta(t_0)^+ + \sum \theta^-(t_i) - \theta^+(t_i) \\
+&amp;= 2\pi - \sum \theta_i.
+\end{split}
+\end{equation*}
+</div>
+</section>
+</section>
