@@ -2,16 +2,16 @@
 layout: org-slides
 ---
 
-<section class="outline-2" id="outline-container-orga2a2b55">
-<h2 id="orga2a2b55">Piecewise Regular Curves</h2>
-<div class="outline-text-2" id="text-orga2a2b55">
+<section class="outline-2" id="outline-container-org19b2f88">
+<h2 id="org19b2f88">Piecewise Regular Curves</h2>
+<div class="outline-text-2" id="text-org19b2f88">
 </div>
-<section class="outline-3" id="outline-container-org6146246">
-<h3 id="org6146246">Piecewise Regular Curves</h3>
+<section class="outline-3" id="outline-container-org5080cfa">
+<h3 id="org5080cfa">Piecewise Regular Curves</h3>
 </section>
-<section class="outline-3" id="outline-container-orgaf83deb">
-<h3 id="orgaf83deb">Piecewise Regular Curves</h3>
-<div class="outline-text-3" id="text-orgaf83deb">
+<section class="outline-3" id="outline-container-org093ca1c">
+<h3 id="org093ca1c">Piecewise Regular Curves</h3>
+<div class="outline-text-3" id="text-org093ca1c">
 <div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
 <p>
 A <i>piecewise</i> regular curve \(\gamma : [a, b] \to S\) is a <i>continuous</i> curve such that there exists a partition
@@ -23,9 +23,9 @@ with \(\gamma\) is regular on \([t_i, t_{i+1}]\). The points \(\gamma(t_i)\) are
 </div></div>
 </div>
 </section>
-<section class="outline-3" id="outline-container-orgd662a6b">
-<h3 id="orgd662a6b">Piecewise Regular Curves</h3>
-<div class="outline-text-3" id="text-orgd662a6b">
+<section class="outline-3" id="outline-container-org6af363f">
+<h3 id="org6af363f">Piecewise Regular Curves</h3>
+<div class="outline-text-3" id="text-org6af363f">
 <p>
 <i>Regular</i> means differentiable and \(\gamma' \ne 0\) with left and right continuous limits: \(\lim_{t\to^+ t_i} \gamma'(t)\) and \(\lim_{t\to^- t_i} \gamma'(t)\) are defined and non-zero
 \[
@@ -40,36 +40,29 @@ T_{\pm} (t_i) = \lim_{t\to t_i^{\pm}} T(t)
 </div>
 </section>
 </section>
-<section class="outline-2" id="outline-container-org6e67649">
-<h2 id="org6e67649">Local Gauss-Bonnet</h2>
-<div class="outline-text-2" id="text-org6e67649">
+<section class="outline-2" id="outline-container-org6eb15c9">
+<h2 id="org6eb15c9">Local Gauss-Bonnet</h2>
+<div class="outline-text-2" id="text-org6eb15c9">
 </div>
-<section class="outline-3" id="outline-container-org2d3603d">
-<h3 id="org2d3603d">Local Gauss-Bonnet</h3>
+<section class="outline-3" id="outline-container-org61beb7d">
+<h3 id="org61beb7d">Local Gauss-Bonnet</h3>
 </section>
-<section class="outline-3" id="outline-container-org7d3a685">
-<h3 id="org7d3a685">Angle</h3>
-<div class="outline-text-3" id="text-org7d3a685">
+<section class="outline-3" id="outline-container-org1ae24c3">
+<h3 id="org1ae24c3">Angle</h3>
+<div class="outline-text-3" id="text-org1ae24c3">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
 <p>
-Define the angle \(\theta_i\) between \(\gamma'_-(t_i)\) and \(\gamma'_+(t_1)\) as follows:
-</p>
-<ol class="org-ol">
-<li>\[
-   \abs{\theta} = \abs{\arccos g(T_i^-, T_i^+)} \in (0, \pi).
-   \]
-where \(T = \gamma'/\abs{\gamma'}\) is the unit tangent.</li>
-<li>We take \(\theta \in (-\pi, \pi)\) by choosing the sign so that \(\theta &gt; 0\) whenever
 \[
-   \{T_i^-, T_i^+\}
-   \]
-is positively oriented and \(\theta &lt; 0\) otherwise.</li>
-<li>The case of a <i>cusp</i> is when \(\theta = \pi\) in which case it's possibly to choose the sign so that \(\theta\) varies continuously.</li>
-</ol>
+\theta_i = \arccos g(T_-(t_i), T_+(t_i)) \in (-\pi, \pi)
+\]
+with \(\theta_i &gt; 0\) when \(T_-, T_+\) is positively oriented and negative otherwise.
+</p>
+</div></div>
 </div>
 </section>
-<section class="outline-3" id="outline-container-org0703dd1">
-<h3 id="org0703dd1">Gauss-Bonnet Theorem (Local)</h3>
-<div class="outline-text-3" id="text-org0703dd1">
+<section class="outline-3" id="outline-container-orgf2f7270">
+<h3 id="orgf2f7270">Gauss-Bonnet Theorem (Local)</h3>
+<div class="outline-text-3" id="text-orgf2f7270">
 <div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
 <p>
 Let \(D \subseteq S\) be homeomorphic to a disc with boundary a piecewise regular, simple, closed curve, \(\gamma\). Then
@@ -79,7 +72,6 @@ Let \(D \subseteq S\) be homeomorphic to a disc with boundary a piecewise regula
 </p>
 </div></div>
 <p>
-\(\gamma\) is only piecewise regular \(\Rightarrow\) \(\kappa\) not defined at vertices
 \[
 \int_{\gamma} \kappa ds = \sum_{i=1}^k \int_{t_{i-1}}^{t_i} \kappa ds.
 \]
@@ -87,16 +79,16 @@ Let \(D \subseteq S\) be homeomorphic to a disc with boundary a piecewise regula
 </div>
 </section>
 </section>
-<section class="outline-2" id="outline-container-orge3c2569">
-<h2 id="orge3c2569">Local Gauss-Bonnet: Plane Case</h2>
-</section>
-<section class="outline-2" id="outline-container-org8ec55d4">
-<h2 id="org8ec55d4">Local Gauss-Bonnet: Plane Case</h2>
-<div class="outline-text-2" id="text-org8ec55d4">
+<section class="outline-2" id="outline-container-orgae029bb">
+<h2 id="orgae029bb">Local Gauss-Bonnet: Plane Case</h2>
+<div class="outline-text-2" id="text-orgae029bb">
 </div>
-<section class="outline-3" id="outline-container-orgb4e2cd8">
-<h3 id="orgb4e2cd8">Gauss-Bonnet: Regular Plane Case</h3>
-<div class="outline-text-3" id="text-orgb4e2cd8">
+<section class="outline-3" id="outline-container-orgd3c47ce">
+<h3 id="orgd3c47ce">Local Gauss-Bonnet: Plane Case</h3>
+</section>
+<section class="outline-3" id="outline-container-orgcdd45a2">
+<h3 id="orgcdd45a2">Gauss-Bonnet: Regular Plane Case</h3>
+<div class="outline-text-3" id="text-orgcdd45a2">
 <div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
 <p>
 \(K \equiv 0\) so Gauss-Bonnet becomes
@@ -113,20 +105,490 @@ For \(\gamma\) regular (no vertices) Turning Tangents gives
 </div></div>
 </div>
 </section>
-<section class="outline-3" id="outline-container-org2113849">
-<h3 id="org2113849">Gauss-Bonnet: Plane Case</h3>
-<div class="outline-text-3" id="text-org2113849">
+<section class="outline-3" id="outline-container-orgf070063">
+<h3 id="orgf070063">Gauss-Bonnet: Plane Case</h3>
+<div class="outline-text-3" id="text-orgf070063">
 <p>
 For piecewise regular, break up the integral at the vertices:
 </p>
 
 \begin{equation*}
 \begin{split}
-\int_{\gamma} \kappa ds &amp;= \sum \int_{t_{i-1}}^{t_i} \kappa ds = \sum \int_{t_{i-1}}^{t_i} \partial_s \theta ds = \sum \theta^-(t_i) - \theta^+(t_{i-1}) \\
+\int_{\gamma} \kappa ds &amp;= \sum \int_{t_{i-1}}^{t_i} \kappa ds \\
+&amp;= \sum \int_{t_{i-1}}^{t_i} \partial_s \theta ds = \sum \theta^-(t_i) - \theta^+(t_{i-1}) \\
 &amp;= \theta(t_k)^- - \theta(t_0)^+ + \sum \theta^-(t_i) - \theta^+(t_i) \\
 &amp;= 2\pi - \sum \theta_i.
 \end{split}
 \end{equation*}
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org85f8372">
+<h2 id="org85f8372">Local Gauss-Bonnet: Surface Case</h2>
+<div class="outline-text-2" id="text-org85f8372">
+</div>
+<section class="outline-3" id="outline-container-org128a7b8">
+<h3 id="org128a7b8">Local Gauss-Bonnet: Surface Case</h3>
+</section>
+<section class="outline-3" id="outline-container-org0a23c1b">
+<h3 id="org0a23c1b">Local Gauss-Bonnet: Surface Case</h3>
+<div class="outline-text-3" id="text-org0a23c1b">
+<div class="thm card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Let \(D \subseteq S\) be homeomorphic to a disc with boundary a piecewise regular, simple, closed curve, \(\gamma\). Then
+\[
+\int_D K dA + \int_{\gamma} \kappa ds = 2\pi - \sum_{i=1}^k \theta_i.
+\]
+</p>
+</div></div>
+<p>
+Proof sketch in the case \(D\) is contained in a local parametrisation
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org3ec99b2">
+<h3 id="org3ec99b2">Local Gauss-Bonnet: Surface Case</h3>
+<div class="outline-text-3" id="text-org3ec99b2">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Choose coordinates such that
+\[
+g = \begin{pmatrix}
+g_{uu} &amp; 0 \\
+0 &amp; g_{vv}
+\end{pmatrix}
+\]
+</p>
+<p>
+Geodesic curvature of \(\gamma(s) = (u(s), v(s))\):
+\[
+\kappa = \frac{1}{2\sqrt{g_{uu}g_{vv}}} \left(\partial_v g_{vv} \partial_s v - \partial_u g_{uu} \partial_s u\right) + \partial_s \theta
+\]
+</p>
+<p>
+Plane: \(\kappa = \partial_s \theta\)
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgfbd3696">
+<h3 id="orgfbd3696">Local Gauss-Bonnet: Surface Case</h3>
+<div class="outline-text-3" id="text-orgfbd3696">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Integrating the geodesic curvature,
+</p>
+\begin{equation*}
+\begin{split}
+\int_{t_{i-1}}^{t_i} \kappa ds &amp;= \int_{t_{i-1}}^{t_i} \frac{\partial_v g_{vv} \partial_s v - \partial_u g_{uu} \partial_s u}{2\sqrt{g_{uu}g_{vv}}} ds + \int_{t_{i-1}}^{t_i} \partial_s \theta ds \\
+&amp;= \int_{t_{i-1}}^{t_i} \left(\frac{\partial_v g_{vv}}{2\sqrt{g_{uu}g_{vv}}}\right) \partial_s v ds - \left(\frac{\partial_u g_{uu}}{2\sqrt{g_{uu}g_{vv}}}\right) \partial_s u ds \\
+&amp;\quad + \theta(t_i) - \theta(t_{i-1})
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org2fb88ae">
+<h3 id="org2fb88ae">Local Gauss-Bonnet: Surface Case</h3>
+<div class="outline-text-3" id="text-org2fb88ae">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Gauss-Green Theorem:
+\[
+\int_{\gamma} P du + Q dv = \int_D \partial_u Q - \partial_v P dA
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org3e09216">
+<h3 id="org3e09216">Local Gauss-Bonnet: Surface Case</h3>
+<div class="outline-text-3" id="text-org3e09216">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+By Gauss-Green with
+\[
+P = - \frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_u g_{uu}, \quad Q = \frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_v g_{vv}
+\]
+</p>
+
+\begin{equation*}
+\begin{split}
+\int_{\gamma} \kappa ds &amp;= \int_D \partial_u \left(\frac{\partial_v g_{vv}}{2\sqrt{g_{uu}g_{vv}}}\right) + \partial_v \left(\frac{\partial_u g_{uu}}{2\sqrt{g_{uu}g_{vv}}}\right) dA \\
+&amp;\quad  + \sum \theta(t_i) - \theta(t_{i-1})
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgbc918e9">
+<h3 id="orgbc918e9">Local Gauss-Bonnet: Surface Case</h3>
+<div class="outline-text-3" id="text-orgbc918e9">
+<div class="pf card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+In our coordinate system with (\(g_{uv} = g_{vu} = 0\)) the integrand just so happens to be the Gauss curvature:
+\[
+K = \partial_u \left(\frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_v g_{vv}\right) + \partial_v \left(\frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_u g_{uu}\right)
+\]
+</p>
+
+\begin{equation*}
+\begin{split}
+\int_{\gamma} \kappa ds &amp;= \int_D K + \sum \theta(t_i) - \theta(t_{i-1}) \\
+&amp;= \int_D K + 2\pi - \sum \theta_i
+\end{split}
+\end{equation*}
+
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org5e088a9">
+<h2 id="org5e088a9">Remarks on Gauss-Bonnet</h2>
+<div class="outline-text-2" id="text-org5e088a9">
+</div>
+<section class="outline-3" id="outline-container-orgf4523eb">
+<h3 id="orgf4523eb">Remarks on Gauss-Bonnet</h3>
+</section>
+<section class="outline-3" id="outline-container-org57496ae">
+<h3 id="org57496ae">Remarks</h3>
+<div class="outline-text-3" id="text-org57496ae">
+<ul class="org-ul">
+<li>The desired coordinate system (\(g_{uv} = 0\)) is called orthogonal and exists on surfaces locally</li>
+<li>The formula for \(\kappa\) is like the plane case \(\partial_s \theta = \kappa\) taking into account the changing metric.</li>
+<li>The formula for \(K\) can be obtained from expressing \(\Rm\) in terms of \(g\) and using the Gauss equation.</li>
+<li>The entire proof may be re-written (in a coordinate free way) using the language of <i>differential forms</i> where the Gauss-Green theorem appears as Stokes' theorem for differential forms.</li>
+</ul>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-orgd2d2990">
+<h2 id="orgd2d2990">Triangles</h2>
+<div class="outline-text-2" id="text-orgd2d2990">
+</div>
+<section class="outline-3" id="outline-container-orgbe0b055">
+<h3 id="orgbe0b055">Triangles</h3>
+</section>
+<section class="outline-3" id="outline-container-orgb7fc612">
+<h3 id="orgb7fc612">Geodesics</h3>
+<div class="outline-text-3" id="text-orgb7fc612">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A <i>geodesic</i> is a curve \(\gamma : I \to S\) such that \(\nabla_{\gamma'} \gamma' = 0\). That is such that \(\kappa \equiv 0\).
+</p>
+<p>
+Geodesics generalise straight lines.
+</p>
+</div></div>
+<ul class="org-ul">
+<li>Plane: straight line</li>
+<li>Sphere: great circle</li>
+</ul>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org48e1b4a">
+<h3 id="org48e1b4a">Geodesic Triangles</h3>
+<div class="outline-text-3" id="text-org48e1b4a">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A <i>geodesic triangle</i> is a piecewise regular, simple closed curve with precisely three vertices that is the boundary of a region \(D\) homeomorphic to a disc and such that each regular arc is a geodesic.
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orge294053">
+<h3 id="orge294053">Geodesic Triangles: Gauss-Bonnet</h3>
+<div class="outline-text-3" id="text-orge294053">
+<p>
+Let \(\varphi_i = \pi - \theta_i \in (0, 2\pi)\) be the <i>interior angles</i>.  Then
+</p>
+\begin{equation*}
+\begin{split}
+2\pi - (\theta_1 + \theta_2 + \theta_3) &amp;= 2\pi - (\pi - \varphi_1 + \pi - \varphi_2 + \pi - \varphi_3) \\
+&amp;= \varphi_1 + \varphi_2 + \varphi_3 - \pi
+\end{split}
+\end{equation*}
+
+<p>
+By Gauss-Bonnet
+\[
+\int_D K dA = 2\pi - (\theta_1 + \theta_2 + \theta_3) = \varphi_1 + \varphi_2 + \varphi_3 - \pi.
+\]
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org765eb2a">
+<h3 id="org765eb2a">Triangles in Constant Curvature</h3>
+<div class="outline-text-3" id="text-org765eb2a">
+<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+\(K \equiv \pm 1\)
+\[
+\pm \operatorname{Area} (D) = \int_D K dA = \varphi_1 + \varphi_2 + \varphi_3 - \pi
+\]
+</p>
+<p>
+Plane \(K \equiv 0\)
+\[
+0 = \int_D K dA = \varphi_1 + \varphi_2 + \varphi_3 - \pi
+\]
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orge65d8f2">
+<h3 id="orge65d8f2">Triangles in Constant Curvature</h3>
+<div class="outline-text-3" id="text-orge65d8f2">
+<ul class="org-ul">
+<li>On the sphere and pseudosphere, the angles determine the area of the triangle!</li>
+<li>On the plane, congruent triangles have the same angles but not generally the same area.</li>
+</ul>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org8e50205">
+<h3 id="org8e50205">Triangles in non-Euclidean Geometry</h3>
+<div class="outline-text-3" id="text-org8e50205">
+<ul class="org-ul">
+<li>Sphere \(K &gt; 0\): \(\varphi_1 + \varphi_2 + \varphi_3 = \operatorname{Area}(D) +  \pi &gt; \pi\)</li>
+<li>Euclidean Space \(K = 0\): \(\varphi_1 + \varphi_2 + \varphi_3 = \pi\)</li>
+<li>Pseudosphere \(K &lt; 0\): \(\varphi_1 + \varphi_2 + \varphi_3 = -\operatorname{Area}(D) + \pi &lt; \pi\)</li>
+</ul>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org2659f6b">
+<h3 id="org2659f6b">Sphere</h3>
+<div class="outline-text-3" id="text-org2659f6b">
+<div class="org-center">
+<div class="figure" id="org0e4b10a">
+<p><img alt="sphere_triangle.png" src="img/sphere_triangle.png"/>
+</p>
+</div>
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orga5cf056">
+<h3 id="orga5cf056">Plane</h3>
+<div class="outline-text-3" id="text-orga5cf056">
+<div class="org-center">
+<div class="figure" id="org719150b">
+<p><img alt="euclidean_triangle.png" src="img/euclidean_triangle.png"/>
+</p>
+</div>
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org581880c">
+<h3 id="org581880c">Pseudosphere</h3>
+<div class="outline-text-3" id="text-org581880c">
+<div class="org-center">
+<div class="figure" id="org28ac129">
+<p><img alt="pseudosphere_triangle.png" src="img/pseudosphere_triangle.png"/>
+</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org697f38e">
+<h2 id="org697f38e">Regular Tilings</h2>
+<div class="outline-text-2" id="text-org697f38e">
+</div>
+<section class="outline-3" id="outline-container-org40efe8d">
+<h3 id="org40efe8d">Regular Tilings</h3>
+</section>
+<section class="outline-3" id="outline-container-org3039081">
+<h3 id="org3039081">Regular Tilings</h3>
+<div class="outline-text-3" id="text-org3039081">
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A <i>regular \(n\)-gon</i> of \(S\) is a piecewise regular, simple, closed curved with \(n\) vertices, bounding a disc whose arcs are all geodesics of the same length meeting at the same angle \(\theta\).
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org357e423">
+<h3 id="org357e423">Regular Tilings</h3>
+<div class="outline-text-3" id="text-org357e423">
+<p>
+Let \(P_i\) denote a regular \(n\)-gon including the boundary curve and the interior.
+</p>
+<div class="defn card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+A <i>regular tiling</i> of \(S\) is a set of regular \(n\)-gons \(P_i\) all of the same area such that
+</p>
+<ol class="org-ol">
+<li>\(S = \cup_i P_i\)</li>
+<li>For \(i \ne j\), \(P_i \cap P_j\) is either empty, a vertex, or an entire arc.</li>
+</ol>
+</div></div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org50b6a07">
+<h2 id="org50b6a07">Planar Regular Tilings</h2>
+<div class="outline-text-2" id="text-org50b6a07">
+</div>
+<section class="outline-3" id="outline-container-org3b41d8f">
+<h3 id="org3b41d8f">Planar Regular Tilings</h3>
+</section>
+<section class="outline-3" id="outline-container-org7f67157">
+<h3 id="org7f67157">Planar Regular Tilings</h3>
+<div class="outline-text-3" id="text-org7f67157">
+<p>
+In the plane, the interior angle of a regular \(n\)-gon is
+\[
+\theta = \pi - 2\pi/n.
+\]
+</p>
+<p>
+Let \(k\) be the number of \(n\)-gons meeting at a vertex so that adding \(k\) copies of \(\theta\) gives \(2\pi\):
+\[
+2\pi = k \theta = k(\pi - 2\pi/n) = \frac{kn - 2k}{n} \pi
+\]
+</p>
+<p>
+\[
+2n = kn - 2k
+\]
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orgbdc7cc1">
+<h3 id="orgbdc7cc1">Planar Regular Tilings</h3>
+<div class="outline-text-3" id="text-orgbdc7cc1">
+\begin{equation*}
+\begin{split}
+0 &amp;= kn - 2k - 2n \\
+&amp;= k(n-2) - 2(n-2) - 4 \\
+&amp;= (k-2)(n-2) - 4
+\end{split}
+\end{equation*}
+
+<p>
+\[
+(k, n) = (6, 3), (4, 4), (3, 6)
+\]
+</p>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org8d8886f">
+<h3 id="org8d8886f">Triangular Tiling</h3>
+<div class="outline-text-3" id="text-org8d8886f">
+<p>
+\[
+(k, n) = (6, 3)
+\]
+</p>
+<div class="org-center">
+<div class="figure" id="org818bac0">
+<p><img alt="1-uniform_n11.png" src="img/1-uniform_n11.png" style="max-width:50%;"/>
+</p>
+</div>
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-orga8eccd8">
+<h3 id="orga8eccd8">Square Tiling</h3>
+<div class="outline-text-3" id="text-orga8eccd8">
+<p>
+\[
+(k, n) = (4, 4)
+\]
+</p>
+<div class="org-center">
+<div class="figure" id="org5ad95f5">
+<p><img alt="1-uniform_n5.png" src="img/1-uniform_n5.png" style="max-width:50%;"/>
+</p>
+</div>
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org0f6f719">
+<h3 id="org0f6f719">Hexagonal Tiling</h3>
+<div class="outline-text-3" id="text-org0f6f719">
+<p>
+\[
+(k, n) = (3, 6)
+\]
+</p>
+<div class="org-center">
+<div class="figure" id="orga6124ff">
+<p><img alt="1-uniform_n1.png" src="img/1-uniform_n1.png" style="max-width:50%;"/>
+</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="outline-2" id="outline-container-org51fd9eb">
+<h2 id="org51fd9eb">Constant Curvature Tilings</h2>
+<div class="outline-text-2" id="text-org51fd9eb">
+</div>
+<section class="outline-3" id="outline-container-orgdd18696">
+<h3 id="orgdd18696">Constant Curvature Tilings</h3>
+</section>
+<section class="outline-3" id="outline-container-org4c51dd7">
+<h3 id="org4c51dd7">Spherical Regular Tilings</h3>
+<div class="outline-text-3" id="text-org4c51dd7">
+<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+On the sphere:
+\[
+2\pi &gt; \frac{kn - 2k}{n} \pi.
+\]
+Hence
+\[
+(k - 2)(n - 2) &lt; 4
+\]
+</p>
+<p>
+Not many solutions…
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org9cc994c">
+<h3 id="org9cc994c">Spherical Tiling</h3>
+<div class="outline-text-3" id="text-org9cc994c">
+<p>
+<i>Congruent</i> but not regular polygons allows more possibilities
+</p>
+<div class="org-center">
+<div class="figure" id="orge90a081">
+<p><img alt="sphere_tiling.png" src="img/sphere_tiling.png"/>
+</p>
+</div>
+</div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org509a847">
+<h3 id="org509a847">Hyperbolic Tiling</h3>
+<div class="outline-text-3" id="text-org509a847">
+<p>
+The Poincaré disc is the unit disc \(D = \{x^2 + y^2 &lt; 1\}\) equipped with a metric \(g\) such that \(K \equiv -1\).  Gauss-Bonnet applies. 
+</p>
+<div class="eg card"><div class="card-header"><h5 class="card-title"></h5></div><div class="card-body">
+<p>
+Now we have
+\[
+(k - 2)(n - 2) &gt; 4
+\]
+Infinitely many solutions! 
+</p>
+</div></div>
+</div>
+</section>
+<section class="outline-3" id="outline-container-org4cd9611">
+<h3 id="org4cd9611">Hyperbolic Tiling</h3>
+<div class="outline-text-3" id="text-org4cd9611">
+<div class="org-center">
+<div class="figure" id="org1dd1f1d">
+<p><img alt="tess_5_4.png" src="img/tess_5_4.png"/>
+</p>
+</div>
+</div>
 </div>
 </section>
 </section>
