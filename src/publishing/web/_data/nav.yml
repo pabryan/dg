@@ -1,0 +1,48 @@
+- num: "01"
+  title: Curves
+  short_title: Curves
+  link: "/curves/"
+- num: "02"
+  title: Curvature and Global Curve Theory
+  short_title: Curvature and Global Curves
+  link: "/global_curves"
+- num: "03"
+  title: Calculus Review and Inverse Function Theorem
+  short_title: Calc Review and IFT
+  link: "/notes/ift"
+- num: "04"
+  title: Surfaces
+  short_title: Surfaces
+  link: "/notes/surfaces"
+- num: "05"
+  title: Geometry of Surfaces
+  short_title: Surface Geometry
+  link: "/notes/surface_geometry"
+- num: "06"
+  title: Orientation and Vector Fields
+  short_title: Orientation and Vector Fields
+  link: "/notes/vector_fields_orientation"
+- num: "07"
+  title: Cancelled
+  short_title: Cancelled
+  link: "/notes/cancelled"
+- num: "08"
+  title: Connections on Surfaces
+  short_title: Surface Connections
+  link: "/notes/surface_connection"
+- num: "09"
+  title: Second Derivatives and Curvature
+  short_title: Curvature
+  link: "/notes/surface_curvature"
+- num: "10"
+  title: Curvature Tensor
+  short_title: Curvature Tensor
+  link: "/notes/curvature_tensor"
+- num: "11"
+  title: Extrinsic Curvature
+  short_title: Extrinsic Curvature
+  link: "/notes/extrinsic_curvature"
+- num: "12"
+  title: Global Topics
+  short_title: Global Topics
+  link: "/notes/global_topics"
