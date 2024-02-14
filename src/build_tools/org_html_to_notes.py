@@ -63,7 +63,7 @@ if __name__ == "__main__":
     with open(infile, 'r') as f:
         contents = frontmatter.load(f)
 
-    contents["layout"] = "notes"
+    contents["layout"] = "page"
     contents.content = convert(contents.content)
 
     with open(outfile, "w") as f:
