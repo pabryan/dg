@@ -1,0 +1,35 @@
+#+OPTIONS: toc:nil num:nil
+#+BEGIN_export html
+---
+title: Home
+short_title: Home
+---
+#+END_export
+
+* Overview
+
+We will start with the classical theory of curves and surfaces, but presented in a modern way that leads naturally and directly to the general theory of manifolds and Riemannian geometry. We will develop the formalism of manifolds, differential forms, vector bundles, Riemannian metrics and curvature, then apply these to global topics relating topology and curvature such as the Gauss-Bonnet theorem, classification of constant sectional curvature manifolds, and time permitting, some theorems in comparison geometry such as the Bonnet-Myers theorem.
+
+* Pre-Requisites
+
+The prerequisites for the course are linear algebra and multi-variable/vector calculus. Familiarity with topology and analysis, particularly differential equations will also be beneficial but is not necessary.
+
+* Resources
+
+There are many texts on differential geometry with a variety of different perspectives. Some are quite classic, but certainly still useful and relevant. Some are quite abstract and others more down to earth. The ideal reference is one that works for you, and this will vary over time as you continue your studies so I suggest taking a look at several options (if possible) and going with whichever resonates most strongly with you. There are also links to online and freely available resources.
+
+*Curves and Surfaces*
+
+- Differential geometry of curves and surfaces by Manfredo Perdigão do Carmo
+- Curves and Surfaces: Second Edition by Sebastián Montiel and Antonio Ros
+- [[https://math.franklin.uga.edu/sites/default/files/inline-files/ShifrinDiffGeo.pdf][Differential geometry: A First Course in Curves and Surfaces by Theodore Shifrin]]
+- Modern Differential Geometry of Curves and Surfaces with Mathematica by Elsa Abbena, Simon Salamon, Alfred Gray
+- Differential Geometry of Curves and Surfaces by Thomas F. Banchoff, Stephen Lovett
+- Differential Geometry of Curves and Surfaces by Kristopher Tapp
+- Differential Geometry: Curves - Surfaces - Manifolds by Wolfgang Kuhnel
+- Elements of Differential Geometry Paperback by Richard S. Millman and George D. Parker
+- Elementary Differential Geometry by Barrett O'Neill
+
+*Manifolds*
+
+*Riemannian Geometry*
