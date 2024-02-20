@@ -4,7 +4,7 @@
 import sys
 import os
 from bs4 import BeautifulSoup
-import frontmatter
+import frontmatter # pip install python-frontmatter
 
 def convert_section(s, soup):
     sid = s["id"]
