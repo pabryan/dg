@@ -16,7 +16,7 @@ name: resources
 - Differential Geometry: Curves - Surfaces - Manifolds by Wolfgang Kuhnel
 - Elements of Differential Geometry Paperback by Richard S. Millman and George D. Parker
 - Elementary Differential Geometry by Barrett O'Neill
-- (Slides from my 2018 MQ course)[https://pabryan.github.io/teaching/mq_math704_2018/]
+- [Slides from my 2018 MQ course](https://pabryan.github.io/teaching/mq_math704_2018/)
 
 <h3>Manifolds</h3>
 
@@ -26,4 +26,4 @@ name: resources
 <h3>Riemannian Geometry</h3>
 
 - [Ben Andrews notes](https://maths-people.anu.edu.au/~andrews/DG/)
-- (My notes)[https://pabryan.github.io/pdf/teaching/dg/dg.pdf]
+- [My notes](https://pabryan.github.io/pdf/teaching/dg/dg.pdf)
