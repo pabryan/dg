@@ -27,3 +27,4 @@ name: resources
 
 - [Ben Andrews notes](https://maths-people.anu.edu.au/~andrews/DG/)
 - [My notes](https://pabryan.github.io/pdf/teaching/dg/dg.pdf)
+- [Zuoqin Wang notes](http://staff.ustc.edu.cn/~wangzuoq/Courses/16S-RiemGeom/)
